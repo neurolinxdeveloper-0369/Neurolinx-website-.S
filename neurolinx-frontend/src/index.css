@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-slate text-brand-light font-body antialiased selection:bg-brand-red selection:text-brand-light;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-brand-light;
+  }
+}
+
+@layer components {
+  /* Industrial Panel Containers */
+  .panel {
+    @apply bg-background-elevated border border-brand-charcoal/40 rounded transition-colors duration-300;
+  }
+  
+  /* Accent Borders: Top/Left highlight ribbons in #C81623 */
+  .panel-accent-top {
+    @apply relative overflow-hidden;
+  }
+  .panel-accent-top::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1 bg-brand-red;
+  }
+  
+  .panel-accent-left {
+    @apply relative overflow-hidden;
+  }
+  .panel-accent-left::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-brand-red;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 font-body font-medium rounded transition-all duration-200 outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2 focus:ring-offset-background-slate;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-red text-brand-light border border-transparent hover:bg-brand-red/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-brand-light border border-brand-charcoal/40 hover:border-brand-charcoal hover:bg-brand-charcoal/10;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
+  
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+}
+
+/* Loader Component */
+.loader {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  position: relative;
+}
+
+.loader:before {
+  content: '';
+  width: 48px;
+  height: 5px;
+  background: #C8162350; /* Brand Red with 50 opacity */
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #C81623; /* Brand Red */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% { border-bottom-right-radius: 3px; }
+  25% { transform: translateY(9px) rotate(22.5deg); }
+  50% { transform: translateY(18px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 40px; }
+  75% { transform: translateY(9px) rotate(67.5deg); }
+  100% { transform: translateY(0) rotate(90deg); }
+}
+
+@keyframes shadow324 {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.2, 1); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
