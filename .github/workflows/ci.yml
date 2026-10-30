@@ -7,19 +7,120 @@ on:
 
 jobs:
   frontend:
-    name: Build Frontend
+    name: Frontend (neurolinx-frontend)
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: neurolinx-frontend
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
           cache-dependency-path: neurolinx-frontend/package-lock.json
+
       - name: Install dependencies
         run: npm ci
-      - name: Build frontend
+
+      - name: Lint (if configured)
+        run: npm run --if-present lint
+
+      - name: TypeScript validation & production build
         run: npm run build
+
+  admin:
+    name: Admin Application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Admin Application Scaffold
+        id: check_admin
+        run: |
+          if [ -d "admin" ] && [ -f "admin/package.json" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "admin_dir=admin" >> "$GITHUB_OUTPUT"
+          elif [ -d "neurolinx-admin" ] && [ -f "neurolinx-admin/package.json" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "admin_dir=neurolinx-admin" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Notice: Admin application is not yet scaffolded in this repository (placeholder deferred per documentation)."
+          fi
+
+      - name: Setup Node.js
+        if: steps.check_admin.outputs.exists == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: ${{ steps.check_admin.outputs.admin_dir || 'admin' }}/package-lock.json
+
+      - name: Install admin dependencies
+        if: steps.check_admin.outputs.exists == 'true'
+        working-directory: ${{ steps.check_admin.outputs.admin_dir || 'admin' }}
+        run: npm ci
+
+      - name: Lint admin (if configured)
+        if: steps.check_admin.outputs.exists == 'true'
+        working-directory: ${{ steps.check_admin.outputs.admin_dir || 'admin' }}
+        run: npm run --if-present lint
+
+      - name: Build admin
+        if: steps.check_admin.outputs.exists == 'true'
+        working-directory: ${{ steps.check_admin.outputs.admin_dir || 'admin' }}
+        run: npm run build
+
+  backend:
+    name: Backend (neurolinx-backend)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: neurolinx-backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Backend Maven Scaffold
+        id: check_backend
+        run: |
+          if [ -s "pom.xml" ] && grep -q "<project" "pom.xml"; then
+            echo "valid_pom=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "valid_pom=false" >> "$GITHUB_OUTPUT"
+            echo "Notice: Backend pom.xml is an empty placeholder (0 bytes) and no Java source files exist. Backend implementation is deferred per project roadmap."
+          fi
+          if [ -f "./mvnw" ]; then
+            echo "has_wrapper=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_wrapper=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Java 21
+        if: steps.check_backend.outputs.valid_pom == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Run Maven Tests
+        if: steps.check_backend.outputs.valid_pom == 'true'
+        run: |
+          if [ "${{ steps.check_backend.outputs.has_wrapper }}" = "true" ]; then
+            chmod +x ./mvnw
+            ./mvnw -B test
+          else
+            mvn -B test
+          fi
+
+      - name: Package Backend
+        if: steps.check_backend.outputs.valid_pom == 'true'
+        run: |
+          if [ "${{ steps.check_backend.outputs.has_wrapper }}" = "true" ]; then
+            ./mvnw -B -DskipTests package
+          else
+            mvn -B -DskipTests package
+          fi
