@@ -7,7 +7,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-8">
         
         {/* Top Section: Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
           
           {/* Col 1: Brand */}
           <div className="col-span-1 lg:col-span-1">
@@ -28,15 +28,26 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Solutions */}
+          {/* Col 2: Products */}
+          <div>
+            <h4 className="text-gray-900 font-bold tracking-wider uppercase mb-6 text-sm">Products</h4>
+            <ul className="space-y-4">
+              <li><Link to="/home-automation" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Smart Home Automation</Link></li>
+              <li><Link to="/non-uv-disinfection" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Non-UV Disinfection Light</Link></li>
+              <li><Link to="/railways" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Railways</Link></li>
+              <li><Link to="/power-supply" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Power Supply &amp; Drivers</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 3: Solutions */}
           <div>
             <h4 className="text-gray-900 font-bold tracking-wider uppercase mb-6 text-sm">Solutions</h4>
             <ul className="space-y-4">
-              <li><Link to="/home-automation" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Smart Home Automation</Link></li>
-              <li><Link to="/railways" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Advanced Railways</Link></li>
-              <li><Link to="/power-supply" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Power Supply &amp; Drivers</Link></li>
-              <li><Link to="/non-uv-disinfection" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Non-UV Disinfection</Link></li>
-              <li><Link to="/chip-level-design" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Chip-Level Design</Link></li>
+              <li><Link to="/rms-smart-metering" className="text-gray-500 hover:text-brand-red transition-colors text-sm">RMS &amp; Smart Metering Analytics</Link></li>
+              <li><Link to="/fab-foundry" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Fab Foundry</Link></li>
+              <li><Link to="/chip-level-design" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Chip-Level Designing</Link></li>
+              <li><Link to="/robotics" className="text-gray-500 hover:text-brand-red transition-colors text-sm">Robotics &amp; AI</Link></li>
+              <li><Link to="/pos-application" className="text-gray-500 hover:text-brand-red transition-colors text-sm">POS Application</Link></li>
             </ul>
           </div>
 

@@ -8,9 +8,10 @@ export function AboutUs() {
         {/* Left Side: Image / Graphics */}
         <div className="relative rounded-[40px] overflow-hidden shadow-2xl h-[600px]">
           <img 
-            // Using the user's custom lab image
             src="/media/about_us_lab.jpg" 
             alt="Neurolinx Electronics Lab" 
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"
           />
           

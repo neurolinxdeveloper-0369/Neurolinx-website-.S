@@ -4,55 +4,79 @@ import { FlipCard } from '../ui/FlipCard';
 export function Services() {
   const products = [
     {
-      title: "Smart Home",
-      desc: "Next-generation IoT ecosystems connecting lighting, security, and climate control flawlessly.",
+      title: "Smart Home Automation",
+      desc: "Next-generation IoT ecosystems connecting retrofit switches, security, and climate control flawlessly.",
       img: "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "/home-automation",
       buttonText: "View Product",
       features: ["IoT ecosystems", "Smart lighting & security", "Flawless climate control"]
     },
     {
-      title: "Advanced Railways",
-      desc: "Highly reliable electronic controllers and power systems engineered for modern transit.",
-      img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      linkUrl: "/railways",
-      buttonText: "View Product",
-      features: ["Reliable controllers", "Robust power systems", "Modern transit engineering"]
-    },
-    {
-      title: "Non-UV Disinfection",
-      desc: "Safe, continuous visible-light disinfection technology for hospitals, labs, and commercial spaces.",
+      title: "Non-UV Disinfection Light",
+      desc: "Safe, continuous 405nm visible-light disinfection technology for hospitals, labs, and commercial spaces.",
       img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "/non-uv-disinfection",
       buttonText: "View Product",
-      features: ["Safe & continuous", "Visible-light tech", "For hospitals & labs"]
+      features: ["Safe & continuous", "405nm visible light", "For hospitals & cleanrooms"]
+    },
+    {
+      title: "Advanced Railways",
+      desc: "RDSO-standard Fog Pass devices, signaling controllers, and rolling stock LED coach lighting systems.",
+      img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "/railways",
+      buttonText: "View Product",
+      features: ["Fog Pass v2/v3", "Signaling controllers", "Modern transit engineering"]
+    },
+    {
+      title: "Power Supply & Drivers",
+      desc: "Industrial-grade AC-DC SMPS, DC-DC converters, and precision LED drivers engineered for harsh environments.",
+      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "/power-supply",
+      buttonText: "View Product",
+      features: ["10kV surge protection", "Wide input voltage range", "94%+ power efficiency"]
     }
   ];
 
   const services = [
     {
-      title: "Chip-Level Design",
-      desc: "Complete end-to-end silicon design, prototyping, and high-volume foundry manufacturing.",
+      title: "RMS & Smart Metering Analytics",
+      desc: "Cloud-native telemetry platforms, AMR/AMI smart grid analytics, and railway substation automation.",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "/rms-smart-metering",
+      buttonText: "Explore Solution",
+      features: ["DLMS smart grid analytics", "Edge telemetry gateways", "Predictive load monitoring"]
+    },
+    {
+      title: "Fab Foundry Services",
+      desc: "State-of-the-art cleanroom silicon wafer fabrication, 2.5D/3D chiplet packaging, and automated inspection.",
+      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "/fab-foundry",
+      buttonText: "Explore Solution",
+      features: ["Wafer processing", "Advanced 2.5D/3D packaging", "ISO Class 1 cleanrooms"]
+    },
+    {
+      title: "Chip-Level Designing",
+      desc: "End-to-end silicon design, ASIC/FPGA prototyping, RTL architecture, and post-silicon physical verification.",
       img: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "/chip-level-design",
-      buttonText: "Explore Service",
-      features: ["End-to-end design", "Rapid prototyping", "High-volume manufacturing"]
+      buttonText: "Explore Solution",
+      features: ["ASIC & FPGA prototyping", "RTL architecture design", "Complete physical verification"]
     },
     {
-      title: "AI & Robotics",
-      desc: "Intelligent automation systems and robotic assemblies designed for maximum industrial efficiency.",
+      title: "Robotics & AI",
+      desc: "Intelligent autonomous industrial logistics, sensor-fused collaborative robot arms, and edge AI vision.",
       img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "/robotics",
-      buttonText: "Explore Service",
-      features: ["Intelligent automation", "Robotic assemblies", "Industrial efficiency"]
+      buttonText: "Explore Solution",
+      features: ["Autonomous AGVs", "Sensor-fused robotic arms", "Edge vision AI algorithms"]
     },
     {
-      title: "Wind & Solar Energy",
-      desc: "Power supply drivers and energy grids that capture and distribute renewable energy efficiently.",
-      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      linkUrl: "/wind-solar",
-      buttonText: "Explore Service",
-      features: ["Power supply drivers", "Energy grid integration", "Efficient renewable capture"]
+      title: "POS Applications",
+      desc: "Secure embedded payment terminal kernels, PCI-PTS compliant transaction software, and cloud fleet telemetry.",
+      img: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "/pos-application",
+      buttonText: "Explore Solution",
+      features: ["PCI-PTS compliance", "Omnichannel EMV & UPI", "OTA terminal fleet management"]
     }
   ];
 
@@ -73,16 +97,24 @@ export function Services() {
         </div>
 
         {/* Products Grid */}
-        <div className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-20">
+          <div className="flex items-center space-x-3 mb-8">
+            <div className="w-8 h-1 bg-brand-red rounded-full"></div>
+            <h3 className="text-xl font-bold text-gray-900 tracking-tight">Our Products</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => (
               <FlipCard key={`product-${index}`} {...product} />
             ))}
           </div>
         </div>
 
-        {/* Services Grid */}
+        {/* Solutions Grid */}
         <div>
+          <div className="flex items-center space-x-3 mb-8">
+            <div className="w-8 h-1 bg-brand-red rounded-full"></div>
+            <h3 className="text-xl font-bold text-gray-900 tracking-tight">Our Solutions</h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <FlipCard key={`service-${index}`} {...service} />
