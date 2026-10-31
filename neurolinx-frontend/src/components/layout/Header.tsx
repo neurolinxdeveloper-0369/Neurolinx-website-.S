@@ -166,8 +166,8 @@ export function Header() {
           path: "/home-automation#products-catalog", 
           hasArrow: true,
           subItems: [
-            { name: "Touch Glass Switchboards", path: "/home-automation#products-catalog" },
-            { name: "Retrofit Switch Modules", path: "/home-automation#products-catalog" },
+            { name: "Touch Glass Switchboards", path: "/retrofit-touch-panels" },
+            { name: "Retrofit Switch Modules", path: "/retrofit-touch-panels" },
             { name: "Smart Dimmers & CCT", path: "/home-automation#products-catalog" },
             { name: "RGBW Scene Automation", path: "/home-automation#products-catalog" },
           ]
@@ -357,7 +357,7 @@ export function Header() {
               type="button"
               onClick={() => setProductsDropdown(prev => !prev)}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
-                productsDropdown || ['/home-automation', '/non-uv-disinfection', '/railways', '/power-supply'].includes(location.pathname)
+                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/non-uv-disinfection', '/railways', '/power-supply'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}

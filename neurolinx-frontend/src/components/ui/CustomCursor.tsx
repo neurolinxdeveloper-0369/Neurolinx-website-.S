@@ -71,7 +71,7 @@ export function CustomCursor() {
         ref={dotRef}
         className={`fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none transition-transform duration-75 ease-out ${
           isClicked ? 'scale-50' : isHovered ? 'scale-150' : 'scale-100'
-        } bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]`}
+        } bg-brand-red shadow-[0_0_8px_rgba(224,0,27,0.8)]`}
       />
       
       {/* Outer Smooth Trailing Ring */}
@@ -79,10 +79,10 @@ export function CustomCursor() {
         ref={circleRef}
         className={`fixed top-0 left-0 rounded-full pointer-events-none transition-[width,height,background-color,border-color] duration-200 ease-out flex items-center justify-center ${
           isHovered 
-            ? 'w-12 h-12 -ml-6 -mt-6 border border-emerald-400/80 bg-emerald-400/10 backdrop-blur-[1px]' 
+            ? 'w-12 h-12 -ml-6 -mt-6 border-2 border-brand-red bg-brand-red/15 backdrop-blur-[1px] shadow-[0_0_15px_rgba(224,0,27,0.4)]' 
             : isClicked
             ? 'w-6 h-6 -ml-3 -mt-3 border-2 border-brand-red bg-brand-red/20'
-            : 'w-8 h-8 -ml-4 -mt-4 border border-white/40'
+            : 'w-8 h-8 -ml-4 -mt-4 border-2 border-brand-red bg-brand-red/10 shadow-[0_0_10px_rgba(224,0,27,0.35)]'
         }`}
       />
     </div>

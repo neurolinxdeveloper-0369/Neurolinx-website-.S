@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   CheckCircle2, 
   ShieldCheck, 
@@ -17,7 +18,6 @@ import {
   Hotel, 
   ArrowRight, 
   ChevronRight,
-  PhoneCall, 
   Phone,
   Mail,
   MapPin,
@@ -85,7 +85,7 @@ export function HomeAutomation() {
       title: "Retrofit & Touch Panel",
       tagline: "Feather-Touch Glass & Concealed Modules",
       desc: "Available as ultra-compact retrofit modules that fit behind standard Indian switchboards without rewiring, or as ultra-luxury toughened glass feather-touch panels (1, 2, 4, 8, 10, 16 gang).",
-      img: "/media/touch_board_premium.jpg",
+      img: "/media/retrofit_touch_panel_hero.jpg",
       badge: "Core Hardware",
       features: [
         "100% Retrofit: Zero wall damage or rewiring",
@@ -267,33 +267,8 @@ export function HomeAutomation() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Top Trust Announcement Bar ── */}
-      <div className="bg-[#0B0F19] text-slate-300 pt-24 pb-2 px-4 text-xs font-medium border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-center sm:text-left">
-          <div className="flex items-center justify-center gap-2 mx-auto sm:mx-0">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
-            </span>
-            <span className="text-white font-semibold">Designed & Made in India</span>
-            <span className="text-slate-500">•</span>
-            <span>5-Year Replacement Warranty</span>
-            <span className="text-slate-500">•</span>
-            <span>Zero Wall Chipping Retrofit</span>
-            <span className="text-slate-500">•</span>
-            <span>Smart 1-ϕ & 3-ϕ Energy Solutions</span>
-          </div>
-          <div className="hidden md:flex items-center gap-6 text-slate-400">
-            <a href="tel:+917013486961" className="hover:text-white flex items-center gap-1.5 transition-colors">
-              <PhoneCall className="w-3.5 h-3.5 text-brand-red" />
-              <span>Free Consultation: +91 7013486961 / +91 8074067851</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* ── Hero Banner Section (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden">
+      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24">
         <div className="relative w-full">
           <img 
             src="/media/smart_home_hero_iot.jpg?v=2" 
@@ -328,8 +303,8 @@ export function HomeAutomation() {
                   className="w-full h-full object-cover block rounded-[24px]"
                 />
                 {/* Clickable Hotspot for View More Button */}
-                <a 
-                  href="#switch-details"
+                <Link 
+                  to="/retrofit-touch-panels"
                   aria-label="View More Lighting Automation"
                   className="absolute left-[11%] top-[51.5%] w-[32%] h-[8%] rounded-xl cursor-pointer"
                 />
@@ -338,31 +313,48 @@ export function HomeAutomation() {
 
             {/* Right 6 Cards (3 on top row, 3 on bottom row - exactly same level height) */}
             <div className="w-full lg:w-[75.5%] xl:w-[76%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-2.5">
-              {coreProducts.map((prod) => (
-                <a 
-                  key={prod.id}
-                  href={prod.id === 'smart-switches' ? '#switch-details' : '#faq'}
-                  className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
-                >
-                  <div className="relative h-52 sm:h-60 lg:h-[268px] w-full p-2.5 sm:p-3 overflow-hidden">
-                    <div className="w-full h-full overflow-hidden rounded-[18px]">
-                      <img 
-                        src={prod.img} 
-                        alt={prod.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+              {coreProducts.map((prod) => {
+                const isSwitches = prod.id === 'smart-switches';
+                const cardContent = (
+                  <>
+                    <div className="relative h-52 sm:h-60 lg:h-[268px] w-full p-2.5 sm:p-3 overflow-hidden">
+                      <div className="w-full h-full overflow-hidden rounded-[18px]">
+                        <img 
+                          src={prod.img} 
+                          alt={prod.title} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-4 sm:p-5 pt-1 sm:pt-2 flex items-center justify-between gap-2">
-                    <h3 className="text-sm sm:text-[15px] font-semibold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-1">
-                      {prod.title}
-                    </h3>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-colors shadow-sm">
-                      <ChevronRight className="w-4 h-4 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                    <div className="p-4 sm:p-5 pt-1 sm:pt-2 flex items-center justify-between gap-2">
+                      <h3 className="text-sm sm:text-[15px] font-semibold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-1">
+                        {prod.title}
+                      </h3>
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-colors shadow-sm">
+                        <ChevronRight className="w-4 h-4 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                      </div>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </>
+                );
+
+                return isSwitches ? (
+                  <Link 
+                    key={prod.id}
+                    to="/retrofit-touch-panels"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <a 
+                    key={prod.id}
+                    href="#faq"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </a>
+                );
+              })}
             </div>
 
           </div>

@@ -46,6 +46,7 @@ function HomePage() {
 
 // High-speed Route Code-Splitting: Lazy load secondary pages
 const HomeAutomation = lazy(() => import('./pages/HomeAutomation').then(m => ({ default: m.HomeAutomation })));
+const RetrofitTouchPanels = lazy(() => import('./pages/RetrofitTouchPanels').then(m => ({ default: m.RetrofitTouchPanels })));
 const NonUvDisinfection = lazy(() => import('./pages/NonUvDisinfection').then(m => ({ default: m.NonUvDisinfection })));
 const Railways = lazy(() => import('./pages/Railways').then(m => ({ default: m.Railways })));
 const WindSolar = lazy(() => import('./pages/WindSolar').then(m => ({ default: m.WindSolar })));
@@ -96,6 +97,8 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/home-automation" element={<HomeAutomation />} />
+              <Route path="/retrofit-touch-panels" element={<RetrofitTouchPanels />} />
+              <Route path="/products/retrofit-touch-panels" element={<RetrofitTouchPanels />} />
               <Route path="/non-uv-disinfection" element={<NonUvDisinfection />} />
               <Route path="/railways" element={<Railways />} />
               <Route path="/wind-solar" element={<WindSolar />} />
