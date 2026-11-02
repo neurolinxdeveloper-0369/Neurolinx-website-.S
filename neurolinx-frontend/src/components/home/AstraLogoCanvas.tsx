@@ -129,15 +129,21 @@ export function AstraLogoCanvas() {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
-      // Responsive size for logo: ~440px desktop, ~270px mobile
-      const targetSize = Math.min(width * 0.85, height * 0.72, width > 768 ? 440 : 270);
+      // Responsive size for logo: proportional to both width & height to prevent oversized logo on laptops
+      const targetSize = width > 1440
+        ? Math.min(width * 0.42, height * 0.65, 430)
+        : (width > 1024
+            ? Math.min(width * 0.42, height * 0.58, 360)
+            : (width > 768
+                ? Math.min(width * 0.45, height * 0.52, 310)
+                : Math.min(width * 0.75, height * 0.45, 260)));
       const scale = targetSize / 66;
 
-      // Position logo towards the right side on desktop, centered lower on mobile
+      // Position logo towards the right side on desktop/laptop, centered on mobile/tablet
       logoCenterX = width > 768 
-        ? Math.min(width * 0.65, width - targetSize / 2 - 60)
+        ? Math.min(width * 0.68, width - targetSize / 2 - Math.max(25, width * 0.04))
         : width / 2;
-      logoCenterY = width > 768 ? height / 2 : height * 0.62;
+      logoCenterY = width > 768 ? height / 2 : height * 0.60;
       logoHitRadius = targetSize * 0.62;
 
       particles = [];
@@ -153,8 +159,8 @@ export function AstraLogoCanvas() {
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
       };
 
-      // Pure Circular Formation in Center (Radius ~150px - 175px, perfect circle, 0 protruding arms)
-      const circleRadius = Math.min(width, height) * (width > 768 ? 0.16 : 0.20);
+      // Pure Circular Formation in Center (smoothly scaled with viewport)
+      const circleRadius = Math.min(width, height) * (width > 1200 ? 0.16 : (width > 768 ? 0.18 : 0.22));
 
       // Strict Content Clearance: content container is centered (max-w-7xl with px-8)
       const contentMaxWidth = 1200;
@@ -279,7 +285,7 @@ export function AstraLogoCanvas() {
       }
 
       // Reduced particles for left and right flanks (light, starry, truly random, non-crowded)
-      const targetSideCount = width > 1200 ? 50 : (width > 768 ? 36 : 22);
+      const targetSideCount = width > 1400 ? 50 : (width > 1024 ? 38 : (width > 768 ? 26 : 18));
       const sideRedCount = Math.max(5, Math.floor(targetSideCount * 0.30));
       const sideSilverCount = targetSideCount - sideRedCount;
 

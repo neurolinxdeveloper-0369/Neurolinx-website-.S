@@ -63,15 +63,15 @@ export function HeroOne() {
         }
       `}</style>
 
-      <div className="w-full px-6 sm:px-10 lg:px-16 flex items-center min-h-screen">
-        <div className="relative max-w-lg text-left pointer-events-auto select-text pt-24 sm:pt-0 sm:translate-x-6 lg:translate-x-12">
+      <div className="w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 flex items-center min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen">
+        <div className="relative max-w-md lg:max-w-lg xl:max-w-xl text-left pointer-events-auto select-text pt-20 sm:pt-0 sm:translate-x-4 lg:translate-x-8 xl:translate-x-12">
           {/* Subtle ambient red/crimson glow behind the wordmark */}
           <div 
             className="absolute -left-12 -top-10 w-80 h-80 bg-[#FF1C36]/20 rounded-full blur-[110px] pointer-events-none -z-10"
             style={{ animation: 'ambientGlowPulse 5s ease-in-out infinite' }}
           />
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-display mb-5 leading-none">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-extrabold tracking-tight font-display mb-3 sm:mb-4 lg:mb-5 leading-none">
             {BRAND_LETTERS.map((item, idx) => (
               <span
                 key={idx}
@@ -85,7 +85,7 @@ export function HeroOne() {
             ))}
           </h1>
           <p 
-            className="hero-para-reveal text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed font-body max-w-md"
+            className="hero-para-reveal text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-body max-w-sm sm:max-w-md lg:max-w-lg"
             style={{ animationDelay: '920ms' }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

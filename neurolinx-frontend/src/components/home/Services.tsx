@@ -73,31 +73,31 @@ export function Services() {
   ];
 
   return (
-    <section className="w-full bg-transparent py-32 relative z-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-transparent py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 relative z-10 border-t border-white/10 overflow-hidden">
       {/* Subtle ambient crimson nebula glow matching hero section */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-brand-red/[0.08] rounded-full blur-[160px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="w-10 h-1 bg-brand-red rounded-full"></div>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">
+          <div className="flex items-center justify-center space-x-3 mb-4 sm:mb-6">
+            <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
             <span className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs">Our Products & Our Services</span>
-            <div className="w-10 h-1 bg-brand-red rounded-full"></div>
+            <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white mb-4 sm:mb-6 leading-tight">
             Expert Solutions Across <br/> Innovation & Engineering
           </h2>
         </div>
 
         {/* Products Grid */}
-        <div className="mb-20">
-          <div className="flex items-center space-x-3 mb-8">
-            <div className="w-8 h-1 bg-brand-red rounded-full"></div>
-            <h3 className="text-xl font-bold text-white tracking-tight">Our Products</h3>
+        <div className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="flex items-center space-x-3 mb-5 sm:mb-8">
+            <div className="w-6 sm:w-8 h-1 bg-brand-red rounded-full"></div>
+            <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Our Products</h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-5 xl:gap-6">
             {products.map((product, index) => (
               <FlipCard key={`product-${index}`} {...product} />
             ))}
@@ -106,11 +106,11 @@ export function Services() {
 
         {/* Solutions Grid */}
         <div>
-          <div className="flex items-center space-x-3 mb-8">
-            <div className="w-8 h-1 bg-brand-red rounded-full"></div>
-            <h3 className="text-xl font-bold text-white tracking-tight">Our Solutions</h3>
+          <div className="flex items-center space-x-3 mb-5 sm:mb-8">
+            <div className="w-6 sm:w-8 h-1 bg-brand-red rounded-full"></div>
+            <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Our Solutions</h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-5 xl:gap-6">
             {services.map((service, index) => (
               <FlipCard key={`service-${index}`} {...service} />
             ))}

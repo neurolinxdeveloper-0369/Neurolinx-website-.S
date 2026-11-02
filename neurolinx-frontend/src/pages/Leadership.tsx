@@ -31,16 +31,16 @@ export function Leadership() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="w-full bg-white flex flex-col font-body min-h-[80vh] py-24 px-4 md:px-8">
+    <div className="w-full bg-white flex flex-col font-body min-h-[80vh] pt-24 pb-16 sm:pt-28 sm:pb-20 px-4 sm:px-6 lg:px-8">
       
-      <div className="w-full text-center mb-16 bg-gradient-to-b from-gray-400 via-gray-100 to-gray-300 py-6 border-y border-gray-400/50 shadow-inner">
-         <h1 className="text-4xl md:text-5xl font-black text-brand-charcoal tracking-wide">Leadership Team</h1>
+      <div className="w-full text-center mb-10 sm:mb-14 bg-gradient-to-b from-gray-400 via-gray-100 to-gray-300 py-4 sm:py-6 border-y border-gray-400/50 shadow-inner">
+         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-charcoal tracking-wide">Leadership Team</h1>
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative">
         
         {/* Carousel Container */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between" style={{ minHeight: '500px', backgroundColor: '#000' }}>
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between min-h-[440px] lg:min-h-[480px] bg-black">
           
           {/* Background Gradient & Effects */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -58,35 +58,35 @@ export function Leadership() {
           </div>
 
           {/* Carousel Content */}
-          <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between px-8 py-12 lg:p-16 h-full flex-1">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between px-6 py-8 sm:px-8 sm:py-10 lg:p-14 xl:p-16 h-full flex-1">
             
             {/* Left side: Profile Image & Name */}
-            <div className="flex flex-col items-center w-full lg:w-1/3 mb-10 lg:mb-0">
-              <div className="w-48 h-56 bg-[#e0e0e0] flex items-end justify-center overflow-hidden">
+            <div className="flex flex-col items-center w-full lg:w-1/3 mb-8 lg:mb-0">
+              <div className="w-36 h-44 sm:w-44 sm:h-52 bg-[#e0e0e0] flex items-end justify-center overflow-hidden rounded-xl">
                 {/* Generic Silhouette */}
-                <svg className="w-40 h-40 text-gray-400 -mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-32 h-32 sm:w-36 sm:h-36 text-gray-400 -mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
               </div>
-              <div className="mt-4 text-center">
-                <h3 className="text-white text-xl font-bold">{leaders[activeIndex].name}</h3>
-                <p className="text-white text-sm mt-1">{leaders[activeIndex].title}</p>
+              <div className="mt-3 sm:mt-4 text-center">
+                <h3 className="text-white text-lg sm:text-xl font-bold">{leaders[activeIndex].name}</h3>
+                <p className="text-white text-xs sm:text-sm mt-1">{leaders[activeIndex].title}</p>
               </div>
             </div>
 
             {/* Right side: Bio & Quote */}
             <div className="flex w-full lg:w-2/3 h-full items-center">
               {/* Vertical White Line Separator */}
-              <div className="hidden lg:block w-[2px] bg-white h-48 mx-8"></div>
+              <div className="hidden lg:block w-[2px] bg-white h-48 mx-6 xl:mx-8"></div>
               
               <div className="flex flex-col flex-1 text-white text-left max-w-2xl">
-                <p className="text-sm md:text-base leading-relaxed font-light text-gray-200 mb-6">
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed font-light text-gray-200 mb-4 sm:mb-6">
                   {leaders[activeIndex].bio}
                 </p>
                 {leaders[activeIndex].quote && (
                   <div className="flex items-start italic font-semibold text-white">
-                    <span className="text-2xl mr-2 leading-none">“</span>
-                    <span>{leaders[activeIndex].quote} <span className="text-xl leading-none">”</span></span>
+                    <span className="text-xl sm:text-2xl mr-2 leading-none">“</span>
+                    <span className="text-xs sm:text-sm md:text-base">{leaders[activeIndex].quote} <span className="text-lg sm:text-xl leading-none">”</span></span>
                   </div>
                 )}
               </div>

@@ -243,27 +243,27 @@ export function Header() {
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body ${
       scrolled 
-        ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3.5' 
-        : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-5'
+        ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3' 
+        : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
     }`}>
-      <div className="relative w-full px-6 sm:px-8 lg:px-12 flex items-center justify-between min-h-[52px]">
+      <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between min-h-[48px] sm:min-h-[52px]">
         
         {/* Left: Official Brand Identity Lockup */}
         <Link to="/" onClick={closeAllDropdowns} className="flex items-center shrink-0 group z-10">
           <img 
             src="/media/neurolinx_logo_full.png" 
             alt="Neurolinx Global Private Limited" 
-            className="h-8 md:h-10 w-auto object-contain drop-shadow-md group-hover:opacity-95 transition-opacity" 
+            className="h-7 sm:h-8 xl:h-10 w-auto object-contain drop-shadow-md group-hover:opacity-95 transition-opacity" 
           />
         </Link>
 
         {/* Top Center: Navigation Links with Mega Dropdowns */}
-        <nav ref={navRef} className="hidden md:flex items-center space-x-1 lg:space-x-2 absolute left-1/2 -translate-x-1/2">
+        <nav ref={navRef} className="hidden lg:flex items-center space-x-1 xl:space-x-2 absolute left-1/2 -translate-x-1/2">
           
           <Link 
             to="/" 
             onClick={closeAllDropdowns}
-            className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+            className={`px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
               location.pathname === '/' 
                 ? 'text-white bg-white/10 font-bold' 
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -275,7 +275,7 @@ export function Header() {
           <Link 
             to="/about" 
             onClick={closeAllDropdowns}
-            className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+            className={`px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
               location.pathname === '/about' 
                 ? 'text-white bg-white/10 font-bold' 
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -293,7 +293,7 @@ export function Header() {
             <button 
               type="button"
               onClick={() => setSolutionsDropdown(prev => !prev)}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+              className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
                 solutionsDropdown || ['/rms-smart-metering', '/fab-foundry', '/chip-level-design', '/robotics', '/ai', '/pos-application'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -356,7 +356,7 @@ export function Header() {
             <button 
               type="button"
               onClick={() => setProductsDropdown(prev => !prev)}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+              className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
                 productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/non-uv-disinfection', '/railways', '/power-supply'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -436,7 +436,7 @@ export function Header() {
           <Link 
             to="/blogs" 
             onClick={closeAllDropdowns}
-            className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+            className={`px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
               location.pathname === '/blogs' 
                 ? 'text-white bg-white/10 font-bold' 
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -449,7 +449,7 @@ export function Header() {
           <Link 
             to="/careers" 
             onClick={closeAllDropdowns}
-            className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+            className={`px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
               location.pathname === '/careers' 
                 ? 'text-white bg-white/10 font-bold' 
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -460,11 +460,11 @@ export function Header() {
         </nav>
 
         {/* Rightmost Controls: Hamburger first, Experience View at the absolute LAST */}
-        <div className="flex items-center gap-3 ml-auto z-10">
+        <div className="flex items-center gap-2 sm:gap-3 ml-auto z-10">
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white"
+            className="lg:hidden p-1.5 sm:p-2 text-gray-300 hover:text-white"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -474,10 +474,10 @@ export function Header() {
           <Link
             to="/experience"
             onClick={closeAllDropdowns}
-            className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white text-black font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-all shadow-md hover:scale-105 shrink-0"
+            className="inline-flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 xl:px-5 xl:py-2.5 rounded-full bg-white text-black font-semibold text-[11px] sm:text-xs xl:text-sm hover:bg-gray-100 transition-all shadow-md hover:scale-105 shrink-0"
           >
             <span>Experience View</span>
-            <ArrowUpRight className="w-4 h-4 text-black stroke-[2.5]" />
+            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black stroke-[2.5]" />
           </Link>
         </div>
 
@@ -485,7 +485,7 @@ export function Header() {
 
       {/* Mobile Slide-Out / Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0C101A] border-b border-white/15 px-6 py-6 animate-in slide-in-from-top duration-300 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-[#0C101A] border-b border-white/15 px-6 py-6 animate-in slide-in-from-top duration-300 max-h-[80vh] overflow-y-auto">
           <div className="flex flex-col space-y-3">
             <Link to="/" onClick={closeAllDropdowns} className="text-sm font-semibold text-white py-2 border-b border-white/5">
               Home

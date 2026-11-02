@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
-    <footer className="bg-black text-gray-300 pt-24 pb-8 border-t border-white/10 relative z-10 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+    <footer className="bg-black text-gray-300 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 border-t border-white/10 relative z-10 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Section: Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-6 xl:gap-8 mb-12 sm:mb-16">
           
           {/* Col 1: Brand */}
           <div className="col-span-1 lg:col-span-1">
