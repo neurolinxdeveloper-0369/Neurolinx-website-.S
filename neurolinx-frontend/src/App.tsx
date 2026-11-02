@@ -121,6 +121,14 @@ function App() {
         <Footer />
       </div>
 
+      {/* SmartNode Style Vertical Sticky "Contact Us" Tab on Right Edge */}
+      <a
+        href="/contact"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[#E0001B] hover:bg-[#c00017] text-white font-bold text-xs uppercase tracking-widest py-3 px-1.5 rounded-l-xl shadow-2xl transition-all duration-300 hover:pr-3 [writing-mode:vertical-rl] rotate-180 flex items-center justify-center gap-1.5"
+      >
+        <span>Contact Us</span>
+      </a>
+
       {/* Floating WhatsApp Widget */}
       <div className="fixed bottom-6 right-6 z-50 animate-float-whatsapp">
         <a
