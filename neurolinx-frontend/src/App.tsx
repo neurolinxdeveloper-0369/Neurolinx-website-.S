@@ -2,7 +2,6 @@ import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
-import { CustomCursor } from './components/ui/CustomCursor'
 
 // Scroll to top or anchor on route change
 function ScrollToTop() {
@@ -24,8 +23,8 @@ function ScrollToTop() {
 
 // Immediate eager-loaded Home Page Components for instant first paint
 import { HeroOne } from './components/home/HeroOne'
+import { AstraLogoCanvas } from './components/home/AstraLogoCanvas'
 import { AboutUs } from './components/home/AboutUs'
-import { CompanyHighlights } from './components/home/CompanyHighlights'
 import { WhyChooseUs } from './components/home/WhyChooseUs'
 import { Services } from './components/home/Services'
 import { TrustBar } from './components/home/TrustBar'
@@ -34,9 +33,9 @@ import { TrustBar } from './components/home/TrustBar'
 function HomePage() {
   return (
     <>
+      <AstraLogoCanvas />
       <HeroOne />
       <AboutUs />
-      <CompanyHighlights />
       <WhyChooseUs />
       <Services />
       <TrustBar />
@@ -86,10 +85,9 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
       <ScrollToTop />
 
-      <div className="min-h-screen bg-[#0B0F19] flex flex-col relative font-body">
+      <div className="min-h-screen bg-black flex flex-col relative font-body">
         <Header />
         
         <main className="flex-1 w-full relative">
