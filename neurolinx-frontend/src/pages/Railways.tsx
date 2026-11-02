@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, 
   CheckCircle2, 
@@ -362,13 +363,22 @@ export function Railways() {
                     <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-red" /> USB Port for Route Landmark Updates</div>
                   </div>
 
-                  <a 
-                    href="#rfq-form"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-white font-bold text-xs hover:bg-black transition-colors"
-                  >
-                    <span>Request Version 2.0 Datasheet</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Link 
+                      to="/fog-pass"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-red text-white font-bold text-xs hover:bg-red-700 shadow-md shadow-brand-red/30 transition-all"
+                    >
+                      <span>Explore Dedicated FogPASS Page</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <a 
+                      href="#rfq-form"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-white font-bold text-xs hover:bg-black transition-colors"
+                    >
+                      <span>Request Version 2.0 Datasheet</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
 
                 <div className="lg:col-span-5 h-64 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
@@ -393,13 +403,22 @@ export function Railways() {
                     <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-red" /> OTA Route Synchronization via 4G/LTE</div>
                   </div>
 
-                  <a 
-                    href="#rfq-form"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-red text-white font-bold text-xs hover:bg-red-700 shadow-md shadow-brand-red/30 transition-all"
-                  >
-                    <span>Request Version 3.0 Tech Specs</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Link 
+                      to="/fog-pass"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-red text-white font-bold text-xs hover:bg-red-700 shadow-md shadow-brand-red/30 transition-all"
+                    >
+                      <span>Explore Dedicated FogPASS Page</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <a 
+                      href="#rfq-form"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-white font-bold text-xs hover:bg-black transition-colors"
+                    >
+                      <span>Request Version 3.0 Tech Specs</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
 
                 <div className="lg:col-span-5 h-64 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
@@ -489,6 +508,18 @@ export function Railways() {
                     </div>
                   ))}
                 </div>
+
+                {prod.id === 'fog-pass' && (
+                  <div className="mt-5 pt-4 border-t border-gray-100">
+                    <Link
+                      to="/fog-pass"
+                      className="w-full py-2.5 px-4 rounded-xl bg-brand-red hover:bg-red-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                      <span>Explore Full FogPASS Product Page</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}

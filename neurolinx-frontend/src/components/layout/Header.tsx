@@ -222,7 +222,7 @@ export function Header() {
       name: "Railways", 
       path: "/railways",
       subItems: [
-        { name: "Fog Pass Device (v2.0 & v3.0)", path: "/railways#fog-pass-section" },
+        { name: "Fog Pass Device (v2.0 & v3.0)", path: "/fog-pass" },
         { name: "LED LOCO Head Light & Markers", path: "/railways#railway-products" },
         { name: "Coach LED Lighting Systems", path: "/railways#railway-products" },
         { name: "Signaling & Power Units", path: "/railways" },

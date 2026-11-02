@@ -35,6 +35,7 @@ export function Footer() {
               <li><Link to="/home-automation" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Smart Home Automation</Link></li>
               <li><Link to="/non-uv-disinfection" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Non-UV Disinfection Light</Link></li>
               <li><Link to="/railways" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Railways</Link></li>
+              <li><Link to="/fog-pass" className="text-gray-400 hover:text-brand-red transition-colors text-sm">FogPASS Device</Link></li>
               <li><Link to="/power-supply" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Power Supply &amp; Drivers</Link></li>
             </ul>
           </div>

@@ -24,19 +24,22 @@ export function RetrofitTouchPanels() {
   // Active Modular Box Selection for the 3-3-1 top grid (1 Moduler, 2 Moduler, etc.)
   const [activeModulerBox, setActiveModulerBox] = useState<string>('1-moduler');
 
-  // Selected counts for Touch Panels & Sockets in the Touchpad Board
-  const [touchPanelsCount, setTouchPanelsCount] = useState<number>(1);
-  const [socketsCount, setSocketsCount] = useState<number>(1);
+  // Category selection: 'touch-panels' (default) or 'sockets'
+  const [selectedCategory, setSelectedCategory] = useState<'touch-panels' | 'sockets'>('touch-panels');
+
+  // Selected Option IDs
+  const [selectedPanelId, setSelectedPanelId] = useState<string>('1-panels');
+  const [selectedSocketId, setSelectedSocketId] = useState<string>('1-sockets');
 
   // Constant Top Modular Boxes (Row 1: 3, Row 2: 3, Row 3: 1 centered) - Never renamed or removed
   const modularBoxes = [
-    { id: '1-moduler', label: '1 Moduler', defaultPanels: 1, defaultSockets: 1 },
-    { id: '2-moduler', label: '2 Moduler', defaultPanels: 2, defaultSockets: 1 },
-    { id: '4-moduler', label: '4 Moduler', defaultPanels: 4, defaultSockets: 1 },
-    { id: '8-moduler', label: '8 Moduler', defaultPanels: 8, defaultSockets: 1 },
-    { id: '10-moduler', label: '10 Moduler', defaultPanels: 10, defaultSockets: 1 },
-    { id: '12-moduler', label: '12 Moduler', defaultPanels: 12, defaultSockets: 2 },
-    { id: '16-moduler', label: '16 Moduler', defaultPanels: 16, defaultSockets: 2 },
+    { id: '1-moduler', label: '1 Moduler', panelId: '1-panels' },
+    { id: '2-moduler', label: '2 Moduler', panelId: '2-panels' },
+    { id: '4-moduler', label: '4 Moduler', panelId: '4-panels' },
+    { id: '8-moduler', label: '8 Moduler', panelId: '8-panels' },
+    { id: '10-moduler', label: '10 Moduler', panelId: '10-panels' },
+    { id: '12-moduler', label: '12 Moduler', panelId: '12-panels' },
+    { id: '16-moduler', label: '16 Moduler', panelId: '16-panels' },
   ];
 
   // Contact Inquiry Form State (matching the last previous slide)
@@ -269,198 +272,15 @@ export function RetrofitTouchPanels() {
     }
   ];
 
-  // 3. COMBINATIONS: Both Options Selected Wise Touchpad Boards
-  const comboConfigurations: Record<string, {
-    img: string;
-    title: string;
-    tagline: string;
-    desc: string;
-    smartAutomationInfo: string;
-    socketInfo: string;
-    load: string;
-    boxSize: string;
-    idealFor: string;
-    features: string[];
-  }> = {
-    '2-2': {
-      img: '/media/panel_2_moduler.jpg',
-      title: '2 Touch Panels & 2 Universal Sockets Smart Bedside & Study Board',
-      tagline: 'Dual Capacitive Lighting Circuits with Dual 16A Independent Smart Sockets',
-      desc: 'Architectural 4-module toughened black crystal glass touchpad board combining dual independent capacitive feather-touch lighting channels with dual universal shuttered 16A power sockets. Designed for luxury bedside consoles, master study desks, and hospitality suites.',
-      smartAutomationInfo: 'Automated "Reading Routine" dims ambient lights while powering laptop and phone sockets. Scheduled sleep timers automatically cut power to chargers at 2:00 AM to prevent lithium battery overcharging. Fully compatible with Amazon Alexa, Google Assistant, and local home mesh.',
-      socketInfo: 'Dual 16A universal shuttered sockets with child-safe spring shutters, independent solid-state relays with zero-cross protection, solid phosphor-bronze contacts, and 4kV industrial MOV surge clamp.',
-      load: '2 Lighting Channels (10A each) + Dual 16A Independent Universal Sockets (3500W load capacity)',
-      boxSize: '4-Module Indian Standard Junction Box (146 x 86 mm)',
-      idealFor: 'Bedside Consoles, Executive Study Desks, Dressing Corners, Hotel Suites',
-      features: [
-        'Dual capacitive feather-touch switches with glowing cyan LED halo status indicators',
-        'Two independent 16A universal sockets with child-safety spring shutters',
-        'Sleep-timer scheduled auto cut-off for mobile phone battery health protection',
-        'Toughened 4mm diamond-cut crystal glass plate with smudge-proof nano-coating'
-      ]
-    },
-    '4-2': {
-      img: '/media/panel_4_moduler.jpg',
-      title: '4 Touch Panels & 2 Universal Sockets Luxury Living Room Center',
-      tagline: 'Four Independent Touch Circuits with Dual Heavy-Duty 16A Smart Sockets',
-      desc: 'High-density 6/8-module black crystal glass command board integrating 4 capacitive touch circuits alongside dual heavy-duty 16A universal power sockets. The gold benchmark for residential living rooms and master suites.',
-      smartAutomationInfo: 'Coordinate full room scenes: "Entertainment Mode" dims spotlights to 30%, activates cove lighting, and powers TV and soundbar sockets. "All Off" double-tap trigger turns off all connected lights when leaving the room while keeping security circuits active.',
-      socketInfo: 'Dual 16A heavy-duty sockets accommodating room heaters, electric kettles, and ironing appliances with live voltage, current, and wattage monitoring exportable to smartphone.',
-      load: '4 Lighting/Fan Channels (10A each) + Dual 16A Independent Sockets (up to 4000W load capacity)',
-      boxSize: '6/8-Module Indian Standard Junction Box (224 x 86 mm)',
-      idealFor: 'Master Bedrooms, Living Rooms, Dining Areas, Executive Offices',
-      features: [
-        'Four capacitive touch switches with digital capacitor stepping for fan speed control',
-        'Dual heavy-duty 16A sockets with real-time energy metering and overload auto-cut-off',
-        'One-touch master "All Off" scene directly from the physical glass panel',
-        '100% offline local mesh communication even during internet disruptions'
-      ]
-    },
-    '8-2': {
-      img: '/media/panel_8_moduler.jpg',
-      title: '8 Touch Panels & 2 Universal Sockets Master Suite Command Board',
-      tagline: 'Comprehensive Architectural Living Space Controller with Dual Smart Sockets',
-      desc: 'High-density 10/12-module crystal glass switchboard consolidating primary chandelier lights, perimeter coves, auxiliary mood sconces, ceiling fans, and dual universal 16A sockets on a single architectural plate.',
-      smartAutomationInfo: 'Whole-home mesh linking: trigger whole-home scenes like "Welcome Home" (turns on foyer spots, living cove, and powers media sockets). Multi-gang interlock prevents accidental simultaneous high-power load triggers.',
-      socketInfo: 'Dual heavy 16A appliance sockets with digital lock mode, transient spike arrestor, and independent app control with weekly kWh analytics.',
-      load: '8 Lighting/Mood Circuits (10A each) + Dual Universal 16A Shuttered Sockets',
-      boxSize: '10/12-Module Horizontal Junction Box (250 x 146 mm)',
-      idealFor: 'Formal Drawing Rooms, Master Bedroom Headboards, Open Penthouse Kitchens',
-      features: [
-        'Eight capacitive touch buttons with customizable dual-color status backlighting',
-        'Dual independent 16A universal sockets with child safety lockouts',
-        'Circadian rhythm schedule engine linked with sunrise and sunset astronomical clocks',
-        'High-density thermal dissipation chassis with 4kV industrial surge clamping'
-      ]
-    },
-    '4-4': {
-      img: '/media/panel_4_moduler.jpg',
-      title: '4 Touch Panels & 4 Sockets + 30W USB-C PD Executive Workstation Station',
-      tagline: 'Architectural Multi-Appliance & Fast-Charging Command Center',
-      desc: 'Command socket plate featuring 4 capacitive touch switches paired with dual 16A universal shuttered outlets and dual USB-C (30W PD) / USB-A fast-charging ports in diamond-cut black crystal glass.',
-      smartAutomationInfo: 'Independent channel automation: control each light circuit, left socket, right socket, and USB ports individually from your mobile app. "Workstation Mode" powers up monitors, laptop chargers, and desk lighting with one tap.',
-      socketInfo: 'Dual 16A universal sockets + 30W USB-C PD / 18W USB-A smart chip with intelligent device detection, thermal dissipation shielding, and 4kV industrial surge clamp.',
-      load: '4 Lighting Circuits (10A) + Dual 16A Independent Sockets + 30W USB-C PD Fast Charger',
-      boxSize: '8/10-Module Standard Junction Box (224 x 86 mm)',
-      idealFor: 'Executive Work Desks, Luxury Bedside Consoles, TV Entertainment Units',
-      features: [
-        'Four capacitive touch switches with rapid 50ms tactile response',
-        'Integrated 30W USB-C Power Delivery charges iPhones, iPads, and MacBooks at max speed',
-        'Dual independent 16A sockets with child-safe spring shutters',
-        'Sleek diamond-cut black crystal glass plate flush mounts cleanly into backboxes'
-      ]
-    },
-    '2-4': {
-      img: '/media/panel_2_moduler.jpg',
-      title: '2 Touch Panels & 4 Sockets + Fast-Charging Executive Hub',
-      tagline: 'Dual Touch Lighting Channels with High-Density 4-Socket Power Array',
-      desc: 'Architectural black crystal glass command station featuring dual feather-touch switches alongside a 4-outlet power array with fast charging.',
-      smartAutomationInfo: 'Automate study desk devices, schedule individual socket cutoffs, and voice-trigger lighting scenes with Alexa & Google Assistant.',
-      socketInfo: 'Multi-outlet 16A universal shuttered sockets with 4kV surge suppression and smart device load monitoring.',
-      load: '2 Lighting Circuits + 4x Smart Power Outlets / USB Fast-Charger',
-      boxSize: '8-Module Standard Junction Box (224 x 86 mm)',
-      idealFor: 'Executive Desks, Workstations, Tech Labs, Gaming Consoles',
-      features: [
-        'Dual capacitive touch buttons with cyan status backlighting',
-        'High-density 4-socket array with fast-charging support',
-        'Real-time power monitoring and auto-overload disconnection',
-        '4mm toughened crystal glass scratch-proof surface'
-      ]
-    },
-    '8-4': {
-      img: '/media/panel_8_moduler.jpg',
-      title: '8 Touch Panels & 4 Sockets Executive Command Board',
-      tagline: 'Whole-Room Lighting Control with High-Density Appliance Sockets',
-      desc: 'Extensive crystal glass command board consolidating 8 lighting circuits with a 4-outlet universal socket and fast-charging array.',
-      smartAutomationInfo: 'Master scene automation, whole-room schedule timers, and individual socket energy telemetry exportable to smartphone.',
-      socketInfo: 'Quad socket array with child-safe spring shutters, 16A continuous rating, and 4kV MOV transient surge protection.',
-      load: '8 Lighting Circuits + 4x 16A Universal Smart Sockets',
-      boxSize: '12-Module Standard Plate (250 x 200 mm)',
-      idealFor: 'Executive Suites, Media Rooms, Large Penthouse Living Rooms',
-      features: [
-        'Eight feather-touch lighting channels with fan regulator support',
-        'Four smart sockets with independent mobile app control',
-        'Full voice automation with Alexa, Google Assistant & Siri',
-        'Zero-cross relay switching eliminates electrical arcing'
-      ]
-    }
-  };
-
-  // Find base panel option matching touchPanelsCount (or closest available: 1, 2, 4, 8, 10, 12, 16)
-  const basePanel = modularOptions.find(m => m.id === `${touchPanelsCount}-panels`) || modularOptions[0];
-  
-  // Find base socket option matching socketsCount (or closest available: 1, 2, 3, 4)
-  const baseSocket = socketOptions.find(s => s.id === `${Math.min(4, Math.max(1, socketsCount))}-sockets`) || socketOptions[0];
-
-  // Derive the active custom board data based on user selection of touchpanels & sockets
+  // Active Item: Either the selected Touch Panel or the selected Socket
   const activeItem = React.useMemo(() => {
-    // 1. Check exact predefined both-wise combination
-    const comboKey = `${touchPanelsCount}-${socketsCount}`;
-    if (comboConfigurations[comboKey]) {
-      const combo = comboConfigurations[comboKey];
-      return {
-        id: `combo-${comboKey}`,
-        name: `${touchPanelsCount} Touch Panels + ${socketsCount} Sockets`,
-        title: combo.title,
-        tagline: combo.tagline,
-        desc: combo.desc,
-        smartAutomationInfo: combo.smartAutomationInfo,
-        socketInfo: combo.socketInfo,
-        load: combo.load,
-        boxSize: combo.boxSize,
-        idealFor: combo.idealFor,
-        img: basePanel.img, // Exact generated touch panel image
-        features: combo.features,
-      };
+    if (selectedCategory === 'sockets') {
+      const socket = socketOptions.find(s => s.id === selectedSocketId) || socketOptions[0];
+      return socket;
     }
-
-    // 2. Sockets only (0 panels)
-    if (touchPanelsCount === 0 && socketsCount > 0) {
-      return {
-        id: `custom-0-${socketsCount}`,
-        name: `${socketsCount} Sockets`,
-        title: `${socketsCount} Smart Power Socket${socketsCount > 1 ? 's' : ''} Dedicated Controller Board`,
-        tagline: 'High-Wattage Dedicated Appliance Power & Surge-Protected Relay Controller',
-        desc: baseSocket.desc,
-        smartAutomationInfo: baseSocket.smartAutomationInfo,
-        socketInfo: baseSocket.socketInfo,
-        load: `${socketsCount}x 16A/25A Heavy Smart Power Socket${socketsCount > 1 ? 's' : ''} (up to 5500W load capacity)`,
-        boxSize: socketsCount <= 1 ? '1-Module Box (50 x 86 mm)' : socketsCount === 2 ? '2-Module Box (86 x 86 mm)' : socketsCount === 3 ? '3-Module Box (120 x 86 mm)' : '4-Module Box (146 x 86 mm)',
-        idealFor: baseSocket.idealFor,
-        img: baseSocket.img,
-        features: baseSocket.features,
-      };
-    }
-
-    // 3. Touch Panel board (with or without sockets)
-    const socketText = socketsCount > 0 ? ` & ${socketsCount} Smart Socket${socketsCount > 1 ? 's' : ''}` : '';
-    const socketLoad = socketsCount > 0 ? ` + ${socketsCount}x Universal 16A Socket${socketsCount > 1 ? 's' : ''}` : ' • Pure Touch (No Sockets)';
-    const socketProtection = socketsCount > 0 
-      ? `Integrated ${socketsCount}x universal multi-pin shuttered socket(s) with child-safe internal spring shutters, solid phosphor-bronze terminals, 16A continuous / 25A inrush rating, and 4kV transient surge clamp.`
-      : 'Pure glass touch plate configuration with seamless monolithic crystal glass faceplate and ultra-low standby power (<0.2W).';
-
-    return {
-      id: `custom-${touchPanelsCount}-${socketsCount}`,
-      name: `${touchPanelsCount} Touch Panels${socketsCount > 0 ? ` + ${socketsCount} Sockets` : ''}`,
-      title: `${touchPanelsCount} Touch Panels${socketText} Board`,
-      tagline: socketsCount > 0 ? `Integrated ${touchPanelsCount}-Circuit Touch Lighting & Dedicated Appliance Sockets` : basePanel.tagline,
-      desc: `Custom smart crystal glass touchpad board configured with ${touchPanelsCount} capacitive feather-touch lighting/fan control channels${socketsCount > 0 ? ` and ${socketsCount} smart universal shuttered power socket${socketsCount > 1 ? 's' : ''}` : ''}. Engineered with 4mm diamond-cut toughened glass, sub-50ms capacitive touch response, and industrial zero-cross switching snubber protection.`,
-      smartAutomationInfo: socketsCount > 0 
-        ? `${basePanel.smartAutomationInfo} Plus independent smart socket automation: set automated timers for geysers or chargers and track live power consumption directly in your app.`
-        : basePanel.smartAutomationInfo,
-      socketInfo: socketProtection,
-      load: `${touchPanelsCount} Lighting/Fan Channels (10A each)${socketLoad}`,
-      boxSize: basePanel.boxSize,
-      idealFor: basePanel.idealFor,
-      img: basePanel.img, // Exact generated touch panel image
-      features: [
-        `${touchPanelsCount} capacitive feather-touch switches with glowing cyan LED halo indicators`,
-        socketsCount > 0 ? `${socketsCount} heavy-duty universal shuttered socket(s) with child protection` : 'Pure seamless crystal glass front plate with zero socket cutouts',
-        'Works 100% offline via local home mesh network even without internet',
-        'Covered by Neurolinx 5-Year Comprehensive Hassle-Free Replacement Warranty'
-      ],
-    };
-  }, [touchPanelsCount, socketsCount, basePanel, baseSocket]);
+    const panel = modularOptions.find(p => p.id === selectedPanelId) || modularOptions[0];
+    return panel;
+  }, [selectedCategory, selectedPanelId, selectedSocketId]);
 
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
@@ -511,11 +331,11 @@ export function RetrofitTouchPanels() {
                       type="button"
                       onClick={() => {
                         setActiveModulerBox(box.id);
-                        setTouchPanelsCount(box.defaultPanels);
-                        setSocketsCount(box.defaultSockets);
+                        setSelectedCategory('touch-panels');
+                        setSelectedPanelId(box.panelId);
                         setInquiryForm(prev => ({
                           ...prev,
-                          automationFor: `${box.label} (${box.defaultPanels} Panels + ${box.defaultSockets} Sockets) Setup`
+                          automationFor: `${box.label} Setup`
                         }));
                       }}
                       className={`w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl sm:rounded-[20px] text-sm sm:text-[15px] md:text-base font-bold tracking-tight transition-all duration-200 border cursor-pointer select-none flex items-center justify-center text-center shadow-xs ${
@@ -540,11 +360,11 @@ export function RetrofitTouchPanels() {
                       type="button"
                       onClick={() => {
                         setActiveModulerBox(box.id);
-                        setTouchPanelsCount(box.defaultPanels);
-                        setSocketsCount(box.defaultSockets);
+                        setSelectedCategory('touch-panels');
+                        setSelectedPanelId(box.panelId);
                         setInquiryForm(prev => ({
                           ...prev,
-                          automationFor: `${box.label} (${box.defaultPanels} Panels + ${box.defaultSockets} Sockets) Setup`
+                          automationFor: `${box.label} Setup`
                         }));
                       }}
                       className={`w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl sm:rounded-[20px] text-sm sm:text-[15px] md:text-base font-bold tracking-tight transition-all duration-200 border cursor-pointer select-none flex items-center justify-center text-center shadow-xs ${
@@ -571,11 +391,11 @@ export function RetrofitTouchPanels() {
                         type="button"
                         onClick={() => {
                           setActiveModulerBox(box.id);
-                          setTouchPanelsCount(box.defaultPanels);
-                          setSocketsCount(box.defaultSockets);
+                          setSelectedCategory('touch-panels');
+                          setSelectedPanelId(box.panelId);
                           setInquiryForm(prev => ({
                             ...prev,
-                            automationFor: `${box.label} (${box.defaultPanels} Panels + ${box.defaultSockets} Sockets) Setup`
+                            automationFor: `${box.label} Setup`
                           }));
                         }}
                         className={`w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl sm:rounded-[20px] text-sm sm:text-[15px] md:text-base font-bold tracking-tight transition-all duration-200 border cursor-pointer select-none flex items-center justify-center text-center shadow-xs ${
@@ -597,119 +417,209 @@ export function RetrofitTouchPanels() {
           <div className="max-w-6xl mx-auto bg-[#F8F9FA] rounded-[32px] md:rounded-[40px] p-6 sm:p-10 lg:p-12 border border-gray-100 shadow-sm">
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
               
-              {/* LEFT SIDE: Select Options for Touch Panels & Sockets + Product Board Image */}
-              <div className="w-full lg:w-5/12 flex flex-col justify-start">
+              {/* LEFT SIDE: Select Options for Touch Panels & Sockets */}
+              <div className="w-full lg:w-4/12 xl:w-[35%] flex flex-col justify-start">
                 
-                {/* ── Select Options for Touch Panels & Sockets (Custom Touchpad Board Configurator) ── */}
+                {/* ── Select Options for Touch Panels & Sockets (Category Tabs & Sub-Options) ── */}
                 <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-xs mb-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5 pb-2.5 border-b border-gray-100">
+                  <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-gray-100">
                     <div className="flex items-center gap-2">
                       <Sliders className="w-4 h-4 text-brand-red" />
                       <span className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">
-                        Customize Touchpad Board
+                        Select Category & Option
                       </span>
                     </div>
-                    <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                      {touchPanelsCount} Panels • {socketsCount} Sockets
+                    <span className="text-[11px] font-bold text-slate-600 bg-gray-100 px-2.5 py-0.5 rounded-full border border-gray-200">
+                      {selectedCategory === 'touch-panels' ? 'Touch Panels' : 'Sockets'}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {/* Select 1: How many Touch Panels */}
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
-                        <span>Touch Panels</span>
-                        <span className="text-[10px] font-semibold text-gray-400">Switches</span>
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={touchPanelsCount}
-                          onChange={(e) => {
-                            const count = Number(e.target.value);
-                            setTouchPanelsCount(count);
-                            const matchingBox = modularBoxes.find(b => b.defaultPanels === count);
-                            if (matchingBox) setActiveModulerBox(matchingBox.id);
-                            setInquiryForm(prev => ({
-                              ...prev,
-                              automationFor: `${count} Panels + ${socketsCount} Sockets Custom Setup`
-                            }));
-                          }}
-                          className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
-                        >
-                          <option value={0}>0 Panels (Sockets Only)</option>
-                          <option value={1}>1 Touch Panel</option>
-                          <option value={2}>2 Touch Panels</option>
-                          <option value={4}>4 Touch Panels</option>
-                          <option value={8}>8 Touch Panels</option>
-                          <option value={10}>10 Touch Panels</option>
-                          <option value={12}>12 Touch Panels</option>
-                          <option value={16}>16 Touch Panels</option>
-                        </select>
-                        <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                      </div>
-                    </div>
-
-                    {/* Select 2: How many Sockets */}
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
-                        <span>Sockets</span>
-                        <span className="text-[10px] font-semibold text-gray-400">Power Outlets</span>
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={socketsCount}
-                          onChange={(e) => {
-                            const count = Number(e.target.value);
-                            setSocketsCount(count);
-                            setInquiryForm(prev => ({
-                              ...prev,
-                              automationFor: `${touchPanelsCount} Panels + ${count} Sockets Custom Setup`
-                            }));
-                          }}
-                          className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
-                        >
-                          <option value={0}>0 Sockets (Panels Only)</option>
-                          <option value={1}>1 Smart Socket (16A)</option>
-                          <option value={2}>2 Smart Sockets (Dual Multi-Pin)</option>
-                          <option value={3}>3 Smart Sockets (Heavy 25A)</option>
-                          <option value={4}>4 Sockets + 30W USB-C Station</option>
-                        </select>
-                        <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                      </div>
-                    </div>
+                  {/* Two Main Options: Touch Panels & Sockets */}
+                  <div className="grid grid-cols-2 gap-2 mb-3.5">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedCategory('touch-panels');
+                        const matchingBox = modularBoxes.find(b => b.panelId === selectedPanelId);
+                        if (matchingBox) setActiveModulerBox(matchingBox.id);
+                      }}
+                      className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 border cursor-pointer flex items-center justify-center gap-2 select-none ${
+                        selectedCategory === 'touch-panels'
+                          ? 'bg-black text-white border-black shadow-sm'
+                          : 'bg-[#F9FAFB] hover:bg-gray-100 text-slate-700 border-gray-200'
+                      }`}
+                    >
+                      <Sliders className="w-3.5 h-3.5" />
+                      <span>Touch Panels</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedCategory('sockets');
+                        setActiveModulerBox('');
+                      }}
+                      className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 border cursor-pointer flex items-center justify-center gap-2 select-none ${
+                        selectedCategory === 'sockets'
+                          ? 'bg-black text-white border-black shadow-sm'
+                          : 'bg-[#F9FAFB] hover:bg-gray-100 text-slate-700 border-gray-200'
+                      }`}
+                    >
+                      <Zap className="w-3.5 h-3.5" />
+                      <span>Sockets</span>
+                    </button>
                   </div>
-                </div>
 
-                {/* ── Product Board Image Positioned Down Side ── */}
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-gray-200/80 bg-black group w-full h-80 sm:h-96 lg:h-[430px] flex flex-col justify-end">
-                  <img 
-                    src={activeItem.img} 
-                    alt={activeItem.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {touchPanelsCount > 0 && socketsCount > 0 && (
-                    <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md">
-                      <Sparkles className="w-3.5 h-3.5 text-brand-red animate-pulse" />
-                      <span>Hybrid Touch Switch & Smart Socket Board</span>
+                  {/* Sub-Options based on Selected Category */}
+                  {selectedCategory === 'touch-panels' ? (
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                        <span>Touch Panel Models</span>
+                        <span className="text-[10px] font-semibold text-gray-400">7 Options</span>
+                      </label>
+                      <div className="relative mb-2.5">
+                        <select
+                          value={selectedPanelId}
+                          onChange={(e) => {
+                            const id = e.target.value;
+                            setSelectedPanelId(id);
+                            const matchingBox = modularBoxes.find(b => b.panelId === id);
+                            if (matchingBox) setActiveModulerBox(matchingBox.id);
+                            const panel = modularOptions.find(p => p.id === id);
+                            if (panel) {
+                              setInquiryForm(prev => ({
+                                ...prev,
+                                automationFor: `${panel.name} Setup`
+                              }));
+                            }
+                          }}
+                          className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
+                        >
+                          {modularOptions.map((opt) => (
+                            <option key={opt.id} value={opt.id}>
+                              {opt.name}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      </div>
+
+                      {/* Column-wise / compact small options buttons (Request 3 & 5) */}
+                      <div className="grid grid-cols-4 gap-1.5">
+                        {modularOptions.map((opt) => {
+                          const isSelected = selectedPanelId === opt.id;
+                          return (
+                            <button
+                              key={opt.id}
+                              type="button"
+                              onClick={() => {
+                                setSelectedPanelId(opt.id);
+                                const matchingBox = modularBoxes.find(b => b.panelId === opt.id);
+                                if (matchingBox) setActiveModulerBox(matchingBox.id);
+                                setInquiryForm(prev => ({
+                                  ...prev,
+                                  automationFor: `${opt.name} Setup`
+                                }));
+                              }}
+                              className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all border cursor-pointer text-center truncate ${
+                                isSelected
+                                  ? 'bg-black text-white border-black shadow-xs'
+                                  : 'bg-white hover:bg-gray-50 text-slate-700 border-gray-200'
+                              }`}
+                            >
+                              {opt.name}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                        <span>Socket Models</span>
+                        <span className="text-[10px] font-semibold text-gray-400">4 Options</span>
+                      </label>
+                      <div className="relative mb-2.5">
+                        <select
+                          value={selectedSocketId}
+                          onChange={(e) => {
+                            const id = e.target.value;
+                            setSelectedSocketId(id);
+                            const socket = socketOptions.find(s => s.id === id);
+                            if (socket) {
+                              setInquiryForm(prev => ({
+                                ...prev,
+                                automationFor: `${socket.name} Setup`
+                              }));
+                            }
+                          }}
+                          className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
+                        >
+                          {socketOptions.map((opt) => (
+                            <option key={opt.id} value={opt.id}>
+                              {opt.name}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      </div>
+
+                      {/* Column-wise / compact small options buttons for sockets */}
+                      <div className="grid grid-cols-4 gap-1.5">
+                        {socketOptions.map((opt) => {
+                          const isSelected = selectedSocketId === opt.id;
+                          return (
+                            <button
+                              key={opt.id}
+                              type="button"
+                              onClick={() => {
+                                setSelectedSocketId(opt.id);
+                                setInquiryForm(prev => ({
+                                  ...prev,
+                                  automationFor: `${opt.name} Setup`
+                                }));
+                              }}
+                              className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all border cursor-pointer text-center truncate ${
+                                isSelected
+                                  ? 'bg-black text-white border-black shadow-xs'
+                                  : 'bg-white hover:bg-gray-50 text-slate-700 border-gray-200'
+                              }`}
+                            >
+                              {opt.name}
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
-                  <div className="relative z-10 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-5 text-white">
-                    <span className="text-[11px] sm:text-xs font-bold text-[#52B74B] uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#52B74B] animate-pulse"></span>
-                      {touchPanelsCount > 0 && socketsCount > 0 ? `${touchPanelsCount} Touch Panels + ${socketsCount} Sockets Board` : activeItem.name}
+                </div>
+
+                {/* Active Model Highlights Card */}
+                <div className="p-4 rounded-2xl bg-white border border-gray-200/80 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Active Standard</span>
+                    <span className="text-xs font-bold text-brand-red bg-red-50 px-2.5 py-0.5 rounded-full border border-red-100">
+                      {activeItem.name}
                     </span>
-                    <h4 className="text-base sm:text-lg font-extrabold text-white leading-tight">
-                      {activeItem.title}
-                    </h4>
-                    <span className="text-[11px] text-gray-300 mt-1 block">
-                      {activeItem.boxSize} • Toughened Crystal Glass
-                    </span>
+                  </div>
+                  <div className="text-xs text-slate-700 font-semibold space-y-2 pt-2 border-t border-gray-100">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-400">Standard Box:</span>
+                      <span className="text-slate-800 font-bold">{activeItem.boxSize}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-400">Plate Material:</span>
+                      <span className="text-slate-800 font-bold">4mm Toughened Crystal Glass</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-400">Warranty:</span>
+                      <span className="text-emerald-600 font-bold">5-Year Comprehensive</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* RIGHT SIDE: Smart Home Automation Information & Socket Specs */}
-              <div className="w-full lg:w-7/12 flex flex-col justify-between">
+              <div className="w-full lg:w-8/12 xl:w-[65%] flex flex-col justify-between">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black text-white text-xs font-bold shadow-xs">
@@ -718,13 +628,7 @@ export function RetrofitTouchPanels() {
                     </div>
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
                       <Zap className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>
-                        {touchPanelsCount > 0 && socketsCount > 0 
-                          ? `Both Options Active (${socketsCount} Smart Socket${socketsCount > 1 ? 's' : ''} Included)`
-                          : socketsCount > 0 
-                          ? `${socketsCount} Smart Socket${socketsCount > 1 ? 's' : ''} Included` 
-                          : 'Pure Touch Plate (0 Sockets)'}
-                      </span>
+                      <span>{selectedCategory === 'touch-panels' ? 'Capacitive Glass Touch Plate' : 'Heavy-Duty Smart Socket'}</span>
                     </div>
                   </div>
 
