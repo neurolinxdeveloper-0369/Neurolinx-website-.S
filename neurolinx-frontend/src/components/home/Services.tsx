@@ -20,7 +20,7 @@ export function Services() {
       features: ["Safe & continuous", "405nm visible light", "For hospitals & cleanrooms"]
     },
     {
-      title: "Advanced Railways",
+      title: "Railways",
       desc: "RDSO-standard Fog Pass devices, signaling controllers, and rolling stock LED coach lighting systems.",
       img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "/railways",
@@ -47,14 +47,6 @@ export function Services() {
       features: ["DLMS smart grid analytics", "Edge telemetry gateways", "Predictive load monitoring"]
     },
     {
-      title: "Fab Foundry Services",
-      desc: "State-of-the-art cleanroom silicon wafer fabrication, 2.5D/3D chiplet packaging, and automated inspection.",
-      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      linkUrl: "/fab-foundry",
-      buttonText: "Explore Solution",
-      features: ["Wafer processing", "Advanced 2.5D/3D packaging", "ISO Class 1 cleanrooms"]
-    },
-    {
       title: "Chip-Level Designing",
       desc: "End-to-end silicon design, ASIC/FPGA prototyping, RTL architecture, and post-silicon physical verification.",
       img: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -73,7 +65,7 @@ export function Services() {
     {
       title: "POS Applications",
       desc: "Secure embedded payment terminal kernels, PCI-PTS compliant transaction software, and cloud fleet telemetry.",
-      img: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80",
       linkUrl: "/pos-application",
       buttonText: "Explore Solution",
       features: ["PCI-PTS compliance", "Omnichannel EMV & UPI", "OTA terminal fleet management"]
@@ -85,7 +77,7 @@ export function Services() {
       {/* Subtle ambient crimson nebula glow matching hero section */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-brand-red/[0.08] rounded-full blur-[160px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -105,7 +97,7 @@ export function Services() {
             <div className="w-8 h-1 bg-brand-red rounded-full"></div>
             <h3 className="text-xl font-bold text-white tracking-tight">Our Products</h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => (
               <FlipCard key={`product-${index}`} {...product} />
             ))}
@@ -118,7 +110,7 @@ export function Services() {
             <div className="w-8 h-1 bg-brand-red rounded-full"></div>
             <h3 className="text-xl font-bold text-white tracking-tight">Our Solutions</h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <FlipCard key={`service-${index}`} {...service} />
             ))}
