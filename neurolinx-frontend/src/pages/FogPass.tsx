@@ -30,7 +30,9 @@ import {
   ChevronRight,
   ChevronDown,
   PlusCircle,
-  FileText
+  FileText,
+  WifiOff,
+  Train
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -59,40 +61,17 @@ export function FogPass() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Top Regulatory Advisory Notice Banner ── */}
-      <div className="bg-[#0B132B] text-slate-300 pt-24 pb-2.5 px-4 text-xs font-medium border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-center sm:text-left">
-          <div className="flex items-center justify-center gap-2 mx-auto sm:mx-0">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
-            </span>
-            <span className="text-white font-semibold">Indian Railways Standalone Pilot Advisory</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-amber-400 font-medium">RDSO/SPN/201/2010 Ver 3.0 Rev 1 Requirements</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-slate-300">Non-Vital Assistance System</span>
-          </div>
-          <div className="hidden lg:flex items-center gap-6 text-slate-400">
-            <a href="tel:+917013486961" className="hover:text-white flex items-center gap-1.5 transition-colors">
-              <PhoneCall className="w-3.5 h-3.5 text-brand-red" />
-              <span>Railway Engineering Division: +91 7013486961</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* ── Slide 1: Hero Banner (Indian Railways Locomotive Cab with Cyan Tech Typography) ── */}
       <div 
         id="hero"
         style={{ minHeight: 'calc(100vh + 1.5cm)' }}
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-20 pb-16"
+        className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
       >
         {/* Real Indian Railways Locomotive Cab Background - High Visibility & Extra Brightness */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/media/fogpass_hero_cab.png"
-            alt="Locomotive Pilots inside Indian Railway Cab in dense fog"
+            src="/media/fogpass_hero_4k.jpg"
+            alt="Modern Indian Railways locomotive cutting through dense winter fog"
             className="w-full h-full object-cover object-center opacity-100 brightness-110 contrast-105 filter"
           />
           {/* Subtle soft directional gradient to make the cyan & white typography pop with 100% clarity */}
@@ -134,24 +113,6 @@ export function FogPass() {
                 <span className="w-2.5 h-2.5 rounded-full bg-[#00E5FF] shadow-[0_0_10px_#00E5FF] group-hover:animate-ping"></span>
               </a>
               <span className="text-xs text-cyan-300 font-mono tracking-wide">Loco Pilot Navigation Assistance</span>
-            </div>
-
-            {/* Explore Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#about-fogpass"
-                className="px-7 py-3.5 bg-brand-red hover:bg-red-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow-xl shadow-brand-red/30 transition-all flex items-center gap-2 group cursor-pointer"
-              >
-                <span>Explore FogPASS System</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#features"
-                className="px-7 py-3.5 bg-black/60 hover:bg-black/80 text-cyan-300 border border-cyan-400/40 rounded-xl font-semibold text-xs sm:text-sm backdrop-blur-md transition-all flex items-center gap-2 cursor-pointer shadow-lg"
-              >
-                <Sliders className="w-4 h-4 text-cyan-400" />
-                <span>Smart Features</span>
-              </a>
             </div>
 
           </div>
@@ -279,69 +240,130 @@ export function FogPass() {
               </div>
             </div>
 
-            {/* Right: Detailed Professional Product Description */}
+            {/* Right: Best Highlights & Operational Capabilities (Clear, Practical, No Theory) */}
             <div className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-brand-red text-xs font-bold tracking-wider uppercase mb-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-brand-red text-xs font-bold tracking-wider uppercase mb-4">
                 <Navigation className="w-3.5 h-3.5 text-brand-red" />
-                <span>Loco Pilot Assistance Architecture</span>
+                <span>Zero-Visibility Rail Navigation</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4 tracking-tight leading-tight">
-                Portable, Standalone Situational Awareness for Railway Loco Pilots.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-3 tracking-tight leading-tight">
+                Real-Time Track Vision in Dense Fog &amp; Extreme Weather.
               </h2>
 
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-4">
-                <strong className="text-slate-900 font-bold">FogPASS</strong> is a portable, standalone, non-vital driver assistance system designed to assist Loco Pilots in identifying approaching railway landmarks during adverse weather, particularly dense fog and low-visibility winter operations.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                FogPASS acts as an intelligent virtual co-pilot inside the locomotive cab. It predicts approaching signals, level crossings, and track hazards with pinpoint satellite accuracy—enabling drivers to run safely on schedule during near-zero visibility.
               </p>
 
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                Utilizing high-precision multi-constellation GNSS including India's indigenous NavIC satellite system, FogPASS reads pre-mapped geographical track coordinates and delivers dual audio-visual pre-warnings before signals, level crossings, turnouts, and neutral sections. It operates independently without requiring any electrical or pneumatic connection to the locomotive braking or signaling systems.
-              </p>
+              {/* 4 Key Performance Metrics */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mb-6">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
+                  <div className="w-8 h-8 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-2">
+                    <Volume2 className="w-4 h-4" />
+                  </div>
+                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">500 m</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Advance Voice Alert</div>
+                </div>
 
-              {/* Core System Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mb-7">
-                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-700 font-medium">Standalone operation with internal battery backup of 14+ hours.</span>
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
+                  <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-2">
+                    <Compass className="w-4 h-4" />
+                  </div>
+                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">NavIC + GPS</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Dual Satellite Fix</div>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-700 font-medium">Clear audible speech in both English and Hindi languages.</span>
+
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
+                    <BatteryCharging className="w-4 h-4" />
+                  </div>
+                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">18+ Hrs</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">LiFePO4 Battery</div>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-700 font-medium">Automatic route detection with mandatory driver confirmation.</span>
+
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-2">
+                    <Zap className="w-4 h-4" />
+                  </div>
+                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">100%</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Standalone Unit</div>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-700 font-medium">Engineered to meet RDSO/SPN/201/2010 Ver 3.0 Rev 1 requirements.</span>
+              </div>
+
+              {/* 4 Practical High-Impact Highlights (No heavy theory) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full mb-7">
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
+                  <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Prevents SPAD &amp; Overshoots</h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Loud bilingual (Hindi + English) audio callouts ensure drivers never miss a distant or stop signal.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
+                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <Gauge className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Maintains Normal Train Speeds</h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Eliminates blind crawling during North Indian winter fog, drastically reducing passenger train delays.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
+                  <div className="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">3-Landmark Distance Ladder</h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Continuously counts down meters to upcoming signals, level crossing gates, neutral sections, and turnouts.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
+                  <div className="w-7 h-7 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <Eye className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Anti-Glare Day &amp; Night Screen</h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      High-visibility sunlight-readable display with automatic dimming to eliminate driver eye-strain at night.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 mb-6">
+              <div className="flex flex-wrap items-center gap-3 w-full">
                 <a
                   href="#how-it-works"
-                  className="px-7 py-3.5 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
+                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
                 >
-                  <span>See How FogPASS Works</span>
+                  <span>See How It Works</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
                   href="#features"
-                  className="px-7 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm"
+                  className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm"
                 >
                   <Sliders className="w-4 h-4 text-brand-red" />
-                  <span>Explore Smart Features</span>
+                  <span>Smart Features</span>
                 </a>
-              </div>
-
-              {/* Regulatory Advisory */}
-              <div className="w-full p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2.5 shadow-xs">
-                <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                <span>
-                  <strong className="font-semibold text-amber-950">Regulatory Advisory:</strong> FogPASS is a non-vital assistance system and does not replace prescribed railway operating procedures or Loco Pilot track vigilance.
-                </span>
+                <a
+                  href="#inquiry"
+                  className="px-6 py-3 bg-slate-900 hover:bg-black text-white rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm sm:ml-auto"
+                >
+                  <span>Request Specs</span>
+                  <ChevronRight className="w-4 h-4 text-cyan-400" />
+                </a>
               </div>
             </div>
 
@@ -624,6 +646,103 @@ export function FogPass() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </div>
+
+      {/* ── Section: Why FogPASS Matters (Full Slide with Premium 4K Railway Background) ── */}
+      <div 
+        id="why-fogpass-matters" 
+        style={{ minHeight: '100vh' }}
+        className="relative w-full overflow-hidden bg-[#050B14] min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-8 border-b border-cyan-950/40"
+      >
+        {/* Premium 4K Cinematic Electrified Railway Corridor Background in Fog - High Clarity & Extra Brightness */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/media/why_fogpass_bg.jpg"
+            alt="Electrified railway corridor with reflective rails and signal lamps in dense winter fog"
+            className="w-full h-full object-cover object-center opacity-100 brightness-125 contrast-110 filter"
+          />
+          {/* Subtle soft gradient ensuring the background tracks & signals shine through clearly while keeping text crisp */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
+        </div>
+
+        {/* Ambient Cyan & Blue Radial Light Glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          {/* Header */}
+          <div className="mb-12 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-400/40 bg-cyan-950/60 backdrop-blur-md text-xs font-mono font-bold text-[#00A3FF] uppercase tracking-widest mb-4 shadow-[0_0_12px_rgba(0,163,255,0.2)]">
+              <span className="w-2 h-2 rounded-full bg-[#00A3FF] animate-pulse"></span>
+              <span>KEY HIGHLIGHTS</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white tracking-tight mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              Why FogPASS Matters
+            </h2>
+
+            <p className="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed drop-shadow-[0_1px_5px_rgba(0,0,0,0.7)]">
+              FogPASS strengthens railway safety by assisting pilots with dependable route awareness during dense fog conditions where visibility is significantly reduced.
+            </p>
+          </div>
+
+          {/* 4 Feature Cards Grid with Glassmorphic Styling */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Card 1: GPS Based */}
+            <div className="bg-[#081220]/80 backdrop-blur-md border border-white/10 hover:border-cyan-400/50 rounded-2xl p-7 flex flex-col items-center text-center shadow-2xl hover:shadow-[0_0_25px_rgba(0,163,255,0.15)] hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-2xl bg-[#0C1A2E]/90 border border-white/10 flex items-center justify-center text-[#00A3FF] mb-6 group-hover:scale-105 group-hover:border-cyan-400/50 transition-all shadow-inner">
+                <Radio className="w-6 h-6 text-[#00A3FF]" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-3 tracking-wide group-hover:text-cyan-300 transition-colors">
+                GPS Based
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Reliable route positioning and navigation support through GPS-based operation.
+              </p>
+            </div>
+
+            {/* Card 2: Offline Working */}
+            <div className="bg-[#081220]/80 backdrop-blur-md border border-white/10 hover:border-cyan-400/50 rounded-2xl p-7 flex flex-col items-center text-center shadow-2xl hover:shadow-[0_0_25px_rgba(0,163,255,0.15)] hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-2xl bg-[#0C1A2E]/90 border border-white/10 flex items-center justify-center text-[#00A3FF] mb-6 group-hover:scale-105 group-hover:border-cyan-400/50 transition-all shadow-inner">
+                <WifiOff className="w-6 h-6 text-[#00A3FF]" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-3 tracking-wide group-hover:text-cyan-300 transition-colors">
+                Offline Working
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Operates without internet, making it practical for remote and difficult rail sections.
+              </p>
+            </div>
+
+            {/* Card 3: Audio Alerts */}
+            <div className="bg-[#081220]/80 backdrop-blur-md border border-white/10 hover:border-cyan-400/50 rounded-2xl p-7 flex flex-col items-center text-center shadow-2xl hover:shadow-[0_0_25px_rgba(0,163,255,0.15)] hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-2xl bg-[#0C1A2E]/90 border border-white/10 flex items-center justify-center text-[#00A3FF] mb-6 group-hover:scale-105 group-hover:border-cyan-400/50 transition-all shadow-inner">
+                <Volume2 className="w-6 h-6 text-[#00A3FF]" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-3 tracking-wide group-hover:text-cyan-300 transition-colors">
+                Audio Alerts
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Provides visual and audio-based indications for better pilot awareness and decision support.
+              </p>
+            </div>
+
+            {/* Card 4: Railway Proven */}
+            <div className="bg-[#081220]/80 backdrop-blur-md border border-white/10 hover:border-cyan-400/50 rounded-2xl p-7 flex flex-col items-center text-center shadow-2xl hover:shadow-[0_0_25px_rgba(0,163,255,0.15)] hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-2xl bg-[#0C1A2E]/90 border border-white/10 flex items-center justify-center text-[#00A3FF] mb-6 group-hover:scale-105 group-hover:border-cyan-400/50 transition-all shadow-inner">
+                <Train className="w-6 h-6 text-[#00A3FF]" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-3 tracking-wide group-hover:text-cyan-300 transition-colors">
+                Railway Proven
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Widely deployed and aligned for practical usage across Indian railway operations.
+              </p>
+            </div>
           </div>
         </div>
       </div>
