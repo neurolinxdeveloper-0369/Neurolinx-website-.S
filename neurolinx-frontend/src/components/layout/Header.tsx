@@ -177,7 +177,7 @@ export function Header() {
           path: "/home-automation#products-catalog", 
           hasArrow: true,
           subItems: [
-            { name: "Universal IR Blaster (360°)", path: "/home-automation#products-catalog" },
+            { name: "Universal IR Blaster (360°)", path: "/universal-ir-blaster" },
             { name: "Smart AC Climate Control", path: "/home-automation#products-catalog" },
             { name: "Home Theatre & Audio Sync", path: "/home-automation#products-catalog" },
           ]
@@ -201,6 +201,36 @@ export function Header() {
             { name: "2-Way & Multi-Way Mesh", path: "/home-automation#products-catalog" },
             { name: "Master Bedroom & Entry Control", path: "/home-automation#products-catalog" },
             { name: "Local Wireless Synchronization", path: "/home-automation#products-catalog" },
+          ]
+        },
+        { 
+          name: "Energy Intelligence", 
+          path: "/smart-energy-meters", 
+          hasArrow: true,
+          subItems: [
+            { name: "1-? & 3-? Smart Energy Meters", path: "/smart-energy-meters" },
+            { name: "Solar Net Metering & Analytics", path: "/smart-energy-meters#solar-net-metering" },
+            { name: "DLMS/COSEM IoT Gateways", path: "/smart-energy-meters" },
+          ]
+        },
+        { 
+          name: "Water Intelligence", 
+          path: "/smart-water-control", 
+          hasArrow: true,
+          subItems: [
+            { name: "Smart Water Control System", path: "/smart-water-control" },
+            { name: "Ultrasonic Tank Automation", path: "/smart-water-control#systems" },
+            { name: "Dual-Tank & Sump Interlock", path: "/smart-water-control#dual-tank-system" },
+          ]
+        },
+        { 
+          name: "Curtains & Shading", 
+          path: "/motorized-smart-curtains", 
+          hasArrow: true,
+          subItems: [
+            { name: "Motorized Smart Curtains", path: "/motorized-smart-curtains" },
+            { name: "Dual-Track Drapery Systems", path: "/motorized-smart-curtains#tracks" },
+            { name: "Motorized Roller Blinds", path: "/motorized-smart-curtains#tracks" },
           ]
         },
         { name: "Smart Node Application", path: "/home-automation#products-catalog" },
@@ -357,7 +387,7 @@ export function Header() {
               type="button"
               onClick={() => setProductsDropdown(prev => !prev)}
               className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
-                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/non-uv-disinfection', '/railways', '/power-supply'].includes(location.pathname)
+                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/universal-ir-blaster', '/non-uv-disinfection', '/railways', '/power-supply'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}

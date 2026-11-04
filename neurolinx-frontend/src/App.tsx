@@ -46,6 +46,10 @@ function HomePage() {
 // High-speed Route Code-Splitting: Lazy load secondary pages
 const HomeAutomation = lazy(() => import('./pages/HomeAutomation').then(m => ({ default: m.HomeAutomation })));
 const RetrofitTouchPanels = lazy(() => import('./pages/RetrofitTouchPanels').then(m => ({ default: m.RetrofitTouchPanels })));
+const UniversalIrBlaster = lazy(() => import('./pages/UniversalIrBlaster').then(m => ({ default: m.UniversalIrBlaster })));
+const SmartEnergyMeters = lazy(() => import('./pages/SmartEnergyMeters').then(m => ({ default: m.SmartEnergyMeters })));
+const SmartWaterControl = lazy(() => import('./pages/SmartWaterControl').then(m => ({ default: m.SmartWaterControl })));
+const MotorizedSmartCurtains = lazy(() => import('./pages/MotorizedSmartCurtains').then(m => ({ default: m.MotorizedSmartCurtains })));
 const NonUvDisinfection = lazy(() => import('./pages/NonUvDisinfection').then(m => ({ default: m.NonUvDisinfection })));
 const Railways = lazy(() => import('./pages/Railways').then(m => ({ default: m.Railways })));
 const FogPass = lazy(() => import('./pages/FogPass').then(m => ({ default: m.FogPass })));
@@ -98,6 +102,14 @@ function App() {
               <Route path="/home-automation" element={<HomeAutomation />} />
               <Route path="/retrofit-touch-panels" element={<RetrofitTouchPanels />} />
               <Route path="/products/retrofit-touch-panels" element={<RetrofitTouchPanels />} />
+              <Route path="/universal-ir-blaster" element={<UniversalIrBlaster />} />
+              <Route path="/products/universal-ir-blaster" element={<UniversalIrBlaster />} />
+              <Route path="/smart-energy-meters" element={<SmartEnergyMeters />} />
+              <Route path="/products/smart-energy-meters" element={<SmartEnergyMeters />} />
+              <Route path="/smart-water-control" element={<SmartWaterControl />} />
+              <Route path="/products/smart-water-control" element={<SmartWaterControl />} />
+              <Route path="/motorized-smart-curtains" element={<MotorizedSmartCurtains />} />
+              <Route path="/products/motorized-smart-curtains" element={<MotorizedSmartCurtains />} />
               <Route path="/non-uv-disinfection" element={<NonUvDisinfection />} />
               <Route path="/railways" element={<Railways />} />
               <Route path="/fog-pass" element={<FogPass />} />

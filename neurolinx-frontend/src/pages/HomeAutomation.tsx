@@ -100,7 +100,7 @@ export function HomeAutomation() {
       title: "Universal IR Blaster",
       tagline: "360° Smart Infrared Controller",
       desc: "Consolidate 10+ remote controls into your smartphone and voice. Control all your Air Conditioners, Televisions, Set-Top Boxes, and Home Theatres with omnidirectional 360° infrared coverage.",
-      img: "/media/ir_remotes.jpg?v=2",
+      img: "/media/universal_ir_blaster_hero.jpg",
       badge: "Universal Remote",
       features: [
         "360° high-power omnidirectional infrared emission",
@@ -113,7 +113,7 @@ export function HomeAutomation() {
       title: "1-ϕ & 3-ϕ Smart Energy Meters",
       tagline: "Single & Three-Phase Monitoring",
       desc: "Industrial-grade precision smart power meters for residential villas, commercial panels, and apartments. Monitor real-time voltage, current, power factor, and cumulative kWh consumption.",
-      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80&auto=format&fit=crop",
+      img: "/media/smart_energy_meter_single_phase.jpg",
       badge: "Power Intelligence",
       features: [
         "Single-Phase (1-ϕ) and Three-Phase (3-ϕ) models",
@@ -128,7 +128,7 @@ export function HomeAutomation() {
       title: "Smart Water Control System",
       tagline: "Tank Level & Automatic Pump Controller",
       desc: "Fully automated overhead tank and sump water management. Features ultrasonic non-contact water level sensing, dry-run pump protection, and automatic high/low level motor triggering.",
-      img: "/media/smart_water_tank.jpg",
+      img: "/media/smart_water_control_hero.jpg?v=2",
       badge: "Automated Utility",
       features: [
         "Ultrasonic non-contact overhead & underground sump sensing",
@@ -143,7 +143,7 @@ export function HomeAutomation() {
       title: "Motorized Smart Curtains",
       tagline: "Automated Sunlight & Privacy Control",
       desc: "Ultra-quiet motorized curtain rails and roller blind controllers. Automatically harvest natural daylight by opening at sunrise and closing at dusk, or control slider percentages from anywhere.",
-      img: "/media/smart_curtains.jpg",
+      img: "/media/smart_curtains_hero.jpg?v=2",
       badge: "Comfort Living",
       features: [
         "Whisper-quiet dual motor drives (<25dB operation)",
@@ -315,6 +315,10 @@ export function HomeAutomation() {
             <div className="w-full lg:w-[75.5%] xl:w-[76%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-2.5">
               {coreProducts.map((prod) => {
                 const isSwitches = prod.id === 'smart-switches';
+                const isIrBlaster = prod.id === 'ir-blaster';
+                const isEnergyMeters = prod.id === 'energy-meters';
+                const isWaterControl = prod.id === 'water-control';
+                const isSmartCurtains = prod.id === 'smart-curtains';
                 const cardContent = (
                   <>
                     <div className="relative h-52 sm:h-60 lg:h-[268px] w-full p-2.5 sm:p-3 overflow-hidden">
@@ -345,6 +349,38 @@ export function HomeAutomation() {
                   >
                     {cardContent}
                   </Link>
+                ) : isIrBlaster ? (
+                  <Link 
+                    key={prod.id}
+                    to="/universal-ir-blaster"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : isEnergyMeters ? (
+                  <Link 
+                    key={prod.id}
+                    to="/smart-energy-meters"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : isWaterControl ? (
+                  <Link 
+                    key={prod.id}
+                    to="/smart-water-control"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : isSmartCurtains ? (
+                  <Link 
+                    key={prod.id}
+                    to="/motorized-smart-curtains"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </Link>
                 ) : (
                   <a 
                     key={prod.id}
@@ -366,10 +402,10 @@ export function HomeAutomation() {
         <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#F8F9FA] rounded-[32px] md:rounded-[40px] border border-gray-100 p-8 sm:p-12 lg:p-16 shadow-sm">
             
-            {/* Top Category Heading: One Smart Control in light green with underline */}
+            {/* Top Category Heading: One Smart Control in company logo red with underline */}
             <div className="text-center mb-10 md:mb-14">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight inline-block">
-                <span className="text-[#6bb85c] border-b-2 border-[#6bb85c] pb-1">
+                <span className="text-brand-red border-b-2 border-brand-red pb-1">
                   One Smart Control
                 </span>
               </h2>
@@ -389,12 +425,12 @@ export function HomeAutomation() {
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
                   Enjoy intelligent convenience, centralized control, and seamless comfort — all designed to make everyday living simpler.
                 </p>
-                <a 
-                  href="#faq"
-                  className="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-brand-red transition-all shadow-sm hover:shadow-md"
+                <Link 
+                  to="/universal-ir-blaster"
+                  className="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-brand-red transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
                   View More
-                </a>
+                </Link>
               </div>
 
               {/* Right Column: Product Card matching reference design */}
@@ -417,12 +453,12 @@ export function HomeAutomation() {
 
                   {/* Card Button */}
                   <div className="pt-2">
-                    <a 
-                      href="#faq"
-                      className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-black text-white text-xs sm:text-sm font-semibold hover:bg-brand-red transition-colors shadow-sm"
+                    <Link 
+                      to="/universal-ir-blaster"
+                      className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-black text-white text-xs sm:text-sm font-semibold hover:bg-brand-red transition-colors shadow-sm cursor-pointer"
                     >
                       View More
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

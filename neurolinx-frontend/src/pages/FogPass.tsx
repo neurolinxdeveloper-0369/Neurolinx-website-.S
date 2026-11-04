@@ -80,18 +80,18 @@ export function FogPass() {
           <div className="max-w-3xl flex flex-col items-start text-left">
             
             {/* Pill Badge: RAILWAY SAFETY · NAVIGATION · GPS */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/60 bg-cyan-950/40 text-[#00E5FF] text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(0,229,255,0.25)]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-red/60 bg-red-950/40 text-red-400 text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(224,0,27,0.25)]">
               <span>RAILWAY SAFETY</span>
-              <span className="text-cyan-400/60">•</span>
+              <span className="text-brand-red">•</span>
               <span>NAVIGATION</span>
-              <span className="text-cyan-400/60">•</span>
+              <span className="text-brand-red">•</span>
               <span>GPS</span>
             </div>
 
             {/* Heading: FogPASS in White + Details in Vivid Neon Cyan */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               <span className="text-white">FogPASS </span>
-              <span className="text-[#00C2FF] drop-shadow-[0_0_25px_rgba(0,194,255,0.45)]">Details</span>
+              <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
             </h1>
 
             {/* Subtitle Description */}
@@ -104,11 +104,11 @@ export function FogPass() {
               <a 
                 href="#about-fogpass" 
                 aria-label="Scroll to About FogPASS"
-                className="w-8 h-8 rounded-full border-2 border-cyan-400/80 flex items-center justify-center bg-cyan-950/60 backdrop-blur-sm hover:scale-110 transition-transform group cursor-pointer shadow-[0_0_12px_rgba(0,229,255,0.4)]"
+                className="w-8 h-8 rounded-full border-2 border-brand-red/80 flex items-center justify-center bg-red-950/60 backdrop-blur-sm hover:scale-110 transition-transform group cursor-pointer shadow-[0_0_12px_rgba(224,0,27,0.4)]"
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#00E5FF] shadow-[0_0_10px_#00E5FF] group-hover:animate-ping"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-red shadow-[0_0_10px_#E0001B] group-hover:animate-ping"></span>
               </a>
-              <span className="text-xs text-cyan-300 font-mono tracking-wide">Loco Pilot Navigation Assistance</span>
+              <span className="text-xs text-red-300 font-mono tracking-wide">Loco Pilot Navigation Assistance</span>
             </div>
 
           </div>
@@ -121,7 +121,7 @@ export function FogPass() {
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
           >
             <span>Scroll to Explore</span>
-            <ChevronDown className="w-3.5 h-3.5 text-cyan-400 animate-bounce" />
+            <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
           </a>
         </div>
       </div>
@@ -192,7 +192,7 @@ export function FogPass() {
                     FogPASS VERSION 2.0
                   </h3>
                   
-                  <p className="text-xs sm:text-sm font-bold text-[#00A3FF] mt-1 mb-2.5">
+                  <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1 mb-2.5">
                     (Fog Pilot Assistance System for Safety Version 2.0)
                   </p>
 
@@ -202,10 +202,10 @@ export function FogPass() {
 
                   <div className="flex items-center gap-3 mb-5">
                     <a
-                      href="#how-it-works"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#00A3FF] to-[#00D4FF] hover:brightness-105 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all cursor-pointer"
+                      href="#features"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
                     >
-                      <PlusCircle className="w-4 h-4 text-slate-950" />
+                      <PlusCircle className="w-4 h-4 text-white" />
                       <span>Read More</span>
                     </a>
                   </div>
@@ -352,7 +352,7 @@ export function FogPass() {
                   className="px-6 py-3 bg-slate-900 hover:bg-black text-white rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm sm:ml-auto"
                 >
                   <span>Have Questions?</span>
-                  <ChevronRight className="w-4 h-4 text-cyan-400" />
+                  <ChevronRight className="w-4 h-4 text-white" />
                 </a>
               </div>
             </div>
