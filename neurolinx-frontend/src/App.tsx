@@ -121,6 +121,9 @@ function App() {
               <Route path="/railways/fog-pass" element={<FogPass />} />
               <Route path="/wind-solar" element={<WindSolar />} />
               <Route path="/power-supply" element={<PowerSupply />} />
+              <Route path="/products/power-supply" element={<PowerSupply />} />
+              <Route path="/power-supply-drivers" element={<PowerSupply />} />
+              <Route path="/products/power-supply-drivers" element={<PowerSupply />} />
               <Route path="/chip-level-design" element={<ChipLevelDesign />} />
               <Route path="/fab-foundry" element={<FabFoundry />} />
               <Route path="/robotics" element={<Robotics />} />
