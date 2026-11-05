@@ -233,6 +233,16 @@ export function Header() {
             { name: "Motorized Roller Blinds", path: "/motorized-smart-curtains#tracks" },
           ]
         },
+        { 
+          name: "Climate & Environmental", 
+          path: "/temperature-monitor", 
+          hasArrow: true,
+          subItems: [
+            { name: "Temperature Monitor & Alert Systems", path: "/temperature-monitor" },
+            { name: "Server Room & Data Center Climate", path: "/temperature-monitor#multi-zone" },
+            { name: "Automated Heat-Spike Sirens", path: "/temperature-monitor#alert-engine" },
+          ]
+        },
         { name: "Smart Node Application", path: "/home-automation#products-catalog" },
         { name: "Third-Party Integration", path: "/home-automation#products-catalog" },
         { name: "Accessories", path: "/home-automation#products-catalog" },

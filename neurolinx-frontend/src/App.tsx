@@ -50,6 +50,7 @@ const UniversalIrBlaster = lazy(() => import('./pages/UniversalIrBlaster').then(
 const SmartEnergyMeters = lazy(() => import('./pages/SmartEnergyMeters').then(m => ({ default: m.SmartEnergyMeters })));
 const SmartWaterControl = lazy(() => import('./pages/SmartWaterControl').then(m => ({ default: m.SmartWaterControl })));
 const MotorizedSmartCurtains = lazy(() => import('./pages/MotorizedSmartCurtains').then(m => ({ default: m.MotorizedSmartCurtains })));
+const TemperatureMonitor = lazy(() => import('./pages/TemperatureMonitor').then(m => ({ default: m.TemperatureMonitor })));
 const NonUvDisinfection = lazy(() => import('./pages/NonUvDisinfection').then(m => ({ default: m.NonUvDisinfection })));
 const Railways = lazy(() => import('./pages/Railways').then(m => ({ default: m.Railways })));
 const FogPass = lazy(() => import('./pages/FogPass').then(m => ({ default: m.FogPass })));
@@ -110,6 +111,10 @@ function App() {
               <Route path="/products/smart-water-control" element={<SmartWaterControl />} />
               <Route path="/motorized-smart-curtains" element={<MotorizedSmartCurtains />} />
               <Route path="/products/motorized-smart-curtains" element={<MotorizedSmartCurtains />} />
+              <Route path="/temperature-monitor" element={<TemperatureMonitor />} />
+              <Route path="/products/temperature-monitor" element={<TemperatureMonitor />} />
+              <Route path="/temperature-monitor-alert-systems" element={<TemperatureMonitor />} />
+              <Route path="/products/temperature-monitor-alert-systems" element={<TemperatureMonitor />} />
               <Route path="/non-uv-disinfection" element={<NonUvDisinfection />} />
               <Route path="/railways" element={<Railways />} />
               <Route path="/fog-pass" element={<FogPass />} />

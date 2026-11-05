@@ -158,7 +158,7 @@ export function HomeAutomation() {
       title: "Temperature Monitor & Alert Systems",
       tagline: "Environmental Sensors & Trigger Engine",
       desc: "High-precision ambient climate sensors monitoring room temperature and relative humidity. Automatically trigger AC cooling, dehumidifiers, or send instant heat-spike safety notifications.",
-      img: "/media/climate_energy.jpg",
+      img: "/media/temperature_monitor_hero.jpg",
       badge: "Climate & Safety",
       features: [
         "Precision Swiss temperature and relative humidity sensors",
@@ -319,6 +319,7 @@ export function HomeAutomation() {
                 const isEnergyMeters = prod.id === 'energy-meters';
                 const isWaterControl = prod.id === 'water-control';
                 const isSmartCurtains = prod.id === 'smart-curtains';
+                const isTempMonitor = prod.id === 'temp-monitor';
                 const cardContent = (
                   <>
                     <div className="relative h-52 sm:h-60 lg:h-[268px] w-full p-2.5 sm:p-3 overflow-hidden">
@@ -377,6 +378,14 @@ export function HomeAutomation() {
                   <Link 
                     key={prod.id}
                     to="/motorized-smart-curtains"
+                    className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : isTempMonitor ? (
+                  <Link 
+                    key={prod.id}
+                    to="/temperature-monitor"
                     className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
                   >
                     {cardContent}
