@@ -360,7 +360,7 @@ export function Railways() {
                     <div className="pt-3 flex items-center justify-between">
                       <span className="text-xs font-mono font-bold text-slate-600">500,000+ CANDELA LUX</span>
                       <Link 
-                        to="/coach-lighting"
+                        to="/indirect-coach-lighting"
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:underline"
                       >
                         <span>View Details</span>
@@ -396,7 +396,7 @@ export function Railways() {
 
                   <div className="flex flex-wrap items-center gap-3">
                     <Link 
-                      to="/coach-lighting"
+                      to="/indirect-coach-lighting"
                       className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-brand-red text-white text-sm font-semibold hover:bg-red-700 transition-all shadow-md shadow-brand-red/25 cursor-pointer gap-2"
                     >
                       <span>Explore Dedicated Coach Lighting Page</span>
@@ -535,7 +535,7 @@ export function Railways() {
             }
             if (prod.id === 'indirect-lighting') {
               return (
-                <Link key={prod.id} to="/coach-lighting" className="block h-full">
+                <Link key={prod.id} to="/indirect-coach-lighting" className="block h-full">
                   {cardInner}
                 </Link>
               );

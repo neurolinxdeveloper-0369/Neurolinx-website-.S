@@ -55,7 +55,8 @@ const NonUvDisinfection = lazy(() => import('./pages/NonUvDisinfection').then(m 
 const Railways = lazy(() => import('./pages/Railways').then(m => ({ default: m.Railways })));
 const FogPass = lazy(() => import('./pages/FogPass').then(m => ({ default: m.FogPass })));
 const SignalExchangers = lazy(() => import('./pages/SignalExchangers').then(m => ({ default: m.SignalExchangers })));
-const CoachLighting = lazy(() => import('./pages/CoachLighting').then(m => ({ default: m.CoachLighting })));
+const IndirectCoachLighting = lazy(() => import('./pages/IndirectCoachLighting').then(m => ({ default: m.IndirectCoachLighting })));
+const FootLamps = lazy(() => import('./pages/FootLamps').then(m => ({ default: m.FootLamps })));
 const WindSolar = lazy(() => import('./pages/WindSolar').then(m => ({ default: m.WindSolar })));
 const PowerSupply = lazy(() => import('./pages/PowerSupply').then(m => ({ default: m.PowerSupply })));
 const ChipLevelDesign = lazy(() => import('./pages/ChipLevelDesign').then(m => ({ default: m.ChipLevelDesign })));
@@ -124,13 +125,15 @@ function App() {
               <Route path="/signal-exchangers" element={<SignalExchangers />} />
               <Route path="/railways/signal-exchangers" element={<SignalExchangers />} />
               <Route path="/products/signal-exchangers" element={<SignalExchangers />} />
-              <Route path="/coach-lighting" element={<CoachLighting />} />
-              <Route path="/foot-lamps" element={<CoachLighting />} />
-              <Route path="/indirect-coach-lighting" element={<CoachLighting />} />
-              <Route path="/railways/coach-lighting" element={<CoachLighting />} />
-              <Route path="/railways/foot-lamps" element={<CoachLighting />} />
-              <Route path="/products/coach-lighting" element={<CoachLighting />} />
-              <Route path="/products/foot-lamps" element={<CoachLighting />} />
+              <Route path="/indirect-coach-lighting" element={<IndirectCoachLighting />} />
+              <Route path="/coach-lighting" element={<IndirectCoachLighting />} />
+              <Route path="/railways/indirect-coach-lighting" element={<IndirectCoachLighting />} />
+              <Route path="/railways/coach-lighting" element={<IndirectCoachLighting />} />
+              <Route path="/products/indirect-coach-lighting" element={<IndirectCoachLighting />} />
+              <Route path="/products/coach-lighting" element={<IndirectCoachLighting />} />
+              <Route path="/foot-lamps" element={<FootLamps />} />
+              <Route path="/railways/foot-lamps" element={<FootLamps />} />
+              <Route path="/products/foot-lamps" element={<FootLamps />} />
               <Route path="/wind-solar" element={<WindSolar />} />
               <Route path="/power-supply" element={<PowerSupply />} />
               <Route path="/products/power-supply" element={<PowerSupply />} />
