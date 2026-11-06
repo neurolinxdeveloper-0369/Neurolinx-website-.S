@@ -337,7 +337,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/coach_lighting_interior.jpg" 
+                  src="/media/coach_feature_ambient_optics.jpg" 
                   alt="Glare-Free Indirect Ambient Optics" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -357,7 +357,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/railway_coach_lighting.jpg" 
+                  src="/media/coach_feature_cove_extrusions.jpg" 
                   alt="Continuous Seamless Cove Extrusions" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -377,7 +377,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/railways_electronics_showcase.jpg" 
+                  src="/media/coach_feature_110v_drivers.jpg" 
                   alt="110V DC Constant-Current Drivers" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -397,7 +397,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/coach_lighting_hero.jpg" 
+                  src="/media/coach_feature_cct_tuning.jpg" 
                   alt="High CRI (>85) Warm & Cool Tuning" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -417,7 +417,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_landmark_ladder.jpg" 
+                  src="/media/coach_feature_low_thd.jpg" 
                   alt="Low Harmonic Distortion" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -437,7 +437,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_simulation_diag.jpg" 
+                  src="/media/coach_feature_fire_safety.jpg" 
                   alt="EN 45545-2 Fire & Smoke Compliance" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
