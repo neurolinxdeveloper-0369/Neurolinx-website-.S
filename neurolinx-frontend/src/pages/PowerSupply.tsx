@@ -77,18 +77,19 @@ export function PowerSupply() {
         className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
       >
         {/* Real 4K Industrial Cleanroom Electronics & Power Test Bench Background */}
+        {/* Real 4K Industrial Cleanroom Electronics & Power Test Bench Background (Natural Unmirrored Orientation) */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/media/power_supply_drivers_hero_4k.jpg"
+            src="/media/power_supply_drivers_hero_4k.jpg?v=natural"
             alt="Neurolinx Industrial Switched Mode Power Supply and Precision Drivers Lab"
-            className="w-full h-full object-cover object-center opacity-100 brightness-105 contrast-105 filter"
+            className="w-full h-full object-cover object-center opacity-100 brightness-115 contrast-105 filter"
           />
-          {/* Subtle directional gradient to make the white, red and cyan typography pop with 100% clarity */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/30"></div>
-          <div className="absolute inset-0 bg-black/15"></div>
+          {/* Subtle directional gradient to ensure text readability on the left while highlighting the SMPS hardware on the right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/15"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
-        {/* Content Container Matching the FogPass Reference Design Exactly */}
+        {/* Content Container Positioned to the Left Side of the Image */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-3xl flex flex-col items-start text-left">
             
@@ -650,7 +651,7 @@ export function PowerSupply() {
                 <div className="space-y-6">
                   {/* Phone */}
                   <a 
-                    href="tel:+919390584000" 
+                    href="tel:+917013486961" 
                     className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
@@ -658,7 +659,7 @@ export function PowerSupply() {
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}

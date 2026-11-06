@@ -682,13 +682,13 @@ export function TemperatureMonitor() {
                 <div className="space-y-6">
                   {/* Phone */}
                   <a 
-                    href="tel:+919390584000" 
+                    href="tel:+917013486961" 
                     className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
                       <Phone className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" />
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}

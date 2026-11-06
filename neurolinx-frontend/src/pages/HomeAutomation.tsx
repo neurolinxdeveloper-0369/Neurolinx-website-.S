@@ -113,7 +113,7 @@ export function HomeAutomation() {
       title: "1-ϕ & 3-ϕ Smart Energy Meters",
       tagline: "Single & Three-Phase Monitoring",
       desc: "Industrial-grade precision smart power meters for residential villas, commercial panels, and apartments. Monitor real-time voltage, current, power factor, and cumulative kWh consumption.",
-      img: "/media/smart_energy_meter_single_phase.jpg",
+      img: "/media/smart_energy_meters_hero_dark.jpg?v=features",
       badge: "Power Intelligence",
       features: [
         "Single-Phase (1-ϕ) and Three-Phase (3-ϕ) models",
@@ -268,12 +268,14 @@ export function HomeAutomation() {
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
       {/* ── Hero Banner Section (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24">
-        <div className="relative w-full">
+      <div className="w-full bg-[#05070D] relative overflow-hidden pt-20 sm:pt-24 border-b border-white/10">
+        <div className="relative w-full max-w-[1920px] mx-auto">
           <img 
-            src="/media/smart_home_hero_iot.jpg?v=2" 
-            alt="Smart Home Automation Engineered for Luxury & Precision"
-            className="w-full h-auto block"
+            src="/media/smart_home_hero_luxury_4k.jpg" 
+            alt="Smart Home Automation Engineered for Luxury & Precision - Touch Panels, Climate, Energy & Water Intelligence"
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-auto block shadow-2xl"
           />
         </div>
       </div>
@@ -502,7 +504,7 @@ export function HomeAutomation() {
                 <div className="space-y-6">
                   {/* Phone */}
                   <a 
-                    href="tel:+919390584000" 
+                    href="tel:+917013486961" 
                     className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
@@ -510,7 +512,7 @@ export function HomeAutomation() {
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}

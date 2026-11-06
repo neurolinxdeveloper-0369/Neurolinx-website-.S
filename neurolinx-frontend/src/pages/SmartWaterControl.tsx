@@ -563,7 +563,7 @@ export function SmartWaterControl() {
                 <div className="space-y-6">
                   {/* Phone */}
                   <a 
-                    href="tel:+919390584000" 
+                    href="tel:+917013486961" 
                     className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
@@ -571,7 +571,7 @@ export function SmartWaterControl() {
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}

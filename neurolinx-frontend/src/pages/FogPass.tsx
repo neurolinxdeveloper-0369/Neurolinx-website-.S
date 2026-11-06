@@ -68,11 +68,11 @@ export function FogPass() {
           <img
             src="/media/fogpass_hero_4k.jpg"
             alt="Modern Indian Railways locomotive cutting through dense winter fog"
-            className="w-full h-full object-cover object-center opacity-100 brightness-110 contrast-105 filter"
+            className="w-full h-full object-cover object-center opacity-100 brightness-115 contrast-105 filter"
           />
-          {/* Subtle soft directional gradient to make the cyan & white typography pop with 100% clarity */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/20"></div>
-          <div className="absolute inset-0 bg-black/10"></div>
+          {/* Subtle light directional gradient so the left side remains bright while text pops */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/25 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/5"></div>
         </div>
 
         {/* Content Container Matching the User's Screenshot Exactly */}
@@ -80,11 +80,11 @@ export function FogPass() {
           <div className="max-w-3xl flex flex-col items-start text-left">
             
             {/* Pill Badge: RAILWAY SAFETY · NAVIGATION · GPS */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-red/60 bg-red-950/40 text-red-400 text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(224,0,27,0.25)]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 text-white text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-sm">
               <span>RAILWAY SAFETY</span>
-              <span className="text-brand-red">•</span>
+              <span className="text-white/70">•</span>
               <span>NAVIGATION</span>
-              <span className="text-brand-red">•</span>
+              <span className="text-white/70">•</span>
               <span>GPS</span>
             </div>
 
@@ -98,19 +98,6 @@ export function FogPass() {
             <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
               FogPASS is a GPS-based navigation and safety assistance system designed to support locomotive pilots during dense fog weather conditions and improve operational safety across railway routes.
             </p>
-
-            {/* Glowing Cyan Carousel / Scroll Indicator as seen in screenshot */}
-            <div className="flex items-center gap-3 mb-8">
-              <a 
-                href="#about-fogpass" 
-                aria-label="Scroll to About FogPASS"
-                className="w-8 h-8 rounded-full border-2 border-brand-red/80 flex items-center justify-center bg-red-950/60 backdrop-blur-sm hover:scale-110 transition-transform group cursor-pointer shadow-[0_0_12px_rgba(224,0,27,0.4)]"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-red shadow-[0_0_10px_#E0001B] group-hover:animate-ping"></span>
-              </a>
-              <span className="text-xs text-red-300 font-mono tracking-wide">Loco Pilot Navigation Assistance</span>
-            </div>
-
           </div>
         </div>
 
@@ -529,7 +516,7 @@ export function FogPass() {
                 <div className="space-y-6">
                   {/* Phone */}
                   <a 
-                    href="tel:+919390584000" 
+                    href="tel:+917013486961" 
                     className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
@@ -537,7 +524,7 @@ export function FogPass() {
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}

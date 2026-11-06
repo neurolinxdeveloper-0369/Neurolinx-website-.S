@@ -150,14 +150,14 @@ export function SmartEnergyMeters() {
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
       {/* ── Slide 1: High Impact Visual Hero Banner (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-b border-gray-100">
-        <div className="relative w-full">
+      <div className="w-full bg-[#05070D] relative overflow-hidden pt-20 sm:pt-24 border-b border-white/10">
+        <div className="relative w-full max-w-[1920px] mx-auto">
           <img 
-            src="/media/smart_energy_meter_hero.jpg" 
-            alt="1-Phase & 3-Phase Smart Energy Meters - Precision Power Intelligence & Solar Net Metering"
+            src="/media/smart_energy_meters_hero_dark.jpg?v=dark_hero" 
+            alt="1-Phase & 3-Phase Smart Energy Meters - Intelligent Energy Monitoring for Homes, Buildings & Industries"
             loading="eager"
             fetchPriority="high"
-            className="w-full h-auto block shadow-2xl"
+            className="w-full h-auto block"
           />
         </div>
       </div>
@@ -612,7 +612,7 @@ export function SmartEnergyMeters() {
                 <div className="space-y-6">
                   {/* Phone */}
                   <a 
-                    href="tel:+919390584000" 
+                    href="tel:+917013486961" 
                     className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
@@ -620,7 +620,7 @@ export function SmartEnergyMeters() {
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}
