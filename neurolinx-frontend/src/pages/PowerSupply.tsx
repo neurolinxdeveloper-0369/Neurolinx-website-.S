@@ -79,7 +79,7 @@ export function PowerSupply() {
         {/* Real 4K Industrial Cleanroom Electronics & Power Test Bench Background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/media/power_supply_drivers_hero_premium.jpg"
+            src="/media/power_supply_drivers_hero_best.jpg"
             alt="Neurolinx Industrial Switched Mode Power Supply and Precision Drivers Lab"
             className="w-full h-full object-cover object-center opacity-100 brightness-115 contrast-105 filter"
           />
