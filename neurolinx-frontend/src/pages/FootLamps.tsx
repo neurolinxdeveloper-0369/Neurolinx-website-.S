@@ -335,7 +335,7 @@ export function FootLamps() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/coach_foot_lamp_hardware.jpg" 
+                  src="/media/footlamp_cast_steel_housing.jpg" 
                   alt="Cast 316 Stainless Steel Enclosure" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -355,7 +355,7 @@ export function FootLamps() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/railway_foot_lamps.jpg" 
+                  src="/media/footlamp_ip67_ingress_seal.jpg" 
                   alt="IP66/IP67 High-Pressure Ingress Protection" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -375,7 +375,7 @@ export function FootLamps() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/railways_electronics_showcase.jpg" 
+                  src="/media/coach_feature_110v_drivers.jpg" 
                   alt="110V DC Constant-Current Driver" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -395,7 +395,7 @@ export function FootLamps() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/railways_hero_cinematic.jpg" 
+                  src="/media/footlamp_antislip_stepwell.jpg" 
                   alt="Anti-Slip Step Well Illumination" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -415,7 +415,7 @@ export function FootLamps() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_landmark_ladder.jpg" 
+                  src="/media/vibration_tolerant.jpg" 
                   alt="Ballast Stone & Vibration Defense" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -435,7 +435,7 @@ export function FootLamps() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_simulation_diag.jpg" 
+                  src="/media/thermal_management.jpg" 
                   alt="100,000 Hours Continuous Operating Life" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />

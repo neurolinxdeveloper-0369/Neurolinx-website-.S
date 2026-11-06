@@ -9,7 +9,6 @@ import {
   CheckCircle2, 
   Sliders, 
   Sparkles,
-  ChevronDown,
   ChevronRight,
   PlusCircle,
   Gauge,
@@ -70,44 +69,16 @@ export function PowerSupply() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Hero Banner (Industrial Power Electronics Lab with Company Colors) ── */}
-      <div 
-        id="hero"
-        style={{ minHeight: 'calc(100vh + 1.5cm)' }}
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
-      >
-        {/* Real 4K Industrial Cleanroom Electronics & Power Test Bench Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/media/power_supply_drivers_hero_best.jpg"
-            alt="Neurolinx Industrial Switched Mode Power Supply and Precision Drivers Lab"
-            className="w-full h-full object-cover object-center opacity-100 brightness-115 contrast-105 filter"
+      {/* ── Slide 1: High Impact Visual Hero Banner (Full-Width Edge-to-Edge Clean Architecture) ── */}
+      <div id="hero" className="w-full bg-[#05070D] relative overflow-hidden pt-20 sm:pt-24 border-b border-white/10">
+        <div className="relative w-full max-w-[1920px] mx-auto">
+          <img 
+            src="/media/power_supply_drivers_hero.jpg?v=latest" 
+            alt="Power Supply & Drivers - Reliable Power Solutions for Industrial, Commercial & Smart Automation Applications"
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-auto block shadow-2xl"
           />
-          {/* Subtle directional gradient to ensure text readability on the left while highlighting the SMPS hardware on the right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/15"></div>
-          <div className="absolute inset-0 bg-black/10"></div>
-        </div>
-
-        {/* Content Container Positioned to the Left Side of the Image - Only Title */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-4xl flex flex-col items-start text-left">
-            {/* Heading: Only Title as requested */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-              <span className="text-white">POWER SUPPLY </span>
-              <span className="text-brand-red drop-shadow-[0_0_30px_rgba(224,0,27,0.55)]">&amp; DRIVERS</span>
-            </h1>
-          </div>
-        </div>
-
-        {/* Floating Bottom Down-Arrow Pill */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
-          <a
-            href="#about-powersupply"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
-          >
-            <span>Scroll to Explore</span>
-            <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
-          </a>
         </div>
       </div>
 

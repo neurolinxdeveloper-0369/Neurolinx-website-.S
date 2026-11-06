@@ -358,7 +358,7 @@ export function SignalExchangers() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_simulation_diag.jpg" 
+                  src="/media/signaling_systems.jpg" 
                   alt="Fail-Safe Dual Redundancy" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -398,7 +398,7 @@ export function SignalExchangers() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_audio_voice.jpg" 
+                  src="/media/railway_flasher_light.jpg" 
                   alt="Audio-Visual Warning Alerts" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -418,7 +418,7 @@ export function SignalExchangers() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/railways_electronics_showcase.jpg" 
+                  src="/media/surge_protection.jpg" 
                   alt="Galvanic Optical Isolation" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -438,7 +438,7 @@ export function SignalExchangers() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_route_select.jpg" 
+                  src="/media/power_supply_panel_cabinet.jpg" 
                   alt="Station Master Console Interface" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -458,7 +458,7 @@ export function SignalExchangers() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/feature_data_logging.jpg" 
+                  src="/media/gps_tracking.jpg" 
                   alt="Event Logging & Blackbox Telemetry" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
