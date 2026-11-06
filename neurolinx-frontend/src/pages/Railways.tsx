@@ -1,26 +1,96 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ShieldCheck, 
+  ShieldCheck,
+  Clock,
+  Zap,
   CheckCircle2, 
-  Train, 
-  Lightbulb, 
-  Zap, 
   ArrowRight, 
-  FileText, 
-  PhoneCall, 
-  Award, 
-  Clock, 
-  Layers,
-  Eye,
   ChevronRight,
   ChevronDown
 } from 'lucide-react';
 
 export function Railways() {
-  
-  // Category filter
+  // Category filter for Railway Products
   const [filterCategory, setFilterCategory] = useState<'all' | 'signaling' | 'lighting' | 'loco'>('all');
+
+  const railwayProducts = [
+    {
+      id: "fog-pass",
+      category: "signaling",
+      number: "01",
+      title: "Fog Pass Device (Version 2.0 & 3.0)",
+      tagline: "RDSO-Compliant Driver Audio-Visual Navigation",
+      desc: "Critical onboard safety device providing loco pilots with real-time audio and visual alerts for approaching signals, level crossing gates, and track landmarks during dense fog and low-visibility weather.",
+      img: "/media/fogpass_cab_view.jpg",
+      link: "/fog-pass"
+    },
+    {
+      id: "signal-exchangers",
+      category: "signaling",
+      number: "02",
+      title: "Signal Exchangers",
+      tagline: "Fail-Safe Optical & Electronic Interlocking",
+      desc: "Heavy-duty digital and relay signal exchangers engineered for railway trackside interlocking, track circuits, and station master control cabins. Ensures zero signal degradation across vast rail yards.",
+      img: "/media/railway_signal_exchangers.jpg",
+      link: "/signal-exchangers"
+    },
+    {
+      id: "foot-lamps",
+      category: "lighting",
+      number: "03",
+      title: "Foot Lamps",
+      tagline: "Ruggedized Passenger Footstep Illumination",
+      desc: "MIL-SPEC stainless-steel footstep lighting fixtures mounted at passenger coach entryways. Prevents boarding slips and withstands extreme ballast vibration, dust, and pressure washing.",
+      img: "/media/railway_foot_lamps.jpg",
+      link: "/foot-lamps"
+    },
+    {
+      id: "indirect-lighting",
+      category: "lighting",
+      number: "04",
+      title: "Indirect Lighting",
+      tagline: "Glare-Free Ambient LED Cove Systems",
+      desc: "Premium indirect architectural LED lighting designed for Vande Bharat, Tejas, and modern Rajdhani coaches. Delivers soft, uniform illumination without glare or visible hotspots.",
+      img: "/media/railway_coach_lighting.jpg",
+      link: "/indirect-coach-lighting"
+    },
+    {
+      id: "loco-headlight",
+      category: "loco",
+      number: "05",
+      title: "LED LOCO Head Light",
+      tagline: "High-Intensity Twin-Beam Front Illuminator",
+      desc: "Ruggedized locomotive front headlight providing a razor-sharp high-intensity beam exceeding 500 meters. Features twin sealed LED light engines with independent power drivers for fail-safe redundancy.",
+      img: "/media/railway_loco_headlight.jpg",
+      link: "/loco-headlight"
+    },
+    {
+      id: "flasher-light",
+      category: "loco",
+      number: "06",
+      title: "LED Flasher Light",
+      tagline: "Amber Emergency Warning Beacon",
+      desc: "Critical locomotive emergency warning system emitting a high-intensity flashing amber strobe visible in daylight, dense fog, and torrential rain to alert oncoming trains of emergency stops.",
+      img: "/media/railway_flasher_light.jpg",
+      link: "/flasher-light"
+    },
+    {
+      id: "marker-light",
+      category: "loco",
+      number: "07",
+      title: "LED Marker Light",
+      tagline: "Red & White Identification Indicators",
+      desc: "Dual-color (Red & White) identification marker lights mounted on the front and rear of locomotives and inspection coaches. Signals train position and travel direction to track personnel and station cabins.",
+      img: "/media/railway_marker_light.jpg",
+      link: "/marker-light"
+    }
+  ];
+
+  const filteredProducts = railwayProducts.filter(p => {
+    if (filterCategory === 'all') return true;
+    return p.category === filterCategory;
+  });
 
   // Contact & Consultation form state (matching Home Automation Slide 4)
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
@@ -35,127 +105,7 @@ export function Railways() {
     captchaInput: ''
   });
 
-  const railwayProducts = [
-    {
-      id: "fog-pass",
-      category: "signaling",
-      number: "01",
-      title: "Fog Pass Device (Version 2.0 & 3.0)",
-      tagline: "RDSO-Compliant Driver Audio-Visual Navigation",
-      desc: "Critical onboard safety device providing loco pilots with real-time audio and visual alerts for approaching signals, level crossing gates, and track landmarks during dense fog and low-visibility weather.",
-      img: "/media/fogpass_cab_view.jpg",
-      badge: "Flagship Safety System",
-      hasVersions: true,
-      specs: [
-        "Centimeter-Level Multi-Constellation GNSS",
-        "High-Contrast Sunlight-Readable OLED Display",
-        "Audio Voice Warnings in Regional Languages",
-        "Tested for RDSO Specification Compliance"
-      ]
-    },
-    {
-      id: "signal-exchangers",
-      category: "signaling",
-      number: "02",
-      title: "Signal Exchangers",
-      tagline: "Fail-Safe Optical & Electronic Interlocking",
-      desc: "Heavy-duty digital and relay signal exchangers engineered for railway trackside interlocking, track circuits, and station master control cabins. Ensures zero signal degradation across vast rail yards.",
-      img: "/media/railway_signal_exchangers.jpg",
-      badge: "Trackside Interlocking",
-      specs: [
-        "Galvanic Optical Isolation (>3kV)",
-        "Redundant Dual-Channel Architecture",
-        "Lightning & Inrush Surge Suppressors",
-        "Vibration Proof to IEC 61373 Standards"
-      ]
-    },
-    {
-      id: "foot-lamps",
-      category: "lighting",
-      number: "03",
-      title: "Foot Lamps",
-      tagline: "Ruggedized Passenger Footstep Illumination",
-      desc: "MIL-SPEC stainless-steel footstep lighting fixtures mounted at passenger coach entryways. Prevents boarding slips and withstands extreme ballast vibration, dust, and pressure washing.",
-      img: "/media/railway_foot_lamps.jpg",
-      badge: "Coach Hardware",
-      specs: [
-        "IP66 / IP67 Ingress Water & Dust Proof",
-        "Cast Stainless Steel Enclosure",
-        "Vibration & Ballast Stone Impact Tolerant",
-        "110V DC Direct Railway Coach Supply"
-      ]
-    },
-    {
-      id: "indirect-lighting",
-      category: "lighting",
-      number: "04",
-      title: "Indirect Coach Lighting",
-      tagline: "Glare-Free Ambient LED Cove Systems",
-      desc: "Premium indirect architectural LED lighting designed for Vande Bharat, Tejas, and modern Rajdhani coaches. Delivers soft, uniform illumination without glare or visible hotspots.",
-      img: "/media/railway_coach_lighting.jpg",
-      badge: "Interior Aesthetics",
-      specs: [
-        "Continuous Aluminum Extrusion Coves",
-        "Flicker-Free Constant Current Drivers",
-        "High CRI (>85) Warm & Cool Tuning",
-        "Harmonic Distortion (THD) < 10%"
-      ]
-    },
-    {
-      id: "loco-headlight",
-      category: "loco",
-      number: "05",
-      title: "LED LOCO Head Light",
-      tagline: "High-Intensity Twin-Beam Front Illuminator",
-      desc: "Ruggedized locomotive front headlight providing a razor-sharp high-intensity beam exceeding 500 meters. Features twin sealed LED light engines with independent power drivers for fail-safe redundancy.",
-      img: "/media/railway_loco_headlight.jpg",
-      badge: "Locomotive Exterior",
-      specs: [
-        ">500,000 Candela Peak Intensity",
-        "Twin Sealed Optical Engines",
-        "Active Thermal De-Icing & Defogging",
-        "Wide Input Voltage: 72V to 140V DC"
-      ]
-    },
-    {
-      id: "flasher-light",
-      category: "loco",
-      number: "06",
-      title: "LED Flasher Light",
-      tagline: "Amber Emergency Warning Beacon",
-      desc: "Critical locomotive emergency warning system emitting a high-intensity flashing amber strobe visible in daylight, dense fog, and torrential rain to alert oncoming trains of emergency stops.",
-      img: "/media/railway_flasher_light.jpg",
-      badge: "Emergency Signalling",
-      specs: [
-        "Amber High-Intensity Strobe Pattern (60-80 FPM)",
-        "Fail-Safe Dual Driver Redundancy",
-        "Ultra-High Visibility (>2 Kilometers)",
-        "Weatherproof Die-Cast Aluminum Housing"
-      ]
-    },
-    {
-      id: "marker-light",
-      category: "loco",
-      number: "07",
-      title: "LED Marker Light",
-      tagline: "Red & White Identification Indicators",
-      desc: "Dual-color (Red & White) identification marker lights mounted on the front and rear of locomotives and inspection coaches. Signals train position and travel direction to track personnel and station cabins.",
-      img: "/media/railway_marker_light.jpg",
-      badge: "Position Indicator",
-      specs: [
-        "Independent Red & White Sealed Optic Modules",
-        "Anti-Glare Collimator Lenses",
-        "Ultra-Low Power Consumption (<15W)",
-        "Long Life: >100,000 Hours Continuous"
-      ]
-    }
-  ];
-
-  const filteredProducts = railwayProducts.filter(p => {
-    if (filterCategory === 'all') return true;
-    return p.category === filterCategory;
-  });
-
+  
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
@@ -186,13 +136,26 @@ export function Railways() {
             </h1>
           </div>
         </div>
+
+        {/* Scroll Indicator to Slide 2 */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <a
+            href="#features"
+            className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-all group"
+          >
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-white/70 group-hover:text-white">Explore Features</span>
+            <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-brand-red transition-all shadow-sm">
+              <ChevronDown className="w-4 h-4 animate-bounce" />
+            </div>
+          </a>
+        </div>
       </div>
 
-      {/* ── Slide 2: 7 Railway Products Catalog ── */}
-      <div id="railway-products" className="py-24 px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-gray-100 text-black font-bold text-xs uppercase tracking-widest border border-gray-200">
-            Railway Product Line
+      {/* ── Slide 2: Smart Functional Features & 7 Railway Products (With Individual Separate Pages) ── */}
+      <div id="features" className="py-20 px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-gray-100">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
+            Smart Functional Features
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
             Complete Rolling Stock <span className="text-brand-red">&amp; Signaling Portfolio.</span>
@@ -225,88 +188,138 @@ export function Railways() {
           </div>
         </div>
 
-        {/* Product Cards Grid */}
+        {/* 7 Product Cards Grid with Links to Individual Separate Pages */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProducts.map((prod) => {
-            const isFogPass = prod.id === 'fog-pass';
-            const cardInner = (
-              <div className="flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 group cursor-pointer h-full">
+          {filteredProducts.map((prod) => (
+            <Link key={prod.id} to={prod.link} className="block h-full group">
+              <div className="flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 cursor-pointer h-full">
                 <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-gray-900">
                   <img 
                     src={prod.img} 
                     alt={prod.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black text-white font-black text-xs flex items-center justify-center shadow-md border border-white/20">
+                    {prod.number}
+                  </div>
                 </div>
 
                 <div className="p-6 flex items-center justify-between gap-4 flex-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                    {prod.title}
-                  </h3>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
+                      {prod.title}
+                    </h3>
+                    <p className="text-xs text-gray-500 mt-1 line-clamp-1">{prod.tagline}</p>
+                  </div>
                   <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-all shadow-sm">
                     <ChevronRight className="w-5 h-5 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </div>
-            );
-
-            if (isFogPass) {
-              return (
-                <Link key={prod.id} to="/fog-pass" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            if (prod.id === 'signal-exchangers') {
-              return (
-                <Link key={prod.id} to="/signal-exchangers" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            if (prod.id === 'foot-lamps') {
-              return (
-                <Link key={prod.id} to="/foot-lamps" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            if (prod.id === 'indirect-lighting') {
-              return (
-                <Link key={prod.id} to="/indirect-coach-lighting" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            if (prod.id === 'loco-headlight') {
-              return (
-                <Link key={prod.id} to="/loco-headlight" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            if (prod.id === 'flasher-light') {
-              return (
-                <Link key={prod.id} to="/flasher-light" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            if (prod.id === 'marker-light') {
-              return (
-                <Link key={prod.id} to="/marker-light" className="block h-full">
-                  {cardInner}
-                </Link>
-              );
-            }
-            return (
-              <a key={prod.id} href="#rfq-form" className="block h-full">
-                {cardInner}
-              </a>
-            );
-          })}
+            </Link>
+          ))}
         </div>
       </div>
+
+      {/* ── Slide 3: Project Overview (Matching User Reference Image) ── */}
+      <section 
+        id="railway-showcase" 
+        style={{ maxWidth: 'calc(72rem - 1.5cm)', width: 'calc(100% - 1.5cm)' }}
+        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 mx-auto"
+      >
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full border border-brand-red/20 bg-red-50 text-brand-red font-semibold text-xs uppercase tracking-wider">
+            <span>Project Overview</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-slate-900 mb-4 sm:mb-5 leading-tight">
+            Advanced Navigation for <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-500">
+              FogPASS &amp; Railway Systems
+            </span>
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed">
+            Integrated hardware and software solutions to navigate, monitor, and safeguard locomotive operations.
+          </p>
+        </div>
+
+        {/* Detailed Overview Card matching exact reference design */}
+        <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 border border-gray-100 shadow-sm">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
+              Our FogPASS and Railway Navigation Systems bring satellite-based positioning, route awareness, and timely landmark alerts together into a focused in-cab experience. We manufacture our FogPASS products using high-grade local materials, strengthening domestic supply chains and ensuring rapid deployment. We provide dedicated 24/7 technical services and field support to keep operations running smoothly without interruption. By streamlining direct in-house engineering and production, we offer dependable, RDSO-compliant railway safety solutions at highly competitive, low prices compared to prevailing market rates.
+            </p>
+          </div>
+        </div>
+
+        {/* 3 Key Option Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 md:mt-12">
+          {/* Box 1: Local Materials */}
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
+                100% Indigenous
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
+                Manufactured with Local Materials
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                We manufacture FogPASS devices and auxiliary electronics using certified indigenous components and domestic metallurgy, ensuring rapid spare availability, rugged longevity, and complete self-reliance.
+              </p>
+            </div>
+          </div>
+
+          {/* Box 2: 24/7 Services */}
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1E6FD9] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <Clock className="w-6 h-6" />
+              </div>
+              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
+                Round-The-Clock
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
+                24/7 Support &amp; Field Services
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Our dedicated railway engineering team provides continuous 24/7 technical hotline support, on-site loco shed commissioning, software calibration, and rapid field assistance across all zonal divisions.
+              </p>
+            </div>
+          </div>
+
+          {/* Box 3: Low Market Prices */}
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <Zap className="w-6 h-6" />
+              </div>
+              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
+                Market Leading Value
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
+                Highly Competitive Pricing
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                By streamlining in-house design, software integration, and direct domestic manufacturing, we deliver top-tier RDSO-compliant railway systems at prices substantially lower than prevailing market rates.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Downside Option: Download Brochure - Opens uploaded 11-page FogPASS PDF in a new tab */}
+        <div className="mt-10 md:mt-12 flex justify-center">
+          <a
+            href="/media/neurolinx_railway_systems_brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+          >
+            Download Brochure
+          </a>
+        </div>
+      </section>
 
       {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout matching Home Automation) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">

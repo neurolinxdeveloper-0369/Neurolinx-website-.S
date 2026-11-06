@@ -76,15 +76,10 @@ export function SignalExchangers() {
             </div>
 
             {/* Heading: Signal Exchanger in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               <span className="text-white">Signal Exchangers </span>
               <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
             </h1>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-              The Electronic Signal Exchange System (ESE) is a fail-safe optical and digital signaling system designed to automate train-passing verification between station masters, cabin crew, and locomotive pilots, eliminating manual hand-flag hazards and ensuring strict RDSO compliance.
-            </p>
           </div>
         </div>
 
@@ -176,11 +171,11 @@ export function SignalExchangers() {
 
                   <div className="flex items-center gap-3 mb-5">
                     <a
-                      href="#features"
+                      href="#slide-4"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
                     >
                       <PlusCircle className="w-4 h-4 text-white" />
-                      <span>Read More</span>
+                      <span>Inquire Now</span>
                     </a>
                   </div>
                 </div>
@@ -314,11 +309,10 @@ export function SignalExchangers() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 w-full">
                 <a
-                  href="#features"
+                  href="#slide-4"
                   className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
                 >
-                  <Sliders className="w-4 h-4 text-white" />
-                  <span>Smart Features</span>
+                  <span>Request Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -335,150 +329,7 @@ export function SignalExchangers() {
         </div>
       </div>
 
-      {/* ── Slide 3: Smart Functional Features (6 Clean Cards with 4K Visuals & Titles Only) ── */}
-      <div id="features" className="w-full bg-white py-20 px-6 lg:px-8 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-              Operational Technology
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4 tracking-tight">
-              Smart Functional Features.
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Designed around the operational realities of Indian Railways platforms and trackside cabins to ensure fail-safe exchange and complete crew protection.
-            </p>
-          </div>
-
-          {/* 6 Clean Feature Cards with 4K Visuals and Titles Only (matching FogPASS Slide 3) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Card 1: Fail-Safe Dual Redundancy */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/signaling_systems.jpg" 
-                  alt="Fail-Safe Dual Redundancy" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-brand-red flex items-center justify-center border border-white/20 shadow-md">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Fail-Safe Dual Redundancy
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: High-Lux Collimated LED Optics */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_signals_warning.jpg"
-                  alt="High-Lux Collimated LED Optics" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-[#1E6FD9] flex items-center justify-center border border-white/20 shadow-md">
-                  <Eye className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  High-Lux Collimated LED Optics
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: Bilingual Audio Warning Buzzer */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railway_flasher_light.jpg" 
-                  alt="Audio-Visual Warning Alerts" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-amber-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Volume2 className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Audio-Visual Warning Alerts
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4: Galvanic Optical Isolation */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/surge_protection.jpg" 
-                  alt="Galvanic Optical Isolation" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-emerald-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Zap className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Galvanic Optical Isolation (&gt;3.5kV)
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5: Station Master Console Integration */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/power_supply_panel_cabinet.jpg" 
-                  alt="Station Master Console Interface" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-purple-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Sliders className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Station Master Desk Interface
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6: Blackbox Telemetry & Event Logging */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/gps_tracking.jpg" 
-                  alt="Event Logging & Blackbox Telemetry" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-teal-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Database className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Blackbox Telemetry &amp; Event Logging
-                </h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           

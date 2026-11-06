@@ -68,15 +68,10 @@ export function MarkerLight() {
             </div>
 
             {/* Heading: LED Marker Light in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               <span className="text-white">LED Marker Light </span>
               <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
             </h1>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-              Dual-aspect (Red &amp; White) position and direction marker luminaires engineered to RDSO/ELRS/SPEC/PR/0021. Mounted on the front and rear of locomotives, brake vans, and inspection cars to signal train orientation and presence to track personnel and station staff.
-            </p>
           </div>
         </div>
 
@@ -168,11 +163,11 @@ export function MarkerLight() {
 
                   <div className="flex items-center gap-3 mb-5">
                     <a
-                      href="#features"
+                      href="#slide-4"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
                     >
                       <PlusCircle className="w-4 h-4 text-white" />
-                      <span>Read More</span>
+                      <span>Inquire Now</span>
                     </a>
                   </div>
                 </div>
@@ -306,11 +301,10 @@ export function MarkerLight() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 w-full">
                 <a
-                  href="#features"
+                  href="#slide-4"
                   className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
                 >
-                  <Sliders className="w-4 h-4 text-white" />
-                  <span>Smart Features</span>
+                  <span>Request Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -327,150 +321,7 @@ export function MarkerLight() {
         </div>
       </div>
 
-      {/* ── Slide 3: Smart Functional Features (6 Clean Cards with 4K Visuals & Titles Only) ── */}
-      <div id="features" className="w-full bg-white py-20 px-6 lg:px-8 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-              Operational Technology
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4 tracking-tight">
-              Smart Functional Features.
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Precision engineered for locomotive orientation, shunting operations, and rear-train demarcation across Indian Railways.
-            </p>
-          </div>
-
-          {/* 6 Clean Feature Cards with 4K Visuals and Titles Only (matching FogPASS Slide 3) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Card 1: Independent Dual-Aspect Optic Modules */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/loco_marker_hardware.jpg" 
-                  alt="Independent Dual-Aspect Optic Modules" 
-                  className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-brand-red flex items-center justify-center border border-white/20 shadow-md">
-                  <Eye className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Independent Dual-Aspect Optic Modules
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: 1,500-Meter Optical Visibility Range */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railway_marker_light.jpg" 
-                  alt="1,500-Meter Optical Visibility Range" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-[#1E6FD9] flex items-center justify-center border border-white/20 shadow-md">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  1,500m Optical Daylight Visibility
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: 72V to 140V DC Wide Range Constant-Current Driver */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railways_electronics_showcase.jpg" 
-                  alt="72V to 140V DC Wide Operating Range" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-amber-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Zap className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  72V - 140V DC Transient Protected Driver
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4: IP66 Weatherproof Cast Aluminum Body */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railways_hero_cinematic.jpg" 
-                  alt="IP66 Weatherproof Cast Aluminum Body" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-emerald-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Lock className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  IP66 Weatherproof Cast Aluminum Body
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5: Anti-Glare Precision Collimator Lenses */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_signals_warning.jpg" 
-                  alt="Anti-Glare Precision Collimator Lenses" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-purple-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Eye className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Anti-Glare Precision Collimator Lenses
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6: Ultra-Low Power Draw (<15W) & 100k Hours */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_simulation_diag.jpg" 
-                  alt="Ultra-Low Power Draw (<15W) & 100k Hours" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-teal-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Ultra-Low Power Consumption (&lt;15W)
-                </h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           

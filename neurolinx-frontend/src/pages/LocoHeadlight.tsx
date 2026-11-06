@@ -70,15 +70,10 @@ export function LocoHeadlight() {
             </div>
 
             {/* Heading: LED LOCO Head Light in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               <span className="text-white">LED LOCO Head Light </span>
               <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
             </h1>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-              Ultra-high-candela twin-beam locomotive front headlight engineered strictly to RDSO/2017/EL/SPEC/0134. Delivering &gt;500,000 candela peak intensity, independent dual driver redundancy, and active de-fogging optics for WAP-7, WAG-9, and high-speed rolling stock.
-            </p>
           </div>
         </div>
 
@@ -170,11 +165,11 @@ export function LocoHeadlight() {
 
                   <div className="flex items-center gap-3 mb-5">
                     <a
-                      href="#features"
+                      href="#slide-4"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
                     >
                       <PlusCircle className="w-4 h-4 text-white" />
-                      <span>Read More</span>
+                      <span>Inquire Now</span>
                     </a>
                   </div>
                 </div>
@@ -308,11 +303,10 @@ export function LocoHeadlight() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 w-full">
                 <a
-                  href="#features"
+                  href="#slide-4"
                   className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
                 >
-                  <Sliders className="w-4 h-4 text-white" />
-                  <span>Smart Features</span>
+                  <span>Request Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -329,150 +323,7 @@ export function LocoHeadlight() {
         </div>
       </div>
 
-      {/* ── Slide 3: Smart Functional Features (6 Clean Cards with 4K Visuals & Titles Only) ── */}
-      <div id="features" className="w-full bg-white py-20 px-6 lg:px-8 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-              Operational Technology
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4 tracking-tight">
-              Smart Functional Features.
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Engineered to endure severe trackside ballast shock, moisture ingress, and continuous vibration across Indian Railways locomotives.
-            </p>
-          </div>
-
-          {/* 6 Clean Feature Cards with 4K Visuals and Titles Only (matching FogPASS Slide 3) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Card 1: Twin Collimating Optical Engines */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/loco_headlight_hardware.jpg" 
-                  alt="Twin Collimating Optical Engines" 
-                  className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-brand-red flex items-center justify-center border border-white/20 shadow-md">
-                  <Eye className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Twin Collimating Optical Engines (&gt;500k cd)
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: Independent Dual Driver Redundancy */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railways_electronics_showcase.jpg" 
-                  alt="Independent Dual Driver Redundancy" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-[#1E6FD9] flex items-center justify-center border border-white/20 shadow-md">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Independent Dual Driver Redundancy
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: Active Front Glass Thermal Defogger */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railway_loco_headlight.jpg" 
-                  alt="Active Front Glass Thermal Defogger" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-amber-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Sun className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Active Front Glass Thermal Defogger
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4: Cab High/Low Beam Dimmer Control */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_route_select.jpg" 
-                  alt="Cab High/Low Beam Dimmer Control" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-emerald-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Sliders className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Cab High/Low Beam Dimmer Control
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5: Wide 72V - 140V DC Transient Protection */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_simulation_diag.jpg" 
-                  alt="Wide 72V - 140V DC Voltage Bus" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-purple-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Zap className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Wide 72V - 140V DC Transient Protection
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6: IP66 Weatherproof Cast Aluminum Armor */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/railways_hero_cinematic.jpg" 
-                  alt="IP66 Cast Aluminum Vibration Housing" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-teal-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Lock className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  IP66 Cast Aluminum Vibration Housing
-                </h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           

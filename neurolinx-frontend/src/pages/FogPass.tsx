@@ -189,11 +189,11 @@ export function FogPass() {
 
                   <div className="flex items-center gap-3 mb-5">
                     <a
-                      href="#features"
+                      href="#slide-4"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
                     >
                       <PlusCircle className="w-4 h-4 text-white" />
-                      <span>Read More</span>
+                      <span>Inquire Now</span>
                     </a>
                   </div>
                 </div>
@@ -273,52 +273,58 @@ export function FogPass() {
                 </div>
               </div>
 
-              {/* 4 Practical High-Impact Highlights (No heavy theory) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full mb-7">
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
+              {/* 3 Key Option Boxes (Matching Reference Information) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 w-full mb-7">
+                {/* Box 1: Local Materials */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Prevents SPAD &amp; Overshoots</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Loud bilingual (Hindi + English) audio callouts ensure drivers never miss a distant or stop signal.
+                    <div className="w-10 h-10 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-2">
+                      100% Indigenous
+                    </span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug">
+                      Manufactured with Local Materials
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      We manufacture FogPASS devices and auxiliary electronics using certified indigenous components and domestic metallurgy, ensuring rapid spare availability, rugged longevity, and complete self-reliance.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <Gauge className="w-4 h-4" />
-                  </div>
+                {/* Box 2: 24/7 Services */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Maintains Normal Train Speeds</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Eliminates blind crawling during North Indian winter fog, drastically reducing passenger train delays.
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1E6FD9] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                      <Clock className="w-5 h-5" />
+                    </div>
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-2">
+                      Round-The-Clock
+                    </span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug">
+                      24/7 Support &amp; Field Services
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      Our dedicated railway engineering team provides continuous 24/7 technical hotline support, on-site loco shed commissioning, software calibration, and rapid field assistance across all zonal divisions.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <Layers className="w-4 h-4" />
-                  </div>
+                {/* Box 3: Low Prices */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">3-Landmark Distance Ladder</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Continuously counts down meters to upcoming signals, level crossing gates, neutral sections, and turnouts.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <Eye className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Anti-Glare Day &amp; Night Screen</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      High-visibility sunlight-readable display with automatic dimming to eliminate driver eye-strain at night.
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                      <Zap className="w-5 h-5" />
+                    </div>
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-2">
+                      Market Leading Value
+                    </span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug">
+                      Highly Competitive Pricing
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      By streamlining in-house design, software integration, and direct domestic manufacturing, we deliver top-tier RDSO-compliant railway systems at prices substantially lower than prevailing market rates.
                     </p>
                   </div>
                 </div>
@@ -327,11 +333,10 @@ export function FogPass() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 w-full">
                 <a
-                  href="#features"
+                  href="#slide-4"
                   className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
                 >
-                  <Sliders className="w-4 h-4 text-white" />
-                  <span>Smart Features</span>
+                  <span>Request Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -345,154 +350,23 @@ export function FogPass() {
             </div>
 
           </div>
+
+          {/* Downside Option: Download Brochure - Opens uploaded 11-page FogPASS PDF in a new tab */}
+          <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
+            <a
+              href="/media/neurolinx_railway_systems_brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+            >
+              Download Brochure
+            </a>
+          </div>
+
         </div>
       </div>
 
-      {/* ── Section 3: Smart Functional Features ── */}
-      <div id="features" className="w-full bg-white py-20 px-6 lg:px-8 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-              Operational Technology
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4 tracking-tight">
-              Smart Functional Features.
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Designed around the operational realities of locomotive cabs to maximize situational awareness without driver distraction.
-            </p>
-          </div>
-
-          {/* 6 Clean Feature Cards with 4K Visuals and Titles Only */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Card 1: GPS/GNSS and NavIC */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_gnss_navic.jpg" 
-                  alt="GPS/GNSS & NavIC Navigation" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-brand-red flex items-center justify-center border border-white/20 shadow-md">
-                  <Compass className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  GPS/GNSS &amp; NavIC Navigation
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: Advance Landmark Warnings */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_signals_warning.jpg" 
-                  alt="Advance Landmark Warnings" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-[#1E6FD9] flex items-center justify-center border border-white/20 shadow-md">
-                  <Activity className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Advance Landmark Warnings
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: English/Hindi Voice Announcements */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_audio_voice.jpg" 
-                  alt="English & Hindi Announcements" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-amber-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Volume2 className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  English &amp; Hindi Announcements
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4: Automatic and Manual Route Selection */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_route_select.jpg" 
-                  alt="Auto & Manual Route Selection" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-emerald-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Sliders className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Auto &amp; Manual Route Selection
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5: Foggy and Non-Foggy Modes */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_foggy_mode.jpg" 
-                  alt="Foggy & Non-Foggy Modes" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-purple-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Eye className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Foggy &amp; Non-Foggy Modes
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6: Upcoming Landmark Display */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/feature_landmark_ladder.jpg" 
-                  alt="Upcoming Landmark Ladder" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-teal-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Layers className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Upcoming Landmark Ladder
-                </h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-{/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Compact Attached Layout) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           

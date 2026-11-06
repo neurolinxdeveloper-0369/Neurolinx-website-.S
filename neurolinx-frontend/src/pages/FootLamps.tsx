@@ -153,11 +153,11 @@ export function FootLamps() {
 
                   <div className="flex items-center gap-3 mb-5">
                     <a
-                      href="#features"
+                      href="#slide-4"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
                     >
                       <PlusCircle className="w-4 h-4 text-white" />
-                      <span>Read More</span>
+                      <span>Inquire Now</span>
                     </a>
                   </div>
                 </div>
@@ -291,11 +291,10 @@ export function FootLamps() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 w-full">
                 <a
-                  href="#features"
+                  href="#slide-4"
                   className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
                 >
-                  <Sliders className="w-4 h-4 text-white" />
-                  <span>Smart Features</span>
+                  <span>Request Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -312,150 +311,7 @@ export function FootLamps() {
         </div>
       </div>
 
-      {/* ── Slide 3: Smart Functional Features (6 Clean Cards with 4K Visuals & Titles Only) ── */}
-      <div id="features" className="w-full bg-white py-20 px-6 lg:px-8 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-              Operational Technology
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4 tracking-tight">
-              Smart Functional Features.
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Engineered to endure severe trackside ballast shock, moisture ingress, and continuous vibration across LHB and Vande Bharat passenger coaches.
-            </p>
-          </div>
-
-          {/* 6 Clean Feature Cards with 4K Visuals and Titles Only (matching FogPASS Slide 3) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Card 1: Cast 316 Stainless Steel Housing */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/footlamp_cast_steel_housing.jpg" 
-                  alt="Cast 316 Stainless Steel Enclosure" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-brand-red flex items-center justify-center border border-white/20 shadow-md">
-                  <Lock className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Cast 316 Stainless Steel Enclosure
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: IP66/IP67 High-Pressure Ingress Protection */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/footlamp_ip67_ingress_seal.jpg" 
-                  alt="IP66/IP67 High-Pressure Ingress Protection" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-[#1E6FD9] flex items-center justify-center border border-white/20 shadow-md">
-                  <Layers className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  IP66/IP67 High-Pressure Ingress Seal
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: 110V DC Constant-Current Driver */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/coach_feature_110v_drivers.jpg" 
-                  alt="110V DC Constant-Current Driver" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-amber-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Zap className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  110V DC Constant-Current Driver
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4: Anti-Slip Step Well Illumination */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/footlamp_antislip_stepwell.jpg" 
-                  alt="Anti-Slip Step Well Illumination" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-emerald-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Eye className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Anti-Slip Step Well Illumination
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5: Ballast Stone & Vibration Impact Defense */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/vibration_tolerant.jpg" 
-                  alt="Ballast Stone & Vibration Defense" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-purple-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Ballast Stone &amp; Vibration Defense
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6: 100,000 Hours Continuous Operating Life */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/thermal_management.jpg" 
-                  alt="100,000 Hours Continuous Operating Life" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-teal-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  100,000h Continuous Operating Life
-                </h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Compact Attached Layout matching FogPASS) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
