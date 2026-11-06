@@ -56,29 +56,14 @@ export function IndirectCoachLighting() {
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
-        {/* Content Container Matching FogPASS Page Exactly */}
+        {/* Content Container: Only Title */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-3xl flex flex-col items-start text-left">
-            
-            {/* Frosted Glass Pill Badge: ROLLING STOCK · PASSENGER COACH · AMBIENT LIGHTING */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 text-white text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-sm">
-              <span>ROLLING STOCK</span>
-              <span className="text-white/70">•</span>
-              <span>PASSENGER COACH</span>
-              <span className="text-white/70">•</span>
-              <span>AMBIENT LIGHTING</span>
-            </div>
-
             {/* Heading: Indirect Coach Lighting in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               <span className="text-white">Indirect Coach Lighting </span>
               <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
             </h1>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-              Next-generation rolling stock illumination engineered strictly to RDSO/PE/SPEC/TL/0091 standards. Delivering continuous, glare-free indirect ambient lighting for modern Vande Bharat, Tejas, and Rajdhani passenger coaches.
-            </p>
           </div>
         </div>
 

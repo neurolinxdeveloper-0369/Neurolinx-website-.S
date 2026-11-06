@@ -45,7 +45,7 @@ export function FootLamps() {
         {/* Real Indian Railways Rolling Stock Exterior Background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/media/railways_hero_cinematic.jpg"
+            src="/media/railway_foot_lamps.jpg"
             alt="Modern Indian Railways electric rolling stock with passenger footstep illumination"
             className="w-full h-full object-cover object-center opacity-100 brightness-110 contrast-105 filter"
           />
@@ -54,29 +54,14 @@ export function FootLamps() {
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
-        {/* Content Container Matching FogPASS Page Exactly */}
+        {/* Content Container: Only Title */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-3xl flex flex-col items-start text-left">
-            
-            {/* Frosted Glass Pill Badge: ROLLING STOCK · PASSENGER FOOTSTEP · SAFETY */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 text-white text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-sm">
-              <span>ROLLING STOCK</span>
-              <span className="text-white/70">•</span>
-              <span>PASSENGER FOOTSTEP</span>
-              <span className="text-white/70">•</span>
-              <span>SAFETY</span>
-            </div>
-
             {/* Heading: Foot Lamps in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               <span className="text-white">Foot Lamps </span>
               <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
             </h1>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-              Heavy-duty cast stainless-steel entryway step luminaires engineered strictly for Indian Railways rolling stock. Built to IP66/IP67 ingress ratings, withstanding high-pressure pressure washing, severe track vibration, and flying ballast stone impact.
-            </p>
           </div>
         </div>
 

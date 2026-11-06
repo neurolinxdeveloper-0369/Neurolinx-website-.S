@@ -77,10 +77,9 @@ export function PowerSupply() {
         className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
       >
         {/* Real 4K Industrial Cleanroom Electronics & Power Test Bench Background */}
-        {/* Real 4K Industrial Cleanroom Electronics & Power Test Bench Background (Natural Unmirrored Orientation) */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/media/power_supply_drivers_hero_4k.jpg?v=natural"
+            src="/media/power_supply_drivers_hero_premium.jpg"
             alt="Neurolinx Industrial Switched Mode Power Supply and Precision Drivers Lab"
             className="w-full h-full object-cover object-center opacity-100 brightness-115 contrast-105 filter"
           />
@@ -89,42 +88,14 @@ export function PowerSupply() {
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
-        {/* Content Container Positioned to the Left Side of the Image */}
+        {/* Content Container Positioned to the Left Side of the Image - Only Title */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-3xl flex flex-col items-start text-left">
-            
-            {/* Pill Badge: INDUSTRIAL POWER · CONVERTERS · PRECISION DRIVERS */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-red/60 bg-red-950/40 text-red-400 text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(224,0,27,0.25)]">
-              <span>INDUSTRIAL POWER</span>
-              <span className="text-brand-red">•</span>
-              <span>CONVERTERS</span>
-              <span className="text-brand-red">•</span>
-              <span>PRECISION DRIVERS</span>
-            </div>
-
-            {/* Heading: POWER SUPPLY in White + & DRIVERS in Brand Red & Blue Accents */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+          <div className="max-w-4xl flex flex-col items-start text-left">
+            {/* Heading: Only Title as requested */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               <span className="text-white">POWER SUPPLY </span>
-              <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">&amp; DRIVERS</span>
+              <span className="text-brand-red drop-shadow-[0_0_30px_rgba(224,0,27,0.55)]">&amp; DRIVERS</span>
             </h1>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-              Ultra-reliable industrial SMPS, galvanically isolated DC-DC converters, and flicker-free precision LED drivers engineered to withstand extreme voltage fluctuations, harsh transients, and continuous 24/7 mission-critical operations.
-            </p>
-
-            {/* Glowing Red Carousel / Scroll Indicator matching FogPass */}
-            <div className="flex items-center gap-3 mb-8">
-              <a 
-                href="#about-powersupply" 
-                aria-label="Scroll to About Power Supply & Drivers"
-                className="w-8 h-8 rounded-full border-2 border-brand-red/80 flex items-center justify-center bg-red-950/60 backdrop-blur-sm hover:scale-110 transition-transform group cursor-pointer shadow-[0_0_12px_rgba(224,0,27,0.4)]"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-red shadow-[0_0_10px_#E0001B] group-hover:animate-ping"></span>
-              </a>
-              <span className="text-xs text-red-300 font-mono tracking-wide">Mission-Critical Power Architecture</span>
-            </div>
-
           </div>
         </div>
 
