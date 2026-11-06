@@ -362,15 +362,15 @@ export function PowerSupply() {
             </p>
           </div>
 
-          {/* 6 Clean Feature Cards with 4K Visuals and Titles matching FogPass */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {/* 3 Clean Feature Cards: AC-DC, DC-DC & LED Drivers */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
             
-            {/* Card 1: Industrial AC-DC DIN-Rail SMPS */}
+            {/* Card 1: AC-DC */}
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
+              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/power_supply_smps_unit.jpg" 
-                  alt="Industrial AC-DC DIN-Rail SMPS Unit" 
+                  src="/media/feature_ac_dc_power_supply.jpg" 
+                  alt="AC-DC" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
@@ -379,18 +379,18 @@ export function PowerSupply() {
                 </div>
               </div>
               <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Industrial AC-DC DIN-Rail SMPS
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
+                  AC-DC
                 </h3>
               </div>
             </div>
 
-            {/* Card 2: High-Rel Railway & Telecom DC-DC Converters */}
+            {/* Card 2: DC-DC */}
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
+              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/powersupply_hero.jpg" 
-                  alt="High-Rel Railway & Telecom DC-DC Converters" 
+                  src="/media/feature_dc_dc_converter.jpg" 
+                  alt="DC-DC" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
@@ -399,18 +399,18 @@ export function PowerSupply() {
                 </div>
               </div>
               <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  High-Rel Railway &amp; Telecom DC-DC Converters
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
+                  DC-DC
                 </h3>
               </div>
             </div>
 
-            {/* Card 3: Precision Architectural & Streetlight LED Drivers */}
+            {/* Card 3: LED Drivers */}
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
+              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/precision_led_drivers.jpg" 
-                  alt="Precision Architectural & Streetlight LED Drivers" 
+                  src="/media/feature_led_drivers.jpg" 
+                  alt="LED Drivers" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
@@ -419,68 +419,8 @@ export function PowerSupply() {
                 </div>
               </div>
               <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Precision Architectural &amp; Streetlight LED Drivers
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4: 10kV Lightning Surge & Transient Suppressors */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/power_supply_surge_lab.jpg" 
-                  alt="10kV Heavy Lightning Surge & Transient Suppressors" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-emerald-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  10kV Heavy Lightning Surge &amp; Transient Suppressors
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5: Intelligent Battery Chargers & Float Rectifiers */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/power_management.jpg" 
-                  alt="Intelligent Battery Chargers & Float Rectifiers" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-purple-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <BatteryCharging className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Intelligent Battery Chargers &amp; Float Rectifiers
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6: Dual-Input N+1 Redundancy & Oring Modules */}
-            <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
-                <img 
-                  src="/media/power_supply_panel_cabinet.jpg" 
-                  alt="Dual-Input N+1 Redundancy & Oring Modules" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-teal-500 flex items-center justify-center border border-white/20 shadow-md">
-                  <Layers className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors">
-                  Dual-Input N+1 Redundancy &amp; Oring Modules
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
+                  LED Drivers
                 </h3>
               </div>
             </div>

@@ -496,9 +496,6 @@ export function Railways() {
                     alt={prod.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black text-white font-black text-xs flex items-center justify-center shadow-md border border-white/20">
-                    {prod.number}
-                  </div>
                 </div>
 
                 <div className="p-6 flex items-center justify-between gap-4 flex-1">
