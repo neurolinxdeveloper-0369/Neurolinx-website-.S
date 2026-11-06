@@ -337,7 +337,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/coach_feature_ambient_optics.jpg" 
+                  src="/media/coach_feature_ambient_optics_zoom.jpg" 
                   alt="Glare-Free Indirect Ambient Optics" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -397,7 +397,7 @@ export function IndirectCoachLighting() {
             <div className="bg-white hover:bg-slate-50 rounded-2xl border border-slate-200/90 hover:border-brand-red/50 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                 <img 
-                  src="/media/coach_feature_cct_tuning.jpg" 
+                  src="/media/coach_feature_cct_tuning_split.jpg" 
                   alt="High CRI (>85) Warm & Cool Tuning" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
