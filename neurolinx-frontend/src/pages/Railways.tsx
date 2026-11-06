@@ -512,11 +512,21 @@ export function Railways() {
               </div>
             );
 
-            return isFogPass ? (
-              <Link key={prod.id} to="/fog-pass" className="block h-full">
-                {cardInner}
-              </Link>
-            ) : (
+            if (isFogPass) {
+              return (
+                <Link key={prod.id} to="/fog-pass" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            if (prod.id === 'signal-exchangers') {
+              return (
+                <Link key={prod.id} to="/signal-exchangers" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            return (
               <a key={prod.id} href="#rfq-form" className="block h-full">
                 {cardInner}
               </a>

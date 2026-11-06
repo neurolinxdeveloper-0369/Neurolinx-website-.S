@@ -54,6 +54,7 @@ const TemperatureMonitor = lazy(() => import('./pages/TemperatureMonitor').then(
 const NonUvDisinfection = lazy(() => import('./pages/NonUvDisinfection').then(m => ({ default: m.NonUvDisinfection })));
 const Railways = lazy(() => import('./pages/Railways').then(m => ({ default: m.Railways })));
 const FogPass = lazy(() => import('./pages/FogPass').then(m => ({ default: m.FogPass })));
+const SignalExchangers = lazy(() => import('./pages/SignalExchangers').then(m => ({ default: m.SignalExchangers })));
 const WindSolar = lazy(() => import('./pages/WindSolar').then(m => ({ default: m.WindSolar })));
 const PowerSupply = lazy(() => import('./pages/PowerSupply').then(m => ({ default: m.PowerSupply })));
 const ChipLevelDesign = lazy(() => import('./pages/ChipLevelDesign').then(m => ({ default: m.ChipLevelDesign })));
@@ -119,6 +120,9 @@ function App() {
               <Route path="/railways" element={<Railways />} />
               <Route path="/fog-pass" element={<FogPass />} />
               <Route path="/railways/fog-pass" element={<FogPass />} />
+              <Route path="/signal-exchangers" element={<SignalExchangers />} />
+              <Route path="/railways/signal-exchangers" element={<SignalExchangers />} />
+              <Route path="/products/signal-exchangers" element={<SignalExchangers />} />
               <Route path="/wind-solar" element={<WindSolar />} />
               <Route path="/power-supply" element={<PowerSupply />} />
               <Route path="/products/power-supply" element={<PowerSupply />} />
