@@ -57,6 +57,9 @@ const FogPass = lazy(() => import('./pages/FogPass').then(m => ({ default: m.Fog
 const SignalExchangers = lazy(() => import('./pages/SignalExchangers').then(m => ({ default: m.SignalExchangers })));
 const IndirectCoachLighting = lazy(() => import('./pages/IndirectCoachLighting').then(m => ({ default: m.IndirectCoachLighting })));
 const FootLamps = lazy(() => import('./pages/FootLamps').then(m => ({ default: m.FootLamps })));
+const LocoHeadlight = lazy(() => import('./pages/LocoHeadlight').then(m => ({ default: m.LocoHeadlight })));
+const FlasherLight = lazy(() => import('./pages/FlasherLight').then(m => ({ default: m.FlasherLight })));
+const MarkerLight = lazy(() => import('./pages/MarkerLight').then(m => ({ default: m.MarkerLight })));
 const WindSolar = lazy(() => import('./pages/WindSolar').then(m => ({ default: m.WindSolar })));
 const PowerSupply = lazy(() => import('./pages/PowerSupply').then(m => ({ default: m.PowerSupply })));
 const ChipLevelDesign = lazy(() => import('./pages/ChipLevelDesign').then(m => ({ default: m.ChipLevelDesign })));
@@ -134,6 +137,15 @@ function App() {
               <Route path="/foot-lamps" element={<FootLamps />} />
               <Route path="/railways/foot-lamps" element={<FootLamps />} />
               <Route path="/products/foot-lamps" element={<FootLamps />} />
+              <Route path="/loco-headlight" element={<LocoHeadlight />} />
+              <Route path="/railways/loco-headlight" element={<LocoHeadlight />} />
+              <Route path="/products/loco-headlight" element={<LocoHeadlight />} />
+              <Route path="/flasher-light" element={<FlasherLight />} />
+              <Route path="/railways/flasher-light" element={<FlasherLight />} />
+              <Route path="/products/flasher-light" element={<FlasherLight />} />
+              <Route path="/marker-light" element={<MarkerLight />} />
+              <Route path="/railways/marker-light" element={<MarkerLight />} />
+              <Route path="/products/marker-light" element={<MarkerLight />} />
               <Route path="/wind-solar" element={<WindSolar />} />
               <Route path="/power-supply" element={<PowerSupply />} />
               <Route path="/products/power-supply" element={<PowerSupply />} />

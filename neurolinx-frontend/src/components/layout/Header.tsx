@@ -263,7 +263,9 @@ export function Header() {
       path: "/railways",
       subItems: [
         { name: "Fog Pass Device (v2.0 & v3.0)", path: "/fog-pass" },
-        { name: "LED LOCO Head Light & Markers", path: "/railways#railway-products" },
+        { name: "LED LOCO Head Light", path: "/loco-headlight" },
+        { name: "LED Emergency Flasher Light", path: "/flasher-light" },
+        { name: "LED Position Marker Light", path: "/marker-light" },
         { name: "Coach LED Lighting Systems", path: "/coach-lighting" },
         { name: "Ruggedized Foot Lamps", path: "/foot-lamps" },
         { name: "Electronic Signal Exchangers (ESE)", path: "/signal-exchangers" },
@@ -399,7 +401,7 @@ export function Header() {
               type="button"
               onClick={() => setProductsDropdown(prev => !prev)}
               className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
-                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/universal-ir-blaster', '/non-uv-disinfection', '/railways', '/fog-pass', '/signal-exchangers', '/coach-lighting', '/foot-lamps', '/power-supply'].includes(location.pathname)
+                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/universal-ir-blaster', '/non-uv-disinfection', '/railways', '/fog-pass', '/signal-exchangers', '/coach-lighting', '/indirect-coach-lighting', '/foot-lamps', '/loco-headlight', '/flasher-light', '/marker-light', '/power-supply'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}

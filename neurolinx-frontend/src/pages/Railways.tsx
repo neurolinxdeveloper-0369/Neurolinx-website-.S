@@ -429,13 +429,13 @@ export function Railways() {
 
                     <div className="pt-3 flex items-center justify-between">
                       <span className="text-xs font-mono font-bold text-slate-600">EN 50155 / RDSO VERIFIED</span>
-                      <a 
-                        href="#slide-4"
+                      <Link 
+                        to="/loco-headlight"
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:underline"
                       >
-                        <span>Request Tender Spec</span>
+                        <span>View Details</span>
                         <ChevronRight className="w-4 h-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -536,6 +536,27 @@ export function Railways() {
             if (prod.id === 'indirect-lighting') {
               return (
                 <Link key={prod.id} to="/indirect-coach-lighting" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            if (prod.id === 'loco-headlight') {
+              return (
+                <Link key={prod.id} to="/loco-headlight" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            if (prod.id === 'flasher-light') {
+              return (
+                <Link key={prod.id} to="/flasher-light" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            if (prod.id === 'marker-light') {
+              return (
+                <Link key={prod.id} to="/marker-light" className="block h-full">
                   {cardInner}
                 </Link>
               );
