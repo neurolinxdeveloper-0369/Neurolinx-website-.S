@@ -359,13 +359,13 @@ export function Railways() {
 
                     <div className="pt-3 flex items-center justify-between">
                       <span className="text-xs font-mono font-bold text-slate-600">500,000+ CANDELA LUX</span>
-                      <a 
-                        href="#slide-4"
+                      <Link 
+                        to="/coach-lighting"
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:underline"
                       >
-                        <span>Request Tender Spec</span>
+                        <span>View Details</span>
                         <ChevronRight className="w-4 h-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -395,13 +395,13 @@ export function Railways() {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3">
-                    <a 
-                      href="#slide-4"
+                    <Link 
+                      to="/coach-lighting"
                       className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-brand-red text-white text-sm font-semibold hover:bg-red-700 transition-all shadow-md shadow-brand-red/25 cursor-pointer gap-2"
                     >
-                      <span>Inquire Coach Lighting Specs</span>
+                      <span>Explore Dedicated Coach Lighting Page</span>
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                     <a 
                       href="#railway-products"
                       className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-gray-300 text-slate-800 text-sm font-semibold hover:bg-gray-100 transition-all cursor-pointer"
@@ -522,6 +522,20 @@ export function Railways() {
             if (prod.id === 'signal-exchangers') {
               return (
                 <Link key={prod.id} to="/signal-exchangers" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            if (prod.id === 'foot-lamps') {
+              return (
+                <Link key={prod.id} to="/foot-lamps" className="block h-full">
+                  {cardInner}
+                </Link>
+              );
+            }
+            if (prod.id === 'indirect-lighting') {
+              return (
+                <Link key={prod.id} to="/coach-lighting" className="block h-full">
                   {cardInner}
                 </Link>
               );
