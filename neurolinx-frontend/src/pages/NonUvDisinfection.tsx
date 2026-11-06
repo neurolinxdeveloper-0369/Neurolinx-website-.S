@@ -1,451 +1,487 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  ShieldCheck, 
-  Sparkles, 
   CheckCircle2, 
-  Eye, 
-  Layers, 
-  Award, 
-  PhoneCall, 
-  FileText, 
-  ArrowRight, 
-  Sliders, 
-  Activity, 
-  HeartPulse, 
-  Building2, 
-  Clock,
-  Check
+  ChevronRight, 
+  Home
 } from 'lucide-react';
 
 export function NonUvDisinfection() {
-  // Selected Model Tab
-  const [selectedModel, setSelectedModel] = useState<'panel' | 'batten' | 'downlight' | 'portable'>('panel');
-
-  const models = [
+  // 6 Core Disinfection Products matching Home Automation 6-card grid
+  const disinfectionProducts = [
     {
-      id: "panel",
-      name: "2x2 Cleanroom Ceiling Panel",
-      tagline: "Hospitals, Operating Theatres & Cleanrooms",
+      id: "cleanroom-panel",
+      shortCode: "NUV-P60",
+      title: "2x2 Cleanroom Ceiling Panel",
+      tagline: "405nm Cleanroom & Hospital False Ceiling Panel",
       desc: "Flush-mount 2x2 ft and 1x4 ft antimicrobial ceiling panel fixture. Directly replaces standard troffers in hospital ICUs, surgical suites, pathology labs, and pharmaceutical manufacturing facilities for uninterrupted 24/7 pathogen defense.",
+      longDesc: "Delivers 5,200+ Lumens of uniform glare-free neutral white task light while continuously emitting 405nm antimicrobial rays that eradicate airborne and surface bio-burden. Certified 100% safe for eyes and skin under international standard IEC 62471 (RG-0 Exempt).",
       img: "/media/continuous_sterilization.jpg",
-      badge: "Medical Cleanroom",
-      specs: [
-        "Dimensions: 595mm x 595mm x 45mm",
-        "Dual Mode: Clean White (4000K) + 405nm Active Antimicrobial",
-        "IEC 62471 Photobiological Eye & Skin Safety Certified",
-        "Efficacy: 99.9% Microbial Reduction in 24 Hours",
-        "Diffuser: Microprismatic Anti-Glare PMMA",
-        "Input Voltage: 180V - 265V AC Surge Protected"
-      ]
+      badge: "Medical Cleanroom"
     },
     {
-      id: "batten",
-      name: "Continuous Linear Batten Model",
-      tagline: "Corridors, Schools, Commercial Offices & Gyms",
+      id: "linear-batten",
+      shortCode: "NUV-L40",
+      title: "Continuous Linear Batten",
+      tagline: "Commercial Offices, Hallways & Corridors",
       desc: "Sleek aluminum architectural continuous linear batten designed for office hallways, educational classrooms, and fitness centers. Emits ambient functional white illumination while continuously neutralizing airborne and surface bio-burden.",
+      longDesc: "High CRI (>90) architectural profile with integrated microwave radar sensor automation that transitions smoothly between gentle ambient bio-shield and full brightness as occupants enter.",
       img: "/media/led_integration.jpg",
-      badge: "Commercial Batten",
-      specs: [
-        "Lengths: 2 Feet (20W) & 4 Feet (40W)",
-        "Direct Surface / Suspended Wire Mounting",
-        "Continuous Non-UV 405nm Visible Antimicrobial Spectrum",
-        "100% Safe for Continuous Human Occupation",
-        "High CRI (>85) Natural Lighting Quality",
-        "Lifespan: >60,000 Hours Continuous Burn"
-      ]
+      badge: "Commercial Batten"
     },
     {
-      id: "downlight",
-      name: "Architectural Downlight Model",
-      tagline: "Clinics, Elevators, Reception Desks & Washrooms",
+      id: "downlight-system",
+      shortCode: "NUV-D18",
+      title: "Architectural Downlight System",
+      tagline: "Restrooms, Elevators & Reception Desks",
       desc: "Compact recessed circular downlight for targeted sterilization over high-touch transit zones such as elevator cabs, doctor consultation chambers, reception desks, and hotel washrooms.",
+      longDesc: "IP54 moisture and dust resistant face with deep anti-glare cutoff optics. Continuous 24/7 active free-radical disruption keeps washroom counters, elevator buttons, and door handles sanitized around the clock.",
       img: "/media/human_safe.jpg",
-      badge: "Recessed Downlight",
-      specs: [
-        "Cutout Sizes: 4-Inch (12W) & 6-Inch (18W)",
-        "Die-Cast Aluminum Heat Sink for Optimal Thermal Dissipation",
-        "Zero Harmful UV-A, UV-B, or UV-C Radiation",
-        "Instant On/Off with Microwave Occupancy Sensor Integration",
-        "Beam Angle: 90° Wide Distribution",
-        "IP54 Moisture & Dust Resistant Face"
-      ]
+      badge: "Recessed Downlight"
     },
     {
-      id: "portable",
-      name: "Mobile Standalone Sanitizer Unit",
+      id: "mobile-sanitizer",
+      shortCode: "NUV-M120",
+      title: "Mobile Standalone Sanitizer Unit",
       tagline: "Flexible Multi-Room Disinfection Trolley",
       desc: "Portable wheeled sterilization tower designed for rapid deployment across hotel rooms, quarantine zones, dental operatories, and school buses without needing hardwired ceiling installation.",
+      longDesc: "Heavy-duty powder-coated steel chassis with smooth-glide castor wheels. Safe to run while people and pets stay in the room, with integrated digital timer and wireless RF remote control.",
       img: "/media/pathogen_elimination.jpg",
-      badge: "Mobile Disinfection",
-      specs: [
-        "Wheeled Castor Base with Locking Brakes",
-        "360-Degree Omnidirectional Emitter Array",
-        "Safe to Run While People and Pets are Present in Room",
-        "Integrated Digital Timer & Cycle Selector",
-        "Robust Steel Cage Impact Protection",
-        "Standard 230V 3-Pin Wall Socket Plug & Play"
-      ]
+      badge: "Mobile Disinfection"
+    },
+    {
+      id: "radar-driver",
+      shortCode: "NUV-DRV",
+      title: "Precision Radar Sensor & Driver",
+      tagline: "5.8GHz Microwave Motion Detection Stage",
+      desc: "Industrial-grade constant current solid-state driver with integrated 5.8GHz microwave radar motion detection for automated presence sensing and energy saving.",
+      longDesc: "Surge protection up to 3kV, zero-cross switching for hum-free dimming, and autonomous mode switching from standby antimicrobial night-glow to active task illumination.",
+      img: "/media/precision_led_drivers.jpg",
+      badge: "Power & Sensor Stage"
+    },
+    {
+      id: "smart-touch-control",
+      shortCode: "NUV-TCH",
+      title: "Smart Touch & Switchboard Control",
+      tagline: "Capacitive Glass Touch & App Integration",
+      desc: "Capacitive tempered glass touch switchboard and local mesh controller allowing one-touch selection between Day Lighting, Night Shield, and Deep Sanitization modes.",
+      longDesc: "Seamlessly synchronizes with the Neurolinx mobile application, Amazon Alexa, and Google Assistant for hands-free voice control and autonomous time-of-day disinfection scheduling.",
+      img: "/media/touch_board_premium.jpg",
+      badge: "Smart Control Hub"
     }
   ];
 
-  const currentModelData = models.find(m => m.id === selectedModel) || models[0];
+  // Selected Product for Slide 3 Feature Showcase
+  const [selectedProduct, setSelectedProduct] = useState(disinfectionProducts[0]);
 
-  const clinicalHighlights = [
-    {
-      title: "100% Human Safe (Zero UV Hazard)",
-      desc: "Unlike harmful UV-C (254nm) that burns retinas and causes skin carcinoma, our 405nm narrow-spectrum visible light is classified as RG-0 (Exempt Risk) under IEC 62471. People work safely underneath all day.",
-      icon: ShieldCheck
-    },
-    {
-      title: "Continuous 24/7 Decontamination",
-      desc: "Chemical sprays and UV robots only clean for minutes while rooms are evacuated. Our non-UV fixtures decontaminate continuously, killing bacteria as soon as they are introduced.",
-      icon: Clock
-    },
-    {
-      title: "99.9% Proven Pathogen Kill Rate",
-      desc: "Targets intracellular porphyrins inside microbes, generating reactive oxygen species (ROS) that dismantle bacterial cell walls. Proven effective against MRSA, E. Coli, Staph, and enveloped viruses.",
-      icon: HeartPulse
-    },
-    {
-      title: "Drop-In Fixture Replacement",
-      desc: "Replaces standard fluorescent tubes, troffers, and downlights with no additional rewiring. Serves as your normal high-efficiency everyday lighting fixture.",
-      icon: Layers
-    }
-  ];
+  // Contact Inquiry Form State (Slide 4) matching Home Automation exactly
+  const [inquiryForm, setInquiryForm] = useState({
+    name: '',
+    email: '',
+    automationFor: 'Non-UV Disinfection Light',
+    projectType: 'New Building',
+    controlOptions: [] as string[],
+    contactNumber: '',
+    city: '',
+    captchaInput: ''
+  });
+  const [inquirySubmitted, setInquirySubmitted] = useState(false);
 
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Top Trust Bar ── */}
-      <div className="bg-[#0B0F19] text-slate-300 pt-24 pb-2 px-4 text-xs font-medium border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-center sm:text-left">
-          <div className="flex items-center justify-center gap-2 mx-auto sm:mx-0">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
-            </span>
-            <span className="text-white font-semibold">100% Human-Safe Disinfection</span>
-            <span className="text-slate-500">•</span>
-            <span>IEC 62471 Photobiological Certified</span>
-            <span className="text-slate-500">•</span>
-            <span>Zero Toxic UV-C Radiation</span>
-          </div>
-          <div className="hidden md:flex items-center gap-6 text-slate-400">
-            <a href="tel:+917013486961" className="hover:text-white flex items-center gap-1.5 transition-colors">
-              <PhoneCall className="w-3.5 h-3.5 text-brand-red" />
-              <span>Hospital & Institutional Sales: +91 7013486961</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Cinematic Hero ── */}
-      <div className="relative w-full overflow-hidden bg-[#0B0F19] text-white pt-2 pb-16 md:pt-3 md:pb-20">
-        <div className="absolute inset-0 z-0">
+      {/* ── Hero Banner Section (Full-Width Edge-to-Edge Clean Architecture matching Home Automation) ── */}
+      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24">
+        <div className="relative w-full">
           <img 
-            src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-            alt="Non-UV Disinfection Light"
-            className="w-full h-full object-cover opacity-30"
+            src="/media/non_uv_disinfection_hero.jpg" 
+            alt="Non-UV Disinfection Light Systems - 100% Human Safe Continuous Sterilization"
+            className="w-full h-auto block"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/90 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent"></div>
         </div>
+      </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* ── Product Showcase: 4-Column Balanced Grid (Matching Home Automation reference) ── */}
+      <div id="products-catalog" className="w-full bg-white py-10 md:py-14">
+        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Breadcrumb Navigation matching reference */}
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-5 font-medium">
+            <Link to="/" className="flex items-center gap-1.5 hover:text-black transition-colors text-gray-600">
+              <Home className="w-4 h-4 text-gray-700" />
+              <span>Home</span>
+            </Link>
+            <span className="text-gray-400 font-normal">&gt;</span>
+            <span className="text-gray-900 font-semibold">Non-UV Disinfection Light</span>
+          </div>
+
+          {/* 6 Disinfection Product Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {disinfectionProducts.map((prod) => (
+              <a 
+                key={prod.id}
+                href="#switch-details"
+                onClick={() => setSelectedProduct(prod)}
+                className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+              >
+                <div className="relative h-60 sm:h-64 lg:h-72 w-full p-2.5 sm:p-3 overflow-hidden">
+                  <div className="w-full h-full overflow-hidden rounded-[18px]">
+                    <img 
+                      src={prod.img} 
+                      alt={prod.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+                <div className="p-4 sm:p-5 pt-1 sm:pt-2 flex items-center justify-between gap-2">
+                  <h3 className="text-sm sm:text-[15px] font-semibold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-1">
+                    {prod.title}
+                  </h3>
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-colors shadow-sm">
+                    <ChevronRight className="w-4 h-4 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Slide 3: Universal Disinfection Control Showcase (matching Home Automation reference) ── */}
+      <div id="switch-details" className="w-full bg-white py-12 md:py-16">
+        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#F8F9FA] rounded-[32px] md:rounded-[40px] border border-gray-100 p-8 sm:p-12 lg:p-16 shadow-sm">
             
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-red/40 bg-brand-red/10 text-red-300 font-semibold text-xs tracking-wider uppercase mb-6 backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-brand-red" />
-                Continuous Antimicrobial Lighting Technology
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight text-white mb-6 leading-[1.12]">
-                Non-UV Disinfection <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-brand-red to-orange-400">
-                  Light Systems.
+            {/* Top Category Heading: Continuous Disinfection in company logo red with underline */}
+            <div className="text-center mb-10 md:mb-14">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight inline-block">
+                <span className="text-brand-red border-b-2 border-brand-red pb-1">
+                  Continuous Disinfection
                 </span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-normal leading-relaxed mb-8">
-                Breakthrough 405nm antimicrobial technology that eliminates <strong className="text-white font-semibold">99.9% of bacteria and viruses continuously</strong> while people work, learn, and heal underneath. Zero harmful UV radiation, zero chemicals, and zero room evacuation required.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
-                <a 
-                  href="#models-section"
-                  className="px-8 py-4 bg-brand-red text-white rounded-full font-bold shadow-lg shadow-brand-red/30 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group"
-                >
-                  <span>Explore Available Models</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-
-                <a 
-                  href="#clinical-section"
-                  className="px-8 py-4 bg-white/10 hover:bg-white/15 text-white border border-white/20 rounded-full font-semibold backdrop-blur-sm transition-all text-center flex items-center justify-center gap-2"
-                >
-                  <ShieldCheck className="w-4 h-4 text-brand-red" />
-                  <span>Clinical & Safety Proof</span>
-                </a>
-              </div>
-
-              {/* Badges */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10 w-full">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5 text-brand-red font-bold text-lg">
-                    <ShieldCheck className="w-5 h-5 shrink-0" />
-                    <span>0% UV</span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-0.5">100% Eye & Skin Safe</span>
-                </div>
-
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5 text-brand-red font-bold text-lg">
-                    <Award className="w-5 h-5 shrink-0" />
-                    <span>99.9%</span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-0.5">Pathogen Kill Rate</span>
-                </div>
-
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5 text-brand-red font-bold text-lg">
-                    <Clock className="w-5 h-5 shrink-0" />
-                    <span>24 / 7</span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-0.5">Always-On Protection</span>
-                </div>
-
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5 text-brand-red font-bold text-lg">
-                    <Layers className="w-5 h-5 shrink-0" />
-                    <span>IEC 62471</span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-0.5">Exempt Group 0 Safety</span>
-                </div>
-              </div>
+              </h2>
             </div>
 
-            {/* Right Hero Preview */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md p-6 sm:p-8">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-3 h-3 rounded-full bg-brand-red animate-pulse"></div>
-                    <span className="text-xs tracking-wider uppercase font-semibold text-gray-300">Cleanroom Sterilization Active</span>
-                  </div>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-medium border border-emerald-500/30">
-                    Safe For Occupants
-                  </span>
-                </div>
+            {/* Two-Column Content: Left Information + Right Product Card */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* Left Column Information */}
+              <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-[1.2] mb-6 tracking-tight">
+                  {selectedProduct.title} with Smart App &amp; Sensor Integration
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                  Transform your living spaces and commercial environments into continuously protected zones with Neurolinx Non-UV Disinfection Lighting. Eliminate 99.9% of bacteria, mold, and pathogens seamlessly using narrow-band 405nm visible light that is 100% safe for human eyes, skin, and pets under IEC 62471.
+                </p>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+                  {selectedProduct.longDesc} Enjoy intelligent convenience, centralized control, and seamless peace of mind — all designed to make modern living healthier.
+                </p>
+                <a 
+                  href="#slide-4"
+                  className="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-brand-red transition-all shadow-sm hover:shadow-md cursor-pointer"
+                >
+                  View More
+                </a>
+              </div>
 
-                <div className="relative rounded-2xl overflow-hidden mb-6 h-56 w-full group">
-                  <img
-                    src="/media/continuous_sterilization.jpg"
-                    alt="2x2 Ceiling Panel Cleanroom"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white">
-                    <span className="font-semibold">Model 2x2 Panel Fixture</span>
-                    <span className="text-brand-red font-bold">405nm Continuous Spectrum</span>
+              {/* Right Column: Product Card matching reference design */}
+              <div className="lg:col-span-6 xl:col-span-6 flex justify-center">
+                <div className="w-full max-w-lg bg-white rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                  {/* Card Title */}
+                  <div className="mb-4">
+                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight block">
+                      {selectedProduct.shortCode}
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-500">
+                      {selectedProduct.tagline}
+                    </span>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <span className="text-gray-400 text-[10px] block uppercase">Photobiological Class</span>
-                    <span className="text-white font-bold">RG-0 Exempt (Safe)</span>
+                  {/* Product Image */}
+                  <div className="my-4 py-2 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={selectedProduct.img} 
+                      alt={selectedProduct.title} 
+                      className="w-full h-auto max-h-[380px] object-contain rounded-xl hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <span className="text-gray-400 text-[10px] block uppercase">Bacterial Reduction</span>
-                    <span className="text-emerald-400 font-bold">99.9% MRSA & E. Coli</span>
+
+                  {/* Card Button */}
+                  <div className="pt-2">
+                    <a 
+                      href="#slide-4"
+                      className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-black text-white text-xs sm:text-sm font-semibold hover:bg-brand-red transition-colors shadow-sm cursor-pointer"
+                    >
+                      View More
+                    </a>
                   </div>
                 </div>
               </div>
+
             </div>
 
           </div>
         </div>
       </div>
 
-      {/* ── Models Showcase Section (From User Notes: Models & Images) ── */}
-      <div id="models-section" className="w-full bg-gray-50 py-24 px-6 lg:px-8 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto">
+      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Matching Home Automation exactly) ── */}
+      <div id="slide-4" className="w-full bg-white py-12 md:py-16">
+        <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-100 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-              Product Models Portfolio
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-              Select Your Non-UV Disinfection Model.
-            </h2>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Available in 4 dedicated form factors engineered for cleanrooms, offices, washrooms, and mobile multi-room deployment.
-            </p>
-
-            {/* Model Selector Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 max-w-4xl mx-auto">
-              {models.map(m => (
-                <button
-                  key={m.id}
-                  onClick={() => setSelectedModel(m.id as any)}
-                  className={`p-3.5 rounded-2xl text-xs font-bold transition-all text-center border ${
-                    selectedModel === m.id
-                      ? 'bg-brand-red text-white border-brand-red shadow-lg shadow-brand-red/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border-gray-200'
-                  }`}
-                >
-                  <div className="font-extrabold">{m.name.split(' ')[0]} {m.name.split(' ')[1]}</div>
-                  <div className={`text-[10px] mt-0.5 ${selectedModel === m.id ? 'text-red-100' : 'text-gray-400'}`}>
-                    {m.badge}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Active Model Interactive Display */}
-          <div className="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 shadow-sm max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Main 2-Tone Card Container matching 2nd image */}
+          <div className="rounded-[32px] md:rounded-[36px] border border-gray-100 overflow-hidden shadow-sm flex flex-col lg:flex-row items-stretch">
+            
+            {/* Left Panel: Pure White Background (Snug & Attached to Form) */}
+            <div className="w-full lg:w-[36%] xl:w-[34%] bg-white px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-gray-100/80">
               
-              <div className="lg:col-span-7">
-                <div className="inline-block px-3 py-1 rounded-full bg-red-50 text-brand-red text-xs font-bold uppercase mb-3">
-                  {currentModelData.badge}
-                </div>
-                <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-                  {currentModelData.name}
-                </h3>
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
-                  {currentModelData.tagline}
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  {currentModelData.desc}
+              <div>
+                {/* Title colored in brand Red and Blue like Neurolinx logo */}
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
+                  Have<br />
+                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                </h2>
+                
+                <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">
+                  “Let’s make a Smarter World together”
                 </p>
 
-                {/* Technical Specs List */}
-                <div className="space-y-2.5 pt-4 border-t border-gray-100 mb-8">
-                  {currentModelData.specs.map((sp, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
-                      <span>{sp}</span>
+                <div className="space-y-6">
+                  {/* Phone */}
+                  <a 
+                    href="tel:+919390584000" 
+                    className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
+                  >
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
+                      <svg className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
                     </div>
-                  ))}
-                </div>
+                    <span className="text-sm sm:text-base font-semibold">+91 9390584***</span>
+                  </a>
 
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="tel:+917013486961"
-                    className="px-6 py-3 rounded-full bg-brand-red hover:bg-red-700 text-white font-bold text-xs shadow-md shadow-brand-red/20 transition-all flex items-center gap-2"
+                  {/* Email */}
+                  <a 
+                    href="mailto:info@neurolinx.in" 
+                    className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
                   >
-                    <PhoneCall className="w-3.5 h-3.5" />
-                    <span>Get Quote for {currentModelData.name.split(' ')[0]}</span>
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
+                      <svg className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm sm:text-base font-semibold">info@neurolinx.in</span>
                   </a>
-                  <a
-                    href="mailto:support@neurolinx.in?subject=Non-UV%20Datasheet%20Request"
-                    className="px-6 py-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs transition-colors flex items-center gap-2"
-                  >
-                    <FileText className="w-3.5 h-3.5 text-brand-red" />
-                    <span>Request Technical Datasheet</span>
-                  </a>
+
+                  {/* Address */}
+                  <div className="flex items-start gap-3.5 text-slate-800">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-slate-900" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                      </svg>
+                    </div>
+                    <span className="text-xs sm:text-[13px] font-medium text-slate-700 leading-relaxed">
+                      NEUROLINX GLOBAL PRIVATE LIMITED, C12/A, Industrial Area, Kushaiguda, Hyderabad, Secunderabad, Telangana 500062
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Model Image Display */}
-              <div className="lg:col-span-5 h-80 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shadow-md">
-                <img
-                  src={currentModelData.img}
-                  alt={currentModelData.name}
-                  className="w-full h-full object-cover"
+              {/* Decorative Brand Emblem at the divider seam rotating slowly */}
+              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                <img 
+                  src="/media/logo.png" 
+                  alt="Neurolinx" 
+                  style={{ animation: 'spin 18s linear infinite' }}
+                  className="w-12 h-12 object-contain drop-shadow-sm" 
                 />
               </div>
 
             </div>
-          </div>
 
-        </div>
-      </div>
-
-      {/* ── Clinical & Photobiological Efficacy (Images & Science) ── */}
-      <div id="clinical-section" className="py-24 px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-            Clinical Rigor & Safety
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-            How Non-UV 405nm Destroys Microbes Safely.
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-            Unlike UV radiation which breaks DNA and causes skin cancer, visible 405nm light excites bacterial porphyrins, destroying bacteria from the inside out with complete safety for human occupants.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {clinicalHighlights.map((hl, i) => {
-            const Icon = hl.icon;
-            return (
-              <div key={i} className="p-7 rounded-3xl bg-white border border-gray-200 shadow-sm flex flex-col">
-                <div className="w-12 h-12 rounded-2xl bg-red-50 text-brand-red flex items-center justify-center mb-6 shrink-0">
-                  <Icon className="w-6 h-6" />
+            {/* Right Panel: Soft Light Gray Background */}
+            <div className="w-full lg:w-[64%] xl:w-[66%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex-1">
+              {inquirySubmitted ? (
+                <div className="bg-white rounded-2xl p-8 sm:p-12 text-center border border-gray-100 shadow-sm">
+                  <CheckCircle2 className="w-12 h-12 text-brand-red mx-auto mb-3" />
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Thank you for reaching out!</h3>
+                  <p className="text-sm text-gray-600 mb-6">
+                    We have received your details. Our smart disinfection lighting team will review your requirements and connect with you shortly.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setInquirySubmitted(false);
+                      setInquiryForm({
+                        name: '',
+                        email: '',
+                        automationFor: 'Non-UV Disinfection Light',
+                        projectType: 'New Building',
+                        controlOptions: [],
+                        contactNumber: '',
+                        city: '',
+                        captchaInput: ''
+                      });
+                    }}
+                    className="px-6 py-2.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-brand-red transition-colors cursor-pointer"
+                  >
+                    Submit Another Inquiry
+                  </button>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3">
-                  {hl.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed flex-1">
-                  {hl.desc}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+              ) : (
+                <form 
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setInquirySubmitted(true);
+                  }}
+                  className="space-y-4 sm:space-y-5"
+                >
+                  {/* Row 1: Name & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Name</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={inquiryForm.name}
+                        onChange={(e) => setInquiryForm({...inquiryForm, name: e.target.value})}
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                      <input 
+                        type="email" 
+                        required 
+                        value={inquiryForm.email}
+                        onChange={(e) => setInquiryForm({...inquiryForm, email: e.target.value})}
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                      />
+                    </div>
+                  </div>
 
-        {/* 4 Models Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {models.map((m, idx) => (
-            <div key={idx} className="rounded-2xl overflow-hidden border border-gray-200 bg-white group cursor-pointer" onClick={() => setSelectedModel(m.id as any)}>
-              <div className="h-44 overflow-hidden relative">
-                <img src={m.img} alt={m.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-white text-[10px] font-bold">
-                  {m.badge}
-                </div>
-              </div>
-              <div className="p-4">
-                <h4 className="text-sm font-bold text-slate-900 mb-1">{m.name}</h4>
-                <p className="text-[11px] text-gray-400 line-clamp-2">{m.tagline}</p>
-              </div>
+                  {/* Row 2: Automation For & Project Type */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Automation For</label>
+                      <select 
+                        value={inquiryForm.automationFor}
+                        onChange={(e) => setInquiryForm({...inquiryForm, automationFor: e.target.value})}
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs cursor-pointer"
+                      >
+                        <option>Non-UV Disinfection Light</option>
+                        <option>Cleanroom & False Ceiling Panels</option>
+                        <option>Continuous Linear Battens</option>
+                        <option>Architectural Downlights</option>
+                        <option>Mobile Standalone Sanitizers</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Project Type</label>
+                      <select 
+                        value={inquiryForm.projectType}
+                        onChange={(e) => setInquiryForm({...inquiryForm, projectType: e.target.value})}
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs cursor-pointer"
+                      >
+                        <option>New Building</option>
+                        <option>Existing / Renovation</option>
+                        <option>Under Construction</option>
+                        <option>Hospital / Medical Facility</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Row 3: Control For (multiple options) */}
+                  <div>
+                    <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-2">
+                      Control For ( you can select multiple option )
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {[
+                        'Lighting & Scene Control',
+                        'Continuous Bio-Shield Disinfection',
+                        'Microwave Radar Occupancy Control',
+                        'App & Voice Automation'
+                      ].map((option) => {
+                        const isChecked = inquiryForm.controlOptions.includes(option);
+                        return (
+                          <label 
+                            key={option} 
+                            className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none"
+                          >
+                            <input 
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => {
+                                const next = isChecked 
+                                  ? inquiryForm.controlOptions.filter(o => o !== option)
+                                  : [...inquiryForm.controlOptions, option];
+                                setInquiryForm({...inquiryForm, controlOptions: next});
+                              }}
+                              className="w-4 h-4 rounded border-gray-300 text-black focus:ring-0 accent-black cursor-pointer bg-white"
+                            />
+                            <span>{option}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Row 4: Contact Number & City */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Contact Number</label>
+                      <input 
+                        type="tel" 
+                        required 
+                        value={inquiryForm.contactNumber}
+                        onChange={(e) => setInquiryForm({...inquiryForm, contactNumber: e.target.value})}
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">City</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={inquiryForm.city}
+                        onChange={(e) => setInquiryForm({...inquiryForm, city: e.target.value})}
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                      />
+                    </div>
+                  </div>
+
+                  {/* Disclaimer text */}
+                  <p className="text-[11px] sm:text-xs text-gray-500 leading-normal">
+                    By submitting this form, you agree that we may use your information for marketing purposes and to send you announcements
+                  </p>
+
+                  {/* Captcha */}
+                  <div>
+                    <div className="font-serif tracking-widest text-lg font-bold text-gray-700 select-none mb-1.5 px-1">
+                      F M4 B
+                    </div>
+                    <input 
+                      type="text" 
+                      placeholder="Enter Captcha"
+                      value={inquiryForm.captchaInput}
+                      onChange={(e) => setInquiryForm({...inquiryForm, captchaInput: e.target.value})}
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-1">
+                    <button
+                      type="submit"
+                      className="px-9 py-3 rounded-lg bg-black text-white font-semibold text-sm hover:bg-brand-red transition-colors shadow-sm cursor-pointer"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* ── Consultation & RFQ Strip ── */}
-      <div className="w-full bg-[#0F172A] text-white py-20 px-6 lg:px-8 border-t border-white/10">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-brand-red/20 text-red-300 font-bold text-xs uppercase tracking-widest border border-brand-red/40">
-            Hospital & Institutional Inquiries
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
-            Protect Your Facility with Continuous Non-UV Disinfection
-          </h2>
-          <p className="text-gray-300 text-sm sm:text-base mb-10 max-w-2xl mx-auto">
-            Speak directly with our bio-photonic lighting engineers for hospital cleanroom illumination planning, irradiance calculations, and commercial quotation proposals.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="tel:+917013486961"
-              className="w-full sm:w-auto px-8 py-4 bg-brand-red hover:bg-red-700 text-white rounded-full font-bold text-sm shadow-lg shadow-brand-red/30 transition-all flex items-center justify-center gap-2"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>Call Medical Lighting Division: +91 7013486961</span>
-            </a>
-            <a
-              href="mailto:support@neurolinx.in?subject=Non-UV%20Disinfection%20Inquiry"
-              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full font-bold text-sm transition-all flex items-center justify-center gap-2"
-            >
-              <FileText className="w-4 h-4 text-brand-red" />
-              <span>Request Institutional Proposal</span>
-            </a>
           </div>
+
         </div>
       </div>
 

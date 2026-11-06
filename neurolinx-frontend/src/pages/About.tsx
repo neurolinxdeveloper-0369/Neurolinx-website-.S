@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   ChevronLeft,
   ChevronRight, 
-  Home as HomeIcon, 
   Linkedin, 
   ArrowRight, 
   CheckCircle2, 
@@ -193,17 +192,6 @@ export function About() {
         </div>
       </section>
 
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-100 py-3 sm:py-3.5 px-4 sm:px-6 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs sm:text-sm text-gray-500">
-          <Link to="/" className="inline-flex items-center gap-1.5 hover:text-[#E0001B] transition-colors">
-            <HomeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E0001B]" />
-            <span>Home</span>
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400" />
-          <span className="text-gray-900 font-medium">About Us</span>
-        </div>
-      </nav>
 
       {/* 2. INNOVATING TODAY SECTION (VISION & MISSION) */}
       <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-white">
