@@ -44,7 +44,7 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold tracking-wider uppercase mb-6 text-sm">Solutions</h4>
             <ul className="space-y-4">
-              <li><Link to="/rms-smart-metering" className="text-gray-400 hover:text-brand-red transition-colors text-sm">RMS &amp; Smart Metering Analytics</Link></li>
+              <li><Link to="/rms-smart-metering" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Remote Monitoring System &amp; Smart Metering</Link></li>
               <li><Link to="/fab-foundry" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Fab Foundry</Link></li>
               <li><Link to="/chip-level-design" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Chip-Level Designing</Link></li>
               <li><Link to="/robotics" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Robotics &amp; AI</Link></li>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
+import { CustomCursor } from './components/ui/CustomCursor'
 
 // Scroll to top or anchor on route change
 function ScrollToTop() {
@@ -97,6 +98,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       <ScrollToTop />
 
       <div className="min-h-screen bg-black flex flex-col relative font-body">

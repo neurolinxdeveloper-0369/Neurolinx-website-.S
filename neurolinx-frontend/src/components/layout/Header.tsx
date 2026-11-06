@@ -2,28 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   ChevronDown, 
-  ChevronRight,
   Menu, 
   X, 
   ArrowUpRight
 } from 'lucide-react';
 
-interface SubSubMenuItem {
-  name: string;
-  path: string;
-}
-
-interface SubMenuItem {
-  name: string;
-  path: string;
-  hasArrow?: boolean;
-  subItems?: SubSubMenuItem[];
-}
-
 interface MenuItem {
   name: string;
   path: string;
-  subItems?: SubMenuItem[];
 }
 
 export function Header() {
@@ -70,24 +56,19 @@ export function Header() {
     }, 200);
   };
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns on route change
+  // Close dropdowns on outside click
   useEffect(() => {
-    closeAllDropdowns();
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
-  // Handle click outside to close dropdowns
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         closeAllDropdowns();
       }
     };
@@ -104,184 +85,19 @@ export function Header() {
   }, []);
 
   const solutions: MenuItem[] = [
-    { 
-      name: "RMS & Smart Metering Analytics", 
-      path: "/rms-smart-metering",
-      subItems: [
-        { name: "Remote Monitoring Systems", path: "/rms-smart-metering" },
-        { name: "Smart Metering Analytics", path: "/rms-smart-metering" },
-        { name: "DLMS/COSEM IoT Gateways", path: "/rms-smart-metering" },
-        { name: "Railway Substation SCADA", path: "/rms-smart-metering" },
-      ]
-    },
-    { 
-      name: "Fab Foundry", 
-      path: "/fab-foundry",
-      subItems: [
-        { name: "Silicon Wafer Processing", path: "/fab-foundry" },
-        { name: "Advanced 2.5D/3D Packaging", path: "/fab-foundry" },
-        { name: "Cleanroom Logistics", path: "/fab-foundry" },
-        { name: "Quality Assurance & Binning", path: "/fab-foundry" },
-      ]
-    },
-    { 
-      name: "Chip-Level Designing", 
-      path: "/chip-level-design",
-      subItems: [
-        { name: "ASIC & FPGA Prototyping", path: "/chip-level-design" },
-        { name: "RTL Architecture Design", path: "/chip-level-design" },
-        { name: "Physical Verification", path: "/chip-level-design" },
-        { name: "Embedded Firmware Porting", path: "/chip-level-design" },
-      ]
-    },
-    { 
-      name: "Robotics & AI", 
-      path: "/robotics",
-      subItems: [
-        { name: "Autonomous AGVs", path: "/robotics" },
-        { name: "Industrial Robotic Arms", path: "/robotics" },
-        { name: "Edge AI Computer Vision", path: "/ai" },
-        { name: "Predictive Factory Automation", path: "/robotics" },
-      ]
-    },
-    { 
-      name: "POS Application", 
-      path: "/pos-application",
-      subItems: [
-        { name: "Embedded POS Terminal Software", path: "/pos-application" },
-        { name: "Omnichannel Payment Rails", path: "/pos-application" },
-        { name: "PCI-PTS Security Kernels", path: "/pos-application" },
-        { name: "Cloud Fleet & OTA Management", path: "/pos-application" },
-      ]
-    },
+    { name: "Remote Monitoring System & Smart Metering", path: "/rms-smart-metering" },
+    { name: "Fab Foundry", path: "/fab-foundry" },
+    { name: "Chip-Level Designing", path: "/chip-level-design" },
+    { name: "Robotics & AI", path: "/robotics" },
+    { name: "POS Application", path: "/pos-application" },
   ];
 
   const products: MenuItem[] = [
-    { 
-      name: "Smart Home Automation", 
-      path: "/home-automation",
-      subItems: [
-        { 
-          name: "Lighting Automation", 
-          path: "/home-automation#products-catalog", 
-          hasArrow: true,
-          subItems: [
-            { name: "Touch Glass Switchboards", path: "/retrofit-touch-panels" },
-            { name: "Retrofit Switch Modules", path: "/retrofit-touch-panels" },
-            { name: "Smart Dimmers & CCT", path: "/home-automation#products-catalog" },
-            { name: "RGBW Scene Automation", path: "/home-automation#products-catalog" },
-          ]
-        },
-        { 
-          name: "HVAC / Audio-Video", 
-          path: "/home-automation#products-catalog", 
-          hasArrow: true,
-          subItems: [
-            { name: "Universal IR Blaster (360°)", path: "/universal-ir-blaster" },
-            { name: "Smart AC Climate Control", path: "/home-automation#products-catalog" },
-            { name: "Home Theatre & Audio Sync", path: "/home-automation#products-catalog" },
-          ]
-        },
-        { 
-          name: "Security", 
-          path: "/home-automation#products-catalog", 
-          hasArrow: true,
-          subItems: [
-            { name: "Smart Keyless Door Locks", path: "/home-automation#products-catalog" },
-            { name: "PIR Motion & Presence", path: "/home-automation#products-catalog" },
-            { name: "Gas Leak & Smoke Sensors", path: "/home-automation#products-catalog" },
-            { name: "Door/Window Magnetic Sensors", path: "/home-automation#products-catalog" },
-          ]
-        },
-        { 
-          name: "Smart Way Control", 
-          path: "/home-automation#products-catalog", 
-          hasArrow: true,
-          subItems: [
-            { name: "2-Way & Multi-Way Mesh", path: "/home-automation#products-catalog" },
-            { name: "Master Bedroom & Entry Control", path: "/home-automation#products-catalog" },
-            { name: "Local Wireless Synchronization", path: "/home-automation#products-catalog" },
-          ]
-        },
-        { 
-          name: "Energy Intelligence", 
-          path: "/smart-energy-meters", 
-          hasArrow: true,
-          subItems: [
-            { name: "1-? & 3-? Smart Energy Meters", path: "/smart-energy-meters" },
-            { name: "Solar Net Metering & Analytics", path: "/smart-energy-meters#solar-net-metering" },
-            { name: "DLMS/COSEM IoT Gateways", path: "/smart-energy-meters" },
-          ]
-        },
-        { 
-          name: "Water Intelligence", 
-          path: "/smart-water-control", 
-          hasArrow: true,
-          subItems: [
-            { name: "Smart Water Control System", path: "/smart-water-control" },
-            { name: "Ultrasonic Tank Automation", path: "/smart-water-control#systems" },
-            { name: "Dual-Tank & Sump Interlock", path: "/smart-water-control#dual-tank-system" },
-          ]
-        },
-        { 
-          name: "Curtains & Shading", 
-          path: "/motorized-smart-curtains", 
-          hasArrow: true,
-          subItems: [
-            { name: "Motorized Smart Curtains", path: "/motorized-smart-curtains" },
-            { name: "Dual-Track Drapery Systems", path: "/motorized-smart-curtains#tracks" },
-            { name: "Motorized Roller Blinds", path: "/motorized-smart-curtains#tracks" },
-          ]
-        },
-        { 
-          name: "Climate & Environmental", 
-          path: "/temperature-monitor", 
-          hasArrow: true,
-          subItems: [
-            { name: "Temperature Monitor & Alert Systems", path: "/temperature-monitor" },
-            { name: "Server Room & Data Center Climate", path: "/temperature-monitor#multi-zone" },
-            { name: "Automated Heat-Spike Sirens", path: "/temperature-monitor#alert-engine" },
-          ]
-        },
-        { name: "Smart Node Application", path: "/home-automation#products-catalog" },
-        { name: "Third-Party Integration", path: "/home-automation#products-catalog" },
-        { name: "Accessories", path: "/home-automation#products-catalog" },
-      ]
-    },
-    { 
-      name: "Non-UV Disinfection Light", 
-      path: "/non-uv-disinfection",
-      subItems: [
-        { name: "405nm Cleanroom Panels", path: "/non-uv-disinfection#models-section" },
-        { name: "Commercial Disinfection Downlights", path: "/non-uv-disinfection#models-section" },
-        { name: "Hospital & Lab Lighting", path: "/non-uv-disinfection#models-section" },
-        { name: "Continuous Sterilization Tech", path: "/non-uv-disinfection" },
-      ]
-    },
-    { 
-      name: "Railways", 
-      path: "/railways",
-      subItems: [
-        { name: "Fog Pass Device (v2.0 & v3.0)", path: "/fog-pass" },
-        { name: "LED LOCO Head Light", path: "/loco-headlight" },
-        { name: "LED Emergency Flasher Light", path: "/flasher-light" },
-        { name: "LED Position Marker Light", path: "/marker-light" },
-        { name: "Coach LED Lighting Systems", path: "/coach-lighting" },
-        { name: "Ruggedized Foot Lamps", path: "/foot-lamps" },
-        { name: "Electronic Signal Exchangers (ESE)", path: "/signal-exchangers" },
-        { name: "Signaling & Track Interlocking", path: "/signal-exchangers" },
-      ]
-    },
-    { 
-      name: "Power Supply & Drivers", 
-      path: "/power-supply",
-      subItems: [
-        { name: "Industrial AC-DC SMPS", path: "/power-supply#products-grid" },
-        { name: "DC-DC Converters", path: "/power-supply#products-grid" },
-        { name: "Precision LED Constant Current", path: "/power-supply#products-grid" },
-        { name: "10kV Surge Protected Drivers", path: "/power-supply" },
-      ]
-    },
+    { name: "Smart Home Automation", path: "/home-automation" },
+    { name: "Non-UV Disinfection Light", path: "/non-uv-disinfection" },
+    { name: "Railways", path: "/railways" },
+    { name: "FogPASS Device", path: "/fog-pass" },
+    { name: "Power Supply & Drivers", path: "/power-supply" },
   ];
 
   return (
@@ -353,38 +169,16 @@ export function Header() {
                 onMouseEnter={handleSolutionsEnter}
                 onMouseLeave={handleSolutionsLeave}
               >
-                <div className="w-[270px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col">
+                <div className="w-[320px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col">
                   {solutions.map((item, idx) => (
-                    <div key={idx} className="relative group/solutionItem">
-                      <Link
-                        to={item.path}
-                        onClick={closeAllDropdowns}
-                        className="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors w-full"
-                      >
-                        <span className="truncate">{item.name}</span>
-                        {item.subItems && (
-                          <span className="text-[10px] text-gray-400 group-hover/solutionItem:text-white transition-colors ml-2 shrink-0">
-                            ▸
-                          </span>
-                        )}
-                      </Link>
-                      {item.subItems && (
-                        <div className="hidden group-hover/solutionItem:block absolute left-full top-0 pl-1 z-50">
-                          <div className="w-[260px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in duration-150 flex flex-col">
-                            {item.subItems.map((sub, sIdx) => (
-                              <Link
-                                key={sIdx}
-                                to={sub.path}
-                                onClick={closeAllDropdowns}
-                                className="flex items-center px-3.5 py-2 rounded-lg text-xs font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-                              >
-                                <span className="truncate">{sub.name}</span>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                    <Link
+                      key={idx}
+                      to={item.path}
+                      onClick={closeAllDropdowns}
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors w-full"
+                    >
+                      <span className="truncate">{item.name}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -418,58 +212,14 @@ export function Header() {
               >
                 <div className="w-[270px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col">
                   {products.map((item, idx) => (
-                    <div key={idx} className="relative group/productItem">
-                      <Link
-                        to={item.path}
-                        onClick={closeAllDropdowns}
-                        className="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors w-full"
-                      >
-                        <span className="truncate">{item.name}</span>
-                        {item.subItems && (
-                          <span className="text-[10px] text-gray-400 group-hover/productItem:text-white transition-colors ml-2 shrink-0">
-                            ▸
-                          </span>
-                        )}
-                      </Link>
-                      {item.subItems && (
-                        <div className="hidden group-hover/productItem:block absolute left-full top-0 pl-1 z-50">
-                          <div className="w-[260px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in duration-150 flex flex-col">
-                            {item.subItems.map((sub, sIdx) => (
-                              <div key={sIdx} className="relative group/subItem">
-                                <Link
-                                  to={sub.path}
-                                  onClick={closeAllDropdowns}
-                                  className="flex items-center justify-between px-3.5 py-2 rounded-lg text-xs font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors w-full"
-                                >
-                                  <span className="truncate">{sub.name}</span>
-                                  {(sub.hasArrow || sub.subItems) && (
-                                    <span className="text-[10px] text-gray-400 group-hover/subItem:text-white transition-colors ml-2 shrink-0">
-                                      ▸
-                                    </span>
-                                  )}
-                                </Link>
-                                {sub.subItems && (
-                                  <div className="hidden group-hover/subItem:block absolute left-full top-0 pl-1 z-50">
-                                    <div className="w-[240px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in duration-150 flex flex-col">
-                                      {sub.subItems.map((subSub, ssIdx) => (
-                                        <Link
-                                          key={ssIdx}
-                                          to={subSub.path}
-                                          onClick={closeAllDropdowns}
-                                          className="flex items-center px-3.5 py-2 rounded-lg text-xs font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-                                        >
-                                          <span className="truncate">{subSub.name}</span>
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                    <Link
+                      key={idx}
+                      to={item.path}
+                      onClick={closeAllDropdowns}
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors w-full"
+                    >
+                      <span className="truncate">{item.name}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -542,20 +292,9 @@ export function Header() {
               <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Solutions</span>
               <div className="grid grid-cols-1 gap-2 pl-2">
                 {solutions.map((item, idx) => (
-                  <div key={idx} className="flex flex-col">
-                    <Link key={idx} to={item.path} onClick={closeAllDropdowns} className="text-xs font-medium text-white hover:text-gray-300 py-1 flex items-center justify-between">
-                      <span>{item.name}</span>
-                    </Link>
-                    {item.subItems && (
-                      <div className="pl-3 flex flex-col space-y-1 border-l border-white/10 ml-1 my-1">
-                        {item.subItems.map((sub, sIdx) => (
-                          <Link key={sIdx} to={sub.path} onClick={closeAllDropdowns} className="text-[11px] text-gray-400 hover:text-white py-0.5">
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link key={idx} to={item.path} onClick={closeAllDropdowns} className="text-xs font-medium text-white hover:text-gray-300 py-1">
+                    {item.name}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -564,31 +303,9 @@ export function Header() {
               <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Products</span>
               <div className="grid grid-cols-1 gap-2 pl-2">
                 {products.map((item, idx) => (
-                  <div key={idx} className="flex flex-col">
-                    <Link key={idx} to={item.path} onClick={closeAllDropdowns} className="text-xs font-medium text-white hover:text-gray-300 py-1 flex items-center justify-between">
-                      <span>{item.name}</span>
-                    </Link>
-                    {item.subItems && (
-                      <div className="pl-3 flex flex-col space-y-1 border-l border-white/10 ml-1 my-1">
-                        {item.subItems.map((sub, sIdx) => (
-                          <div key={sIdx} className="flex flex-col">
-                            <Link to={sub.path} onClick={closeAllDropdowns} className="text-[11px] text-gray-400 hover:text-white py-0.5">
-                              {sub.name}
-                            </Link>
-                            {sub.subItems && (
-                              <div className="pl-3 flex flex-col space-y-0.5 border-l border-white/10 ml-1 my-0.5">
-                                {sub.subItems.map((subSub, ssIdx) => (
-                                  <Link key={ssIdx} to={subSub.path} onClick={closeAllDropdowns} className="text-[10px] text-gray-500 hover:text-gray-300 py-0.5">
-                                    {subSub.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link key={idx} to={item.path} onClick={closeAllDropdowns} className="text-xs font-medium text-white hover:text-gray-300 py-1">
+                    {item.name}
+                  </Link>
                 ))}
               </div>
             </div>

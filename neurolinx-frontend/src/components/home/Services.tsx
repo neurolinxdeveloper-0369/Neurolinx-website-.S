@@ -39,7 +39,7 @@ export function Services() {
 
   const services = [
     {
-      title: "RMS & Smart Metering Analytics",
+      title: "Remote Monitoring System & Smart Metering",
       desc: "Cloud-native telemetry platforms, AMR/AMI smart grid analytics, and railway substation automation.",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "/rms-smart-metering",
