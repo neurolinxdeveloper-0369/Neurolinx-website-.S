@@ -58,16 +58,6 @@ export function NonUvDisinfection() {
       longDesc: "Surge protection up to 3kV, zero-cross switching for hum-free dimming, and autonomous mode switching from standby antimicrobial night-glow to active task illumination.",
       img: "/media/precision_led_drivers.jpg",
       badge: "Power & Sensor Stage"
-    },
-    {
-      id: "smart-touch-control",
-      shortCode: "NUV-TCH",
-      title: "Smart Touch & Switchboard Control",
-      tagline: "Capacitive Glass Touch & App Integration",
-      desc: "Capacitive tempered glass touch switchboard and local mesh controller allowing one-touch selection between Day Lighting, Night Shield, and Deep Sanitization modes.",
-      longDesc: "Seamlessly synchronizes with the Neurolinx mobile application, Amazon Alexa, and Google Assistant for hands-free voice control and autonomous time-of-day disinfection scheduling.",
-      img: "/media/touch_board_premium.jpg",
-      badge: "Smart Control Hub"
     }
   ];
 

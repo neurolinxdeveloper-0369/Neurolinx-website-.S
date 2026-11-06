@@ -10,9 +10,9 @@ export function Careers() {
 
   const jobs = [
     { title: "Senior Embedded Engineer", type: "Full-Time", loc: "Hyderabad, India / Remote" },
-    { title: "AI Robotics Researcher", type: "Full-Time", loc: "Hyderabad, India" },
     { title: "Power Supply Design Lead", type: "Full-Time", loc: "Bengaluru, India" },
-    { title: "Frontend Developer (React)", type: "Full-Time", loc: "Remote" },
+    { title: "Frontend Developer", type: "Full-Time", loc: "Remote" },
+    { title: "Backend Developer", type: "Full-Time", loc: "Remote" },
     { title: "Hardware Quality Inspector", type: "Contract", loc: "Pune, India" },
   ];
 
@@ -50,35 +50,33 @@ export function Careers() {
         </div>
       </div>
 
-      {/* Open Positions */}
-      <div className="w-full bg-gray-50 py-20 px-8">
+      {/* Open Positions Section */}
+      <div className="w-full bg-gray-50 py-20 px-8 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-brand-charcoal mb-10 text-center">Open Positions</h2>
-          
-          <div className="flex flex-col space-y-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-brand-charcoal mb-4">Current Openings</h2>
+            <p className="text-gray-500">Discover your next opportunity to innovate and grow.</p>
+          </div>
+          <div className="space-y-4">
             {jobs.map((job, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between hover:border-brand-red/30 transition-colors">
-                <div className="mb-4 md:mb-0">
-                  <h4 className="font-bold text-brand-charcoal text-xl mb-2">{job.title}</h4>
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
-                    <span className="bg-gray-100 px-3 py-1 rounded-full">{job.type}</span>
+              <div key={idx} className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-gray-200 transition-all">
+                <div>
+                  <h3 className="text-xl font-bold text-brand-charcoal mb-2">{job.title}</h3>
+                  <div className="flex gap-4 text-sm text-gray-500">
+                    <span className="font-semibold text-brand-red">{job.type}</span>
+                    <span>•</span>
                     <span>{job.loc}</span>
                   </div>
                 </div>
-                <a 
-                  href={`mailto:careers@neurolinx.com?subject=Application for ${job.title}`}
-                  className="px-8 py-3 bg-brand-charcoal text-white rounded-full text-sm font-semibold hover:bg-brand-red transition-colors w-full md:w-auto text-center inline-block"
+                <a
+                  href={`mailto:careers@neurolinx.in?subject=Application for ${job.title}`}
+                  className="px-6 py-2.5 bg-brand-charcoal hover:bg-black text-white text-sm font-semibold rounded-full text-center transition-colors"
                 >
                   Apply Now
                 </a>
               </div>
             ))}
           </div>
-          
-          <div className="mt-12 text-center text-gray-500">
-            Don't see a perfect fit? Send your resume to <a href="mailto:careers@neurolinx.com" className="text-brand-red font-bold hover:underline">careers@neurolinx.com</a>
-          </div>
-
         </div>
       </div>
 

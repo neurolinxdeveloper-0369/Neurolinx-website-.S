@@ -952,7 +952,7 @@ export function RetrofitTouchPanels() {
         <div className="relative w-full">
           <img 
             src="/media/retrofit_touch_panel_hero.jpg" 
-            alt="Neurolinx Smart Touch Panel in Luxury Penthouse Living Room"
+            alt="Retrofit & Touch Switches Smart Home Automation - Neurolinx"
             className="w-full h-auto block"
           />
         </div>
