@@ -57,29 +57,6 @@ export function InternetOfThings() {
     }
   ];
 
-  const applications = [
-    {
-      title: "Smart Grid & Utilities",
-      desc: "Substation telemetry, automated meter reading (AMR/AMI), power factor auditing, and grid stability monitoring.",
-      img: "/media/smart_grid_integration.jpg"
-    },
-    {
-      title: "Renewable Energy Parks",
-      desc: "String-level solar inverter telemetry, wind turbine performance diagnostics, and weather sensor integration.",
-      img: "/media/remote_monitoring_system_hero.png"
-    },
-    {
-      title: "Industrial & Manufacturing",
-      desc: "Machine condition monitoring, automated guided vehicle (AGV) telemetry, and environmental compliance sensors.",
-      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      title: "Intelligent Facilities",
-      desc: "Occupancy detection, smart HVAC energy optimization, digital water sub-metering, and emergency alerting.",
-      img: "/media/smart_home_hero_banner.jpg"
-    }
-  ];
-
   return (
     <div className="w-full bg-white text-slate-800 flex flex-col font-body selection:bg-brand-red selection:text-white">
 
@@ -249,49 +226,7 @@ export function InternetOfThings() {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 4: INDUSTRY DEPLOYMENTS                                           */}
-      {/* ========================================================================= */}
-      <section className="w-full py-20 sm:py-24 bg-[#F8F9FA] border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="flex items-center justify-center space-x-2 text-brand-red font-bold uppercase tracking-widest text-xs mb-3">
-              <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
-              <span>PROVEN USE CASES</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight mb-4">
-              Where Our IoT Solutions Operate
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-              From distributed power grids to automated smart facilities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {applications.map((app, idx) => (
-              <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all group">
-                <div className="h-44 w-full overflow-hidden bg-slate-900 relative">
-                  <img 
-                    src={app.img} 
-                    alt={app.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                </div>
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-base font-bold text-slate-900 mb-2 font-display">{app.title}</h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{app.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* SECTION 5: CALL TO ACTION BANNER                                          */}
+      {/* SECTION 4: CALL TO ACTION BANNER                                          */}
       {/* ========================================================================= */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
         <div className="w-full bg-black rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 shadow-2xl relative overflow-hidden">
