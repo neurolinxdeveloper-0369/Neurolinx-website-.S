@@ -29,7 +29,6 @@ export function AboutUs() {
           <div className="flex items-center space-x-3 mb-4 sm:mb-6">
             <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
             <span className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs">About Us</span>
-            <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-6xl font-display font-black text-white mb-4 sm:mb-6 lg:mb-8 leading-[1.1] tracking-tight">

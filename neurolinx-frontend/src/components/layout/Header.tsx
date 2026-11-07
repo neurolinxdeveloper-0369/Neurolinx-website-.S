@@ -98,6 +98,7 @@ export function Header() {
     { name: "Railways", path: "/railways" },
     { name: "FogPASS Device", path: "/fog-pass" },
     { name: "Power Supply & Drivers", path: "/power-supply" },
+    { name: "POS Application", path: "/pos-application" },
   ];
 
   return (
@@ -195,7 +196,7 @@ export function Header() {
               type="button"
               onClick={() => setProductsDropdown(prev => !prev)}
               className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
-                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/universal-ir-blaster', '/non-uv-disinfection', '/railways', '/fog-pass', '/signal-exchangers', '/coach-lighting', '/indirect-coach-lighting', '/foot-lamps', '/loco-headlight', '/flasher-light', '/marker-light', '/power-supply'].includes(location.pathname)
+                productsDropdown || ['/home-automation', '/retrofit-touch-panels', '/universal-ir-blaster', '/non-uv-disinfection', '/railways', '/fog-pass', '/signal-exchangers', '/coach-lighting', '/indirect-coach-lighting', '/foot-lamps', '/loco-headlight', '/flasher-light', '/marker-light', '/power-supply', '/pos-application'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}

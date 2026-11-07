@@ -69,6 +69,7 @@ const Robotics = lazy(() => import('./pages/Robotics').then(m => ({ default: m.R
 const ArtificialIntelligence = lazy(() => import('./pages/ArtificialIntelligence').then(m => ({ default: m.ArtificialIntelligence })));
 const RmsSmartMetering = lazy(() => import('./pages/RmsSmartMetering').then(m => ({ default: m.RmsSmartMetering })));
 const PosApplication = lazy(() => import('./pages/PosApplication').then(m => ({ default: m.PosApplication })));
+const PosDemoRequest = lazy(() => import('./pages/PosDemoRequest').then(m => ({ default: m.PosDemoRequest })));
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Leadership = lazy(() => import('./pages/Leadership').then(m => ({ default: m.Leadership })));
 const Careers = lazy(() => import('./pages/Careers').then(m => ({ default: m.Careers })));
@@ -159,6 +160,8 @@ function App() {
               <Route path="/ai" element={<ArtificialIntelligence />} />
               <Route path="/rms-smart-metering" element={<RmsSmartMetering />} />
               <Route path="/pos-application" element={<PosApplication />} />
+              <Route path="/pos-demo" element={<PosDemoRequest />} />
+              <Route path="/request-demo" element={<PosDemoRequest />} />
               <Route path="/about" element={<About />} />
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/careers" element={<Careers />} />

@@ -75,7 +75,7 @@ export function HeroOne() {
             {BRAND_LETTERS.map((item, idx) => (
               <span
                 key={idx}
-                className={`hero-letter-reveal ${item.isRed ? 'text-[#FF1C36]' : 'text-white'}`}
+                className={`hero-letter-reveal ${item.isRed ? 'text-[#FF1C36]/90' : 'text-[#F5F8FF]/90'}`}
                 style={{
                   animationDelay: `${180 + idx * 70}ms`,
                 }}

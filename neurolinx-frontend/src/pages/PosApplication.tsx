@@ -1,103 +1,206 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CreditCard, Smartphone, ShieldCheck, Cpu, ArrowRight, Zap, CheckCircle2 } from 'lucide-react';
+import { 
+  Zap, 
+  Package, 
+  UtensilsCrossed, 
+  SlidersHorizontal, 
+  BarChart3, 
+  UserCheck, 
+  CreditCard, 
+  Layers, 
+  ArrowRight 
+} from 'lucide-react';
 
 export function PosApplication() {
-  const features = [
-    { 
-      title: "Embedded Terminal Software", 
-      desc: "High-performance POS application runtime optimized for Android POS, Linux micro-terminals, and standalone payment hardware.", 
-      img: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+  // 8 Key Features
+  const keyFeatures = [
+    {
+      icon: Zap,
+      title: "Fast & Accurate Billing",
+      desc: "Simplify checkout and billing operations with sub-second item lookups and lightning-fast receipt prints."
     },
-    { 
-      title: "Omnichannel Transaction Engine", 
-      desc: "Unified processing for EMV chip cards, contactless NFC, BharatQR, UPI, and digital wallet payment rails with sub-second latency.", 
-      img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+    {
+      icon: Package,
+      title: "Inventory Management",
+      desc: "Organize stock information, manage batch numbers, and monitor product availability in real time."
     },
-    { 
-      title: "PCI-PTS & End-to-End Encryption", 
-      desc: "Bank-grade HSM tokenization, DUKPT key management, and PCI-DSS compliance built into the core firmware architecture.", 
-      img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+    {
+      icon: UtensilsCrossed,
+      title: "Order Management",
+      desc: "Manage restaurant orders through an organized digital workflow from table ordering to kitchen tickets."
     },
-    { 
-      title: "Cloud Fleet & Terminal Management", 
-      desc: "Over-the-air (OTA) remote application updates, real-time telemetry diagnostics, and centralized multi-store reconciliation.", 
-      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+    {
+      icon: SlidersHorizontal,
+      title: "Product & Menu Management",
+      desc: "Maintain product catalogs, food menus, modifiers, variants, categories, and dynamic price tiers."
+    },
+    {
+      icon: BarChart3,
+      title: "Sales Reports",
+      desc: "Access transaction records, track hourly rush periods, and analyze multi-counter sales performance."
+    },
+    {
+      icon: UserCheck,
+      title: "Customer Management",
+      desc: "Organize customer information, purchase histories, and contact numbers for better, personalized service."
+    },
+    {
+      icon: CreditCard,
+      title: "Payment Management",
+      desc: "Record and manage transaction payments seamlessly across UPI QR, Credit/Debit cards, Cash, and Split bills."
+    },
+    {
+      icon: Layers,
+      title: "Centralized Dashboard",
+      desc: "View vital business metrics, daily profit margins, and shift audits through one user-friendly interface."
     }
   ];
 
   return (
-    <div className="w-full bg-white flex flex-col font-body">
-      {/* Cinematic Hero */}
-      <div className="relative w-full flex items-center justify-center overflow-hidden bg-brand-charcoal" style={{ minHeight: '60vh' }}>
+    <div className="w-full bg-white text-slate-800 flex flex-col font-body selection:bg-brand-red selection:text-white">
+
+      {/* ========================================================================= */}
+      {/* SECTION 1: CINEMATIC HERO BANNER                                          */}
+      {/* ========================================================================= */}
+      <div className="relative w-full flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '60vh' }}>
         <img 
-          src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-          alt="POS Application"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          src="/media/pos_hero_banner.jpg" 
+          alt="Neurolinx POS Application"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 brightness-95"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-black/55"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 mt-20 pb-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-brand-red/50 bg-brand-red/20 text-white font-medium text-xs tracking-wider uppercase backdrop-blur-md">
-            <CreditCard className="w-3.5 h-3.5 text-brand-red" />
-            Fintech & Retail Hardware Solutions
-          </div>
           <h1 className="text-4xl md:text-6xl font-display font-black tracking-tighter text-white mb-6 leading-tight drop-shadow-2xl">
-            Intelligent POS <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">
-              Applications.
-            </span>
+            POS <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Application</span>
           </h1>
-          <p className="text-base md:text-lg text-gray-200 max-w-2xl font-light drop-shadow-md">
-            Secure, PCI-compliant embedded terminal software and cloud reconciliation engines engineered for next-gen point-of-sale hardware.
+          <p className="text-base md:text-lg text-gray-200 max-w-2xl font-light drop-shadow-md mb-8">
+            Streamline billing, sales, inventory, and everyday business operations with Neurolinx POS Application.
           </p>
-        </div>
-      </div>
 
-      {/* Feature Section */}
-      <div className="py-24 px-8 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col items-center text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-brand-charcoal mb-4 leading-tight">
-            Enterprise Payment & Terminal Infrastructure
-          </h2>
-          <p className="text-gray-500 text-base leading-relaxed mb-16 max-w-2xl">
-            Custom embedded POS applications engineered for high transaction concurrency, offline resilience, and multi-protocol flexibility.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 w-full text-left">
-            {features.map((item, i) => (
-              <div key={i} className="flex flex-col bg-white overflow-hidden rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-                <div className="h-52 w-full overflow-hidden relative">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-6 flex flex-col flex-1 bg-gray-50/50">
-                  <h3 className="text-xl font-bold text-brand-charcoal mb-2 group-hover:text-brand-red transition-colors">{item.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Quick Consultation CTA */}
-          <div className="w-full bg-[#0F172A] rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Deploying POS Terminals or Payment Hubs?</h3>
-              <p className="text-gray-400 text-sm max-w-xl">
-                Partner with Neurolinx for custom firmware porting, payment kernel certification, and cloud terminal management.
-              </p>
-            </div>
-            <Link 
-              to="/contact" 
-              className="px-6 py-3.5 rounded-full bg-brand-red text-white text-sm font-semibold hover:bg-red-700 transition-colors shrink-0 flex items-center gap-2"
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a 
+              href="#features" 
+              className="px-7 py-3.5 rounded-full bg-brand-red hover:bg-red-700 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 flex items-center gap-2 group cursor-pointer"
             >
-              <span>Request POS Consultation</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Explore Features</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <Link 
+              to="/pos-demo" 
+              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-md font-bold text-sm tracking-wide transition-all shadow-md flex items-center gap-2 cursor-pointer"
+            >
+              <span>Request a Demo</span>
             </Link>
           </div>
         </div>
       </div>
+
+      {/* ========================================================================= */}
+      {/* SECTION 2: ABOUT OUR POS APPLICATION                                      */}
+      {/* ========================================================================= */}
+      <section className="w-full py-20 sm:py-24 bg-[#F8F9FA] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            {/* Header Accent Line */}
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
+              <span className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs">ABOUT OUR POS APPLICATION</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-slate-900 mb-6 leading-tight">
+              Simplifying Business Operations <br className="hidden sm:block" />
+              Through Modern Technology
+            </h2>
+
+            <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed mb-4">
+              Neurolinx POS Application is a modern software solution developed to simplify billing and daily business management.
+            </p>
+
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Built to support diverse commercial environments, the application helps businesses manage sales, track inventory, handle orders, and record payments with high precision and speed.
+            </p>
+          </div>
+
+          {/* Centralized UI Presentation Card */}
+          <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-white group">
+            <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-slate-950 overflow-hidden">
+              <img 
+                src="/media/pos_hero_banner.jpg" 
+                alt="Neurolinx POS Software in Action" 
+                className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700 opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
+                <span className="text-xs font-bold uppercase tracking-widest text-brand-red mb-1">
+                  Our Solutions
+                </span>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold">
+                  Comprehensive monitoring solutions and dependable assistance tailored for wind and solar operations.
+                </h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 3: COMPREHENSIVE KEY FEATURES                                     */}
+      {/* ========================================================================= */}
+      <section id="features" className="w-full py-24 sm:py-28 bg-[#F8F9FA] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <div className="flex items-center justify-center space-x-2 text-brand-red font-bold uppercase tracking-widest text-xs mb-3">
+              <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
+              <span>FULL-FEATURED BILLING ENGINE</span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight mb-4">
+              Comprehensive Key Features
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              Everything your business requires to process orders, audit stock, track cash flow, and manage customers.
+            </p>
+          </div>
+
+          {/* 8 Feature Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {keyFeatures.map((feat, idx) => {
+              const IconComp = feat.icon;
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 hover:border-brand-red/30 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-xl bg-slate-50 border border-gray-200 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors duration-300 mb-5 shadow-xs">
+                      <IconComp className="w-6 h-6" />
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 font-display">
+                      {feat.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                      {feat.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+
+
     </div>
   );
 }

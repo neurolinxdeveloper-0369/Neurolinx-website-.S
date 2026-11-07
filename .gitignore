@@ -70,3 +70,7 @@ media/**
 playwright-report/
 test-results/
 blob-report/
+
+# Local backups
+_local_backup/
+neurolinx-frontend/_local_backup/

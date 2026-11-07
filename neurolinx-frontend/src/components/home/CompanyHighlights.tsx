@@ -17,7 +17,6 @@ export function CompanyHighlights() {
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-8 h-1 bg-brand-red rounded-full"></div>
             <span className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs">Our Company</span>
-            <div className="w-8 h-1 bg-brand-red rounded-full"></div>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-brand-charcoal">
             More About Neurolinx

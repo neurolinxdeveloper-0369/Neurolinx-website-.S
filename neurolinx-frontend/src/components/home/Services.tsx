@@ -14,7 +14,7 @@ export function Services() {
     {
       title: "Non-UV Disinfection Light",
       desc: "Safe, continuous 405nm visible-light disinfection technology for hospitals, labs, and commercial spaces.",
-      img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      img: "/media/non_uv_disinfection_home.jpg",
       linkUrl: "/non-uv-disinfection",
       buttonText: "View Product",
       features: ["Safe & continuous", "405nm visible light", "For hospitals & cleanrooms"]
@@ -41,7 +41,7 @@ export function Services() {
     {
       title: "Remote Monitoring System & Smart Metering",
       desc: "Cloud-native telemetry platforms, AMR/AMI smart grid analytics, and railway substation automation.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      img: "/media/rms_home_card.jpg",
       linkUrl: "/rms-smart-metering",
       buttonText: "Explore Solution",
       features: ["DLMS smart grid analytics", "Edge telemetry gateways", "Predictive load monitoring"]
@@ -63,12 +63,12 @@ export function Services() {
       features: ["Autonomous AGVs", "Sensor-fused robotic arms", "Edge vision AI algorithms"]
     },
     {
-      title: "POS Applications",
-      desc: "Secure embedded payment terminal kernels, PCI-PTS compliant transaction software, and cloud fleet telemetry.",
-      img: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80",
+      title: "Smart POS Application",
+      desc: "Intuitive digital billing, inventory tracking, and sales analytics engineered for retail stores, supermarkets, restaurants, and cafés.",
+      img: "/media/pos_home_card.jpg",
       linkUrl: "/pos-application",
-      buttonText: "Explore Solution",
-      features: ["PCI-PTS compliance", "Omnichannel EMV & UPI", "OTA terminal fleet management"]
+      buttonText: "Explore POS Solution",
+      features: ["Smart Billing & Invoicing", "Retail & Restaurant Modes", "Live Inventory & Reports"]
     }
   ];
 
@@ -84,7 +84,6 @@ export function Services() {
           <div className="flex items-center justify-center space-x-3 mb-4 sm:mb-6">
             <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
             <span className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs">Our Products & Our Services</span>
-            <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white mb-4 sm:mb-6 leading-tight">
             Expert Solutions Across <br/> Innovation & Engineering

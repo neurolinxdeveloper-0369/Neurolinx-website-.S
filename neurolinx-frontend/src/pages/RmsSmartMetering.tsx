@@ -46,21 +46,45 @@ export function RmsSmartMetering() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
       
-      {/* ── 1. Hero Showcase Section ── */}
-      <section className="w-full bg-white relative overflow-hidden pt-28 sm:pt-32 pb-8 sm:pb-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Hero Visual Card: Seamless White Showcase */}
-          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-white transition-all">
-            <img 
-              src="/media/remote_monitoring_system_hero.jpg" 
-              alt="Remote Monitoring Systems (RMS) - Wind & Solar Data in One Dashboard"
-              className="w-full h-auto block object-contain"
-            />
-          </div>
+      {/* ========================================================================= */}
+      {/* SECTION 1: CINEMATIC HERO BANNER (MATCHING POS APPLICATION LAYOUT)        */}
+      {/* ========================================================================= */}
+      <div className="relative w-full flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '60vh' }}>
+        <img 
+          src="/media/remote_monitoring_system_hero.png" 
+          alt="Neurolinx RMS Application"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 brightness-95"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 mt-20 pb-16">
+          <h1 className="text-4xl md:text-6xl font-display font-black tracking-tighter text-white mb-6 leading-tight drop-shadow-2xl">
+            RMS <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Application</span>
+          </h1>
+          <p className="text-base md:text-lg text-gray-200 max-w-2xl font-light drop-shadow-md mb-8">
+            Advanced remote monitoring systems, DLMS/COSEM smart grid data pipelines, and predictive telemetry analytics engineered for utility infrastructure.
+          </p>
 
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a 
+              href="#solutions" 
+              className="px-7 py-3.5 rounded-full bg-brand-red hover:bg-red-700 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 flex items-center gap-2 group cursor-pointer"
+            >
+              <span>Explore Features</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <Link 
+              to="/contact" 
+              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-md font-bold text-sm tracking-wide transition-all shadow-md flex items-center gap-2 cursor-pointer"
+            >
+              <span>Request a Demo</span>
+            </Link>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* ── 2. Project Overview Section ── */}
       <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
@@ -68,12 +92,12 @@ export function RmsSmartMetering() {
           <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full border border-brand-red/20 bg-red-50 text-brand-red font-semibold text-xs uppercase tracking-wider">
             <span>Project Overview</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-brand-charcoal mb-4 sm:mb-5 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-brand-charcoal mb-4 sm:mb-5 leading-tight">
             Remote Monitoring for <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-500">
               Wind &amp; Solar Energy
             </span>
-          </h1>
+          </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed">
             Integrated hardware and software solutions to collect, transmit, and monitor your renewable energy data.
           </p>
@@ -90,7 +114,7 @@ export function RmsSmartMetering() {
       </section>
 
       {/* ── 3. Our Solutions Section ── */}
-      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full border-t border-gray-100">
+      <section id="solutions" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full border-t border-gray-100">
         
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full border border-brand-red/20 bg-red-50 text-brand-red font-semibold text-xs uppercase tracking-wider">
@@ -142,39 +166,9 @@ export function RmsSmartMetering() {
         </div>
       </section>
 
-      {/* ── 4. Integrated Hardware & Software Synergy Banner ── */}
-      <section className="py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
-        <div className="bg-gradient-to-r from-gray-900 to-slate-900 rounded-2xl sm:rounded-3xl p-8 sm:p-10 text-white shadow-lg border border-white/10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="text-xs font-bold text-brand-red uppercase tracking-wider block mb-2">
-                Integrated Approach
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                Hardware &amp; Software Working Together
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                We combine field hardware for reliable data collection with intuitive software for centralized monitoring, backed by complete assistance across both systems.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <span className="text-xs font-semibold text-red-300 block mb-1">Hardware Support</span>
-                <p className="text-xs text-gray-300">Support for hardware used in data collection and communication.</p>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <span className="text-xs font-semibold text-red-300 block mb-1">Software Support</span>
-                <p className="text-xs text-gray-300">Support for software used to receive, display, and monitor data.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. Call To Action Section ── */}
+      {/* ── 4. Call To Action Section ── */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
-        <div className="w-full bg-[#0F172A] rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 shadow-2xl relative overflow-hidden">
+        <div className="w-full bg-black rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 shadow-2xl relative overflow-hidden">
           
           {/* Subtle Ambient Red Glow */}
           <div className="absolute -right-20 -top-20 w-80 h-80 bg-brand-red/10 rounded-full blur-3xl pointer-events-none" />
