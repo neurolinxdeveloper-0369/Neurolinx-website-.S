@@ -7,7 +7,8 @@ import {
   CheckCircle2, 
   ArrowRight, 
   ChevronRight,
-  ChevronDown
+  ChevronDown,
+  Download
 } from 'lucide-react';
 
 export function Railways() {
@@ -199,9 +200,7 @@ export function Railways() {
                     alt={prod.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black text-white font-black text-xs flex items-center justify-center shadow-md border border-white/20">
-                    {prod.number}
-                  </div>
+
                 </div>
 
                 <div className="p-6 flex items-center justify-between gap-4 flex-1">
@@ -227,11 +226,11 @@ export function Railways() {
         style={{ maxWidth: 'calc(72rem - 1.5cm)', width: 'calc(100% - 1.5cm)' }}
         className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 mx-auto"
       >
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-7">
           <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full border border-brand-red/20 bg-red-50 text-brand-red font-semibold text-xs uppercase tracking-wider">
             <span>Project Overview</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-slate-900 mb-4 sm:mb-5 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-slate-900 mb-3 leading-tight">
             Advanced Navigation for <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-500">
               FogPASS &amp; Railway Systems
@@ -243,7 +242,7 @@ export function Railways() {
         </div>
 
         {/* Detailed Overview Card matching exact reference design */}
-        <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 border border-gray-100 shadow-sm">
+        <div className="bg-gray-50 rounded-2xl sm:rounded-3xl py-6 sm:py-8 px-6 sm:px-10 md:px-12 border border-gray-100 shadow-sm">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
               Our FogPASS and Railway Navigation Systems bring satellite-based positioning, route awareness, and timely landmark alerts together into a focused in-cab experience. We manufacture our FogPASS products using high-grade local materials, strengthening domestic supply chains and ensuring rapid deployment. We provide dedicated 24/7 technical services and field support to keep operations running smoothly without interruption. By streamlining direct in-house engineering and production, we offer dependable, RDSO-compliant railway safety solutions at highly competitive, low prices compared to prevailing market rates.
