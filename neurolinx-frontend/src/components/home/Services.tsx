@@ -47,6 +47,14 @@ export function Services() {
       features: ["DLMS smart grid analytics", "Edge telemetry gateways", "Predictive load monitoring"]
     },
     {
+      title: "Internet of Things",
+      desc: "Enterprise IoT ecosystems, edge computing gateways, smart sensor telemetry, and secure cloud pipelines engineered for mission-critical operations.",
+      img: "/media/smart_home_hero_iot.jpg",
+      linkUrl: "/iot",
+      buttonText: "Explore IoT Solution",
+      features: ["Edge Telemetry Gateways", "Sensor Mesh Networks", "Massive Cloud Pipelines"]
+    },
+    {
       title: "Chip-Level Designing",
       desc: "End-to-end silicon design, ASIC/FPGA prototyping, RTL architecture, and post-silicon physical verification.",
       img: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",

@@ -86,6 +86,7 @@ export function Header() {
 
   const solutions: MenuItem[] = [
     { name: "Remote Monitoring System & Smart Metering", path: "/rms-smart-metering" },
+    { name: "Internet of Things", path: "/iot" },
     { name: "Fab Foundry", path: "/fab-foundry" },
     { name: "Chip-Level Designing", path: "/chip-level-design" },
     { name: "Robotics & AI", path: "/robotics" },
@@ -155,7 +156,7 @@ export function Header() {
               type="button"
               onClick={() => setSolutionsDropdown(prev => !prev)}
               className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
-                solutionsDropdown || ['/rms-smart-metering', '/fab-foundry', '/chip-level-design', '/robotics', '/ai', '/pos-application'].includes(location.pathname)
+                solutionsDropdown || ['/rms-smart-metering', '/iot', '/internet-of-things', '/fab-foundry', '/chip-level-design', '/robotics', '/ai', '/pos-application'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}

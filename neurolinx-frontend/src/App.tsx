@@ -68,6 +68,7 @@ const FabFoundry = lazy(() => import('./pages/FabFoundry').then(m => ({ default:
 const Robotics = lazy(() => import('./pages/Robotics').then(m => ({ default: m.Robotics })));
 const ArtificialIntelligence = lazy(() => import('./pages/ArtificialIntelligence').then(m => ({ default: m.ArtificialIntelligence })));
 const RmsSmartMetering = lazy(() => import('./pages/RmsSmartMetering').then(m => ({ default: m.RmsSmartMetering })));
+const InternetOfThings = lazy(() => import('./pages/InternetOfThings').then(m => ({ default: m.InternetOfThings })));
 const PosApplication = lazy(() => import('./pages/PosApplication').then(m => ({ default: m.PosApplication })));
 const PosDemoRequest = lazy(() => import('./pages/PosDemoRequest').then(m => ({ default: m.PosDemoRequest })));
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
@@ -159,6 +160,8 @@ function App() {
               <Route path="/robotics" element={<Robotics />} />
               <Route path="/ai" element={<ArtificialIntelligence />} />
               <Route path="/rms-smart-metering" element={<RmsSmartMetering />} />
+              <Route path="/iot" element={<InternetOfThings />} />
+              <Route path="/internet-of-things" element={<InternetOfThings />} />
               <Route path="/pos-application" element={<PosApplication />} />
               <Route path="/pos-demo" element={<PosDemoRequest />} />
               <Route path="/request-demo" element={<PosDemoRequest />} />
