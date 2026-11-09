@@ -267,15 +267,20 @@ export function HomeAutomation() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Hero Banner Section (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#05070D] relative overflow-hidden pt-20 sm:pt-24 border-b border-white/10">
-        <div className="relative w-full max-w-[1920px] mx-auto">
+      {/* ── Slide 1: Smart Home Automation Banner (Luxury 4K Lineup - 2172 x 724) ── */}
+      <div 
+        id="hero"
+        className="w-full bg-gradient-to-b from-[#181B22] via-[#101217] to-[#07090C] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/10 flex items-center justify-center"
+      >
+        <div className="w-full max-w-[2172px] mx-auto flex items-center justify-center">
           <img 
-            src="/media/smart_home_hero_luxury_4k.jpg" 
-            alt="Smart Home Automation Engineered for Luxury & Precision - Touch Panels, Climate, Energy & Water Intelligence"
+            src="/media/smart_home_luxury_4k_hero.png?v=clean4k" 
+            alt="Neurolinx Smart Home Automation Ecosystem - 4K Hardware Suite"
+            width={2172}
+            height={724}
             loading="eager"
             fetchPriority="high"
-            className="w-full h-auto block shadow-2xl"
+            className="w-full max-w-[2172px] h-auto max-h-[724px] object-contain block mx-auto transition-transform duration-500 hover:scale-[1.005]"
           />
         </div>
       </div>
