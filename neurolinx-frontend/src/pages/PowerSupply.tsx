@@ -73,7 +73,7 @@ export function PowerSupply() {
       <div id="hero" className="w-full bg-[#05070D] relative overflow-hidden pt-20 sm:pt-24 border-b border-white/10">
         <div className="relative w-full max-w-[1920px] mx-auto">
           <img 
-            src="/media/power_supply_drivers_hero.jpg?v=latest" 
+            src="/media/power_supply_drivers_hero.jpg?v=v2" 
             alt="Power Supply & Drivers - Reliable Power Solutions for Industrial, Commercial & Smart Automation Applications"
             loading="eager"
             fetchPriority="high"

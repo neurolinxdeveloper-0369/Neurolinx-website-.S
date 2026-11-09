@@ -656,6 +656,18 @@ export function TemperatureMonitor() {
 
           </div>
 
+          {/* Downside Option: Download Brochure */}
+          <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
+            <a
+              href="/media/smart_home_automation_brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+            >
+              Download Brochure
+            </a>
+          </div>
+
         </div>
       </div>
 

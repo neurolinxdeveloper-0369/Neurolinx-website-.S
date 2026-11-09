@@ -110,44 +110,41 @@ export function Railways() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Hero Banner (Only Railway Systems) ── */}
+      {/* ── Slide 1: Indian Railways Products Lineup Banner (Dark Theme with "Products Range" Title) ── */}
       <div 
         id="hero"
-        style={{ minHeight: 'calc(100vh + 1.5cm)' }}
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
+        className="w-full bg-[#080B11] relative overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/5 flex flex-col items-center justify-center"
       >
-        {/* Real Indian Railways Rolling Stock Background - Reverted to Preferred Cinematic Hero */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/media/railways_hero_cinematic.jpg"
-            alt="Modern Indian Railways electric locomotive & rolling stock on tracks"
-            className="w-full h-full object-cover object-center opacity-100 brightness-110 contrast-105 filter"
-          />
-          {/* Gentle, balanced ambient tint without heavy black side shadows */}
-          <div className="absolute inset-0 bg-black/15"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
-        </div>
-
-        {/* Content Container: Only Railway Systems */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-4xl flex flex-col items-start text-left">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-              <span className="text-white">Railway </span>
-              <span className="text-brand-red drop-shadow-[0_0_30px_rgba(224,0,27,0.5)]">Systems</span>
+        <div className="relative w-full max-w-[2172px] mx-auto flex flex-col items-center justify-center">
+          
+          {/* Centered White "Products Range" Title matching reference design */}
+          <div className="text-center z-10 mb-2 sm:mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-white tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              Products Range
             </h1>
+          </div>
+
+          <div className="relative w-full flex items-center justify-center">
+            <img 
+              src="/media/railways_products_lineup_hero.jpg?v=darkenedRangeV1" 
+              alt="Indian Railways Electronics & Lighting Systems - Products Range"
+              width={2172}
+              height={724}
+              loading="eager"
+              fetchPriority="high"
+              className="w-full max-w-[2172px] h-auto max-h-[724px] object-contain block mx-auto filter brightness-90 contrast-105 transition-all duration-500 hover:brightness-100"
+            />
           </div>
         </div>
 
         {/* Scroll Indicator to Slide 2 */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
           <a
             href="#features"
-            className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-all group"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
           >
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-white/70 group-hover:text-white">Explore Features</span>
-            <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-brand-red transition-all shadow-sm">
-              <ChevronDown className="w-4 h-4 animate-bounce" />
-            </div>
+            <span>Explore Products</span>
+            <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
           </a>
         </div>
       </div>

@@ -85,7 +85,7 @@ export function HomeAutomation() {
       title: "Retrofit & Touch Panel",
       tagline: "Feather-Touch Glass & Concealed Modules",
       desc: "Available as ultra-compact retrofit modules that fit behind standard Indian switchboards without rewiring, or as ultra-luxury toughened glass feather-touch panels (1, 2, 4, 8, 10, 16 gang).",
-      img: "/media/retrofit_touch_panel_hero.jpg",
+      img: "/media/retrofit_touch_panel_clean.jpg",
       badge: "Core Hardware",
       features: [
         "100% Retrofit: Zero wall damage or rewiring",
@@ -100,7 +100,7 @@ export function HomeAutomation() {
       title: "Universal IR Blaster",
       tagline: "360° Smart Infrared Controller",
       desc: "Consolidate 10+ remote controls into your smartphone and voice. Control all your Air Conditioners, Televisions, Set-Top Boxes, and Home Theatres with omnidirectional 360° infrared coverage.",
-      img: "/media/universal_ir_blaster_hero.jpg",
+      img: "/media/universal_ir_blaster_clean.jpg",
       badge: "Universal Remote",
       features: [
         "360° high-power omnidirectional infrared emission",
@@ -113,7 +113,7 @@ export function HomeAutomation() {
       title: "1-ϕ & 3-ϕ Smart Energy Meters",
       tagline: "Single & Three-Phase Monitoring",
       desc: "Industrial-grade precision smart power meters for residential villas, commercial panels, and apartments. Monitor real-time voltage, current, power factor, and cumulative kWh consumption.",
-      img: "/media/smart_energy_meters_hero_dark.jpg?v=features",
+      img: "/media/smart_energy_meter_single_three_phase.jpg",
       badge: "Power Intelligence",
       features: [
         "Single-Phase (1-ϕ) and Three-Phase (3-ϕ) models",
@@ -128,7 +128,7 @@ export function HomeAutomation() {
       title: "Smart Water Control System",
       tagline: "Tank Level & Automatic Pump Controller",
       desc: "Fully automated overhead tank and sump water management. Features ultrasonic non-contact water level sensing, dry-run pump protection, and automatic high/low level motor triggering.",
-      img: "/media/smart_water_control_hero.jpg?v=2",
+      img: "/media/smart_water_control_clean.jpg",
       badge: "Automated Utility",
       features: [
         "Ultrasonic non-contact overhead & underground sump sensing",
@@ -143,7 +143,7 @@ export function HomeAutomation() {
       title: "Motorized Smart Curtains",
       tagline: "Automated Sunlight & Privacy Control",
       desc: "Ultra-quiet motorized curtain rails and roller blind controllers. Automatically harvest natural daylight by opening at sunrise and closing at dusk, or control slider percentages from anywhere.",
-      img: "/media/smart_curtains_hero.jpg?v=2",
+      img: "/media/motorized_smart_curtains_showcase.jpg",
       badge: "Comfort Living",
       features: [
         "Whisper-quiet dual motor drives (<25dB operation)",
@@ -158,7 +158,7 @@ export function HomeAutomation() {
       title: "Temperature Monitor & Alert Systems",
       tagline: "Environmental Sensors & Trigger Engine",
       desc: "High-precision ambient climate sensors monitoring room temperature and relative humidity. Automatically trigger AC cooling, dehumidifiers, or send instant heat-spike safety notifications.",
-      img: "/media/temperature_monitor_hero.jpg",
+      img: "/media/temperature_monitor_clean.jpg",
       badge: "Climate & Safety",
       features: [
         "Precision Swiss temperature and relative humidity sensors",
@@ -270,12 +270,12 @@ export function HomeAutomation() {
       {/* ── Slide 1: Smart Home Automation Banner (Luxury 4K Lineup - 2172 x 724) ── */}
       <div 
         id="hero"
-        className="w-full bg-gradient-to-b from-[#181B22] via-[#101217] to-[#07090C] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/10 flex items-center justify-center"
+        className="w-full bg-[#808080] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-none flex items-center justify-center"
       >
         <div className="w-full max-w-[2172px] mx-auto flex items-center justify-center">
           <img 
-            src="/media/smart_home_luxury_4k_hero.png?v=clean4k" 
-            alt="Neurolinx Smart Home Automation Ecosystem - 4K Hardware Suite"
+            src="/media/smart_home_controllers_hero.png?v=ultra4kNativeStudio" 
+            alt="Neurolinx Smart Home Automation Ecosystem - Products Range"
             width={2172}
             height={724}
             loading="eager"
@@ -479,6 +479,18 @@ export function HomeAutomation() {
                 </div>
               </div>
 
+            </div>
+
+            {/* Downside Option: Download Brochure */}
+            <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
+              <a
+                href="/media/smart_home_automation_brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+              >
+                Download Brochure
+              </a>
             </div>
 
           </div>
