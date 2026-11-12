@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
+  Check,
   CheckCircle2, 
   ShieldCheck, 
   Zap, 
@@ -33,7 +34,8 @@ import {
   Gauge,
   Thermometer,
   Radio,
-  Activity
+  Activity,
+  User
 } from 'lucide-react';
 
 export function HomeAutomation() {
@@ -65,11 +67,12 @@ export function HomeAutomation() {
   const [inquiryForm, setInquiryForm] = useState({
     name: '',
     email: '',
-    automationFor: 'Apartment',
+    automationFor: 'Whole Home Smart Automation',
     projectType: 'New Building',
     controlOptions: [] as string[],
     contactNumber: '',
     city: '',
+    agreedMarketing: true,
     captchaInput: ''
   });
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
@@ -561,75 +564,139 @@ export function HomeAutomation() {
         </div>
       </div>
 
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout) ── */}
-      <div id="slide-4" className="w-full bg-white py-12 md:py-16">
-        <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
-          
-          {/* Main 2-Tone Card Container matching 2nd image */}
-          <div className="rounded-[32px] md:rounded-[36px] border border-gray-100 overflow-hidden shadow-sm flex flex-col lg:flex-row items-stretch">
-            
-            {/* Left Panel: Pure White Background (Snug & Attached to Form) */}
-            <div className="w-full lg:w-[36%] xl:w-[34%] bg-white px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-gray-100/80">
-              
-              <div>
-                {/* Title colored in brand Red and Blue like Neurolinx logo */}
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
+      {/* ── Slide 4: Have Questions? Consultation & Contact Form ── */}
+      <div id="slide-4" className="w-full bg-white pt-12 md:pt-16 pb-16 md:pb-20">
+        <div id="faq" className="max-w-[1160px] xl:max-w-[1220px] 2xl:max-w-[1260px] w-full mx-auto px-4 sm:px-6">
+
+          {/* Main Elevated Light + White Split Container */}
+          <div className="relative rounded-[28px] md:rounded-[34px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.10)] border border-gray-200/80 bg-[#F7F8FA] flex flex-col lg:flex-row items-stretch">
+
+            {/* Left Light Pearl Panel with Red & Silver Ribbon Waves */}
+            <div className="w-full lg:w-[37%] xl:w-[36%] bg-gradient-to-br from-white via-[#F9FAFB] to-[#EEF0F4] relative overflow-hidden px-7 sm:px-9 lg:px-10 pt-9 sm:pt-11 pb-14 lg:pb-11 flex flex-col justify-start">
+              {/* Flowing Silver & Crimson Ribbon Waves matching reference */}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 420 560"
+                preserveAspectRatio="none"
+                className="pointer-events-none absolute inset-0 w-full h-full"
+              >
+                <defs>
+                  <linearGradient id="haLightWaveSilver1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
+                    <stop offset="55%" stopColor="#E5E7EB" stopOpacity="0.7" />
+                    <stop offset="100%" stopColor="#D1D5DB" stopOpacity="0.55" />
+                  </linearGradient>
+                  <linearGradient id="haLightWaveSilver2" x1="0%" y1="30%" x2="100%" y2="85%">
+                    <stop offset="0%" stopColor="#F3F4F6" stopOpacity="0.85" />
+                    <stop offset="60%" stopColor="#E5E7EB" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="#CBD5E1" stopOpacity="0.4" />
+                  </linearGradient>
+                  <linearGradient id="haLightWaveRedTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FF3347" />
+                    <stop offset="55%" stopColor="#E0001B" />
+                    <stop offset="100%" stopColor="#9E0012" />
+                  </linearGradient>
+                  <linearGradient id="haLightWaveRedBottom" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#8F0010" />
+                    <stop offset="50%" stopColor="#D90416" />
+                    <stop offset="100%" stopColor="#FF2E43" />
+                  </linearGradient>
+                </defs>
+
+                {/* Top diagonal soft grey wave */}
+                <path
+                  d="M210,-10 C255,65 325,115 430,140 L430,-10 Z"
+                  fill="url(#haLightWaveSilver1)"
+                />
+                {/* Top-right crimson ribbon sweeping into form seam */}
+                <path
+                  d="M275,-10 C325,52 372,92 430,108 L430,22 C382,12 342,-2 315,-10 Z"
+                  fill="url(#haLightWaveRedTop)"
+                />
+                <path
+                  d="M235,-10 C295,62 355,110 430,132 L430,102 C365,80 318,40 270,-10 Z"
+                  fill="#E0001B"
+                  opacity="0.22"
+                />
+
+                {/* Mid-bottom flowing silver silk curves */}
+                <path
+                  d="M-20,335 C85,370 185,435 430,360 L430,570 L-20,570 Z"
+                  fill="url(#haLightWaveSilver2)"
+                />
+                <path
+                  d="M-20,435 C120,400 245,485 430,430 L430,570 L-20,570 Z"
+                  fill="#FFFFFF"
+                  opacity="0.72"
+                />
+
+                {/* Bottom sweeping crimson ribbon */}
+                <path
+                  d="M45,570 C155,515 280,455 430,450 L430,570 Z"
+                  fill="url(#haLightWaveRedBottom)"
+                />
+                <path
+                  d="M-20,535 C115,495 255,442 430,442 L430,462 C265,468 135,522 35,570 L-20,570 Z"
+                  fill="#EF1D2B"
+                  opacity="0.32"
+                />
+              </svg>
+
+              <div className="relative z-10">
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-950 leading-[1.12] tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-[#D90416]">Questions</span><span className="text-slate-950">?</span>
                 </h2>
-                
-                <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">
+
+                <div className="w-14 h-1 rounded-full bg-[#D90416] mt-3 mb-5" />
+
+                <p className="text-sm sm:text-[15px] font-semibold text-slate-900 mb-9 tracking-tight">
                   “Let’s make a Smarter World together”
                 </p>
 
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {/* Phone */}
-                  <a 
-                    href="tel:+917013486961" 
-                    className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
+                  <a
+                    href="tel:+917013486961"
+                    className="flex items-center gap-3.5 text-slate-900 hover:text-[#D90416] transition-colors group"
                   >
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
-                      <svg className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                      </svg>
+                    <div className="w-10 h-10 rounded-xl bg-black text-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-[#D90416] transition-colors">
+                      <Phone className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">+91 7013486961</span>
+                    <span className="text-sm sm:text-[15px] font-semibold">+91 7013486961</span>
                   </a>
 
                   {/* Email */}
-                  <a 
-                    href="mailto:info@neurolinx.in" 
-                    className="flex items-center gap-3.5 text-slate-800 hover:text-brand-red transition-colors group"
+                  <a
+                    href="mailto:info@neurolinx.in"
+                    className="flex items-center gap-3.5 text-slate-900 hover:text-[#D90416] transition-colors group"
                   >
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-md transition-all">
-                      <svg className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                      </svg>
+                    <div className="w-10 h-10 rounded-xl bg-black text-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-[#D90416] transition-colors">
+                      <Mail className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-sm sm:text-base font-semibold">info@neurolinx.in</span>
+                    <span className="text-sm sm:text-[15px] font-semibold">info@neurolinx.in</span>
                   </a>
 
                   {/* Address */}
                   <div className="flex items-start gap-3.5 text-slate-800">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg className="w-4 h-4 text-slate-900" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
-                      </svg>
+                    <div className="w-10 h-10 rounded-xl bg-black text-white shadow-sm flex items-center justify-center shrink-0 mt-0.5">
+                      <MapPin className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-xs sm:text-[13px] font-medium text-slate-700 leading-relaxed">
-                      NEUROLINX GLOBAL PRIVATE LIMITED, C12/A, Industrial Area, Kushaiguda, Hyderabad, Secunderabad, Telangana 500062
+                    <span className="text-xs sm:text-[13px] font-medium text-slate-800 leading-relaxed">
+                      NEUROLINX GLOBAL PRIVATE LIMITED,<br />
+                      C12/A, Industrial Area, Kushaiguda,<br />
+                      Hyderabad, Secunderabad,<br />
+                      Telangana 500062
                     </span>
                   </div>
                 </div>
               </div>
-
-
             </div>
 
-            {/* Right Panel: Soft Light Gray Background */}
-            <div className="w-full lg:w-[64%] xl:w-[66%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex-1">
+            {/* Right White Overlapping Form Panel */}
+            <div className="w-full lg:w-[65%] xl:w-[66%] -mt-6 lg:mt-0 lg:-ml-5 relative z-10 rounded-[26px] md:rounded-[30px] bg-white shadow-[-10px_0_32px_rgba(15,23,42,0.08)] px-6 sm:px-8 lg:px-10 py-8 sm:py-10 flex-1 flex flex-col justify-center">
               {inquirySubmitted ? (
-                <div className="bg-white rounded-2xl p-8 sm:p-12 text-center border border-gray-100 shadow-sm">
+                <div className="bg-[#F8F9FB] rounded-2xl p-8 sm:p-12 text-center border border-gray-100">
                   <CheckCircle2 className="w-12 h-12 text-brand-red mx-auto mb-3" />
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Thank you for reaching out!</h3>
                   <p className="text-sm text-gray-600 mb-6">
@@ -641,21 +708,22 @@ export function HomeAutomation() {
                       setInquiryForm({
                         name: '',
                         email: '',
-                        automationFor: 'Apartment',
+                        automationFor: 'Whole Home Smart Automation',
                         projectType: 'New Building',
                         controlOptions: [],
                         contactNumber: '',
                         city: '',
+                        agreedMarketing: true,
                         captchaInput: ''
                       });
                     }}
-                    className="px-6 py-2.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-brand-red transition-colors cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#D90416] to-[#B8000F] text-white text-xs font-semibold hover:brightness-110 transition-all cursor-pointer"
                   >
                     Submit Another Inquiry
                   </button>
                 </div>
               ) : (
-                <form 
+                <form
                   onSubmit={(e) => {
                     e.preventDefault();
                     setInquirySubmitted(true);
@@ -665,23 +733,31 @@ export function HomeAutomation() {
                   {/* Row 1: Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Name</label>
-                      <input 
-                        type="text" 
-                        required 
+                      <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-1.5">
+                        <User className="w-4 h-4 text-slate-900 shrink-0" />
+                        <span>Name <span className="text-brand-red">*</span></span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter your name"
                         value={inquiryForm.name}
-                        onChange={(e) => setInquiryForm({...inquiryForm, name: e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                        onChange={(e) => setInquiryForm({ ...inquiryForm, name: e.target.value })}
+                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-[#F8F9FB] border border-gray-200 text-slate-800 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Email</label>
-                      <input 
-                        type="email" 
-                        required 
+                      <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-1.5">
+                        <Mail className="w-4 h-4 text-slate-900 shrink-0" />
+                        <span>Email <span className="text-brand-red">*</span></span>
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Enter your email address"
                         value={inquiryForm.email}
-                        onChange={(e) => setInquiryForm({...inquiryForm, email: e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                        onChange={(e) => setInquiryForm({ ...inquiryForm, email: e.target.value })}
+                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-[#F8F9FB] border border-gray-200 text-slate-800 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 transition-all"
                       />
                     </div>
                   </div>
@@ -689,24 +765,33 @@ export function HomeAutomation() {
                   {/* Row 2: Automation For & Project Type */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Automation For</label>
-                      <select 
+                      <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-1.5">
+                        <Layers className="w-4 h-4 text-slate-900 shrink-0" />
+                        <span>Automation For <span className="text-brand-red">*</span></span>
+                      </label>
+                      <select
                         value={inquiryForm.automationFor}
-                        onChange={(e) => setInquiryForm({...inquiryForm, automationFor: e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs cursor-pointer"
+                        onChange={(e) => setInquiryForm({ ...inquiryForm, automationFor: e.target.value })}
+                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-gray-200 text-slate-800 text-sm focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 cursor-pointer transition-all"
                       >
+                        <option>Whole Home Smart Automation</option>
                         <option>Apartment</option>
                         <option>Villa / Independent House</option>
                         <option>Office / Commercial Space</option>
                         <option>Hotel / Hospitality</option>
+                        <option>Retrofit &amp; Touch Panel Setup</option>
+                        <option>Universal IR Blaster Setup</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Project Type</label>
-                      <select 
+                      <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-1.5">
+                        <Building2 className="w-4 h-4 text-slate-900 shrink-0" />
+                        <span>Project Type <span className="text-brand-red">*</span></span>
+                      </label>
+                      <select
                         value={inquiryForm.projectType}
-                        onChange={(e) => setInquiryForm({...inquiryForm, projectType: e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs cursor-pointer"
+                        onChange={(e) => setInquiryForm({ ...inquiryForm, projectType: e.target.value })}
+                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-gray-200 text-slate-800 text-sm focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 cursor-pointer transition-all"
                       >
                         <option>New Building</option>
                         <option>Existing / Renovation</option>
@@ -715,92 +800,150 @@ export function HomeAutomation() {
                     </div>
                   </div>
 
-                  {/* Row 3: Control For (multiple options) */}
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-2">
-                      Control For ( you can select multiple option )
-                    </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {[
-                        'Lighting & Scene Control',
-                        'Safety & Security Control',
-                        'Curtain & Appliances Control',
-                        'Home Theatre System'
-                      ].map((option) => {
-                        const isChecked = inquiryForm.controlOptions.includes(option);
-                        return (
-                          <label 
-                            key={option} 
-                            className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none"
-                          >
-                            <input 
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange={() => {
-                                const next = isChecked 
-                                  ? inquiryForm.controlOptions.filter(o => o !== option)
-                                  : [...inquiryForm.controlOptions, option];
-                                setInquiryForm({...inquiryForm, controlOptions: next});
-                              }}
-                              className="w-4 h-4 rounded border-gray-300 text-black focus:ring-0 accent-black cursor-pointer bg-white"
-                            />
-                            <span>{option}</span>
-                          </label>
-                        );
-                      })}
+                  {/* Row 3: Appliances & Systems to Control Card */}
+                  <div className="rounded-2xl bg-[#F4F6F9] border border-gray-200/80 p-4 sm:p-5">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-3.5">
+                      <Tv className="w-4 h-4 text-slate-900 shrink-0" />
+                      <span>Systems &amp; Appliances to Control</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2.5 md:gap-x-6">
+                      {/* Left Column (3 items + subtle vertical divider on md+) */}
+                      <div className="space-y-2.5 md:pr-6 md:border-r md:border-gray-200/90">
+                        {[
+                          'Lighting & Scene Control',
+                          'Curtain & Appliances Control',
+                          'Smart Energy Metering'
+                        ].map((option) => {
+                          const isChecked = inquiryForm.controlOptions.includes(option);
+                          return (
+                            <label
+                              key={option}
+                              className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none hover:text-slate-900 transition-colors"
+                            >
+                              <input
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={() => {
+                                  const next = isChecked
+                                    ? inquiryForm.controlOptions.filter(o => o !== option)
+                                    : [...inquiryForm.controlOptions, option];
+                                  setInquiryForm({ ...inquiryForm, controlOptions: next });
+                                }}
+                                className="w-4 h-4 rounded-[4px] border-gray-300 text-slate-900 accent-slate-900 cursor-pointer bg-white"
+                              />
+                              <span>{option}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
+
+                      {/* Right Column (3 items) */}
+                      <div className="space-y-2.5">
+                        {[
+                          'Safety & Security Control',
+                          'Home Theatre & IR Control',
+                          'Smart Water & Climate Control'
+                        ].map((option) => {
+                          const isChecked = inquiryForm.controlOptions.includes(option);
+                          return (
+                            <label
+                              key={option}
+                              className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none hover:text-slate-900 transition-colors"
+                            >
+                              <input
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={() => {
+                                  const next = isChecked
+                                    ? inquiryForm.controlOptions.filter(o => o !== option)
+                                    : [...inquiryForm.controlOptions, option];
+                                  setInquiryForm({ ...inquiryForm, controlOptions: next });
+                                }}
+                                className="w-4 h-4 rounded-[4px] border-gray-300 text-slate-900 accent-slate-900 cursor-pointer bg-white"
+                              />
+                              <span>{option}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
 
                   {/* Row 4: Contact Number & City */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Contact Number</label>
-                      <input 
-                        type="tel" 
-                        required 
+                      <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-1.5">
+                        <Phone className="w-4 h-4 text-slate-900 shrink-0" />
+                        <span>Contact Number</span>
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Enter your contact number"
                         value={inquiryForm.contactNumber}
-                        onChange={(e) => setInquiryForm({...inquiryForm, contactNumber: e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                        onChange={(e) => setInquiryForm({ ...inquiryForm, contactNumber: e.target.value })}
+                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-[#F8F9FB] border border-gray-200 text-slate-800 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">City</label>
-                      <input 
-                        type="text" 
-                        required 
+                      <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 mb-1.5">
+                        <MapPin className="w-4 h-4 text-slate-900 shrink-0" />
+                        <span>City</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter your city"
                         value={inquiryForm.city}
-                        onChange={(e) => setInquiryForm({...inquiryForm, city: e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                        onChange={(e) => setInquiryForm({ ...inquiryForm, city: e.target.value })}
+                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-[#F8F9FB] border border-gray-200 text-slate-800 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 transition-all"
                       />
                     </div>
                   </div>
 
-                  {/* Disclaimer text */}
-                  <p className="text-[11px] sm:text-xs text-gray-500 leading-normal">
-                    By submitting this form, you agree that we may use your information for marketing purposes and to send you announcements
-                  </p>
+                  {/* Row 5: Consent Checkbox */}
+                  <label className="flex items-start sm:items-center gap-2.5 text-[11px] sm:text-xs text-slate-600 leading-normal cursor-pointer select-none pt-0.5">
+                    <button
+                      type="button"
+                      role="checkbox"
+                      aria-checked={inquiryForm.agreedMarketing}
+                      onClick={() => setInquiryForm({ ...inquiryForm, agreedMarketing: !inquiryForm.agreedMarketing })}
+                      className={`w-4 h-4 mt-0.5 sm:mt-0 rounded-[4px] flex items-center justify-center shrink-0 transition-colors cursor-pointer ${
+                        inquiryForm.agreedMarketing
+                          ? 'bg-slate-900 text-white border border-slate-900'
+                          : 'bg-white border border-gray-300 text-transparent'
+                      }`}
+                    >
+                      <Check className="w-3 h-3 stroke-[3]" />
+                    </button>
+                    <span>
+                      By submitting this form, you agree that we may use your information for marketing purposes and to send you announcements.
+                    </span>
+                  </label>
 
-                  {/* Captcha */}
-                  <div>
-                    <div className="font-serif tracking-widest text-lg font-bold text-gray-700 select-none mb-1.5 px-1">
-                      F M4 B
+                  {/* Row 6: Captcha Inline */}
+                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 pt-1">
+                    <ShieldCheck className="w-5 h-5 text-slate-900 shrink-0" />
+                    <div className="px-4 py-2.5 rounded-xl bg-[#F4F6F9] border border-gray-200 font-serif tracking-[0.28em] text-base font-extrabold text-slate-900 select-none shrink-0">
+                      FM4B
                     </div>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Enter Captcha"
                       value={inquiryForm.captchaInput}
-                      onChange={(e) => setInquiryForm({...inquiryForm, captchaInput: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
+                      onChange={(e) => setInquiryForm({ ...inquiryForm, captchaInput: e.target.value })}
+                      className="flex-1 min-w-[160px] px-4 py-2.5 rounded-xl bg-white border border-gray-200 text-slate-800 text-sm placeholder:text-gray-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 transition-all"
                     />
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Row 7: Red Gradient Submit Button */}
                   <div className="pt-1">
                     <button
                       type="submit"
-                      className="px-9 py-3 rounded-lg bg-black text-white font-semibold text-sm hover:bg-brand-red transition-colors shadow-sm cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-xl bg-gradient-to-r from-[#D90416] to-[#B8000F] hover:from-[#E0001B] hover:to-[#9B000D] text-white font-bold text-sm sm:text-[15px] shadow-[0_6px_20px_rgba(224,0,27,0.32)] hover:shadow-[0_8px_24px_rgba(224,0,27,0.42)] transition-all cursor-pointer"
                     >
-                      Submit
+                      <span>Submit</span>
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </form>
