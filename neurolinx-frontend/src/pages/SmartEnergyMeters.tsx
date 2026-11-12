@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle2, 
-  Wifi, 
   ArrowRight, 
   Zap, 
   ChevronRight, 
-  Gauge, 
   Sun, 
   Activity, 
   ShieldCheck, 
-  Radio, 
   Cpu, 
-  TrendingUp, 
-  MapPin, 
-  Clock, 
-  PlusCircle 
+  MapPin 
 } from 'lucide-react';
 
 export function SmartEnergyMeters() {
@@ -69,53 +63,49 @@ export function SmartEnergyMeters() {
         </div>
       </div>
 
-      {/* ── Slide 2: Complete Hardware Overview & Product Capabilities (Left Image + Info Below | Right Side What Product Does) ── */}
+      {/* ── Slide 2: Compact Hardware Overview & Simple Product Capabilities (Company Logo Colors) ── */}
       <div
         id="meter-models"
-        className="relative w-full overflow-hidden text-slate-900 bg-[#F8F9FA] py-20 lg:py-24 px-6 lg:px-8 border-b border-gray-100"
+        className="w-full bg-[#F8F9FA] py-10 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8 border-b border-gray-100"
       >
-        {/* Subtle Light Ambient Glows */}
-        <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-100/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Compact Hardware Showcase */}
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-sm">
 
-            {/* Left Column: Hardware Image Showcase + Specs Down Side */}
-            <div className="lg:col-span-5 relative order-2 lg:order-1">
-              <div className="relative bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-xl">
-
-                {/* Top Badge & View Switcher */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-bold border border-slate-200 shadow-xs">
+                {/* Top View Switcher */}
+                <div className="flex items-center justify-between gap-2 mb-3.5">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-red/10 text-brand-red text-[11px] font-bold border border-brand-red/20">
                     <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
-                    <span>{activeDeviceView === 'panel' ? 'Panel & CT Clamps Setup' : 'DIN-Rail LCD Meter'}</span>
-                  </div>
+                    <span>{activeDeviceView === 'panel' ? 'Panel & CT Clamps' : 'DIN-Rail Unit'}</span>
+                  </span>
 
-                  <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-[10px] font-bold text-slate-600">
+                  <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-[11px] font-bold">
                     <button
                       type="button"
                       onClick={() => setActiveDeviceView('panel')}
                       className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                        activeDeviceView === 'panel' ? 'bg-white text-slate-900 shadow-xs font-black' : 'hover:text-slate-900'
+                        activeDeviceView === 'panel' ? 'bg-black text-white shadow-xs' : 'text-slate-700 hover:text-black'
                       }`}
                     >
-                      Panel &amp; CT View
+                      Panel View
                     </button>
                     <button
                       type="button"
                       onClick={() => setActiveDeviceView('din')}
                       className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                        activeDeviceView === 'din' ? 'bg-white text-slate-900 shadow-xs font-black' : 'hover:text-slate-900'
+                        activeDeviceView === 'din' ? 'bg-black text-white shadow-xs' : 'text-slate-700 hover:text-black'
                       }`}
                     >
-                      DIN Display
+                      DIN View
                     </button>
                   </div>
                 </div>
 
-                {/* Hardware Studio Image Container */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-slate-950 flex items-center justify-center border border-slate-200 shadow-inner">
+                {/* Hardware Studio Image */}
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden rounded-2xl bg-slate-950 flex items-center justify-center border border-slate-200">
                   {activeDeviceView === 'panel' ? (
                     <img
                       src="/media/smart_energy_meter_panel_ct.jpg?v=panelCtStudio"
@@ -126,190 +116,133 @@ export function SmartEnergyMeters() {
                     <img
                       src="/media/smart_energy_meter_single_phase.jpg"
                       alt="Neurolinx DIN-Rail Smart Energy Meter Digital LCD Unit"
-                      className="max-h-full max-w-full object-contain p-2 filter drop-shadow-xl transition-transform duration-500 hover:scale-105"
+                      className="max-h-full max-w-full object-contain p-2 transition-transform duration-500 hover:scale-105"
                     />
                   )}
                 </div>
 
-                {/* Image Down Side: Title, Description, Action Button & Hardware Specs */}
-                <div className="mt-5 text-left">
-                  <h3 className="text-xl sm:text-2xl font-display font-black text-slate-900 tracking-tight leading-snug">
-                    NEUROLINX SMART METER SERIES
+                {/* Concise Summary Below Image */}
+                <div className="mt-4 text-left">
+                  <h3 className="text-lg sm:text-xl font-black text-black tracking-tight">
+                    Neurolinx <span className="text-brand-red">1-ϕ &amp; 3-ϕ</span> <span className="text-black">Smart Meter</span>
                   </h3>
-
-                  <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1 mb-2.5">
-                    (1-ϕ Single-Phase &amp; 3-ϕ Three-Phase Bidirectional Power Monitors)
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Compact Wi-Fi &amp; RS485 clip-on energy monitor built for homes, villas, solar rooftops, and commercial DB panels.
                   </p>
-
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    Non-invasive split-core CT power clamps and modular DIN-rail meters engineered to monitor main distribution boards, rooftop solar inverters, EV chargers, and heavy home or commercial circuits in real time.
-                  </p>
-
-                  <div className="flex items-center gap-3 mb-5">
-                    <a
-                      href="#slide-4"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-black/10 transition-all cursor-pointer"
-                    >
-                      <PlusCircle className="w-4 h-4 text-white" />
-                      <span>Inquire Now</span>
-                    </a>
-                  </div>
                 </div>
 
-                {/* 3 Key Hardware Spec Badges Down Side */}
-                <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
-                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80 shadow-2xs">
-                    <span className="text-[10px] font-bold text-slate-500 block uppercase">Supply Range</span>
-                    <span className="text-xs font-black text-slate-900">90–250V AC</span>
+                {/* 3 Compact Spec Badges */}
+                <div className="grid grid-cols-3 gap-2 mt-4 pt-3.5 border-t border-slate-100 text-center">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80">
+                    <span className="text-[10px] font-bold text-slate-500 block uppercase">Supply</span>
+                    <span className="text-xs font-black text-black">90–250V AC</span>
                   </div>
-                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80 shadow-2xs">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80">
                     <span className="text-[10px] font-bold text-slate-500 block uppercase">Accuracy</span>
-                    <span className="text-xs font-black text-slate-900">Class 1.0</span>
+                    <span className="text-xs font-black text-brand-red">Class 1.0</span>
                   </div>
-                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80 shadow-2xs">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80">
                     <span className="text-[10px] font-bold text-slate-500 block uppercase">CT Rating</span>
-                    <span className="text-xs font-black text-slate-900">Up to 150A</span>
+                    <span className="text-xs font-black text-black">Up to 150A</span>
                   </div>
-                </div>
-
-                <div className="mt-3 text-center">
-                  <span className="text-[11px] text-slate-600 flex items-center justify-center gap-1.5 font-medium">
-                    <Radio className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>IEC 62053-21 &amp; CE Certified &bull; Wi-Fi + RS485 Modbus</span>
-                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: What the Product Does, Performance Metrics & Key Capabilities */}
+            {/* Right Column: Simple Product Capabilities with Logo Colors */}
             <div className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-brand-red text-xs font-bold tracking-wider uppercase mb-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-[11px] font-bold tracking-wider uppercase mb-3">
                 <Zap className="w-3.5 h-3.5 text-brand-red" />
-                <span>Intelligent Power Visibility &amp; Cost Control</span>
+                <span>Smart Power Monitoring</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-3 tracking-tight leading-tight">
-                See Every Watt in Real Time, Stop Power Waste &amp; Track Solar Export.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black mb-2.5 tracking-tight leading-tight">
+                Track Live <span className="text-brand-red">Power Usage</span> &amp; <span className="text-black">Cut Electricity Bills</span>
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                The Neurolinx Smart Energy Meter turns any residential or industrial electrical panel into a live energy command center. Using clip-on current transformers, it measures circuit-level consumption, tracks solar grid export separately from utility import, detects hidden standby power drain, and notifies your phone before overloads trip your breakers.
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 max-w-xl">
+                Monitor live wattage, voltage, and solar power flow directly on your phone. Identify heavy-load appliances early and prevent wastage without cutting main supply wires.
               </p>
 
-              {/* 4 Key Performance Metric Boxes */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mb-6">
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-2">
-                    <Gauge className="w-4 h-4" />
-                  </div>
-                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">Class 1.0</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Revenue Precision</div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
-                    <Sun className="w-4 h-4" />
-                  </div>
-                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">2-Way Sync</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Solar Net Meter</div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-2">
-                    <Wifi className="w-4 h-4" />
-                  </div>
-                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">Live kW</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Mobile Telemetry</div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2">
-                    <Clock className="w-4 h-4" />
-                  </div>
-                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">90 Days</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Onboard Load Log</div>
-                </div>
-              </div>
-
-              {/* 4 What-This-Product-Does Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full mb-7">
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+              {/* 4 Simple Product Feature Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mb-5">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0">
                     <Activity className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Appliance &amp; Phase Load Tracking</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Measures live wattage, amps, voltage, and power factor across individual AC, EV charger, geyser, and kitchen circuits.
+                    <h4 className="text-xs sm:text-sm font-bold text-black">Live 1-ϕ &amp; 3-ϕ Telemetry</h4>
+                    <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                      View live watts, volts, amps, and power factor from any room or circuit.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-slate-900/10 text-black flex items-center justify-center shrink-0">
                     <Sun className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Bidirectional Solar Import &amp; Export</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Separately records solar generation fed back to the utility grid versus power consumed, calculating real daily bill savings.
+                    <h4 className="text-xs sm:text-sm font-bold text-black">Solar Import &amp; Export</h4>
+                    <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                      Separately tracks utility grid power consumed and rooftop solar energy exported.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0">
                     <Cpu className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Non-Invasive Clip-On Installation</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Snaps split-core CT sensors around existing cables inside your distribution box in minutes without cutting main supply lines.
+                    <h4 className="text-xs sm:text-sm font-bold text-black">Quick Clip-On Install</h4>
+                    <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                      Split-core CT clamps snap cleanly inside your MCB box in minutes.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <TrendingUp className="w-4 h-4" />
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-slate-900/10 text-black flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Surge, Phase Imbalance &amp; Bill Alerts</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Detects high/low voltage swings, neutral faults, and tariff slab spikes early so you cut monthly energy waste by up to 25%.
+                    <h4 className="text-xs sm:text-sm font-bold text-black">Surge &amp; Overload Alerts</h4>
+                    <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                      Instant alerts for high voltage spikes, phase imbalance, and bill limits.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 w-full">
+              {/* Clean Action Buttons */}
+              <div className="flex flex-wrap items-center gap-2.5 w-full">
                 <a
                   href="#slide-4"
-                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
+                  className="px-5 py-2.5 bg-brand-red hover:bg-red-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow-md shadow-brand-red/20 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Request Consultation</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span>Request Quote</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href="#slide-4"
-                  className="px-6 py-3 bg-slate-900 hover:bg-black text-white rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm sm:ml-auto"
+                  className="px-5 py-2.5 bg-black hover:bg-slate-800 text-white rounded-xl font-semibold text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Have Questions?</span>
-                  <ChevronRight className="w-4 h-4 text-white" />
+                  <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
           </div>
 
-          {/* Downside Option: Download Brochure */}
-          <div className="mt-14 sm:mt-16 pt-8 border-t border-gray-200/80 flex justify-center">
+          {/* Compact Downside Option: Download Brochure */}
+          <div className="mt-8 pt-6 border-t border-gray-200/80 flex justify-center">
             <a
               href="/media/smart_home_automation_brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+              className="inline-flex items-center justify-center px-7 py-2.5 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-black"
             >
               Download Brochure
             </a>
@@ -332,7 +265,7 @@ export function SmartEnergyMeters() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">

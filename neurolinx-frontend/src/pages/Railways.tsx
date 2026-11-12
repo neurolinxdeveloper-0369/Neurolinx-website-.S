@@ -270,7 +270,7 @@ export function Railways() {
           {/* Box 2: 24/7 Services */}
           <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1E6FD9] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                 <Clock className="w-6 h-6" />
               </div>
               <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
@@ -331,7 +331,7 @@ export function Railways() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">

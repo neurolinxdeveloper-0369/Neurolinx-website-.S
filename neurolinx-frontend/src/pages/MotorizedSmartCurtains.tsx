@@ -119,7 +119,7 @@ export function MotorizedSmartCurtains() {
       tagline: 'Wired 230V or Li-ion Battery · Precision Digital Limits · Multi-Blind Sync',
       desc: 'Sleek tubular motorization for floor-to-ceiling blackout, sunscreen, and zebra blinds with silent app-calibrated stops.',
       image: '/media/smart_curtains_luxury_villa.jpg',
-      badgeColor: 'bg-[#1A09FA]/10 text-[#1A09FA] border-[#1A09FA]/20',
+      badgeColor: 'bg-slate-100 text-black border-slate-300',
       specs: [
         { label: 'Torque & Noise Level', val: '1.2 Nm (4.5m Drop) · < 28 dB' },
         { label: 'Power & Battery Life', val: '230V AC or Li-ion (6 Months / Solar)' },
@@ -139,14 +139,14 @@ export function MotorizedSmartCurtains() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Full-Bleed Motorized Smart Curtains 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 Retrofit & Touch Panel container) ── */}
+      {/* ── Slide 1: Full-Bleed Motorized Smart Curtains 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 container) ── */}
       <div
         id="hero"
-        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+        className="w-full bg-black relative overflow-hidden pt-20 sm:pt-24 border-none"
       >
         <div className="relative w-full max-w-[2172px] mx-auto">
           <img
-            src="/media/smart_curtains_hero_4k.jpg?v=uhd4kPanoramic"
+            src="/media/smart_curtains_hero_4k_premium.jpg?v=white4k"
             alt="Motorized Smart Curtains - Automated Drapery & Roller Blinds - Neurolinx"
             width={3840}
             height={1280}
@@ -155,16 +155,16 @@ export function MotorizedSmartCurtains() {
             className="w-full h-auto block"
           />
 
-          {/* Subtle Ambient Scrim for Clean Text Readability */}
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+          {/* Balanced Gradient Scrim for Sharp Image Punch & Crisp Text Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/10 pointer-events-none" />
 
-          {/* Centered Title Positioned Slightly Lower in the Calm Twilight Window (~1 cm shifted left) */}
-          <div className="absolute top-[34%] sm:top-[33%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
-            <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+          {/* Crisp Centered Hero Title Above Foreground Phone & Speaker */}
+          <div className="absolute top-[29%] sm:top-[27%] left-0 right-0 -translate-y-1/2 flex justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="whitespace-nowrap antialiased text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight [text-shadow:0_2px_8px_rgba(0,0,0,0.95),0_1px_2px_rgba(0,0,0,0.95)]">
               <span className="text-white">Motorized Smart </span>
-              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
+              <span className="text-brand-red relative inline-block pb-1">
                 Curtains
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.85)]" />
               </span>
             </h1>
           </div>
@@ -172,26 +172,25 @@ export function MotorizedSmartCurtains() {
       </div>
 
       {/* ── Slide 2: Interactive Track Selector & Live Curtain Slider Simulator ── */}
-      <div id="tracks" className="w-full bg-[#F8F9FA] py-16 sm:py-20 md:py-24 border-b border-gray-100">
-        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="tracks" className="w-full bg-[#F8F9FA] py-10 sm:py-12 md:py-14 border-b border-gray-100">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header with Company Logo Colors (Red & Blue) */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="text-center mb-7 sm:mb-9">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <Sparkles className="w-3.5 h-3.5 text-brand-red" />
               <span>Architectural Window Automation</span>
             </div>
             
-            {/* Title styled with Company Logo Colors: Brand Red & Brand Blue */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-              Precision Automated <span className="text-brand-red">Smart Drapery</span> &amp; <span className="text-[#1A09FA]">Roller Blinds</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight mb-2.5">
+              Precision Automated Smart Drapery &amp; Roller Blinds
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
               Whisper-quiet motorized tracks with gentle-pull manual triggers, circadian sunrise rhythm synchronization, and percentage slider control from your smartphone and touch glass panels.
             </p>
 
             {/* Model Toggle Buttons */}
-            <div className="inline-flex p-1.5 bg-white rounded-2xl shadow-sm border border-gray-200/80 mt-8 gap-2">
+            <div className="inline-flex p-1 bg-white rounded-2xl shadow-sm border border-gray-200/80 mt-5 gap-1.5">
               {trackModels.map((track) => {
                 const isActive = activeTrackTab === track.id;
                 return (
@@ -199,13 +198,13 @@ export function MotorizedSmartCurtains() {
                     key={track.id}
                     type="button"
                     onClick={() => setActiveTrackTab(track.id as 'drapery' | 'roller')}
-                    className={`px-6 sm:px-9 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2.5 ${
+                    className={`px-4 sm:px-6 py-2 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2 ${
                       isActive
                         ? 'bg-black text-white shadow-md scale-100'
                         : 'text-slate-700 hover:text-black hover:bg-gray-50'
                     }`}
                   >
-                    <Sliders className={`w-4 h-4 ${isActive ? 'text-brand-red' : 'text-gray-400'}`} />
+                    <Sliders className={`w-3.5 h-3.5 ${isActive ? 'text-brand-red' : 'text-gray-400'}`} />
                     <span>{track.name}</span>
                   </button>
                 );
@@ -214,76 +213,76 @@ export function MotorizedSmartCurtains() {
           </div>
 
           {/* 2-Column Split: Left Product Showcase + Right Live Curtain Slider Simulator */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
             
             {/* Left 7 Columns: Concise Product Hardware Showcase & Core Specifications */}
-            <div className="lg:col-span-7 bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-white rounded-3xl p-5 sm:p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
               
               <div>
                 {/* Badge & Model Number with Company Logo Colors */}
-                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-xs sm:text-sm font-mono font-bold text-gray-500 uppercase tracking-wider">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-gray-500 uppercase tracking-wider">
                       {currentTrack.modelNumber}
                     </span>
-                    <span className={`px-3 py-1 rounded-full text-[11px] font-bold border ${currentTrack.badgeColor}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${currentTrack.badgeColor}`}>
                       {currentTrack.acousticBadge}
                     </span>
                   </div>
-                  <span className="text-xs font-bold text-brand-red flex items-center gap-1.5 bg-brand-red/10 px-3 py-1 rounded-full">
+                  <span className="text-[11px] font-bold text-brand-red flex items-center gap-1.5 bg-brand-red/10 px-2.5 py-0.5 rounded-full">
                     <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
                     <span>{currentTrack.certBadge}</span>
                   </span>
                 </div>
 
                 {/* Title & Tagline with Company Logo Colors */}
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-2">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight mb-1">
                   {currentTrack.subtitle}
                 </h3>
-                <p className="text-brand-red font-semibold text-xs sm:text-sm mb-5">
+                <p className="text-brand-red font-semibold text-xs mb-3.5">
                   {currentTrack.tagline}
                 </p>
 
                 {/* 4K Studio Hardware Image */}
-                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-5 shadow-sm border border-gray-100 bg-[#0B0F19]">
+                <div className="relative w-full h-40 sm:h-48 rounded-2xl overflow-hidden mb-3.5 shadow-sm border border-gray-100 bg-[#0B0F19]">
                   <img 
                     src={currentTrack.image} 
                     alt={currentTrack.subtitle} 
                     className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-[11px] font-mono text-cyan-300 font-semibold border border-white/10 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono text-white font-semibold border border-white/10 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse"></span>
                     <span>{currentTrack.imageBadge}</span>
                   </div>
                 </div>
 
                 {/* Concise Summary Description */}
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-5">
+                <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-3.5">
                   {currentTrack.desc}
                 </p>
 
                 {/* Core Specifications (Compact 2x2 Grid) */}
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-brand-red" />
+                <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5 text-brand-red" />
                   <span>Core Specifications</span>
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3.5">
                   {currentTrack.specs.map((item, idx) => (
-                    <div key={idx} className="py-2.5 px-3.5 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-center">
+                    <div key={idx} className="py-2 px-3 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-center">
                       <span className="text-[10px] font-medium text-gray-500 leading-tight">{item.label}</span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900 mt-0.5 leading-snug">{item.val}</span>
+                      <span className="text-xs font-bold text-slate-900 mt-0.5 leading-snug">{item.val}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Concise Key Highlights */}
-                <div className="space-y-2.5 mb-6">
+                <div className="space-y-1.5 mb-4">
                   {currentTrack.highlights.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
-                      <div className="w-5 h-5 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
+                    <div key={idx} className="flex items-start gap-2">
+                      <div className="w-4 h-4 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3 h-3" />
                       </div>
-                      <span className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
+                      <span className="text-xs text-slate-700 font-medium leading-snug">
                         <strong className="text-slate-900 font-bold">{feat.title}:</strong> {feat.detail}
                       </span>
                     </div>
@@ -292,56 +291,56 @@ export function MotorizedSmartCurtains() {
               </div>
 
               {/* Action Buttons with Company Colors */}
-              <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-gray-100">
+              <div className="flex flex-wrap items-center gap-2.5 pt-3.5 border-t border-gray-100">
                 <a
                   href="#slide-4"
-                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
+                  className="px-4 py-2.5 bg-brand-red text-white rounded-xl font-bold text-xs hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Custom Track Quote</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="#architectural-showcase"
-                  className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs sm:text-sm transition-colors cursor-pointer flex items-center gap-2"
+                  href="#slide-4"
+                  className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs transition-colors cursor-pointer flex items-center gap-2"
                 >
-                  <Sun className="w-4 h-4 text-[#1A09FA]" />
-                  <span>Explore Architectural Showcase</span>
+                  <Sun className="w-3.5 h-3.5 text-brand-red" />
+                  <span>Book Live Site Demo</span>
                 </a>
               </div>
 
             </div>
 
             {/* Right 5 Columns: Interactive Real-Time Curtain Slider Simulator */}
-            <div className="lg:col-span-5 bg-[#0C101A] text-white p-6 sm:p-8 rounded-[28px] sm:rounded-[36px] flex flex-col justify-between border border-white/10 relative overflow-hidden shadow-2xl">
+            <div className="lg:col-span-5 bg-[#0C101A] text-white p-5 sm:p-6 rounded-3xl flex flex-col justify-between border border-white/10 relative overflow-hidden shadow-2xl">
               
               {/* Cyan / Blue Accent Ambient Glow */}
-              <div className="absolute top-0 right-0 w-72 h-72 bg-[#1A09FA]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-72 h-72 bg-brand-red/15 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3.5">
                   <div>
-                    <span className="text-[11px] font-mono text-brand-red font-bold tracking-widest uppercase block">
+                    <span className="text-[10px] font-mono text-brand-red font-bold tracking-widest uppercase block">
                       SIMULATOR
                     </span>
-                    <h4 className="text-lg sm:text-xl font-black text-white mt-0.5">
+                    <h4 className="text-base sm:text-lg font-black text-white mt-0.5">
                       Live Smart Curtain Controller
                     </h4>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-red text-xs font-mono font-bold">
-                    <span className="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-red text-[11px] font-mono font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-ping"></span>
                     <span>ONLINE</span>
                   </div>
                 </div>
 
                 {/* Interactive Graphical Animated Curtain Preview */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-black/80 border border-white/10 shadow-[inset_0_2px_12px_rgba(0,0,0,0.5)] mb-5 relative overflow-hidden">
+                <div className="p-3 sm:p-4 rounded-2xl bg-black/80 border border-white/10 shadow-[inset_0_2px_12px_rgba(0,0,0,0.5)] mb-3.5 relative overflow-hidden">
                   
                   {/* Window Frame Background simulating scenic outside view */}
-                  <div className="relative w-full h-44 rounded-xl overflow-hidden border border-white/10 bg-gradient-to-b from-sky-400/30 via-amber-200/20 to-sky-600/30 flex items-center justify-center">
+                  <div className="relative w-full h-32 sm:h-36 rounded-xl overflow-hidden border border-white/10 bg-gradient-to-b from-neutral-800/70 via-amber-200/20 to-neutral-900/80 flex items-center justify-center">
                     
                     {/* Outside Sun & Landscape Simulation */}
-                    <div className="absolute top-4 right-8 w-10 h-10 rounded-full bg-amber-300 shadow-[0_0_25px_#F59E0B] opacity-80"></div>
+                    <div className="absolute top-3 right-6 w-8 h-8 rounded-full bg-amber-300 shadow-[0_0_25px_#F59E0B] opacity-80"></div>
                     <span className="text-[10px] font-mono text-white/50 tracking-widest z-0">
                       NATURAL DAYLIGHT: {telemetry.daylightPercentage}%
                     </span>
@@ -382,7 +381,7 @@ export function MotorizedSmartCurtains() {
                   </div>
 
                   {/* Readout Metrics */}
-                  <div className="flex items-center justify-between text-xs text-gray-400 pt-4 mt-2 border-t border-white/10 font-mono">
+                  <div className="flex items-center justify-between text-[11px] text-gray-400 pt-2.5 mt-2 border-t border-white/10 font-mono">
                     <span className="flex items-center gap-1.5">
                       <Volume2 className="w-3.5 h-3.5 text-brand-red" />
                       <span>Sound: {motorMoving ? '< 24 dB (Moving)' : '< 18 dB (Silent)'}</span>
@@ -395,11 +394,11 @@ export function MotorizedSmartCurtains() {
                 </div>
 
                 {/* Primary Interactive Drag Slider */}
-                <div className="space-y-4 mb-5">
+                <div className="space-y-3 mb-3.5">
                   
                   <div>
-                    <div className="flex items-center justify-between text-xs mb-2">
-                      <span className="text-gray-300 font-bold flex items-center gap-2">
+                    <div className="flex items-center justify-between text-xs mb-1.5">
+                      <span className="text-gray-300 font-bold flex items-center gap-1.5">
                         <Sun className="w-3.5 h-3.5 text-amber-400" />
                         <span>Blackout Curtain Position</span>
                       </span>
@@ -411,7 +410,7 @@ export function MotorizedSmartCurtains() {
                       max="100"
                       value={curtainPercent}
                       onChange={(e) => handleSliderChange(Number(e.target.value))}
-                      className="w-full h-2.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-red"
+                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-red"
                     />
                     <div className="flex justify-between text-[10px] text-gray-500 font-mono mt-1">
                       <span>0% (Closed)</span>
@@ -422,7 +421,7 @@ export function MotorizedSmartCurtains() {
 
                   {/* Quick Preset Scene Buttons */}
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1.5">
                       One-Touch Preset Scenes
                     </span>
                     <div className="grid grid-cols-2 gap-2 text-xs">
@@ -430,7 +429,7 @@ export function MotorizedSmartCurtains() {
                       <button
                         type="button"
                         onClick={() => applyPresetScene(100, 100)}
-                        className={`p-2.5 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
+                        className={`p-2 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
                           curtainPercent === 100 
                             ? 'bg-brand-red/20 border-brand-red text-white' 
                             : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'
@@ -446,14 +445,14 @@ export function MotorizedSmartCurtains() {
                       <button
                         type="button"
                         onClick={() => applyPresetScene(0, 0)}
-                        className={`p-2.5 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
+                        className={`p-2 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
                           curtainPercent === 0 
                             ? 'bg-brand-red/20 border-brand-red text-white' 
                             : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'
                         }`}
                       >
                         <span className="flex items-center gap-1.5">
-                          <Moon className="w-3.5 h-3.5 text-blue-400" />
+                          <Moon className="w-3.5 h-3.5 text-white" />
                           <span>Night Sleep</span>
                         </span>
                         <span className="text-[10px] font-mono">0%</span>
@@ -462,14 +461,14 @@ export function MotorizedSmartCurtains() {
                       <button
                         type="button"
                         onClick={() => applyPresetScene(25, 100)}
-                        className={`p-2.5 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
+                        className={`p-2 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
                           curtainPercent === 25 
                             ? 'bg-brand-red/20 border-brand-red text-white' 
                             : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'
                         }`}
                       >
                         <span className="flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                          <Sparkles className="w-3.5 h-3.5 text-brand-red" />
                           <span>Privacy Sheer</span>
                         </span>
                         <span className="text-[10px] font-mono">25%</span>
@@ -478,14 +477,14 @@ export function MotorizedSmartCurtains() {
                       <button
                         type="button"
                         onClick={() => applyPresetScene(0, 100)}
-                        className={`p-2.5 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
+                        className={`p-2 rounded-xl border flex items-center justify-between font-bold transition-all cursor-pointer ${
                           curtainPercent === 0 && sheerPercent === 100
                             ? 'bg-brand-red/20 border-brand-red text-white' 
                             : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'
                         }`}
                       >
                         <span className="flex items-center gap-1.5">
-                          <Zap className="w-3.5 h-3.5 text-[#1A09FA]" />
+                          <Zap className="w-3.5 h-3.5 text-brand-red" />
                           <span>Cinema Mode</span>
                         </span>
                         <span className="text-[10px] font-mono">Dark</span>
@@ -498,23 +497,23 @@ export function MotorizedSmartCurtains() {
 
                 {/* Real-Time Glare & Acoustic Status */}
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
                     <span className="text-[10px] text-gray-400 block">UV GLARE BLOCKED</span>
-                    <span className="text-sm font-bold text-emerald-400">{telemetry.uvGlareBlocked}%</span>
+                    <span className="text-xs sm:text-sm font-bold text-emerald-400">{telemetry.uvGlareBlocked}%</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
                     <span className="text-[10px] text-gray-400 block">MOTOR TORQUE</span>
-                    <span className="text-sm font-bold text-white">{telemetry.estimatedMotorTorque} Nm Smooth</span>
+                    <span className="text-xs sm:text-sm font-bold text-white">{telemetry.estimatedMotorTorque} Nm Smooth</span>
                   </div>
                 </div>
 
               </div>
 
               {/* Bottom Quick Order Button */}
-              <div className="mt-5 pt-4 border-t border-white/10">
+              <div className="mt-3.5 pt-3 border-t border-white/10">
                 <a
                   href="#slide-4"
-                  className="w-full py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center block cursor-pointer"
+                  className="w-full py-2.5 bg-brand-red hover:bg-red-700 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center block cursor-pointer"
                 >
                   Configure My Motorized Curtains
                 </a>
@@ -524,105 +523,13 @@ export function MotorizedSmartCurtains() {
 
           </div>
 
-        </div>
-      </div>
-
-      {/* ── Slide 3: 360° Architectural Luxury Living Showcase ── */}
-      <div id="architectural-showcase" className="w-full bg-white py-16 sm:py-20 md:py-24 border-b border-gray-100">
-        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left 6 Columns: 4K Architectural Panorama Photo */}
-            <div className="lg:col-span-6 relative rounded-[32px] overflow-hidden shadow-xl border border-gray-100 bg-[#0B0F19]">
-              <img 
-                src="/media/smart_curtains_luxury_villa.jpg" 
-                alt="Neurolinx Motorized Smart Curtains in Luxury Villa Master Suite" 
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-between text-xs">
-                <div>
-                  <span className="font-bold block text-sm">Penthouse Master Suite</span>
-                  <span className="text-gray-400 text-[11px]">Circadian Sunrise Sync &amp; Dual Sheer Automation</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-red/20 text-brand-red font-mono font-bold">
-                  <span>&lt; 25 dB WHISPER QUIET</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right 6 Columns: Core Capabilities with Company Logo Colors */}
-            <div className="lg:col-span-6 flex flex-col justify-between">
-              
-              <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-4">
-                  <Sun className="w-3.5 h-3.5 text-brand-red" />
-                  <span>Effortless Comfort Living</span>
-                </div>
-
-                {/* Heading with Company Logo Colors: Brand Red & Brand Blue */}
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-5 leading-tight">
-                  Architectural <span className="text-brand-red">Sunlight</span> &amp; <span className="text-[#1A09FA]">Privacy Automation</span>
-                </h3>
-
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
-                  Wake up naturally to golden morning light and protect your designer furniture from harsh UV rays without leaving your bed. Neurolinx Motorized Smart Curtains bring effortless elegance, whisper-quiet motion, and intelligent comfort to luxury spaces.
-                </p>
-              </div>
-
-              {/* 4 Feature Callout Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {[
-                  {
-                    title: "Whisper-Quiet <25dB Motor",
-                    desc: "Helical sound-dampened gears and high-tensile rubber belts ensure motorized motion is virtually inaudible."
-                  },
-                  {
-                    title: "Gentle-Pull Touch Trigger",
-                    desc: "Tug the curtain fabric by 5cm in either direction; internal optical sensors engage the motor automatically."
-                  },
-                  {
-                    title: "Circadian Astronomical Sync",
-                    desc: "Synchronizes automatically with your city's local sunrise and sunset times to open and close hands-free."
-                  },
-                  {
-                    title: "Voice & Touch Panel Integration",
-                    desc: "Set curtain percentages by voice ('Alexa, open bedroom sheer to 60%') or through Neurolinx glass touch switchboards."
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-brand-red text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                      <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div>
-                <a
-                  href="#slide-4"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-black hover:bg-brand-red text-white font-bold text-xs sm:text-sm transition-colors shadow-sm cursor-pointer"
-                >
-                  <span>Order Motorized Smart Curtains</span>
-                  <ChevronRight className="w-4 h-4 text-brand-red" />
-                </a>
-              </div>
-
-            </div>
-
-          </div>
-
           {/* Downside Option: Download Brochure */}
-          <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
+          <div className="mt-8 pt-6 border-t border-gray-200/80 flex justify-center">
             <a
               href="/media/smart_home_automation_brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+              className="inline-flex items-center justify-center px-7 py-2.5 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-black"
             >
               Download Brochure
             </a>
@@ -631,7 +538,7 @@ export function MotorizedSmartCurtains() {
         </div>
       </div>
 
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Matching Official Layout with Company Logo Colors) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Matching Official Layout with Company Logo Colors) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
@@ -645,7 +552,7 @@ export function MotorizedSmartCurtains() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">

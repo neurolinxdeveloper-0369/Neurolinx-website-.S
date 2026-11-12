@@ -84,7 +84,7 @@ export function SmartWaterControl() {
       tagline: 'Automated Tank-to-Sump Automation & Dry-Run Protection',
       desc: 'Intelligent pump controller that automates overhead tank and underground sump water cycles with complete motor protection.',
       image: '/media/smart_water_controller_hardware.jpg',
-      badgeColor: 'bg-cyan-500/10 text-cyan-600 border-cyan-500/20',
+      badgeColor: 'bg-brand-red/10 text-brand-red border-brand-red/20',
       specs: [
         { label: 'Motor Capacity', val: 'Up to 3 HP / 5 HP (Single & 3-Phase)' },
         { label: 'Sensing Technology', val: 'Non-Contact Ultrasonic & Stainless Probes' },
@@ -105,7 +105,7 @@ export function SmartWaterControl() {
       tagline: 'Zero-Dry-Run Interlock & Municipal Supply Intake Automation',
       desc: 'Multi-tank controller that coordinates municipal supply inflow, underground sumps, and borewells without dry-run risk.',
       image: '/media/smart_water_tank_architecture.jpg',
-      badgeColor: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
+      badgeColor: 'bg-slate-100 text-black border-slate-300',
       specs: [
         { label: 'Tank Coordination', val: 'Cascading Sump-to-OHT Interlock' },
         { label: 'Pump Support', val: 'Submersible, Jet & Monoblock Motors' },
@@ -128,11 +128,11 @@ export function SmartWaterControl() {
       {/* ── Slide 1: Full-Bleed Smart Water Control System 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 Retrofit & Touch Panel container) ── */}
       <div
         id="hero"
-        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+        className="w-full bg-black relative overflow-hidden pt-20 sm:pt-24 border-none"
       >
         <div className="relative w-full max-w-[2172px] mx-auto">
           <img
-            src="/media/smart_water_control_hero_4k.jpg?v=uhd4kCleanWall"
+            src="/media/smart_water_control_hero_4k.jpg?v=uhd4kRedBlack"
             alt="Smart Water Control System - Automated Water Level & Pump Controller - Neurolinx"
             width={3840}
             height={1280}
@@ -142,10 +142,10 @@ export function SmartWaterControl() {
           />
 
           {/* Subtle Ambient Scrim for Clean Text Readability */}
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
-          {/* Centered Title Positioned in the Calm Twilight Window (~1 cm shifted left) */}
-          <div className="absolute top-[26%] sm:top-[25%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
+          {/* Centered Title Positioned Above the Hardware in the Dark Upper Background */}
+          <div className="absolute top-[22%] sm:top-[22%] left-0 right-0 -translate-y-1/2 flex justify-center pointer-events-none z-10 px-4 text-center">
             <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
               <span className="text-white">Smart Water </span>
               <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
@@ -158,24 +158,24 @@ export function SmartWaterControl() {
       </div>
 
       {/* ── Slide 2: Interactive System Selector & Live Water Telemetry Simulator ── */}
-      <div id="systems" className="w-full bg-[#F8F9FA] py-16 sm:py-20 md:py-24 border-b border-gray-100">
-        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="systems" className="w-full bg-[#F8F9FA] py-10 sm:py-12 md:py-14 border-b border-gray-100">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 text-xs font-bold uppercase tracking-wider mb-4">
-              <Droplets className="w-3.5 h-3.5 text-cyan-600" />
+          <div className="text-center mb-7 sm:mb-9">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-[11px] font-bold uppercase tracking-wider mb-2.5">
+              <Droplets className="w-3.5 h-3.5 text-brand-red" />
               <span>Autonomous Water Intelligence</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-              Autonomous Management for <span className="text-brand-red">Overhead Tanks</span> &amp; <span className="text-cyan-600">Sumps</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight mb-2.5">
+              Autonomous Management for Overhead Tanks &amp; Sumps
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
               Eliminate daily water anxiety, roof overflows, and motor burnouts with intelligent ultrasonic non-contact sensing and automated dual-tank pump control.
             </p>
 
             {/* Model Toggle Buttons */}
-            <div className="inline-flex p-1.5 bg-white rounded-2xl shadow-sm border border-gray-200/80 mt-8 gap-2">
+            <div className="inline-flex p-1 bg-white rounded-2xl shadow-sm border border-gray-200/80 mt-5 gap-1.5">
               {systems.map((sys) => {
                 const isActive = activeTab === sys.id;
                 return (
@@ -183,13 +183,13 @@ export function SmartWaterControl() {
                     key={sys.id}
                     type="button"
                     onClick={() => setActiveTab(sys.id as 'oht' | 'sump')}
-                    className={`px-6 sm:px-9 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2.5 ${
+                    className={`px-4 sm:px-6 py-2 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2 ${
                       isActive
                         ? 'bg-black text-white shadow-md scale-100'
                         : 'text-slate-700 hover:text-black hover:bg-gray-50'
                     }`}
                   >
-                    <Waves className={`w-4 h-4 ${isActive ? 'text-cyan-400' : 'text-gray-400'}`} />
+                    <Waves className={`w-3.5 h-3.5 ${isActive ? 'text-brand-red' : 'text-gray-400'}`} />
                     <span>{sys.name}</span>
                   </button>
                 );
@@ -198,76 +198,76 @@ export function SmartWaterControl() {
           </div>
 
           {/* 2-Column Split: Left Product Showcase + Right Live Water Telemetry Simulator */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
             
             {/* Left 7 Columns: Product Hardware Showcase & Specifications */}
-            <div className="lg:col-span-7 bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-10 border border-gray-100 shadow-sm flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-white rounded-3xl p-5 sm:p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
               
               <div>
                 {/* Badge & Model Number */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-xs sm:text-sm font-mono font-bold text-gray-500 uppercase tracking-wider">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-gray-500 uppercase tracking-wider">
                       {currentSystem.modelNumber}
                     </span>
-                    <span className={`px-3 py-1 rounded-full text-[11px] font-bold border ${currentSystem.badgeColor}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${currentSystem.badgeColor}`}>
                       IP65 Weatherproof
                     </span>
                   </div>
-                  <span className="text-xs font-bold text-cyan-600 flex items-center gap-1.5 bg-cyan-50 px-3 py-1 rounded-full">
-                    <ShieldCheck className="w-3.5 h-3.5" />
+                  <span className="text-[11px] font-bold text-black flex items-center gap-1.5 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                    <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
                     <span>Ultrasonic Non-Contact Certified</span>
                   </span>
                 </div>
 
                 {/* Title & Tagline */}
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-2.5">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight mb-1">
                   {currentSystem.subtitle}
                 </h3>
-                <p className="text-brand-red font-semibold text-sm sm:text-base mb-5">
+                <p className="text-brand-red font-semibold text-xs mb-3.5">
                   {currentSystem.tagline}
                 </p>
 
                 {/* 4K Studio Hardware Image */}
-                <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-6 shadow-sm border border-gray-100 bg-[#0B0F19]">
+                <div className="relative w-full h-40 sm:h-48 rounded-2xl overflow-hidden mb-3.5 shadow-sm border border-gray-100 bg-[#0B0F19]">
                   <img 
                     src={currentSystem.image} 
                     alt={currentSystem.subtitle} 
                     className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-[11px] font-mono text-cyan-400 font-semibold border border-white/10 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono text-white font-semibold border border-white/10 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse"></span>
                     <span>Ultrasonic Sonar Active</span>
                   </div>
                 </div>
 
                 {/* Summary Description */}
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-3.5">
                   {currentSystem.desc}
                 </p>
 
                 {/* Core Specifications (2x2 Grid) */}
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3.5 flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-brand-red" />
+                <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5 text-brand-red" />
                   <span>Core Specifications</span>
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3.5">
                   {currentSystem.specs.map((item, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
-                      <span className="text-[11px] font-medium text-gray-500">{item.label}</span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900 mt-1">{item.val}</span>
+                    <div key={idx} className="py-2 px-3 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-center">
+                      <span className="text-[10px] font-medium text-gray-500 leading-tight">{item.label}</span>
+                      <span className="text-xs font-bold text-slate-900 mt-0.5 leading-snug">{item.val}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Highlights List */}
-                <div className="space-y-3 mb-6">
+                <div className="space-y-1.5 mb-4">
                   {currentSystem.highlights.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
+                    <div key={idx} className="flex items-start gap-2">
+                      <div className="w-4 h-4 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3 h-3" />
                       </div>
-                      <span className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
+                      <span className="text-xs text-slate-700 font-medium leading-snug">
                         <strong className="text-slate-900 font-bold">{feat.title}:</strong> {feat.detail}
                       </span>
                     </div>
@@ -276,67 +276,67 @@ export function SmartWaterControl() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-gray-100">
+              <div className="flex flex-wrap items-center gap-2.5 pt-3.5 border-t border-gray-100">
                 <a
                   href="#slide-4"
-                  className="px-6 py-3.5 bg-brand-red text-white rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
+                  className="px-4 py-2.5 bg-brand-red text-white rounded-xl font-bold text-xs hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Water Automation Quote</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="#dual-tank-system"
-                  className="px-6 py-3.5 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs sm:text-sm transition-colors cursor-pointer flex items-center gap-2"
+                  href="#slide-4"
+                  className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs transition-colors cursor-pointer flex items-center gap-2"
                 >
-                  <Waves className="w-4 h-4 text-cyan-600" />
-                  <span>Explore Dual-Tank Architecture</span>
+                  <Waves className="w-3.5 h-3.5 text-brand-red" />
+                  <span>Book Live Site Demo</span>
                 </a>
               </div>
 
             </div>
 
             {/* Right 5 Columns: Interactive Real-Time Water Telemetry Simulator */}
-            <div className="lg:col-span-5 h-fit lg:self-start bg-[#0C101A] text-white p-6 sm:p-8 rounded-[28px] sm:rounded-[36px] flex flex-col border border-white/10 relative overflow-hidden shadow-2xl">
+            <div className="lg:col-span-5 bg-[#0C101A] text-white p-5 sm:p-6 rounded-3xl flex flex-col justify-between border border-white/10 relative overflow-hidden shadow-2xl">
               
               {/* Cyan Ambient Glow */}
-              <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-72 h-72 bg-brand-red/10 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3.5">
                   <div>
-                    <span className="text-[11px] font-mono text-cyan-400 font-bold tracking-widest uppercase block">
+                    <span className="text-[10px] font-mono text-brand-red font-bold tracking-widest uppercase block">
                       SIMULATOR
                     </span>
-                    <h4 className="text-lg sm:text-xl font-black text-white mt-0.5">
+                    <h4 className="text-base sm:text-lg font-black text-white mt-0.5">
                       Live Water Telemetry
                     </h4>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-red text-[11px] font-mono font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-ping"></span>
                     <span>ONLINE</span>
                   </div>
                 </div>
 
                 {/* Digital LCD Dual-Tank Gauge Box */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-black/70 border border-cyan-500/30 shadow-[inset_0_2px_12px_rgba(6,182,212,0.15)] mb-5 font-mono">
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-black/70 border border-white/15 shadow-[inset_0_2px_12px_rgba(0,0,0,0.6)] mb-3.5 font-mono">
                   
-                  <div className="flex items-center justify-between text-xs text-gray-400 border-b border-white/10 pb-3 mb-4">
+                  <div className="flex items-center justify-between text-[11px] text-gray-400 border-b border-white/10 pb-2.5 mb-3">
                     <span>{currentSystem.modelNumber}</span>
-                    <span className={`font-bold ${telemetry.isMotorActive ? 'text-cyan-400' : 'text-gray-400'}`}>
+                    <span className={`font-bold ${telemetry.isMotorActive ? 'text-brand-red' : 'text-gray-400'}`}>
                       PUMP: {telemetry.isMotorActive ? 'RUNNING (2.0 HP)' : 'STANDBY'}
                     </span>
                   </div>
 
                   {/* Overhead Tank Visual Bar */}
-                  <div className="mb-4">
-                    <div className="flex items-center justify-between text-xs mb-1.5">
+                  <div className="mb-3">
+                    <div className="flex items-center justify-between text-[11px] mb-1">
                       <span className="text-gray-400">OVERHEAD TANK (OHT)</span>
                       <span className="text-white font-bold">{overheadLevel}% ({telemetry.ohtLitres} L)</span>
                     </div>
-                    <div className="w-full h-4 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
+                    <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
                       <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-500 relative"
+                        className="h-full bg-gradient-to-r from-red-600 to-brand-red rounded-full transition-all duration-500 relative"
                         style={{ width: `${overheadLevel}%` }}
                       >
                         <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
@@ -345,50 +345,50 @@ export function SmartWaterControl() {
                   </div>
 
                   {/* Underground Sump Visual Bar */}
-                  <div className="mb-4">
-                    <div className="flex items-center justify-between text-xs mb-1.5">
+                  <div className="mb-3">
+                    <div className="flex items-center justify-between text-[11px] mb-1">
                       <span className="text-gray-400">UNDERGROUND SUMP</span>
                       <span className="text-white font-bold">{sumpLevel}% ({telemetry.sumpLitres} L)</span>
                     </div>
-                    <div className="w-full h-4 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
+                    <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
                       <div 
-                        className="h-full bg-gradient-to-r from-blue-600 to-indigo-500 rounded-full transition-all duration-500"
+                        className="h-full bg-gradient-to-r from-neutral-400 to-white rounded-full transition-all duration-500"
                         style={{ width: `${sumpLevel}%` }}
                       ></div>
                     </div>
                   </div>
 
                   {/* Electrical & Flow Metrics */}
-                  <div className="grid grid-cols-3 gap-2 text-center pt-3 border-t border-white/10 text-xs">
-                    <div className="p-2 rounded-lg bg-white/5">
+                  <div className="grid grid-cols-3 gap-2 text-center pt-2.5 border-t border-white/10 text-xs">
+                    <div className="p-1.5 rounded-lg bg-white/5">
                       <span className="text-[10px] text-gray-400 block">FLOW RATE</span>
-                      <span className="text-sm font-bold text-cyan-400">{telemetry.flowRateLpm} LPM</span>
+                      <span className="text-xs sm:text-sm font-bold text-brand-red">{telemetry.flowRateLpm} LPM</span>
                     </div>
-                    <div className="p-2 rounded-lg bg-white/5">
+                    <div className="p-1.5 rounded-lg bg-white/5">
                       <span className="text-[10px] text-gray-400 block">MOTOR AMPS</span>
-                      <span className="text-sm font-bold text-white">{telemetry.motorCurrentAmps} A</span>
+                      <span className="text-xs sm:text-sm font-bold text-white">{telemetry.motorCurrentAmps} A</span>
                     </div>
-                    <div className="p-2 rounded-lg bg-white/5">
+                    <div className="p-1.5 rounded-lg bg-white/5">
                       <span className="text-[10px] text-gray-400 block">WATER TDS</span>
-                      <span className="text-sm font-bold text-emerald-400">{telemetry.waterTds} ppm</span>
+                      <span className="text-xs sm:text-sm font-bold text-emerald-400">{telemetry.waterTds} ppm</span>
                     </div>
                   </div>
 
                 </div>
 
                 {/* Interactive Controls & Usage Simulator */}
-                <div className="space-y-3 mb-5">
+                <div className="space-y-2 mb-3.5">
                   
                   {/* Mode Selector */}
-                  <div className="flex items-center justify-between gap-2 p-1.5 bg-white/5 rounded-xl border border-white/10">
+                  <div className="flex items-center justify-between gap-1.5 p-1 bg-white/5 rounded-xl border border-white/10">
                     {(['auto', 'manual', 'off'] as const).map((mode) => (
                       <button
                         key={mode}
                         type="button"
                         onClick={() => setPumpMode(mode)}
-                        className={`flex-1 py-2 text-xs font-bold rounded-lg uppercase tracking-wider transition-all cursor-pointer ${
+                        className={`flex-1 py-1.5 text-[11px] font-bold rounded-lg uppercase tracking-wider transition-all cursor-pointer ${
                           pumpMode === mode 
-                            ? 'bg-cyan-500 text-black shadow-md' 
+                            ? 'bg-brand-red text-white shadow-md' 
                             : 'text-gray-400 hover:text-white'
                         }`}
                       >
@@ -403,10 +403,10 @@ export function SmartWaterControl() {
                     onClick={() => {
                       setOverheadLevel(prev => Math.max(18, prev - 25));
                     }}
-                    className="w-full p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-bold flex items-center justify-between transition-colors cursor-pointer"
+                    className="w-full px-3 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-bold flex items-center justify-between transition-colors cursor-pointer"
                   >
-                    <div className="flex items-center gap-2.5">
-                      <Droplets className="w-4 h-4 text-cyan-400" />
+                    <div className="flex items-center gap-2">
+                      <Droplets className="w-3.5 h-3.5 text-brand-red" />
                       <span>Simulate Water Usage (-25% Level)</span>
                     </div>
                     <span className="text-[10px] text-gray-400">Trigger Auto-Fill</span>
@@ -419,10 +419,10 @@ export function SmartWaterControl() {
                       setOverheadLevel(85);
                       setSumpLevel(90);
                     }}
-                    className="w-full p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-bold flex items-center justify-between transition-colors cursor-pointer"
+                    className="w-full px-3 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-bold flex items-center justify-between transition-colors cursor-pointer"
                   >
-                    <div className="flex items-center gap-2.5">
-                      <RefreshCw className="w-4 h-4 text-emerald-400" />
+                    <div className="flex items-center gap-2">
+                      <RefreshCw className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Reset Reservoir Levels to Full</span>
                     </div>
                     <span className="text-[10px] text-emerald-400 font-mono">100% OK</span>
@@ -431,8 +431,8 @@ export function SmartWaterControl() {
                 </div>
 
                 {/* Safety Shield Status Alert */}
-                <div className="p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs flex items-center gap-3">
-                  <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0" />
+                <div className="p-2.5 rounded-xl bg-brand-red/10 border border-brand-red/25 text-xs flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-brand-red shrink-0" />
                   <span className="text-gray-300 text-[11px] leading-snug">
                     <strong className="text-white">Active Dry-Run Safeguard:</strong> Sump is monitored continuously; motor trips within 8 seconds if supply stops.
                   </span>
@@ -441,10 +441,10 @@ export function SmartWaterControl() {
               </div>
 
               {/* Bottom Quick Order Button */}
-              <div className="mt-5 pt-4 border-t border-white/10">
+              <div className="mt-3.5 pt-3 border-t border-white/10">
                 <a
                   href="#slide-4"
-                  className="w-full py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center block cursor-pointer"
+                  className="w-full py-2.5 bg-brand-red hover:bg-red-700 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center block cursor-pointer"
                 >
                   Configure My Smart Water System
                 </a>
@@ -454,104 +454,13 @@ export function SmartWaterControl() {
 
           </div>
 
-        </div>
-      </div>
-
-      {/* ── Slide 3: 360° Architectural & Dual-Tank Infrastructure Showcase ── */}
-      <div id="dual-tank-system" className="w-full bg-white py-16 sm:py-20 md:py-24 border-b border-gray-100">
-        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left 6 Columns: 4K Architectural Water Infrastructure Photo */}
-            <div className="lg:col-span-6 relative rounded-[32px] overflow-hidden shadow-xl border border-gray-100 bg-[#0B0F19]">
-              <img 
-                src="/media/smart_water_tank_architecture.jpg" 
-                alt="Neurolinx Smart Water Control System Installed in Modern Villa Infrastructure" 
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-between text-xs">
-                <div>
-                  <span className="font-bold block text-sm">Villa Water Infrastructure</span>
-                  <span className="text-gray-400 text-[11px]">Autonomous Sump-to-Overhead Management</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cyan-500/20 text-cyan-400 font-mono font-bold">
-                  <span>ZERO OVERFLOW</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right 6 Columns: Core Capabilities & Intelligence */}
-            <div className="lg:col-span-6 flex flex-col justify-between">
-              
-              <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 text-xs font-bold uppercase tracking-wider mb-4">
-                  <Waves className="w-3.5 h-3.5" />
-                  <span>Zero Wastage • 100% Hands-Free</span>
-                </div>
-
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-5 leading-tight">
-                  Intelligent Dual-Tank Coordination &amp; <span className="text-brand-red">Motor Protection</span>
-                </h3>
-
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
-                  Never worry about overflowing rooftop tanks or hearing a dry-running motor grinding itself to destruction. Neurolinx Smart Water Control System delivers seamless, worry-free water availability 24 hours a day.
-                </p>
-              </div>
-
-              {/* 4 Feature Callout Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {[
-                  {
-                    title: "Ultrasonic Non-Contact Tech",
-                    desc: "Zero corroded probes or stuck mechanical floats. High-frequency soundwave radar measures exact water distance from above."
-                  },
-                  {
-                    title: "Active Dry-Run Protection",
-                    desc: "Monitors pump water delivery continuously. Shuts off motor power in 8 seconds if borewell or municipal line runs dry."
-                  },
-                  {
-                    title: "Dual-Tank Interlock",
-                    desc: "Ensures the overhead tank only draws when the underground sump has sufficient supply, preventing pump airlocks."
-                  },
-                  {
-                    title: "Leak & Pipe Burst Alarms",
-                    desc: "Detects continuous uncharacteristic water drops or running toilets and alerts your smartphone immediately."
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-brand-red text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                      <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div>
-                <a
-                  href="#slide-4"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-black hover:bg-brand-red text-white font-bold text-xs sm:text-sm transition-colors shadow-sm cursor-pointer"
-                >
-                  <span>Order Smart Water Control System</span>
-                  <ChevronRight className="w-4 h-4 text-cyan-400" />
-                </a>
-              </div>
-
-            </div>
-
-          </div>
-
           {/* Downside Option: Download Brochure */}
-          <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
+          <div className="mt-8 pt-6 border-t border-gray-200/80 flex justify-center">
             <a
               href="/media/smart_home_automation_brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+              className="inline-flex items-center justify-center px-7 py-2.5 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-black"
             >
               Download Brochure
             </a>
@@ -560,7 +469,7 @@ export function SmartWaterControl() {
         </div>
       </div>
 
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Matching Official Layout) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Matching Official Layout) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
@@ -574,7 +483,7 @@ export function SmartWaterControl() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">
@@ -644,8 +553,8 @@ export function SmartWaterControl() {
               </p>
 
               {inquirySubmitted ? (
-                <div className="p-8 rounded-2xl bg-white border border-cyan-500/30 shadow-sm text-center">
-                  <div className="w-14 h-14 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center mx-auto mb-4">
+                <div className="p-8 rounded-2xl bg-white border border-brand-red/30 shadow-sm text-center">
+                  <div className="w-14 h-14 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h4 className="text-xl font-bold text-slate-900 mb-2">Inquiry Submitted Successfully</h4>

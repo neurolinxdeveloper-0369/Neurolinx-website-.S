@@ -94,7 +94,7 @@ export function MarkerLight() {
       >
         {/* Subtle light ambient glow */}
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-100/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -223,7 +223,7 @@ export function MarkerLight() {
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-2">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">&gt; 100k h</div>
@@ -262,7 +262,7 @@ export function MarkerLight() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 mt-0.5">
                     <Lock className="w-4 h-4" />
                   </div>
                   <div>
@@ -335,7 +335,7 @@ export function MarkerLight() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">

@@ -58,7 +58,7 @@ export function UniversalIrBlaster() {
       desc: 'Control cooling, fan speed, swing, and eco mode from anywhere in the world. Set circadian night curves so temperature climbs to 26°C by 4 AM for optimal sleep and 35% lower electricity bills.',
       image: '/media/ir_blaster_ac_bedroom.jpg',
       icon: Wind,
-      badgeColor: 'bg-cyan-500/10 text-cyan-600 border-cyan-500/20',
+      badgeColor: 'bg-brand-red/10 text-brand-red border-brand-red/20',
       highlights: [
         'Set temperature from 16°C to 30°C with 0.5°C fine adjustment',
         'Auto, Cool, Dry, and Fan speed modes supported',
@@ -74,7 +74,7 @@ export function UniversalIrBlaster() {
       desc: 'Power on/off, change channels, regulate sound volume, toggle mute, and switch between HDMI 1 (PlayStation), HDMI 2 (Apple TV), and Set-top box with a single voice command.',
       image: '/media/ir_blaster_home_theatre.jpg',
       icon: Tv,
-      badgeColor: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
+      badgeColor: 'bg-slate-100 text-black border-slate-300',
       highlights: [
         'Full D-Pad directional navigation and OK button',
         'Direct numeric keypad & instant channel bookmarks',
@@ -179,8 +179,8 @@ export function UniversalIrBlaster() {
               <Sparkles className="w-3.5 h-3.5 text-brand-red" />
               <span>Multi-Appliance Ecosystem</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-              One Device to Control <span className="text-brand-red">Every Appliance</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-4">
+              One Device to Control Every Appliance
             </h2>
             <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               Click any appliance below to see high-resolution photography, dedicated features, supported Indian brands, and an interactive remote control simulator.
@@ -238,7 +238,7 @@ export function UniversalIrBlaster() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <div>
-                      <span className="text-xs font-mono uppercase tracking-wider text-cyan-300 block">Active Device</span>
+                      <span className="text-xs font-mono uppercase tracking-wider text-brand-red font-bold block">Active Device</span>
                       <h4 className="text-xl sm:text-2xl font-black">{currentAppliance.name} Control</h4>
                     </div>
                     <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-medium border border-white/20">
@@ -282,10 +282,10 @@ export function UniversalIrBlaster() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="#coverage-360"
+                  href="#slide-4"
                   className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs sm:text-sm transition-colors cursor-pointer"
                 >
-                  Explore 360� Coverage
+                  Book Live Site Demo
                 </a>
               </div>
             </div>
@@ -294,14 +294,14 @@ export function UniversalIrBlaster() {
             <div className="lg:col-span-5 bg-[#0B0F19] text-white p-6 sm:p-8 lg:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 relative overflow-hidden">
               
               {/* Cyan Glow Accent */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/15 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 {/* Header with Live Indicator */}
                 <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00E5FF]" />
-                    <span className="text-xs font-mono tracking-wider uppercase text-cyan-400 font-bold">
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse shadow-[0_0_8px_#E0001B]" />
+                    <span className="text-xs font-mono tracking-wider uppercase text-white font-bold">
                       IR Blaster Live Remote
                     </span>
                   </div>
@@ -316,9 +316,9 @@ export function UniversalIrBlaster() {
                     <div className="text-center py-5 bg-white/5 rounded-2xl border border-white/10">
                       <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">Target Climate</span>
                       <div className="text-5xl sm:text-6xl font-black font-display text-white">
-                        {acTemp}<span className="text-cyan-400 text-3xl font-light">°C</span>
+                        {acTemp}<span className="text-brand-red text-3xl font-light">°C</span>
                       </div>
-                      <span className="text-xs text-cyan-300 font-mono mt-2 inline-block">
+                      <span className="text-xs text-gray-300 font-mono mt-2 inline-block">
                         Mode: {acMode} • Fan: Turbo Speed
                       </span>
                     </div>
@@ -334,7 +334,7 @@ export function UniversalIrBlaster() {
                       <button
                         onClick={() => setAcPower(!acPower)}
                         className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all cursor-pointer shadow-lg ${
-                          acPower ? 'bg-cyan-500 text-slate-950 shadow-cyan-500/30' : 'bg-red-500/20 text-red-400'
+                          acPower ? 'bg-brand-red text-white shadow-brand-red/30' : 'bg-white/10 text-gray-400'
                         }`}
                         title="Toggle AC Power"
                       >
@@ -355,7 +355,7 @@ export function UniversalIrBlaster() {
                           key={mode}
                           onClick={() => setAcMode(mode)}
                           className={`py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                            acMode === mode ? 'bg-cyan-500 text-slate-950 font-bold' : 'bg-white/5 text-gray-400 hover:text-white'
+                            acMode === mode ? 'bg-brand-red text-white font-bold' : 'bg-white/5 text-gray-400 hover:text-white'
                           }`}
                         >
                           {mode}
@@ -370,7 +370,7 @@ export function UniversalIrBlaster() {
                     <div className="text-center py-5 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-around">
                       <div>
                         <span className="text-[10px] text-gray-400 uppercase tracking-widest block">Current Channel</span>
-                        <span className="text-3xl font-black text-cyan-400">CH {tvChannel}</span>
+                        <span className="text-3xl font-black text-brand-red">CH {tvChannel}</span>
                       </div>
                       <div className="w-[1px] h-10 bg-white/10" />
                       <div>
@@ -437,7 +437,7 @@ export function UniversalIrBlaster() {
                   <div className="space-y-4">
                     <div className="text-center py-4 bg-white/5 rounded-2xl border border-white/10">
                       <span className="text-[10px] text-gray-400 uppercase tracking-widest block">DTH Receiver Active</span>
-                      <span className="text-xl font-bold text-cyan-400">Tata Play HD • Live TV</span>
+                      <span className="text-xl font-bold text-white">Tata Play HD • Live TV</span>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2">
@@ -523,7 +523,7 @@ export function UniversalIrBlaster() {
               {/* Bottom Footer Note */}
               <div className="mt-8 pt-4 border-t border-white/10 text-center">
                 <span className="text-[11px] text-gray-400 flex items-center justify-center gap-1.5">
-                  <Wifi className="w-3.5 h-3.5 text-cyan-400" />
+                  <Wifi className="w-3.5 h-3.5 text-brand-red" />
                   <span>Real-time Wi-Fi &amp; Alexa Voice Synchronization</span>
                 </span>
               </div>
@@ -532,89 +532,8 @@ export function UniversalIrBlaster() {
 
           </div>
 
-        </div>
-      </div>
-
-      {/* ── Slide 3: 360° Omnidirectional Coverage Architectural Showcase ── */}
-      <div className="w-full bg-white py-16 sm:py-20 md:py-24 border-b border-gray-100">
-        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left 6 Columns: 4K 360° Living Room Coverage Photo */}
-            <div className="lg:col-span-6 relative rounded-[32px] overflow-hidden shadow-xl border border-gray-100">
-              <img 
-                src="/media/ir_blaster_360_coverage.jpg" 
-                alt="360 Degree Smart IR Coverage in Living Room"
-                className="w-full h-auto object-cover object-center hover:scale-105 transition-transform duration-700" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/60 text-cyan-300 text-xs font-mono font-semibold mb-2 backdrop-blur-md">
-                  <span>SPHERICAL EMISSION MATRIX</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold">12 Meters Full Room Coverage</h3>
-                <p className="text-xs sm:text-sm text-gray-300 mt-1">
-                  Infrared signals reflect off ceilings and walls, ensuring devices respond even behind cabinet doors or furniture.
-                </p>
-              </div>
-            </div>
-
-            {/* Right 6 Columns: 360° Benefits & Hardware Highlights */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-4">
-                <Radio className="w-3.5 h-3.5 text-brand-red" />
-                <span>Zero Aiming Required</span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-5 leading-tight">
-                Complete <span className="text-brand-red">360° Omnidirectional</span> Infrared Freedom
-              </h2>
-
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                Conventional remotes require direct line-of-sight aiming. The Neurolinx Universal IR Blaster features an array of 7 high-power infrared transmitters arranged in a spherical dome, bouncing carrier waves across ceilings and walls for reliable trigger response.
-              </p>
-
-              <div className="space-y-4 w-full mb-8">
-                {[
-                  {
-                    title: "Universal 38 KHz Multi-Carrier Frequency",
-                    desc: "Compatible with over 99.4% of all consumer electronics sold across India and worldwide."
-                  },
-                  {
-                    title: "High-Gain Wide-Angle Transmitters",
-                    desc: "Reaches up to 12 meters (39 feet) unobstructed with instantaneous signal delivery under 200 milliseconds."
-                  },
-                  {
-                    title: "Smart Cloud Database & DIY Learning",
-                    desc: "8,000+ preloaded appliance remote profiles. Custom DIY learning allows cloning any rare or vintage remote."
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-brand-red text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                      <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="#slide-4"
-                className="px-7 py-3.5 rounded-xl bg-black hover:bg-brand-red text-white font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center gap-2 cursor-pointer"
-              >
-                <span>Order Universal IR Blaster</span>
-                <ChevronRight className="w-4 h-4 text-cyan-400" />
-              </a>
-            </div>
-
-          </div>
-
           {/* Downside Option: Download Brochure */}
-          <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
+          <div className="mt-12 sm:mt-14 pt-8 border-t border-gray-200/80 flex justify-center">
             <a
               href="/media/smart_home_automation_brochure.pdf"
               target="_blank"
@@ -628,7 +547,7 @@ export function UniversalIrBlaster() {
         </div>
       </div>
 
-      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Matching Official Layout) ── */}
+      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Matching Official Layout) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
@@ -642,7 +561,7 @@ export function UniversalIrBlaster() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">

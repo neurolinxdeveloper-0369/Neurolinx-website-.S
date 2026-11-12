@@ -92,9 +92,9 @@ export function PowerSupply() {
           <div className="absolute top-[26%] sm:top-[25%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
             <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
               <span className="text-white">Power Supply &amp; </span>
-              <span className="text-cyan-400 relative inline-block pb-1">
+              <span className="text-brand-red relative inline-block pb-1">
                 Drivers
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400/90 rounded-full" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
               </span>
             </h1>
           </div>
@@ -108,7 +108,7 @@ export function PowerSupply() {
       >
         {/* Subtle light ambient glow */}
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-100/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -237,7 +237,7 @@ export function PowerSupply() {
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-2">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">10 kV</div>
@@ -276,7 +276,7 @@ export function PowerSupply() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 mt-0.5">
                     <Cpu className="w-4 h-4" />
                   </div>
                   <div>
@@ -384,7 +384,7 @@ export function PowerSupply() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-[#1E6FD9] flex items-center justify-center border border-white/20 shadow-md">
+                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-md">
                   <Activity className="w-4 h-4" />
                 </div>
               </div>
@@ -542,7 +542,7 @@ export function PowerSupply() {
                 {/* Title colored in company logo Red and Blue */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">

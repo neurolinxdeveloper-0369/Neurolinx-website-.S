@@ -280,7 +280,7 @@ export function HomeAutomation() {
       >
         <div className="w-full max-w-[2172px] mx-auto flex items-center justify-center">
           <img 
-            src="/media/smart_home_controllers_hero.png?v=ultra4kNativeStudio" 
+            src="/media/smart_home_controllers_hero.png?v=crispText4k" 
             alt="Neurolinx Smart Home Automation Ecosystem - Products Range"
             width={2172}
             height={724}

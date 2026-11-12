@@ -57,11 +57,10 @@ export function FogPass() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Hero Banner (Indian Railways Locomotive Cab with Cyan Tech Typography) ── */}
+      {/* ── Slide 1: Hero Banner (Sized to match Smart Home Automation Hero Dimensions) ── */}
       <div 
         id="hero"
-        style={{ minHeight: 'calc(100vh + 1.5cm)' }}
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
+        className="relative w-full overflow-hidden text-white flex items-center min-h-[460px] sm:h-[500px] md:h-[540px] lg:h-[580px] xl:h-[635px] 2xl:h-[724px] pt-24 sm:pt-28 pb-16"
       >
         {/* Real Indian Railways Locomotive Cab Background - High Visibility & Extra Brightness */}
         <div className="absolute inset-0 z-0">
@@ -120,7 +119,7 @@ export function FogPass() {
       >
         {/* Subtle light ambient glow */}
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-100/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -157,18 +156,18 @@ export function FogPass() {
                 </div>
 
                 {/* Inbuilt Image Container with exact same size */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-slate-950 flex items-center justify-center p-2 border border-slate-200 shadow-inner">
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-slate-950 flex items-center justify-center border border-slate-200 shadow-inner">
                   {activeDeviceView === 'v2' ? (
                     <img
-                      src="/media/fogpass_v2_pure.png?v=neurolinx"
+                      src="/media/fogpass_v2_device_4k.jpg"
                       alt="Neurolinx FogPASS Version 2.0 Device Hardware"
-                      className="max-h-full max-w-full object-contain filter drop-shadow-xl transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                     />
                   ) : (
                     <img
                       src="/media/fog_pass.png"
                       alt="Neurolinx FogPASS In-Cab Locomotive Mounting"
-                      className="max-h-full max-w-full object-contain filter drop-shadow-xl transition-transform duration-500 hover:scale-105"
+                      className="max-h-full max-w-full p-2 object-contain filter drop-shadow-xl transition-transform duration-500 hover:scale-105"
                     />
                   )}
                 </div>
@@ -249,7 +248,7 @@ export function FogPass() {
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-2">
                     <Compass className="w-4 h-4" />
                   </div>
                   <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">NavIC + GPS</div>
@@ -296,7 +295,7 @@ export function FogPass() {
                 {/* Box 2: 24/7 Services */}
                 <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1E6FD9] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
                       <Clock className="w-5 h-5" />
                     </div>
                     <span className="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-2">
@@ -380,7 +379,7 @@ export function FogPass() {
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Question</span><span className="text-[#1A09FA]">s?</span>
+                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
                 </h2>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">
