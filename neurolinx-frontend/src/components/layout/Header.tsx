@@ -104,7 +104,7 @@ export function Header() {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body ${
       scrolled 
         ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3' 
-        : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
+        : ['/about', '/careers', '/contact', '/offices', '/leadership', '/pos-demo'].includes(location.pathname) ? 'bg-[#0B0F19]/95 backdrop-blur-md shadow-lg py-3.5 sm:py-5' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
     }`}>
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between min-h-[48px] sm:min-h-[52px]">
         

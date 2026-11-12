@@ -4,14 +4,10 @@ import {
   ArrowDown, 
   ArrowRight, 
   Linkedin, 
-  CheckCircle2, 
   ExternalLink, 
   X, 
   ChevronDown, 
   ChevronUp, 
-  ShieldCheck, 
-  Cpu, 
-  Award, 
   Quote 
 } from 'lucide-react';
 
@@ -146,21 +142,21 @@ export function About() {
   }, [selectedFounder]);
 
   return (
-    <div className="w-full bg-[#08090D] text-white font-body selection:bg-[#E5092C] selection:text-white overflow-x-hidden">
+    <div className="w-full bg-white text-slate-900 font-body selection:bg-[#E5092C] selection:text-white overflow-x-hidden">
 
       {/* ========================================================================= */}
       {/* 1. HERO SECTION – Modern Corporate Technology Hero                         */}
       {/* ========================================================================= */}
-      <section className="relative w-full overflow-hidden bg-[#08090D] pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 border-b border-[#292A32]/80">
+      <section className="relative w-full overflow-hidden bg-white pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 md:pb-24 border-b border-gray-200">
         
-        {/* Subtle dark-red radial glow behind the main heading */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[340px] sm:h-[420px] bg-[#E5092C]/[0.08] rounded-full blur-[160px] pointer-events-none"></div>
+        {/* Subtle red radial glow behind the main heading */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[340px] sm:h-[420px] bg-[#E5092C]/[0.05] rounded-full blur-[160px] pointer-events-none"></div>
 
         {/* Ambient grid overlay pattern */}
         <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #FFFFFF 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #0F172A 1px, transparent 0)`,
             backgroundSize: '36px 36px'
           }}
         />
@@ -168,18 +164,18 @@ export function About() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
           {/* Eyebrow Badge */}
-          <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
+          <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
             <span>About Neurolinx Global</span>
           </div>
 
           {/* Main H1 Heading */}
-          <h1 className="reveal-item font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[64px] text-white tracking-tight leading-[1.12] max-w-5xl mx-auto">
+          <h1 className="reveal-item font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[64px] text-slate-900 tracking-tight leading-[1.12] max-w-5xl mx-auto">
             Powered by People. Driven by <span className="text-[#E5092C] inline-block">Smart Innovation.</span>
           </h1>
 
           {/* Section Lead Paragraph */}
-          <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mt-5 sm:mt-6 px-2 font-normal">
+          <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mt-5 sm:mt-6 px-2 font-normal">
             Transforming spaces across India through intuitive IoT automation, precision engineering, and customer-first design.
           </p>
 
@@ -195,14 +191,12 @@ export function About() {
 
             <Link
               to="/contact"
-              className="font-body inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#17181E] hover:bg-[#202129] border border-[#292A32] hover:border-white/20 text-white text-xs sm:text-sm font-medium transition-all duration-300 group"
+              className="font-body inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 border border-gray-200 hover:border-slate-300 text-slate-800 text-xs sm:text-sm font-medium transition-all duration-300 group shadow-sm"
             >
               <span>Contact Our Team</span>
-              <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:translate-x-1 group-hover:text-white transition-all" />
+              <ArrowRight className="w-4 h-4 text-slate-500 group-hover:translate-x-1 group-hover:text-[#E5092C] transition-all" />
             </Link>
           </div>
-
-
 
         </div>
       </section>
@@ -210,76 +204,75 @@ export function About() {
       {/* ========================================================================= */}
       {/* 2. WHO WE ARE – Modern Split Layout (Two-Column)                           */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#101116] relative border-b border-[#292A32]/80">
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-6 xl:px-10 bg-white relative border-b border-gray-200">
         
         {/* Subtle ambient red background blur */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[450px] h-[450px] bg-[#E5092C]/[0.05] rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[450px] h-[450px] bg-[#E5092C]/[0.04] rounded-full blur-[140px] pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-[1440px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Who We Are & Overview */}
-            <div className="lg:col-span-6 space-y-5 text-left">
+            <div className="lg:col-span-7 space-y-5 text-left lg:pr-6">
               
               {/* Eyebrow Badge */}
-              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
+              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
                 <span>Who We Are</span>
               </div>
 
               {/* Section H2 Heading */}
-              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-                <span className="text-[#E5092C]">Innovating</span> Today to Empower Tomorrow’s Smart Living
+              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[30px] xl:text-[38px] text-slate-900 tracking-tight leading-tight">
+                <span className="sm:whitespace-nowrap">
+                  <span className="text-[#E5092C]">Innovating</span> Today to Empower
+                </span>
+                <br className="hidden sm:inline" /> Tomorrow’s Smart Living
               </h2>
 
-              {/* Section Lead Paragraph */}
-              <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed font-normal">
-                Neurolinx is India’s foremost pioneer in wireless and wired IoT electrical automation. Born from a relentless passion for innovation, we engineer hardware and software that make residential, commercial, hospitality, and healthcare environments effortless, energy-efficient, and intelligently responsive.
+              {/* Who We Are Subtitle */}
+              <p className="reveal-item font-body text-slate-800 text-base sm:text-lg md:text-xl font-medium tracking-tight">
+                Smart technology for effortless living, efficient operations, and intelligent spaces.
               </p>
 
-              {/* Achievements & Credibility Badges */}
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
-                  <Cpu className="w-5 h-5 text-[#E5092C] shrink-0" />
-                  <span className="font-body text-xs sm:text-sm font-semibold text-white">100% In-House R&amp;D</span>
-                </div>
-                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
-                  <Award className="w-5 h-5 text-[#E5092C] shrink-0" />
-                  <span className="font-body text-xs sm:text-sm font-semibold text-white">Made In India Excellence</span>
-                </div>
-                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
-                  <ShieldCheck className="w-5 h-5 text-[#E5092C] shrink-0" />
-                  <span className="font-body text-xs sm:text-sm font-semibold text-white">Rail-Grade Safety Standards</span>
-                </div>
-                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
-                  <CheckCircle2 className="w-5 h-5 text-[#E5092C] shrink-0" />
-                  <span className="font-body text-xs sm:text-sm font-semibold text-white">Certified Cloud Architecture</span>
-                </div>
+              {/* Section Lead Paragraphs */}
+              <div className="space-y-4">
+                <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal text-left sm:text-justify">
+                  <span className="font-semibold"><span className="text-[#E5092C]">Neuro</span><span className="text-[#4B4C4C]">linx</span></span> is an Indian IoT and automation technology company creating intelligent hardware and software for smarter homes, workplaces, hospitality spaces, and healthcare environments.
+                </p>
+                <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal text-left sm:text-justify">
+                  We design and develop solutions that make spaces more comfortable, secure, energy-efficient, and responsive. Our products combine wireless and wired automation, IoT connectivity, embedded electronics, cloud dashboards, and mobile applications.
+                </p>
+                <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal text-left sm:text-justify">
+                  From smart switches, touch panels, IR control, and curtain automation to IoT hubs, energy monitoring, and custom software platforms, <span className="font-semibold"><span className="text-[#E5092C]">Neuro</span><span className="text-[#4B4C4C]">linx</span></span> delivers complete solutions for modern living and business needs.
+                </p>
+                <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal text-left sm:text-justify">
+                  We believe technology should work quietly in the background—making everyday life simpler, spaces more efficient, and operations more intelligent.
+                </p>
               </div>
 
             </div>
 
             {/* Right Column: Premium Separate Cards for Vision & Mission */}
-            <div className="lg:col-span-6 flex flex-col gap-6">
+            <div className="lg:col-span-5 flex flex-col gap-6">
               
               {/* Vision Card */}
-              <div className="reveal-card bg-[#17181E] border border-[#292A32] hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-xl">
+              <div className="reveal-card bg-white border border-gray-200 hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-[#101116] border border-[#292A32] group-hover:border-[#E5092C]/50 group-hover:bg-[#E5092C]/10 flex items-center justify-center p-3 shrink-0 transition-all duration-300 shadow-inner">
+                  <div className="w-14 h-14 rounded-xl bg-red-50/70 border border-red-100 group-hover:border-[#E5092C]/40 group-hover:bg-red-50 flex items-center justify-center p-3 shrink-0 transition-all duration-300">
                     <img 
                       src="/media/about/our-vision-red.png" 
                       alt="Our Vision Icon" 
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(229,9,44,0.45)]"
+                      className="w-full h-full object-contain filter drop-shadow-[0_2px_6px_rgba(229,9,44,0.2)]"
                     />
                   </div>
                   <div className="flex-1">
                     <div className="font-body inline-block text-[10px] sm:text-[11px] font-bold text-[#E5092C] tracking-wider uppercase mb-1">
                       Forward Horizon
                     </div>
-                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
+                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
                       Our Vision
                     </h3>
-                    <p className="font-body text-[#A1A1AA] text-xs sm:text-sm md:text-base leading-relaxed font-normal">
+                    <p className="font-body text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
                       The purpose is to make the life of people smarter &amp; better.
                     </p>
                   </div>
@@ -287,23 +280,23 @@ export function About() {
               </div>
 
               {/* Mission Card */}
-              <div className="reveal-card bg-[#17181E] border border-[#292A32] hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-xl">
+              <div className="reveal-card bg-white border border-gray-200 hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-[#101116] border border-[#292A32] group-hover:border-[#E5092C]/50 group-hover:bg-[#E5092C]/10 flex items-center justify-center p-3 shrink-0 transition-all duration-300 shadow-inner">
+                  <div className="w-14 h-14 rounded-xl bg-red-50/70 border border-red-100 group-hover:border-[#E5092C]/40 group-hover:bg-red-50 flex items-center justify-center p-3 shrink-0 transition-all duration-300">
                     <img 
                       src="/media/about/our-mission-red.png" 
                       alt="Our Mission Icon" 
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(229,9,44,0.45)]"
+                      className="w-full h-full object-contain filter drop-shadow-[0_2px_6px_rgba(229,9,44,0.2)]"
                     />
                   </div>
                   <div className="flex-1">
                     <div className="font-body inline-block text-[10px] sm:text-[11px] font-bold text-[#E5092C] tracking-wider uppercase mb-1">
                       Core Commitment
                     </div>
-                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
+                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
                       Our Mission
                     </h3>
-                    <p className="font-body text-[#A1A1AA] text-xs sm:text-sm md:text-base leading-relaxed font-normal">
+                    <p className="font-body text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
                       The mission is to be the leading player in the IoT-based Electrical industry.
                     </p>
                   </div>
@@ -319,10 +312,10 @@ export function About() {
       {/* ========================================================================= */}
       {/* 3. OUR STORY – Compact & Premium Interactive Timeline                      */}
       {/* ========================================================================= */}
-      <section id="our-story" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#08090D] relative border-b border-[#292A32]/80">
+      <section id="our-story" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white relative border-b border-gray-200">
         
         {/* Subtle ambient red glow on the timeline side */}
-        <div className="absolute top-1/3 right-0 w-[450px] h-[450px] bg-[#E5092C]/[0.05] rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-1/3 right-0 w-[450px] h-[450px] bg-[#E5092C]/[0.04] rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -332,46 +325,46 @@ export function About() {
             <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
               
               {/* Eyebrow Badge */}
-              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
+              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
                 <span>Milestones &amp; Evolution</span>
               </div>
 
               {/* Section H2 Heading */}
-              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight">
                 Our <span className="text-[#E5092C]">Story</span>
               </h2>
 
               {/* Section Lead Paragraph */}
-              <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed font-normal">
+              <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
                 Founded in 2024, our journey has rapidly advanced from specialized railway safety engineering and pilot electronics to next-gen intelligent home automation and mission-critical signaling innovations.
               </p>
 
               {/* Story Illustration Card */}
-              <div className="reveal-card rounded-2xl sm:rounded-3xl overflow-hidden bg-[#17181E] p-5 sm:p-6 md:p-8 border border-[#292A32] shadow-2xl max-w-lg w-full">
+              <div className="reveal-card rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-50 p-5 sm:p-6 md:p-8 border border-gray-200 shadow-sm max-w-lg w-full">
                 <img 
                   src="/media/about/our-story.png" 
                   alt="Our Story Illustration" 
-                  className="w-full h-auto object-contain mx-auto max-h-[260px] sm:max-h-[300px] md:max-h-[330px] filter drop-shadow-lg" 
+                  className="w-full h-auto object-contain mx-auto max-h-[260px] sm:max-h-[300px] md:max-h-[330px] filter drop-shadow-md" 
                 />
               </div>
 
               {/* Stats Strip */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg w-full">
-                <div className="reveal-card bg-[#17181E] p-4 sm:p-5 rounded-2xl border border-[#292A32] text-center shadow-lg hover:border-[#E5092C]/40 transition-colors">
+                <div className="reveal-card bg-slate-50 p-4 sm:p-5 rounded-2xl border border-gray-200 text-center shadow-sm hover:border-[#E5092C]/40 transition-colors">
                   <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-[#E5092C]">2024–2026</span>
-                  <span className="font-body text-[10px] sm:text-[11px] text-[#A1A1AA] uppercase tracking-wider font-semibold mt-1 block">Active Roadmaps</span>
+                  <span className="font-body text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-wider font-semibold mt-1 block">Active Roadmaps</span>
                 </div>
-                <div className="reveal-card bg-[#17181E] p-4 sm:p-5 rounded-2xl border border-[#292A32] text-center shadow-lg hover:border-[#E5092C]/40 transition-colors">
-                  <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-white">Safety Certified</span>
-                  <span className="font-body text-[10px] sm:text-[11px] text-[#A1A1AA] uppercase tracking-wider font-semibold mt-1 block">Mission Critical</span>
+                <div className="reveal-card bg-slate-50 p-4 sm:p-5 rounded-2xl border border-gray-200 text-center shadow-sm hover:border-[#E5092C]/40 transition-colors">
+                  <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-slate-900">Safety Certified</span>
+                  <span className="font-body text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-wider font-semibold mt-1 block">Mission Critical</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Compact Vertical Timeline */}
             <div className="lg:col-span-7">
-              <div className="relative pl-6 sm:pl-7 border-l-2 border-[#292A32] space-y-4 sm:space-y-5">
+              <div className="relative pl-6 sm:pl-7 border-l-2 border-gray-200 space-y-4 sm:space-y-5">
                 
                 {milestones.map((item, index) => {
                   const isExpanded = !!expandedMilestones[index];
@@ -381,20 +374,20 @@ export function About() {
                       
                       {/* Milestone Glowing Indicator Node */}
                       <div className="absolute -left-[31px] sm:-left-[35px] top-4 z-20 flex items-center justify-center">
-                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#08090D] border-2 border-[#E5092C] shadow-md shadow-[#E5092C]/50 flex items-center justify-center group-hover:scale-125 transition-transform duration-300">
+                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-white border-2 border-[#E5092C] shadow-sm shadow-[#E5092C]/30 flex items-center justify-center group-hover:scale-125 transition-transform duration-300">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#E5092C]"></div>
                         </div>
                       </div>
 
                       {/* Milestone Card */}
-                      <div className="bg-[#17181E] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#292A32] hover:border-[#E5092C]/50 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                      <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-gray-200 hover:border-[#E5092C]/50 transition-all duration-300 shadow-sm group-hover:shadow-md">
                         
                         {/* Header: Year & Tag */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                          <span className="font-display font-black text-xl sm:text-2xl text-white group-hover:text-[#E5092C] transition-colors tracking-tight">
+                          <span className="font-display font-black text-xl sm:text-2xl text-slate-900 group-hover:text-[#E5092C] transition-colors tracking-tight">
                             {item.year}
                           </span>
-                          <span className="font-body text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#E5092C]/10 text-[#E5092C] border border-[#E5092C]/25 tracking-wide">
+                          <span className="font-body text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-[#E5092C] border border-red-200 tracking-wide">
                             {item.tag}
                           </span>
                         </div>
@@ -402,7 +395,7 @@ export function About() {
                         {/* Title & Project Image */}
                         <div className="flex items-start gap-3 sm:gap-4 mb-2.5">
                           {item.image && (
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-[#08090D] border border-[#292A32] p-1.5 shrink-0 flex items-center justify-center overflow-hidden">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-slate-50 border border-gray-200 p-1.5 shrink-0 flex items-center justify-center overflow-hidden">
                               <img 
                                 src={item.image} 
                                 alt={item.title} 
@@ -411,29 +404,29 @@ export function About() {
                             </div>
                           )}
                           <div className="flex-1">
-                            <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug tracking-tight">
+                            <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 leading-snug tracking-tight">
                               {item.title}
                             </h3>
-                            <p className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal mt-1">
+                            <p className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mt-1">
                               {item.summary}
                             </p>
                           </div>
                         </div>
 
                         {/* Expandable Points Content */}
-                        <div className="pt-2 border-t border-[#292A32]/80">
+                        <div className="pt-2 border-t border-gray-100">
                           
                           {/* First point always visible */}
-                          <div className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal flex items-start gap-2">
+                          <div className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal flex items-start gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] mt-1.5 shrink-0"></span>
                             <span>{item.points[0]}</span>
                           </div>
 
                           {/* Remaining points toggle smoothly */}
                           {isExpanded && (
-                            <div className="space-y-1.5 mt-2 pt-2 border-t border-[#292A32]/60 animate-fadeIn">
+                            <div className="space-y-1.5 mt-2 pt-2 border-t border-gray-100 animate-fadeIn">
                               {item.points.slice(1).map((p, pIdx) => (
-                                <div key={pIdx} className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal flex items-start gap-2">
+                                <div key={pIdx} className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal flex items-start gap-2">
                                   <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] mt-1.5 shrink-0"></span>
                                   <span>{p}</span>
                                 </div>
@@ -445,7 +438,7 @@ export function About() {
                           <button
                             type="button"
                             onClick={() => toggleMilestone(index)}
-                            className="font-body mt-2.5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-white hover:text-[#E5092C] transition-colors cursor-pointer group/btn"
+                            className="font-body mt-2.5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-slate-800 hover:text-[#E5092C] transition-colors cursor-pointer group/btn"
                           >
                             <span>{isExpanded ? 'Show Less' : `Read More Details (${item.points.length - 1} more)`}</span>
                             {isExpanded ? (
@@ -474,10 +467,10 @@ export function About() {
       {/* ========================================================================= */}
       {/* 4. MEET OUR FOUNDERS – Executive Profile Grid (All 4 Founders)             */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[#101116] relative border-b border-[#292A32]/80">
+      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white relative border-b border-gray-200">
         
         {/* Subtle ambient red glow behind founders */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-[#E5092C]/[0.05] rounded-full blur-[160px] pointer-events-none"></div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-[#E5092C]/[0.04] rounded-full blur-[160px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -485,18 +478,18 @@ export function About() {
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             
             {/* Eyebrow Badge */}
-            <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
+            <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
               <span>Leadership Team</span>
             </div>
 
             {/* Section H2 Heading */}
-            <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+            <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight">
               Meet Our <span className="text-[#E5092C]">Founders</span>
             </h2>
 
             {/* Section Lead Paragraph */}
-            <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed font-normal mt-4">
+            <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal mt-4">
               Driven by purpose and powered by passion, meet the executive leaders shaping the future of smart living and precision electronics.
             </p>
           </div>
@@ -506,14 +499,14 @@ export function About() {
             {founders.map((founder, idx) => (
               <div 
                 key={idx}
-                className="reveal-card bg-[#17181E] rounded-2xl border border-[#292A32] hover:border-[#E5092C]/60 transition-all duration-300 p-5 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#E5092C]/10"
+                className="reveal-card bg-white rounded-2xl border border-gray-200 hover:border-[#E5092C]/50 transition-all duration-300 p-5 flex flex-col justify-between group hover:-translate-y-1.5 shadow-sm hover:shadow-xl hover:shadow-slate-200/80"
               >
                 <div>
                   
                   {/* Portrait Container */}
                   <div 
                     onClick={() => setSelectedFounder(founder)}
-                    className="aspect-[4/5] rounded-xl overflow-hidden bg-[#08090D] border border-[#292A32] mb-5 relative group-hover:border-[#E5092C]/40 transition-colors cursor-pointer"
+                    className="aspect-[4/5] rounded-xl overflow-hidden bg-slate-100 border border-gray-200 mb-5 relative group-hover:border-[#E5092C]/40 transition-colors cursor-pointer"
                   >
                     <img 
                       src={founder.image} 
@@ -522,10 +515,10 @@ export function About() {
                     />
                     
                     {/* Subtle bottom gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#17181E] via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/35 via-transparent to-transparent opacity-70" />
 
                     {/* Role Pill Badge */}
-                    <div className="font-body absolute bottom-3 left-3 px-3 py-1 rounded-md bg-[#08090D]/90 border border-[#292A32] text-xs font-bold text-[#E5092C] tracking-wider uppercase backdrop-blur-md">
+                    <div className="font-body absolute bottom-3 left-3 px-3 py-1 rounded-md bg-white/95 border border-gray-200 text-xs font-bold text-[#E5092C] tracking-wider uppercase backdrop-blur-md shadow-sm">
                       {founder.role}
                     </div>
                   </div>
@@ -533,27 +526,27 @@ export function About() {
                   {/* Founder Name & Designation */}
                   <h3 
                     onClick={() => setSelectedFounder(founder)}
-                    className="font-display font-bold text-xl text-white tracking-tight group-hover:text-[#E5092C] transition-colors cursor-pointer"
+                    className="font-display font-bold text-xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors cursor-pointer"
                   >
                     {founder.name}
                   </h3>
-                  <div className="font-body text-xs text-[#A1A1AA] font-semibold uppercase tracking-wider mt-0.5">
+                  <div className="font-body text-xs text-slate-500 font-semibold uppercase tracking-wider mt-0.5">
                     Co-Founder &amp; {founder.role}
                   </div>
 
                   {/* Short Bio Preview */}
-                  <p className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-3 line-clamp-3 font-normal">
+                  <p className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed mt-3 line-clamp-3 font-normal">
                     {founder.bio}
                   </p>
 
                 </div>
 
                 {/* Footer Actions: Read Full Bio & LinkedIn */}
-                <div className="border-t border-[#292A32] pt-4 mt-5 flex items-center justify-between">
+                <div className="border-t border-gray-100 pt-4 mt-5 flex items-center justify-between">
                   <button
                     type="button"
                     onClick={() => setSelectedFounder(founder)}
-                    className="font-body inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-[#E5092C] transition-colors cursor-pointer"
+                    className="font-body inline-flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-[#E5092C] transition-colors cursor-pointer"
                   >
                     <span>Read Biography</span>
                     <ExternalLink className="w-3.5 h-3.5 text-[#E5092C]" />
@@ -565,7 +558,7 @@ export function About() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${founder.name} LinkedIn Profile`}
-                      className="w-8 h-8 rounded-lg bg-[#08090D] hover:bg-[#0077b5] text-[#A1A1AA] hover:text-white border border-[#292A32] flex items-center justify-center transition-colors shadow-sm"
+                      className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-[#0077b5] text-slate-600 hover:text-white border border-gray-200 flex items-center justify-center transition-colors shadow-sm"
                     >
                       <Linkedin className="w-4 h-4" />
                     </a>
@@ -584,13 +577,13 @@ export function About() {
       {/* ========================================================================= */}
       {selectedFounder && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-md animate-fadeIn"
           role="dialog"
           aria-modal="true"
           onClick={() => setSelectedFounder(null)}
         >
           <div 
-            className="bg-[#17181E] border border-[#292A32] rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8 md:p-10 text-left"
+            className="bg-white border border-gray-200 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8 md:p-10 text-left"
             onClick={e => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -598,7 +591,7 @@ export function About() {
               type="button"
               onClick={() => setSelectedFounder(null)}
               aria-label="Close dialog"
-              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-[#08090D] hover:bg-[#E5092C] text-[#A1A1AA] hover:text-white border border-[#292A32] flex items-center justify-center transition-colors cursor-pointer z-10"
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100 hover:bg-[#E5092C] text-slate-600 hover:text-white border border-gray-200 flex items-center justify-center transition-colors cursor-pointer z-10"
             >
               <X className="w-5 h-5" />
             </button>
@@ -607,17 +600,17 @@ export function About() {
               
               {/* Left: Founder Portrait */}
               <div className="md:col-span-5 flex flex-col items-center text-center">
-                <div className="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden bg-[#08090D] border border-[#292A32] shadow-xl mb-4">
+                <div className="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden bg-slate-100 border border-gray-200 shadow-md mb-4">
                   <img 
                     src={selectedFounder.image} 
                     alt={selectedFounder.name} 
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <h3 className="font-display font-bold text-2xl text-white tracking-tight mb-1">
+                <h3 className="font-display font-bold text-2xl text-slate-900 tracking-tight mb-1">
                   {selectedFounder.name}
                 </h3>
-                <div className="font-body px-3.5 py-1 rounded-full bg-[#E5092C]/10 border border-[#E5092C]/30 text-[#E5092C] text-xs font-bold uppercase tracking-wider mb-4">
+                <div className="font-body px-3.5 py-1 rounded-full bg-red-50 border border-red-200 text-[#E5092C] text-xs font-bold uppercase tracking-wider mb-4">
                   {selectedFounder.role} &bull; Co-Founder
                 </div>
                 {selectedFounder.linkedin && (
@@ -625,9 +618,9 @@ export function About() {
                     href={selectedFounder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-body inline-flex items-center gap-2 text-xs font-semibold text-white bg-[#08090D] hover:bg-[#0077b5] px-4 py-2.5 rounded-xl border border-[#292A32] transition-colors"
+                    className="font-body inline-flex items-center gap-2 text-xs font-semibold text-slate-800 bg-slate-50 hover:bg-[#0077b5] hover:text-white px-4 py-2.5 rounded-xl border border-gray-200 transition-colors group/li"
                   >
-                    <Linkedin className="w-4 h-4 text-[#0077b5] group-hover:text-white" />
+                    <Linkedin className="w-4 h-4 text-[#0077b5] group-hover/li:text-white" />
                     <span>Connect on LinkedIn</span>
                   </a>
                 )}
@@ -639,15 +632,15 @@ export function About() {
                   <h4 className="font-body text-xs uppercase tracking-widest text-[#E5092C] font-bold mb-2">
                     Executive Biography
                   </h4>
-                  <p className="font-body text-sm sm:text-base text-[#A1A1AA] leading-relaxed font-normal">
+                  <p className="font-body text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                     {selectedFounder.bio}
                   </p>
                 </div>
 
                 {selectedFounder.quote && (
-                  <div className="p-4 sm:p-5 rounded-2xl bg-[#101116] border border-[#292A32] relative">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-gray-200 relative">
                     <Quote className="w-6 h-6 text-[#E5092C]/40 mb-2" />
-                    <p className="font-body text-sm sm:text-base italic text-white/90 leading-snug font-medium">
+                    <p className="font-body text-sm sm:text-base italic text-slate-800 leading-snug font-medium">
                       &ldquo;{selectedFounder.quote}&rdquo;
                     </p>
                   </div>
