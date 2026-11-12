@@ -137,16 +137,35 @@ export function UniversalIrBlaster() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Only That One Image (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-b border-gray-100">
-        <div className="relative w-full max-w-[1920px] mx-auto">
-          <img 
-            src="/media/universal_ir_blaster_hero.jpg" 
-            alt="Universal IR Blaster - Control Your IR Devices, Smartly"
+      {/* ── Slide 1: Full-Bleed Universal IR Blaster 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 Retrofit & Touch Panel container) ── */}
+      <div
+        id="hero"
+        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+      >
+        <div className="relative w-full max-w-[2172px] mx-auto">
+          <img
+            src="/media/universal_ir_blaster_panoramic_hero.jpg?v=uhd4kCenteredHigher"
+            alt="Universal IR Blaster - Control All Your IR Devices from Anywhere - Neurolinx"
+            width={3840}
+            height={1280}
             loading="eager"
             fetchPriority="high"
-            className="w-full h-auto block shadow-2xl"
+            className="w-full h-auto block"
           />
+
+          {/* Subtle Ambient Scrim for Clean Text Readability */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          {/* Centered Title Positioned Higher in the Middle Above the IR Blaster (~1 cm shifted left) */}
+          <div className="absolute top-[28%] sm:top-[27%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+              <span className="text-white">Universal </span>
+              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
+                IR Blaster
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -669,16 +688,6 @@ export function UniversalIrBlaster() {
                     </span>
                   </div>
                 </div>
-              </div>
-
-              {/* Decorative Brand Emblem at the divider seam rotating slowly */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
               </div>
 
             </div>

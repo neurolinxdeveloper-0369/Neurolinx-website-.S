@@ -147,14 +147,35 @@ export function TemperatureMonitor() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Only That One Image (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24">
-        <div className="relative w-full">
-          <img 
-            src="/media/temperature_monitor_hero.jpg" 
-            alt="Neurolinx Temperature Monitor & Alert Systems"
+      {/* ── Slide 1: Full-Bleed Temperature Monitor & Alert Systems 4K UHD Panoramic Hero Banner (3840 x 1280) ── */}
+      <div
+        id="hero"
+        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+      >
+        <div className="relative w-full max-w-[2172px] mx-auto">
+          <img
+            src="/media/temperature_monitor_hero_4k.jpg?v=uhd4kPanoramic"
+            alt="Temperature Monitor & Alert Systems - Precision Environmental Sensing - Neurolinx"
+            width={3840}
+            height={1280}
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-auto block"
           />
+
+          {/* Subtle Ambient Scrim for Clean Text Readability */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          {/* Centered Title Positioned in the Calm Twilight Window (~1 cm shifted left) */}
+          <div className="absolute top-[26%] sm:top-[25%] left-0 right-0 -translate-y-1/2 -translate-x-3 sm:-translate-x-5 md:-translate-x-7 flex justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="whitespace-nowrap text-[13px] sm:text-xl md:text-[28px] lg:text-[36px] xl:text-[42px] 2xl:text-[46px] font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+              <span className="text-white">Temperature Monitor &amp; </span>
+              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
+                Alert Systems
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -724,16 +745,6 @@ export function TemperatureMonitor() {
                     </span>
                   </div>
                 </div>
-              </div>
-
-              {/* Decorative Brand Emblem at the divider seam */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
               </div>
 
             </div>

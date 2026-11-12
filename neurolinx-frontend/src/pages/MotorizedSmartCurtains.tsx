@@ -89,51 +89,47 @@ export function MotorizedSmartCurtains() {
       name: 'Motorized Drapery Tracks',
       subtitle: 'Concealed Dual-Track Architectural Drapery System',
       modelNumber: 'Neurolinx CurtainDrive Pro-60',
-      tagline: 'Whisper-Quiet <25dB Motor, Heavy-Duty 60kg Load & Gentle-Pull Trigger',
-      desc: 'Architectural-grade motorized curtain rails designed for luxury penthouses, master bedrooms, and home theatres. Accommodates heavy pinch pleat, ripple-fold, and motorized curved 90-degree bay windows. Features high-tensile rubber drive belts, smooth roller bearings, and gentle-pull auto-activation.',
+      acousticBadge: 'Whisper-Quiet <25 dB',
+      certBadge: 'Gentle-Pull Certified',
+      imageBadge: 'Dual-Motor Drive Ready',
+      tagline: 'Whisper-Quiet <25 dB Motor · 60 kg Heavy Load · Gentle-Pull Auto Start',
+      desc: 'Concealed architectural motorized rails for pinch-pleat, ripple-fold, and curved 90° bay windows with effortless gentle-pull activation.',
       image: '/media/smart_curtains_drapery_track.jpg',
       badgeColor: 'bg-brand-red/10 text-brand-red border-brand-red/20',
       specs: [
-        { label: 'Maximum Load Capacity', val: 'Up to 60 kg Fabric Weight' },
-        { label: 'Acoustic Sound Level', val: '< 24.5 dB (Practically Silent)' },
-        { label: 'Track Lengths', val: 'Customizable up to 12 Meters' },
-        { label: 'Track Configurations', val: 'Straight, 90° Corner, Curved Bay' },
-        { label: 'Gentle-Pull Function', val: 'Tug 5cm to Auto Open/Close' },
-        { label: 'Manual Operation', val: 'Smooth Manual Glide during Outages' },
-        { label: 'Control Protocols', val: 'Wi-Fi, RF 433MHz, RS485 & Dry Contact' },
-        { label: 'Voice Platforms', val: 'Amazon Alexa, Google Home & Siri' }
+        { label: 'Load & Track Length', val: 'Up to 60 kg · Custom up to 12m' },
+        { label: 'Acoustic & Profiles', val: '< 24.5 dB · Straight, 90° & Curved' },
+        { label: 'Touch & Outage Override', val: '5 cm Gentle-Pull · Manual Glide' },
+        { label: 'Smart Control & Voice', val: 'Wi-Fi, RF 433, RS485 · Alexa & Siri' }
       ],
       highlights: [
-        'Whisper-quiet motor (<25dB) operates silently without disturbing sleep',
-        'Gentle touch pull-to-start: gently tug fabric 5cm and motor automatically glides',
-        'Dual-track support for independent sheer privacy and blackout velvet drapes',
-        'Emergency manual operation ensures curtains always open smoothly during power cuts'
+        { title: 'Gentle-Pull Auto Start', detail: 'Tug curtain fabric 5 cm to glide open or closed automatically.' },
+        { title: 'Independent Dual-Track', detail: 'Separate sheer privacy and blackout drapes from one clean fascia.' },
+        { title: 'Power-Cut Manual Glide', detail: 'Smooth clutch release keeps curtains operable even during outages.' }
       ]
     },
     {
       id: 'roller',
       name: 'Motorized Roller & Zebra Blinds',
-      subtitle: 'Precision Tubular Motor for Blackout & Zebra Roller Shades',
+      subtitle: 'Precision Tubular Motor for Blackout & Zebra Shades',
       modelNumber: 'Neurolinx TubularRoll Pro-35',
-      tagline: 'Lithium Battery or Wired 230V, Millimeter Limit Setting & Solar Charging',
-      desc: 'Sleek motorized roller blind automation for floor-to-ceiling glass facades, executive boardrooms, and modern minimalist living rooms. Features silent electronic limit memory, multi-channel RF remote control, and optional built-in rechargeable lithium-ion battery with solar trickle charging.',
+      acousticBadge: 'Whisper-Quiet <28 dB',
+      certBadge: 'Solar & Li-ion Certified',
+      imageBadge: 'Smart Tubular Drive',
+      tagline: 'Wired 230V or Li-ion Battery · Precision Digital Limits · Multi-Blind Sync',
+      desc: 'Sleek tubular motorization for floor-to-ceiling blackout, sunscreen, and zebra blinds with silent app-calibrated stops.',
       image: '/media/smart_curtains_luxury_villa.jpg',
       badgeColor: 'bg-[#1A09FA]/10 text-[#1A09FA] border-[#1A09FA]/20',
       specs: [
-        { label: 'Torque Output', val: '1.2 Nm (Handles blinds up to 4.5m height)' },
-        { label: 'Operating Noise', val: '< 28 dB Ultra-Quiet Precision Motor' },
-        { label: 'Power Supply Options', val: '230V AC Hardwired or 12V Li-ion Battery' },
-        { label: 'Battery Endurance', val: 'Up to 6 Months per Charge (Solar Ready)' },
-        { label: 'Fabric Compatibility', val: '100% Blackout, Sunscreen & Zebra Blinds' },
-        { label: 'Limit Precision', val: 'Digital Electronic Limit via Mobile App' },
-        { label: 'Multi-Blind Sync', val: 'Synchronized alignment across 10+ windows' },
-        { label: 'Integration', val: 'Matter, Zigbee, Wi-Fi & Smart Switchboards' }
+        { label: 'Torque & Noise Level', val: '1.2 Nm (4.5m Drop) · < 28 dB' },
+        { label: 'Power & Battery Life', val: '230V AC or Li-ion (6 Months / Solar)' },
+        { label: 'Supported Shades', val: 'Blackout, Sunscreen & Zebra Blinds' },
+        { label: 'Group Sync & Protocols', val: '10+ Blinds Sync · Matter, Zigbee, Wi-Fi' }
       ],
       highlights: [
-        'Precision synchronized alignment: multiple roller blinds raise and lower in perfect unison',
-        'Available in 100% wire-free rechargeable lithium battery version (6-month battery life)',
-        'Circadian sunrise scheduling opens blinds progressively as morning light increases',
-        'Smart glare reduction automatically lowers shades during peak harsh afternoon sun'
+        { title: 'Millimeter Multi-Sync', detail: 'Raise or lower multiple window blinds together in exact unison.' },
+        { title: 'Wire-Free Solar Option', detail: 'Built-in rechargeable Li-ion battery runs up to 6 months per charge.' },
+        { title: 'Circadian Glare Guard', detail: 'Auto-schedules sunrise opening and shields rooms from afternoon heat.' }
       ]
     }
   ];
@@ -143,16 +139,35 @@ export function MotorizedSmartCurtains() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: High Impact Visual Hero Banner (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-b border-gray-100">
-        <div className="relative w-full">
-          <img 
-            src="/media/smart_curtains_hero.jpg?v=2" 
-            alt="Motorized Smart Curtains - Effortless Control | Comfort | Energy Efficient" 
+      {/* ── Slide 1: Full-Bleed Motorized Smart Curtains 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 Retrofit & Touch Panel container) ── */}
+      <div
+        id="hero"
+        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+      >
+        <div className="relative w-full max-w-[2172px] mx-auto">
+          <img
+            src="/media/smart_curtains_hero_4k.jpg?v=uhd4kPanoramic"
+            alt="Motorized Smart Curtains - Automated Drapery & Roller Blinds - Neurolinx"
+            width={3840}
+            height={1280}
             loading="eager"
             fetchPriority="high"
-            className="w-full h-auto block shadow-2xl"
+            className="w-full h-auto block"
           />
+
+          {/* Subtle Ambient Scrim for Clean Text Readability */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          {/* Centered Title Positioned Slightly Lower in the Calm Twilight Window (~1 cm shifted left) */}
+          <div className="absolute top-[34%] sm:top-[33%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+              <span className="text-white">Motorized Smart </span>
+              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
+                Curtains
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -201,75 +216,75 @@ export function MotorizedSmartCurtains() {
           {/* 2-Column Split: Left Product Showcase + Right Live Curtain Slider Simulator */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* Left 7 Columns: Product Hardware Showcase & Specifications */}
-            <div className="lg:col-span-7 bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-10 border border-gray-100 shadow-sm flex flex-col justify-between">
+            {/* Left 7 Columns: Concise Product Hardware Showcase & Core Specifications */}
+            <div className="lg:col-span-7 bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
               
               <div>
                 {/* Badge & Model Number with Company Logo Colors */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
                   <div className="flex items-center gap-2.5">
                     <span className="text-xs sm:text-sm font-mono font-bold text-gray-500 uppercase tracking-wider">
                       {currentTrack.modelNumber}
                     </span>
                     <span className={`px-3 py-1 rounded-full text-[11px] font-bold border ${currentTrack.badgeColor}`}>
-                      Whisper-Quiet &lt;25dB
+                      {currentTrack.acousticBadge}
                     </span>
                   </div>
                   <span className="text-xs font-bold text-brand-red flex items-center gap-1.5 bg-brand-red/10 px-3 py-1 rounded-full">
                     <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
-                    <span>Gentle-Pull Touch Certified</span>
+                    <span>{currentTrack.certBadge}</span>
                   </span>
                 </div>
 
                 {/* Title & Tagline with Company Logo Colors */}
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-3">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-2">
                   {currentTrack.subtitle}
                 </h3>
-                <p className="text-brand-red font-semibold text-sm sm:text-base mb-6">
+                <p className="text-brand-red font-semibold text-xs sm:text-sm mb-5">
                   {currentTrack.tagline}
                 </p>
 
                 {/* 4K Studio Hardware Image */}
-                <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-8 shadow-sm border border-gray-100 bg-[#0B0F19]">
+                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-5 shadow-sm border border-gray-100 bg-[#0B0F19]">
                   <img 
                     src={currentTrack.image} 
                     alt={currentTrack.subtitle} 
                     className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-[11px] font-mono text-cyan-300 font-semibold border border-white/10 flex items-center gap-1.5">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-[11px] font-mono text-cyan-300 font-semibold border border-white/10 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span>Dual-Motor Drive Ready</span>
+                    <span>{currentTrack.imageBadge}</span>
                   </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+                {/* Concise Summary Description */}
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-5">
                   {currentTrack.desc}
                 </p>
 
-                {/* Technical Specifications Grid */}
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+                {/* Core Specifications (Compact 2x2 Grid) */}
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-brand-red" />
-                  <span>Track Hardware &amp; Drive Specifications</span>
+                  <span>Core Specifications</span>
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
                   {currentTrack.specs.map((item, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
-                      <span className="text-[11px] font-medium text-gray-500">{item.label}</span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900 mt-1">{item.val}</span>
+                    <div key={idx} className="py-2.5 px-3.5 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-center">
+                      <span className="text-[10px] font-medium text-gray-500 leading-tight">{item.label}</span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-900 mt-0.5 leading-snug">{item.val}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Highlights List */}
-                <div className="space-y-3 mb-8">
+                {/* Concise Key Highlights */}
+                <div className="space-y-2.5 mb-6">
                   {currentTrack.highlights.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
+                    <div key={idx} className="flex items-start gap-2.5">
                       <div className="w-5 h-5 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
-                        {feat}
+                        <strong className="text-slate-900 font-bold">{feat.title}:</strong> {feat.detail}
                       </span>
                     </div>
                   ))}
@@ -277,17 +292,17 @@ export function MotorizedSmartCurtains() {
               </div>
 
               {/* Action Buttons with Company Colors */}
-              <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-gray-100">
+              <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-gray-100">
                 <a
                   href="#slide-4"
-                  className="px-6 py-3.5 bg-brand-red text-white rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Custom Track Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href="#architectural-showcase"
-                  className="px-6 py-3.5 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs sm:text-sm transition-colors cursor-pointer flex items-center gap-2"
+                  className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs sm:text-sm transition-colors cursor-pointer flex items-center gap-2"
                 >
                   <Sun className="w-4 h-4 text-[#1A09FA]" />
                   <span>Explore Architectural Showcase</span>
@@ -297,14 +312,14 @@ export function MotorizedSmartCurtains() {
             </div>
 
             {/* Right 5 Columns: Interactive Real-Time Curtain Slider Simulator */}
-            <div className="lg:col-span-5 bg-[#0C101A] text-white p-6 sm:p-8 lg:p-10 rounded-[28px] sm:rounded-[36px] flex flex-col justify-between border border-white/10 relative overflow-hidden shadow-2xl">
+            <div className="lg:col-span-5 bg-[#0C101A] text-white p-6 sm:p-8 rounded-[28px] sm:rounded-[36px] flex flex-col justify-between border border-white/10 relative overflow-hidden shadow-2xl">
               
               {/* Cyan / Blue Accent Ambient Glow */}
               <div className="absolute top-0 right-0 w-72 h-72 bg-[#1A09FA]/15 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
+                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                   <div>
                     <span className="text-[11px] font-mono text-brand-red font-bold tracking-widest uppercase block">
                       SIMULATOR
@@ -320,7 +335,7 @@ export function MotorizedSmartCurtains() {
                 </div>
 
                 {/* Interactive Graphical Animated Curtain Preview */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-black/80 border border-white/10 shadow-[inset_0_2px_12px_rgba(0,0,0,0.5)] mb-6 relative overflow-hidden">
+                <div className="p-4 sm:p-5 rounded-2xl bg-black/80 border border-white/10 shadow-[inset_0_2px_12px_rgba(0,0,0,0.5)] mb-5 relative overflow-hidden">
                   
                   {/* Window Frame Background simulating scenic outside view */}
                   <div className="relative w-full h-44 rounded-xl overflow-hidden border border-white/10 bg-gradient-to-b from-sky-400/30 via-amber-200/20 to-sky-600/30 flex items-center justify-center">
@@ -380,7 +395,7 @@ export function MotorizedSmartCurtains() {
                 </div>
 
                 {/* Primary Interactive Drag Slider */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-4 mb-5">
                   
                   <div>
                     <div className="flex items-center justify-between text-xs mb-2">
@@ -496,7 +511,7 @@ export function MotorizedSmartCurtains() {
               </div>
 
               {/* Bottom Quick Order Button */}
-              <div className="mt-6 pt-5 border-t border-white/10">
+              <div className="mt-5 pt-4 border-t border-white/10">
                 <a
                   href="#slide-4"
                   className="w-full py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center block cursor-pointer"

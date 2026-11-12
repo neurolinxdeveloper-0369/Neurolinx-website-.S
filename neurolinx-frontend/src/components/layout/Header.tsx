@@ -97,9 +97,7 @@ export function Header() {
     { name: "Smart Home Automation", path: "/home-automation" },
     { name: "Non-UV Disinfection Light", path: "/non-uv-disinfection" },
     { name: "Railways", path: "/railways" },
-    { name: "FogPASS Device", path: "/fog-pass" },
     { name: "Power Supply & Drivers", path: "/power-supply" },
-    { name: "POS Application", path: "/pos-application" },
   ];
 
   return (

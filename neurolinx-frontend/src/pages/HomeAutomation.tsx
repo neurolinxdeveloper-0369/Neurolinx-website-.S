@@ -37,6 +37,9 @@ import {
 } from 'lucide-react';
 
 export function HomeAutomation() {
+  // Interactive Lighting Automation card state (true = ON warm theme, false = OFF dimmed dark theme)
+  const [isLightingOn, setIsLightingOn] = useState(true);
+
   // Switch toggle: Retrofit vs Gang Toughened Glass Touch Switches
   const [switchType, setSwitchType] = useState<'retrofit' | 'gang'>('retrofit');
 
@@ -301,20 +304,81 @@ export function HomeAutomation() {
 
           <div className="flex flex-col lg:flex-row items-stretch gap-2 lg:gap-2.5">
             
-            {/* Left Featured Card (1st image - perfectly level with right 6 cards) */}
-            <div className="w-full lg:w-[24.5%] xl:w-[24%] shrink-0 flex flex-col min-h-[480px] sm:min-h-[560px] lg:min-h-0">
-              <div className="relative w-full h-full rounded-[24px] overflow-hidden flex flex-col shadow-sm">
-                <img 
-                  src="/media/lighting_automation_card.png" 
-                  alt="Lighting Automation (Back-End Devices)"
-                  className="w-full h-full object-cover block rounded-[24px]"
+            {/* Left Featured Card (Interactive ON / OFF Theme Card) */}
+            <div className="w-full lg:w-[24.5%] xl:w-[24%] shrink-0 flex flex-col min-h-[500px] sm:min-h-[560px] lg:min-h-0">
+              <div className="relative w-full h-full rounded-[24px] overflow-hidden flex flex-col shadow-sm bg-[#0b0c10]">
+                {/* Base Layer: OFF Theme (Dimmed / Dark Room) */}
+                <img
+                  src="/media/lighting_automation_bg_off.png"
+                  alt="Lighting Automation (Back-End Devices) - Off Theme"
+                  className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                 />
-                {/* Clickable Hotspot for View More Button */}
-                <Link 
-                  to="/retrofit-touch-panels"
-                  aria-label="View More Lighting Automation"
-                  className="absolute left-[11%] top-[51.5%] w-[32%] h-[8%] rounded-xl cursor-pointer"
+                {/* Crossfade Layer: ON Theme (Illuminated Warm Spiral Lamp) */}
+                <img
+                  src="/media/lighting_automation_bg_on.png"
+                  alt="Lighting Automation (Back-End Devices) - On Theme"
+                  className={`absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none transition-opacity duration-500 ease-in-out ${
+                    isLightingOn ? 'opacity-100' : 'opacity-0'
+                  }`}
                 />
+
+                {/* Foreground Interactive UI Overlay */}
+                <div className="relative z-10 flex flex-col items-start px-7 sm:px-8 pt-8 sm:pt-9 lg:pt-10 pb-6">
+                  <h3 className="text-[24px] sm:text-[26px] xl:text-[28px] font-bold text-white leading-[1.2] tracking-tight mb-4 select-none">
+                    Lighting<br />
+                    Automation<br />
+                    (Back-End<br />
+                    Devices)
+                  </h3>
+
+                  {/* Interactive Working ON / OFF Pill Toggle */}
+                  <button
+                    type="button"
+                    role="switch"
+                    aria-checked={isLightingOn}
+                    aria-label={isLightingOn ? 'Turn Lighting Automation Off' : 'Turn Lighting Automation On'}
+                    onClick={() => setIsLightingOn(prev => !prev)}
+                    className={`relative inline-flex items-center w-[72px] h-[32px] rounded-full border-[1.5px] transition-all duration-300 cursor-pointer hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 mb-4 select-none ${
+                      isLightingOn
+                        ? 'bg-white border-white text-black shadow-sm'
+                        : 'bg-black/45 border-white/95 text-white hover:bg-black/65'
+                    }`}
+                  >
+                    <span
+                      className={`absolute left-3 text-[11px] font-bold tracking-wide transition-opacity duration-200 ${
+                        isLightingOn ? 'opacity-100 text-black' : 'opacity-0'
+                      }`}
+                    >
+                      ON
+                    </span>
+                    <span
+                      className={`absolute right-2.5 text-[11px] font-semibold tracking-wide transition-opacity duration-200 ${
+                        !isLightingOn ? 'opacity-100 text-white' : 'opacity-0'
+                      }`}
+                    >
+                      OFF
+                    </span>
+                    <span
+                      className={`w-[22px] h-[22px] rounded-full shadow-sm transform transition-all duration-300 ${
+                        isLightingOn
+                          ? 'translate-x-[43px] bg-black'
+                          : 'translate-x-[4px] bg-white'
+                      }`}
+                    />
+                  </button>
+
+                  <p className="text-[11px] sm:text-xs font-medium text-white/90 leading-snug mb-5 max-w-[190px] select-none">
+                    Lighting Automation (Back-end devices)
+                  </p>
+
+                  <Link
+                    to="/retrofit-touch-panels"
+                    aria-label="View More Lighting Automation"
+                    className="inline-flex items-center justify-center bg-white hover:bg-neutral-100 active:scale-[0.98] text-slate-900 font-semibold text-xs sm:text-[13px] px-7 py-3 rounded-[10px] shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    View More
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -559,15 +623,6 @@ export function HomeAutomation() {
                 </div>
               </div>
 
-              {/* Decorative Brand Emblem at the divider seam rotating slowly */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
-              </div>
 
             </div>
 

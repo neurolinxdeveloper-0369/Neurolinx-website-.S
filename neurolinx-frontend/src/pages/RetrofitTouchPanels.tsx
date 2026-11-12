@@ -6,7 +6,6 @@ import {
   Sliders, 
   ChevronDown, 
   ShieldCheck, 
-  Wifi, 
   Layers, 
   ArrowRight, 
   Sparkles, 
@@ -17,12 +16,7 @@ import {
   Smartphone, 
   Mic, 
   Clock, 
-  Lock,
-  Plus,
-  Minus,
-  Lightbulb,
-  Fan,
-  Power
+  Lock
 } from 'lucide-react';
 
 export interface ModuleConfigOption {
@@ -31,6 +25,7 @@ export interface ModuleConfigOption {
   shortLabel: string;
   touchPanels: number;
   sockets: number;
+  img: string;
   badge?: string;
   isPopular?: boolean;
   title: string;
@@ -58,15 +53,15 @@ export function RetrofitTouchPanels() {
   // Active configuration option ID per module
   const [selectedConfigId, setSelectedConfigId] = useState<string>('4m-2p-1s');
 
-  // Constant Top Modular Boxes (Row 1: 3, Row 2: 3, Row 3: 1 centered)
+  // Constant Top Modular Boxes (7 Sizes)
   const modularBoxes = [
-    { id: '1-moduler', label: '1 Moduler', panelId: '1-panels', capacity: 1, standardSize: '1-Module Indian Standard Junction Box (50 × 86 mm)' },
-    { id: '2-moduler', label: '2 Moduler', panelId: '2-panels', capacity: 2, standardSize: '2-Module Standard Junction Box (86 × 86 mm)' },
-    { id: '4-moduler', label: '4 Moduler', panelId: '4-panels', capacity: 4, standardSize: '4-Module Indian Standard Junction Box (146 × 86 mm)' },
-    { id: '8-moduler', label: '8 Moduler', panelId: '8-panels', capacity: 8, standardSize: '8-Module Horizontal / Square Box (224 × 86 mm)' },
-    { id: '10-moduler', label: '10 Moduler', panelId: '10-panels', capacity: 10, standardSize: '10-Module Horizontal Box (250 × 146 mm)' },
-    { id: '12-moduler', label: '12 Moduler', panelId: '12-panels', capacity: 12, standardSize: '12-Module Standard Plate (250 × 200 mm)' },
-    { id: '16-moduler', label: '16 Moduler', panelId: '16-panels', capacity: 16, standardSize: '16-Module Two-Tier Standard Box (250 × 250 mm)' },
+    { id: '1-moduler', label: '1 Moduler', code: '1M', dimensions: '50 × 86 mm', panelId: '1-panels', capacity: 1, standardSize: '1-Module Indian Standard Junction Box (50 × 86 mm)' },
+    { id: '2-moduler', label: '2 Moduler', code: '2M', dimensions: '86 × 86 mm', panelId: '2-panels', capacity: 2, standardSize: '2-Module Standard Junction Box (86 × 86 mm)' },
+    { id: '4-moduler', label: '4 Moduler', code: '4M', dimensions: '146 × 86 mm', panelId: '4-panels', capacity: 4, standardSize: '4-Module Indian Standard Junction Box (146 × 86 mm)' },
+    { id: '8-moduler', label: '8 Moduler', code: '8M', dimensions: '224 × 86 mm', panelId: '8-panels', capacity: 8, standardSize: '8-Module Horizontal / Square Box (224 × 86 mm)' },
+    { id: '10-moduler', label: '10 Moduler', code: '10M', dimensions: '250 × 146 mm', panelId: '10-panels', capacity: 10, standardSize: '10-Module Horizontal Box (250 × 146 mm)' },
+    { id: '12-moduler', label: '12 Moduler', code: '12M', dimensions: '250 × 200 mm', panelId: '12-panels', capacity: 12, standardSize: '12-Module Standard Plate (250 × 200 mm)' },
+    { id: '16-moduler', label: '16 Moduler', code: '16M', dimensions: '250 × 250 mm', panelId: '16-panels', capacity: 16, standardSize: '16-Module Two-Tier Standard Box (250 × 250 mm)' },
   ];
 
   // Comprehensive Selected Options Dictionary for all 7 Module Sizes (Options-Wise: Touch Panels + Sockets)
@@ -78,6 +73,7 @@ export function RetrofitTouchPanels() {
         shortLabel: '1 Touch Switch',
         touchPanels: 1,
         sockets: 0,
+        img: '/media/plates/1m-1p-0s.png',
         badge: 'Dedicated Switch',
         isPopular: true,
         title: '1 Moduler Smart Touch Switch Board (1 Lighting Channel)',
@@ -86,13 +82,12 @@ export function RetrofitTouchPanels() {
         smartAutomationInfo: 'Control high-efficiency lighting remotely via smartphone or voice with Alexa and Google Assistant. Set daily auto-off timer schedules and track real-time power consumption.',
         socketInfo: 'Solid-state relay with built-in zero-cross switching and 3kV surge clamping protection.',
         load: '1 Lighting / Appliance Circuit (10A max / up to 2200W)',
-        boxSize: '1-Module Indian Standard Junction Box (50 × 86 mm)',
-        idealFor: 'Balcony Lights, Exhaust Fans, Staircase Landings, Wardrobe Coves',
+        boxSize: '1-Module Box (50 × 86 mm)',
+        idealFor: 'Balcony Lights, Exhaust Fans, Staircases',
         features: [
-          'Capacitive feather-touch tempered glass with soft cyan LED glow',
-          'App scheduling & remote control from anywhere in the world',
-          'Zero-cross relay technology ensures quiet switching & long relay life',
-          'Works 100% offline via local home mesh network without internet'
+          '1 × 10A capacitive feather-touch switch with glowing cyan halo',
+          'App schedules, auto-off countdown timers & offline mesh support',
+          'Zero-cross solid-state relay with 3kV surge clamping'
         ]
       },
       {
@@ -101,20 +96,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '1 Compact Socket',
         touchPanels: 0,
         sockets: 1,
+        img: '/media/plates/1m-0p-1s.png',
         badge: 'Power Point',
         title: '1 Moduler Smart Power Socket Board (10A Continuous)',
-        tagline: 'Compact Retrofit Smart Automation Socket for Everyday Devices',
-        desc: 'Single 1-module smart power socket with integrated solid-state relay. Directly retrofits into existing modular switch plates to automate bedside lamps, phone chargers, and gadgets.',
-        smartAutomationInfo: 'App and voice control. Set sleep timers to cut off power after 2 hours to protect mobile phone batteries against overcharging.',
-        socketInfo: 'Child-safe internal spring shutters, solid phosphor-bronze spring clips, 10A continuous rating, and 3kV surge clamping.',
-        load: '10A Continuous (2200W resistive / 500W inductive)',
-        boxSize: '1-Module Indian Standard Junction Box (50 × 86 mm)',
-        idealFor: 'Bedside Mobile Charging, Desk Lamps, Wi-Fi Routers, Smart Speakers',
+        tagline: 'Compact Single-Outlet Retrofit Power Point with Sleep Timer',
+        desc: 'Single 1-module smart power socket with integrated solid-state relay.',
+        smartAutomationInfo: 'App and voice control.',
+        socketInfo: 'Child-safe internal spring shutters.',
+        load: '10A Continuous (2200W Max)',
+        boxSize: '1-Module Box (50 × 86 mm)',
+        idealFor: 'Bedside Chargers, Desk Lamps, Routers',
         features: [
-          'Built-in child protection shutters prevent accidental electric shocks',
-          'Scheduled countdown timers protect connected device batteries',
-          'Real-time power monitoring alerts to standby ghost power drain',
-          'Fits seamlessly into existing 1-module modular switch plate cutouts'
+          '1 × 10A universal socket with child-safe internal spring shutters',
+          'Overcharge protection sleep-timers & ghost standby watt alerts',
+          'Drops into any single-module cutout with zero wall chipping'
         ]
       }
     ],
@@ -126,21 +121,21 @@ export function RetrofitTouchPanels() {
         shortLabel: '2 Touch Switches',
         touchPanels: 2,
         sockets: 0,
+        img: '/media/plates/2m-2p-0s.png',
         badge: 'Dual Lighting',
         isPopular: true,
         title: '2 Moduler Dual Touch Switch Board (2 Lighting Channels)',
-        tagline: 'Dual Capacitive Feather-Touch Lighting Controller',
-        desc: 'Dual capacitive feather-touch switches on diamond-cut crystal glass. Independently controls two lighting channels, ambient ceiling spots, and warm indirect cove lighting.',
-        smartAutomationInfo: 'Supports customized bedtime scenes where a single tap or voice command ("Goodnight") turns off both circuits simultaneously. Backlights dim to 10% after 10 PM.',
-        socketInfo: 'Dual independent 10A solid-state relays with zero-cross switching and transient spike arrestor.',
-        load: '2 Lighting Channels (10A each / up to 2200W per gang)',
-        boxSize: '2-Module Standard Junction Box (86 × 86 mm)',
-        idealFor: 'Bedside Light Points, Bathroom Vanity Lighting, Balconies, Hallway Coves',
+        tagline: 'Compact Dual-Zone Capacitive Touch Switch for Secondary Walls',
+        desc: 'Dual capacitive feather-touch switches on diamond-cut crystal glass.',
+        smartAutomationInfo: 'Dual lighting scenes and night-dimming.',
+        socketInfo: 'Dual independent 10A solid-state relays.',
+        load: '2 × 10A Lighting Channels (4400W Max)',
+        boxSize: '2-Module Square Box (86 × 86 mm)',
+        idealFor: 'Bedside Walls, Vanity Mirrors, Walkways',
         features: [
-          'Sub-50ms feather-touch response with soft cyan LED status backlighting',
-          'Two-way wireless mesh synchronization without physical traveler wiring',
-          'Circadian night-dimming: backlights dim automatically to 10% after 10 PM',
-          '4mm toughened scratch-resistant diamond-beveled crystal glass'
+          '2 × 10A independent switches for ceiling light + cove/exhaust',
+          'Wireless 2-way mesh sync without physical traveler wiring',
+          'Auto night-dimming backlights soften to 10% after 10 PM'
         ]
       },
       {
@@ -149,20 +144,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '1 Heavy Socket (16A/25A)',
         touchPanels: 0,
         sockets: 1,
+        img: '/media/plates/2m-0p-1s.png',
         badge: 'Heavy Appliance',
         title: '2 Moduler Heavy-Duty 16A/25A Smart Power Socket Board',
-        tagline: 'Dedicated High-Inrush Power Controller for Water Geysers & Air Conditioners',
-        desc: 'Full 2-module universal multi-pin heavy-duty smart power socket. Engineered for water geysers, split air conditioners, microwave ovens, and refrigerators with live power telemetry.',
-        smartAutomationInfo: 'Automated morning geyser timers (auto-on at 6:30 AM, auto-off after 20 mins) and voltage-guard cutoff if voltage surges above 270V or drops below 170V.',
-        socketInfo: 'Universal multi-pin shuttered socket, 16A continuous / 25A peak inrush rating, flame-retardant core, and 4kV transient surge suppression.',
-        load: '16A Continuous / 25A Peak Inrush (up to 3500W load)',
-        boxSize: '2-Module Standard Box (86 × 86 mm)',
-        idealFor: 'Water Geysers, Split AC Units, Kitchen Microwaves, Washing Machines',
+        tagline: 'High-Inrush Power Controller Built for Water Geysers & Split ACs',
+        desc: 'Full 2-module universal multi-pin heavy-duty smart power socket.',
+        smartAutomationInfo: 'Morning geyser schedules & voltage cutoff.',
+        socketInfo: '16A continuous / 25A inrush universal socket.',
+        load: '16A Continuous / 25A Inrush (3500W Max)',
+        boxSize: '2-Module Square Box (86 × 86 mm)',
+        idealFor: 'Water Geysers, Split AC Units, Microwaves',
         features: [
-          'Heavy-duty solid-state snubber protects against inductive compressor arcs',
-          'Automated morning geyser timer guarantees zero wasted electricity',
-          'Child-safe spring shutters prevent insertion of foreign objects',
-          'Direct smartphone app and voice automation via Alexa and Google Home'
+          '25A peak inrush snubber prevents compressor & heater arc wear',
+          'Automated daily geyser timers + 170V–270V voltage guard cutoff',
+          'Live kWh appliance usage tracking directly from the mobile app'
         ]
       }
     ],
@@ -174,21 +169,21 @@ export function RetrofitTouchPanels() {
         shortLabel: '2 Panels + 1 Socket',
         touchPanels: 2,
         sockets: 1,
+        img: '/media/plates/4m-2p-1s.png',
         badge: 'Most Popular',
         isPopular: true,
         title: '4 Moduler Dual Touch Switch & 16A Universal Socket Board',
-        tagline: 'The Classic Bedside & Study Desk Balanced Smart Command Plate',
-        desc: 'Two capacitive touch switches paired alongside an integrated 16A universal shuttered power socket. The most popular configuration for bedside headboards, executive desks, and hotel suites.',
-        smartAutomationInfo: '"Goodnight" scene turns off room lights while keeping phone charging socket active. Socket features scheduled sleep-timer to prevent battery overcharging.',
-        socketInfo: '16A universal multi-pin shuttered socket with 4kV surge clamping and live power telemetry.',
-        load: '2 Lighting Circuits (10A each) + 1 Heavy Smart Socket (16A/25A)',
-        boxSize: '4-Module Indian Standard Junction Box (146 × 86 mm)',
-        idealFor: 'Bedside Headboards, Study Workstations, Vanity Mirrors, Hotel Consoles',
+        tagline: 'Balanced Bedside & Study Desk Lighting + 16A Power Point',
+        desc: 'Two capacitive touch switches paired alongside an integrated 16A universal shuttered power socket.',
+        smartAutomationInfo: 'Goodnight lighting scene + socket sleep timer.',
+        socketInfo: '16A universal shuttered socket with 4kV surge clamp.',
+        load: '2 × 10A Switches + 1 × 16A/25A Socket',
+        boxSize: '4-Module Box (146 × 86 mm)',
+        idealFor: 'Bedside Headboards, Study Desks, Hotels',
         features: [
-          'Optimal balance of independent lighting control and high-power socket access',
-          'Child-safe spring shutters protect against accidental electrical shocks',
-          'Sleep-timer scheduled cutoff for mobile phone & laptop charging protection',
-          '4mm diamond-bevelled black crystal glass plate flush mounts cleanly'
+          '2 lighting circuits + 1 heavy universal shuttered 16A power socket',
+          'Goodnight scene turns off room lights while timed charger runs',
+          '4kV surge clamping + wet-hand safe tempered crystal surface'
         ]
       },
       {
@@ -197,20 +192,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '4 Touch Switches',
         touchPanels: 4,
         sockets: 0,
+        img: '/media/plates/4m-4p-0s.png',
         badge: 'Full Lighting',
         title: '4 Moduler Quad Touch Switch Board (4 Lighting Circuits)',
-        tagline: 'Standard Bedroom & Dining Room Multi-Circuit Lighting Center',
-        desc: 'Four capacitive feather-touch circuits on a 4-module luxury crystal glass plate. Controls main chandeliers, ceiling spotlights, wall sconces, and indirect perimeter coves.',
-        smartAutomationInfo: 'Scene coordination: "Dinner Mode" dims chandeliers to 40% and turns on warm wall sconces. Double-tap master "All Off" turns off all 4 circuits when exiting.',
-        socketInfo: 'Four independent 10A solid-state relays with zero-cross switching.',
-        load: '4 Lighting Channels (10A each / up to 4000W total)',
-        boxSize: '4-Module Indian Standard Junction Box (146 × 86 mm)',
-        idealFor: 'Bedrooms, Living Rooms, Dining Areas, Executive Offices',
+        tagline: 'Dedicated 4-Zone Room Lighting & Scene Control Center',
+        desc: 'Four capacitive feather-touch circuits on a 4-module luxury crystal glass plate.',
+        smartAutomationInfo: 'Multi-circuit scene dimming and master All-Off.',
+        socketInfo: 'Four independent 10A solid-state relays.',
+        load: '4 × 10A Lighting Channels (4000W Max)',
+        boxSize: '4-Module Box (146 × 86 mm)',
+        idealFor: 'Bedrooms, Dining Areas, Executive Cabins',
         features: [
-          'Digital capacitor stepping guarantees zero acoustic buzz on lighting loads',
-          'Master "All Off" double-tap trigger directly from physical glass plate',
-          'Real-time power monitoring alerts to high current or voltage spikes',
-          'Full voice control integration with Alexa, Google Home, and Apple Siri'
+          '4 × 10A independent zones for chandeliers, spots, coves & fan',
+          'Double-tap Master All-Off clears the entire room on exit',
+          'Zero-hum solid-state dimming + Alexa & Google voice scenes'
         ]
       },
       {
@@ -219,20 +214,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '2 Smart Sockets',
         touchPanels: 0,
         sockets: 2,
+        img: '/media/plates/4m-0p-2s.png',
         badge: 'Dual Power Hub',
         title: '4 Moduler Dual Heavy-Duty 16A Smart Socket Board',
-        tagline: 'Dual Independent High-Power Appliance Hub with Power Monitoring',
-        desc: 'Dual independent 16A universal smart power sockets on a single 4-module plate. Engineered for kitchen counter appliances, utility rooms, and workstation multi-plug setups.',
-        smartAutomationInfo: 'Independent app control for left and right sockets. Set separate auto-off schedules for coffee maker, microwave, and laptop chargers.',
-        socketInfo: 'Dual 16A universal shuttered sockets, individual solid-state relays, and 4kV MOV transient surge arrestor.',
-        load: 'Dual 16A Independent Sockets (up to 3500W each / 5000W combined)',
-        boxSize: '4-Module Indian Standard Junction Box (146 × 86 mm)',
-        idealFor: 'Kitchen Counters, Coffee Stations, AV Equipment Racks, Laundry Rooms',
+        tagline: 'Dual Independent 16A Outlets for Kitchen Counters & Workstations',
+        desc: 'Dual independent 16A universal smart power sockets on a single 4-module plate.',
+        smartAutomationInfo: 'Separate timers and voice control per outlet.',
+        socketInfo: 'Dual 16A shuttered sockets with 4kV surge arrestor.',
+        load: 'Dual 16A Sockets (5000W Combined)',
+        boxSize: '4-Module Box (146 × 86 mm)',
+        idealFor: 'Kitchen Counters, AV Racks, Laundry Rooms',
         features: [
-          'Dual independent relay switching controlled separately via app and voice',
-          'Real-time power monitoring alerts to high current or voltage fluctuations',
-          'Heavy-duty spring contacts prevent loose-pin sparking and thermal degradation',
-          'Child-safe spring shutters on both outlets'
+          '2 independent 16A solid-state socket channels controlled separately',
+          'Child-safe spring shutters + real-time current overload cutoffs',
+          'Individual auto-off schedules for kettles, microwaves & chargers'
         ]
       }
     ],
@@ -244,21 +239,21 @@ export function RetrofitTouchPanels() {
         shortLabel: '6 Panels + 1 Socket',
         touchPanels: 6,
         sockets: 1,
+        img: '/media/plates/8m-6p-1s.png',
         badge: 'Most Popular',
         isPopular: true,
         title: '8 Moduler 6 Touch Switch & 16A Universal Socket Board',
-        tagline: 'Living Room Standard: 6 Lighting Zones with Universal Power Point',
-        desc: 'Six capacitive touch switches paired with an integrated 16A universal power socket. The architectural standard for formal living rooms and master suites.',
-        smartAutomationInfo: 'Trigger whole-home scenes like "Welcome Home" (turns on foyer spots, living cove, and sets fan to speed 3). Multi-gang interlock prevents accidental high-power spikes.',
-        socketInfo: '16A universal shuttered socket with digital lock mode and transient spike arrestor.',
-        load: '6 Lighting Circuits (10A each) + 1 Heavy Smart Socket (16A/25A)',
-        boxSize: '8-Module Horizontal / Square Junction Box (224 × 86 mm)',
-        idealFor: 'Formal Drawing Rooms, Master Bedroom Suites, Open Kitchens',
+        tagline: 'Standard Living Room & Master Suite 6-Light + Socket Console',
+        desc: 'Six capacitive touch switches paired with an integrated 16A universal power socket.',
+        smartAutomationInfo: 'One-touch scenes + socket digital lock.',
+        socketInfo: '16A universal shuttered socket.',
+        load: '6 × 10A Switches + 1 × 16A/25A Socket',
+        boxSize: '8-Module Box (224 × 86 mm)',
+        idealFor: 'Drawing Rooms, Master Suites, Kitchens',
         features: [
-          'One-touch scene triggers: Party, Movie Night, Relax, and Good Morning',
-          'Water-resistant and electric-shock proof surface (100% safe with wet hands)',
-          'Circadian rhythm schedule engine linked with astronomical clock',
-          'Integrated universal power socket handles high-power vacuum or entertainment gear'
+          '6 lighting/fan channels + 1 heavy universal 16A socket on one plate',
+          'Custom one-tap Relax, Movie Night, Party & Welcome scenes',
+          'Digital socket lock + wet-hand shockproof tempered glass front'
         ]
       },
       {
@@ -267,20 +262,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '8 Touch Switches',
         touchPanels: 8,
         sockets: 0,
+        img: '/media/plates/8m-8p-0s.png',
         badge: 'Full Lighting',
         title: '8 Moduler Octa Touch Switch Board (8 Lighting Circuits)',
-        tagline: 'Comprehensive Multi-Zone Living Space Lighting Controller',
-        desc: 'High-density 8-module architectural glass touch board consolidating primary chandelier lights, warm indirect cove strips, auxiliary mood lamps, and ceiling fans.',
-        smartAutomationInfo: 'Multi-gang mesh control with customizable scene presets. Set synchronized dimming levels across all 8 channels with a single tap or Alexa voice command.',
-        socketInfo: 'Eight independent solid-state relays with zero-cross snubber protection.',
-        load: '8 Lighting Circuits (10A each / up to 6000W total)',
-        boxSize: '8-Module Horizontal / Square Junction Box (224 × 86 mm)',
-        idealFor: 'Luxury Living Rooms, Grand Foyers, Conference Rooms, Executive Suites',
+        tagline: 'High-Density 8-Zone Lighting & Fan Architecture for Living Spaces',
+        desc: 'High-density 8-module architectural glass touch board consolidating 8 circuits.',
+        smartAutomationInfo: 'Multi-gang mesh scenes.',
+        socketInfo: 'Eight independent solid-state relays.',
+        load: '8 × 10A Lighting Circuits (6000W Max)',
+        boxSize: '8-Module Box (224 × 86 mm)',
+        idealFor: 'Luxury Living Rooms, Foyers, Conference Rooms',
         features: [
-          'Controls 8 lighting and fan circuits with individual cyan LED status halos',
-          'Double-tap master "All Off" button switches off entire room effortlessly',
-          'Zero acoustic hum on dimmer circuits with solid-state stepping',
-          'Seamless two-way mesh communication without physical traveler wires'
+          '8 capacitive feather-touch circuits arranged in a balanced 4×2 grid',
+          'Zero-cross snubbers eliminate flicker & extend LED driver life 3×',
+          '2-way wireless synchronization across hallways & staircase entrances'
         ]
       },
       {
@@ -289,20 +284,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '4 Panels + 2 Sockets',
         touchPanels: 4,
         sockets: 2,
+        img: '/media/plates/8m-4p-2s.png',
         badge: 'Dual Socket Combo',
         title: '8 Moduler Quad Touch Switch & Dual 16A Socket Board',
-        tagline: 'Bedside Master Suite & Credenza Lighting + Dual Charging Outlets',
-        desc: 'Four capacitive lighting channels paired with dual independent 16A universal power sockets. Engineered for bedside walls, media credenzas, and vanity consoles.',
-        smartAutomationInfo: 'Independent automation for both sockets and all 4 light circuits. Automated sleep timers and energy consumption tracking directly in the mobile app.',
-        socketInfo: 'Dual 16A universal shuttered sockets with independent relay cutoff.',
-        load: '4 Lighting Circuits (10A each) + Dual Heavy Sockets (16A each)',
-        boxSize: '8-Module Horizontal / Square Junction Box (224 × 86 mm)',
-        idealFor: 'Master Suites, Entertainment Credenzas, Study Workstations',
+        tagline: 'Suite Lighting & Dual Charging Outlets on a Single 8M Console',
+        desc: 'Four capacitive lighting channels paired with dual independent 16A universal power sockets.',
+        smartAutomationInfo: 'Independent socket timers + 4-zone lights.',
+        socketInfo: 'Dual 16A universal shuttered sockets.',
+        load: '4 × 10A Switches + Dual 16A Sockets',
+        boxSize: '8-Module Box (224 × 86 mm)',
+        idealFor: 'Master Suites, Credenzas, Study Walls',
         features: [
-          'Dual independent 16A outlets with child-safe internal safety shutters',
-          'Four capacitive glass touch switches with cyan LED backlights',
-          'Individual socket energy monitoring graph in mobile application',
-          'Built-in 4kV MOV industrial surge arrestor protects appliances'
+          '4 lighting switches (2×2 grid) + 2 independently controlled 16A sockets',
+          'Individual energy consumption logs per socket in the mobile app',
+          '4kV industrial MOV spike arrestor shields laptops & TV electronics'
         ]
       },
       {
@@ -311,20 +306,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '2 Panels + 3 Sockets',
         touchPanels: 2,
         sockets: 3,
+        img: '/media/plates/8m-2p-3s.png',
         badge: 'Triple Socket Hub',
         title: '8 Moduler Dual Touch Switch & Triple Smart Socket Board',
-        tagline: 'Workstation, Media Console & Multi-Peripheral Command Hub',
-        desc: 'Two capacitive touch switches with three independent universal power sockets. Perfect for home offices, computer desks, and audio-video equipment consoles.',
-        smartAutomationInfo: '"Workstation Scene" turns on task lights, monitors, and laptop chargers with one tap. Auto-off timers eliminate standby vampire drain.',
-        socketInfo: 'Triple universal 16A sockets with solid brass contact clips and overload protection.',
-        load: '2 Lighting Circuits (10A each) + 3 Universal Sockets (16A each)',
-        boxSize: '8-Module Horizontal / Square Junction Box (224 × 86 mm)',
-        idealFor: 'Home Offices, Computer Workstations, TV Audio Racks',
+        tagline: 'Workstation & Media Console Hub with Triple Smart Outlets',
+        desc: 'Two capacitive touch switches with three independent universal power sockets.',
+        smartAutomationInfo: 'Workstation power scenes.',
+        socketInfo: 'Triple 16A universal shuttered sockets.',
+        load: '2 × 10A Switches + 3 × 16A Sockets',
+        boxSize: '8-Module Box (224 × 86 mm)',
+        idealFor: 'Home Offices, PC Workstations, TV Audio Racks',
         features: [
-          'Triple smart power sockets for laptops, monitors, and peripherals',
-          'Dual lighting switches for ambient desk coves and task spotlights',
-          'Independent app and voice scheduling for each socket outlet',
-          'Child-safe spring shutters on all three socket modules'
+          '3 heavy shuttered outlets for monitors, PCs & speakers + 2 desk switches',
+          'Workstation scene toggles lights & hardware power in one tap',
+          'Auto-off night schedules eliminate idle peripheral standby drain'
         ]
       },
       {
@@ -333,20 +328,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '4 Heavy Sockets',
         touchPanels: 0,
         sockets: 4,
+        img: '/media/plates/8m-0p-4s.png',
         badge: 'Quad Power Hub',
         title: '8 Moduler Quad Heavy-Duty 16A Smart Socket Board',
-        tagline: 'Multi-Appliance Kitchen Counter & Home Entertainment Power Bank',
-        desc: 'Four independent 16A universal smart sockets on a single 8-module plate. Ideal for kitchen appliance counters, gaming centers, and server racks.',
-        smartAutomationInfo: 'App and voice control for all 4 sockets. Live kilowatt-hour (kWh) telemetry and automated high/low voltage surge cutoffs.',
-        socketInfo: 'Four universal shuttered sockets, individual solid-state relays, and 4kV surge clamping.',
-        load: '4 Independent Smart Sockets (16A each / total 7000W)',
-        boxSize: '8-Module Horizontal / Square Junction Box (224 × 86 mm)',
-        idealFor: 'Kitchen Counters, Home Theatres, Media Centers, Server Racks',
+        tagline: 'Dedicated 4-Outlet Power Bank for Kitchens & AV Racks',
+        desc: 'Four independent 16A universal smart sockets on a single 8-module plate.',
+        smartAutomationInfo: 'Individual kWh metering across all 4 sockets.',
+        socketInfo: 'Four universal shuttered sockets.',
+        load: '4 × 16A Independent Sockets (7000W Max)',
+        boxSize: '8-Module Box (224 × 86 mm)',
+        idealFor: 'Kitchen Counters, Home Theatres, Server Racks',
         features: [
-          'Four independently controlled 16A outlets on one sleek glass plate',
-          'Real-time current and voltage telemetry for connected appliances',
-          'Child protection shutters on all four receptacles',
-          'Overload thermal trip with automatic push notifications to phone'
+          '4 independently controlled 16A sockets replacing cluttered strips',
+          'Live voltage/current telemetry + instant thermal overload push alerts',
+          'Spring-shuttered multi-pin outlets support Indian, UK & EU plugs'
         ]
       }
     ],
@@ -358,21 +353,21 @@ export function RetrofitTouchPanels() {
         shortLabel: '8 Panels + 1 Socket',
         touchPanels: 8,
         sockets: 1,
+        img: '/media/plates/10m-8p-1s.png',
         badge: 'Most Popular',
         isPopular: true,
         title: '10 Moduler 8 Touch Switch & 16A Universal Socket Board',
-        tagline: 'Signature Luxury Credenza & TV Console Command Switchboard',
-        desc: 'As showcased in luxury penthouses: Extensive capacitive glass panel integrating 8 lighting channels alongside an international 16A universal power socket, mounted flush above credenzas and media walls.',
-        smartAutomationInfo: 'Dedicated "Cinema Mode" scene trigger: main spotlights fade out, TV backlights glow cyan, and motorized curtains glide closed. Socket circuit includes EMI filtering for OLED TVs.',
-        socketInfo: 'Universal multi-pin shuttered socket with 4kV MOV surge protection and child-safety shutters.',
-        load: '8 Lighting Channels (10A each) + 1 Universal 16A Socket',
-        boxSize: '10-Module Horizontal Box (250 × 146 mm)',
-        idealFor: 'Living Room TV Consoles, Media Walls, Credenzas, Workstations',
+        tagline: 'Luxury TV Wall & Living Hall Command Console (8 Switches + Socket)',
+        desc: 'Extensive capacitive glass panel integrating 8 lighting channels alongside a 16A socket.',
+        smartAutomationInfo: 'Cinema Mode dimming + EMI-filtered socket.',
+        socketInfo: 'Universal multi-pin shuttered socket with 4kV surge protection.',
+        load: '8 × 10A Channels + 1 × 16A Socket',
+        boxSize: '10-Module Box (250 × 146 mm)',
+        idealFor: 'Living Room TV Walls, Credenzas, Hallways',
         features: [
-          'Dedicated TV Entertainment & Home Theatre synchronization mode',
-          'Surge-protected socket circuit shields sensitive OLED displays & gaming consoles',
-          'Customizable cyan and warm amber status backlight LEDs with soft dimming',
-          'Spring-loaded child-safety shuttered socket handles up to 16A continuous loads'
+          '8 capacitive touch zones (4×2 grid) paired with 1 EMI-filtered 16A socket',
+          'Cinema Mode scene dims hall spots & activates backlight coves',
+          'Surge-clamped socket protects OLED TVs, consoles & soundbars'
         ]
       },
       {
@@ -381,20 +376,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '10 Touch Switches',
         touchPanels: 10,
         sockets: 0,
+        img: '/media/plates/10m-10p-0s.png',
         badge: 'Full Lighting',
         title: '10 Moduler 10-Gang Touch Switch Board (10 Lighting Circuits)',
-        tagline: 'Grand Hall & Drawing Room Master Multi-Circuit Lighting Center',
-        desc: 'Ten capacitive feather-touch switches on diamond-cut crystal glass. Consolidates chandeliers, ceiling downlights, wall sconces, coves, and multi-speed fans for expansive living spaces.',
-        smartAutomationInfo: 'Master floor automation hub: "Master Sleep", "Party Mode", and voice-directed scene transitions with zero latency mesh response.',
-        socketInfo: 'Ten solid-state relays with zero-cross switching for infinite relay lifespan.',
-        load: '10 Lighting Circuits (10A each / up to 7000W total)',
-        boxSize: '10-Module Horizontal Box (250 × 146 mm)',
-        idealFor: 'Grand Drawing Halls, Villa Foyers, Banquet Rooms, Open Penthouses',
+        tagline: 'Grand Drawing Room 10-Circuit Chandelier, Cove & Fan Switch',
+        desc: 'Ten capacitive feather-touch switches on diamond-cut crystal glass.',
+        smartAutomationInfo: 'Whole-room scene hub with offline mesh.',
+        socketInfo: 'Ten zero-cross solid-state relays.',
+        load: '10 × 10A Lighting Circuits (7000W Max)',
+        boxSize: '10-Module Box (250 × 146 mm)',
+        idealFor: 'Grand Drawing Halls, Villa Foyers, Lounges',
         features: [
-          'Ten independent touch circuits with individual cyan backlight indicators',
-          'One-touch master scene triggers directly from the physical glass panel',
-          'Works 100% offline via local home mesh network even without internet',
-          '4mm toughened crystal glass with diamond-bevelled anti-glare finish'
+          '10 × 10A circuits (5×2 grid) consolidating an entire drawing hall',
+          'Runs 100% locally via home mesh even when internet is down',
+          'Double-tap Master Off clears every chandelier, sconce & spot'
         ]
       },
       {
@@ -403,20 +398,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '6 Panels + 2 Sockets',
         touchPanels: 6,
         sockets: 2,
+        img: '/media/plates/10m-6p-2s.png',
         badge: 'Dual Socket Balance',
         title: '10 Moduler 6 Touch Switch & Dual 16A Universal Socket Board',
-        tagline: 'Luxury Media Wall & Executive Suite Lighting + Dual Power Hub',
-        desc: 'Six lighting circuits paired with dual independent 16A universal power sockets. Engineered for premium entertainment consoles and luxury executive suites.',
-        smartAutomationInfo: 'App and voice control. Set "Movie Mode" to dim the 6 lights while keeping media players and sound systems powered.',
-        socketInfo: 'Dual 16A universal shuttered sockets with independent relay switching.',
-        load: '6 Lighting Channels (10A each) + Dual 16A Sockets',
-        boxSize: '10-Module Horizontal Box (250 × 146 mm)',
-        idealFor: 'Entertainment Walls, Executive Offices, Hotel Presidential Suites',
+        tagline: 'Media Wall Lighting Controller with Dual 16A Appliance Outlets',
+        desc: 'Six lighting circuits paired with dual independent 16A universal power sockets.',
+        smartAutomationInfo: 'Movie scene lighting + dual media sockets.',
+        socketInfo: 'Dual 16A universal shuttered sockets.',
+        load: '6 × 10A Channels + Dual 16A Sockets',
+        boxSize: '10-Module Box (250 × 146 mm)',
+        idealFor: 'Entertainment Walls, Executive Offices, Suites',
         features: [
-          'Dual heavy 16A sockets for TV, soundbar, and console power',
-          'Six feather-touch lighting channels with responsive cyan touch indicators',
-          'Scheduled timers and energy tracking for both power outlets',
-          'Child-safe spring shutters prevent accidental shock hazards'
+          '6 lighting zones (3×2 grid) + 2 heavy 16A sockets for TV & audio',
+          'Independent socket countdowns & automated late-night cutoff',
+          'Child-safe internal shutters + scratch-resistant beveled glass'
         ]
       },
       {
@@ -425,20 +420,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '4 Panels + 3 Sockets',
         touchPanels: 4,
         sockets: 3,
+        img: '/media/plates/10m-4p-3s.png',
         badge: 'Triple Socket Station',
         title: '10 Moduler Quad Touch Switch & Triple 16A Socket Board',
-        tagline: 'Living Room AV Console & Multi-Device Charging Station',
-        desc: 'Four lighting circuits combined with three universal smart sockets. Ideal for media consoles needing power for TV, set-top box, gaming console, and ambient lighting.',
-        smartAutomationInfo: 'Scene coordination and power telemetry. Group control allows powering down all connected electronics when leaving home.',
-        socketInfo: 'Triple 16A universal shuttered sockets with 4kV MOV transient surge arrestor.',
-        load: '4 Lighting Channels (10A each) + 3 Universal 16A Sockets',
-        boxSize: '10-Module Horizontal Box (250 × 146 mm)',
-        idealFor: 'Living Room Media Walls, Audio Racks, Studio Workstations',
+        tagline: 'AV Credenza Station Pairing 4 Switches with 3 Smart Sockets',
+        desc: 'Four lighting circuits combined with three universal smart sockets.',
+        smartAutomationInfo: 'Unified AV equipment & room lighting control.',
+        socketInfo: 'Triple 16A universal shuttered sockets.',
+        load: '4 × 10A Channels + 3 × 16A Sockets',
+        boxSize: '10-Module Box (250 × 146 mm)',
+        idealFor: 'Media Walls, Audio Racks, Studio Desks',
         features: [
-          'Three heavy-duty universal smart sockets on one unified glass plate',
-          'Four capacitive touch lighting switches with soft night-dimming',
-          'Surge protection preserves expensive audio-video electronics',
-          'Independent app scheduling for all seven circuits'
+          '3 × 16A universal sockets for TV, router & receiver + 4 room switches',
+          'One-tap Leave Home mode cuts standby electronics & room lighting',
+          'Built-in 4kV MOV surge arrestor guards sensitive AV hardware'
         ]
       },
       {
@@ -447,20 +442,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '2 Panels + 4 Sockets',
         touchPanels: 2,
         sockets: 4,
+        img: '/media/plates/10m-2p-4s.png',
         badge: 'Quad Socket Hub',
         title: '10 Moduler Dual Touch Switch & 4-Socket Heavy Power Board',
-        tagline: 'High-Power Kitchen Island & Studio Workstation Console',
-        desc: 'Two lighting channels alongside four heavy-duty universal smart sockets. Built for modern kitchen islands, coffee counters, and laboratory workstations.',
-        smartAutomationInfo: 'App control and automated morning routines (e.g., turn on coffee machine socket at 7:00 AM). Overload thermal cut-off with instant smartphone alerts.',
-        socketInfo: 'Four universal shuttered sockets with solid brass contact clips.',
-        load: '2 Lighting Channels (10A each) + 4 Universal 16A Sockets',
-        boxSize: '10-Module Horizontal Box (250 × 146 mm)',
-        idealFor: 'Kitchen Islands, Bar Counters, Multi-Monitor Workstations',
+        tagline: 'Kitchen Island & Pantry Power Console (4 Sockets + 2 Switches)',
+        desc: 'Two lighting channels alongside four heavy-duty universal smart sockets.',
+        smartAutomationInfo: 'Scheduled morning appliance routines.',
+        socketInfo: 'Four universal shuttered sockets with brass clips.',
+        load: '2 × 10A Channels + 4 × 16A Sockets',
+        boxSize: '10-Module Box (250 × 146 mm)',
+        idealFor: 'Kitchen Islands, Bar Counters, Workstations',
         features: [
-          'Four high-wattage smart sockets for blenders, coffee machines, and appliances',
-          'Dual lighting switches for island pendants and under-cabinet coves',
-          'Child-safe spring shutters on all four power receptacles',
-          'Real-time power monitoring alerts to heavy power consumption'
+          '4 × 16A outlets for coffee makers, blenders & microwaves + 2 pendant lights',
+          'Automated morning routines & instant thermal overload protection',
+          'Heavy phosphor-bronze socket clips prevent loose-pin sparking'
         ]
       },
       {
@@ -469,20 +464,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '5 Heavy Sockets',
         touchPanels: 0,
         sockets: 5,
+        img: '/media/plates/10m-0p-5s.png',
         badge: '5-Socket Power Bank',
         title: '10 Moduler Quintuple Heavy-Duty 16A Smart Socket Board',
-        tagline: 'Commercial Server Rack, Laboratory & Multi-Appliance Station',
-        desc: 'Five independent 16A universal smart sockets on an expansive 10-module plate. Engineered for commercial test benches, server rooms, and appliance banks.',
-        smartAutomationInfo: 'Individual app scheduling, group power cut-off, and comprehensive electrical telemetry across all 5 sockets.',
-        socketInfo: 'Five universal shuttered sockets with 4kV industrial surge clamping.',
-        load: '5 Independent Heavy Sockets (16A each / 8000W max)',
-        boxSize: '10-Module Horizontal Box (250 × 146 mm)',
-        idealFor: 'Commercial Labs, Server Racks, Multi-Appliance Kitchen Hubs',
+        tagline: '5-Outlet High-Wattage Power Hub for Labs, Racks & Pantry Walls',
+        desc: 'Five independent 16A universal smart sockets on a single 10-module plate.',
+        smartAutomationInfo: 'Individual app scheduling & kWh telemetry.',
+        socketInfo: 'Five universal shuttered sockets with 4kV surge clamp.',
+        load: '5 × 16A Sockets (8000W Combined Max)',
+        boxSize: '10-Module Box (250 × 146 mm)',
+        idealFor: 'Server Racks, Commercial Labs, Pantry Walls',
         features: [
-          'Five independently switchable 16A smart outlets on luxury crystal glass',
-          'Heavy-duty solid-state relays with zero-cross snubber protection',
-          'Child-safe internal spring shutters on all five sockets',
-          'Full smartphone app and voice integration via Alexa & Google Assistant'
+          '5 independently switchable 16A outlets across one flush glass strip',
+          'Real-time wattage tracking & individual circuit fault alerts per socket',
+          'Child-safe shuttered multi-pin design with zero-cross switching'
         ]
       }
     ],
@@ -494,21 +489,21 @@ export function RetrofitTouchPanels() {
         shortLabel: '8 Panels + 2 Sockets',
         touchPanels: 8,
         sockets: 2,
+        img: '/media/plates/12m-8p-2s.png',
         badge: 'Most Popular',
         isPopular: true,
         title: '12 Moduler 8 Touch Switch & Dual 16A Universal Socket Board',
-        tagline: 'Villa Great Room Standard: 8 Lighting Zones + Dual Power Outlets',
-        desc: 'Eight capacitive touch switches combined with dual universal power sockets. The benchmark switchboard for large villa drawing halls, open dining areas, and master suites.',
-        smartAutomationInfo: 'Multi-tier lighting scenes (Daylight Harvest, Evening Lounge, Party Mode), automated sunrise/sunset astronomical clock schedules, and inter-board mesh linking.',
-        socketInfo: 'Dual independent smart sockets with individual app control, overload auto-cutoff, and heavy appliance compatibility.',
-        load: '8 Lighting Circuits + Dual 16A Universal Sockets',
-        boxSize: '12-Module Standard Plate (250 × 200 mm)',
-        idealFor: 'Double-Height Living Rooms, Duplex Staircases, Banquet Foyers',
+        tagline: 'Villa Great Room Standard: Dual-Tier 8 Lights + Dual Sockets',
+        desc: 'Eight capacitive touch switches combined with dual universal power sockets.',
+        smartAutomationInfo: 'Sunrise/sunset astronomical scenes.',
+        socketInfo: 'Dual independent 16A smart sockets.',
+        load: '8 × 10A Channels + Dual 16A Sockets',
+        boxSize: '12-Module Two-Tier (250 × 200 mm)',
+        idealFor: 'Villa Living Halls, Duplexes, Master Suites',
         features: [
-          'Whole-hall lighting orchestration with multi-way wireless mesh synchronization',
-          'Overload auto-cut-off protection with real-time app alert notifications',
-          'Zero-cross relay switching extends smart LED bulb lifespan 3x',
-          'Dual universal shuttered sockets handle heavy appliances & entertainment gear'
+          'Balanced two-tier layout: 4 switches + 1 socket per tier',
+          'Astronomical clock triggers sunset perimeter lighting automatically',
+          'Multi-way wireless mesh linking + overload auto-cutoff on sockets'
         ]
       },
       {
@@ -517,20 +512,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '12 Touch Switches',
         touchPanels: 12,
         sockets: 0,
+        img: '/media/plates/12m-12p-0s.png',
         badge: 'Full Lighting',
         title: '12 Moduler 12-Gang Touch Switch Board (12 Lighting Zones)',
-        tagline: 'Architectural Double-Height Hall & Villa Great Room Master Switch',
-        desc: 'Expansive 12-module crystal glass command board consolidating multiple chandelier zones, perimeter coves, dual fan speed regulators, and mood lighting circuits.',
-        smartAutomationInfo: 'Centralized room command: control every ceiling light, spot, wall sconce & fan. Works 100% locally via mesh even during internet disruptions.',
-        socketInfo: 'Twelve independent solid-state relays with zero-cross snubber circuits.',
-        load: '12 Lighting Circuits (10A each / up to 8000W total)',
-        boxSize: '12-Module Standard Plate (250 × 200 mm)',
-        idealFor: 'Grand Penthouse Drawing Halls, Villa Foyers, Conference Ballrooms',
+        tagline: 'Double-Height Hall Architectural Master Switch (12 Touch Zones)',
+        desc: 'Expansive 12-module crystal glass board consolidating 12 lighting & fan zones.',
+        smartAutomationInfo: 'Centralized room command via offline mesh.',
+        socketInfo: 'Twelve zero-cross solid-state relays.',
+        load: '12 × 10A Lighting Circuits (8000W Max)',
+        boxSize: '12-Module Two-Tier (250 × 200 mm)',
+        idealFor: 'Penthouse Halls, Villa Foyers, Ballrooms',
         features: [
-          'Twelve capacitive touch switches with soft cyan LED glowing halos',
-          'Master "All Off" double-tap trigger directly from physical glass plate',
-          'Circadian rhythm schedule engine linked with astronomical clock',
-          'Two-way synchronized mesh control without physical traveler wires'
+          '12 × 10A zones (dual 3×2 tiers) for chandeliers, coves & dual fans',
+          'Master All-Off double-tap clears all 12 channels simultaneously',
+          '2-way mesh control links entrances & upper duplex landings'
         ]
       },
       {
@@ -539,20 +534,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '10 Panels + 1 Socket',
         touchPanels: 10,
         sockets: 1,
+        img: '/media/plates/12m-10p-1s.png',
         badge: 'Single Socket Combo',
         title: '12 Moduler 10 Touch Switch & 16A Universal Socket Board',
-        tagline: 'Comprehensive Villa Drawing Hall Controller with Dedicated Socket',
-        desc: 'Ten capacitive lighting circuits paired with a single 16A universal power socket on an expansive 12-module crystal glass plate.',
-        smartAutomationInfo: 'App and voice control for all 11 circuits. Create custom scenes like "Dinner & Music" with automatic light dimming.',
-        socketInfo: '16A universal shuttered socket with 4kV surge clamping.',
-        load: '10 Lighting Circuits + 1 Universal 16A Socket',
-        boxSize: '12-Module Standard Plate (250 × 200 mm)',
-        idealFor: 'Villa Great Rooms, Formal Dining Halls, Executive Boardrooms',
+        tagline: 'Grand Room 10-Circuit Switchboard with Integrated 16A Socket',
+        desc: 'Ten capacitive lighting circuits paired with a single 16A universal power socket.',
+        smartAutomationInfo: 'Custom multi-zone dimming scenes.',
+        socketInfo: '16A universal shuttered socket with 4kV surge clamp.',
+        load: '10 × 10A Channels + 1 × 16A Socket',
+        boxSize: '12-Module Two-Tier (250 × 200 mm)',
+        idealFor: 'Villa Great Rooms, Dining Halls, Boardrooms',
         features: [
-          'Ten feather-touch lighting channels with cyan status indicators',
-          'Integrated universal power socket with internal child-safety shutters',
-          'Voice integration with Amazon Alexa, Google Home, and Apple Siri',
-          '4mm toughened crystal glass plate with diamond-cut bevelled edges'
+          '10 touch switches (6 upper + 4 lower) paired with 1 × 16A utility socket',
+          'Voice & app scenes orchestrate entire dining & lounge illumination',
+          'Diamond-cut 4mm crystal glass with circadian-dimmed night LEDs'
         ]
       },
       {
@@ -561,20 +556,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '6 Panels + 3 Sockets',
         touchPanels: 6,
         sockets: 3,
+        img: '/media/plates/12m-6p-3s.png',
         badge: 'Triple Socket Lounge',
         title: '12 Moduler 6 Touch Switch & Triple 16A Socket Board',
-        tagline: 'Executive Suite Lounge & Dining Credenza Multi-Appliance Station',
-        desc: 'Six lighting circuits paired with three universal power sockets. Engineered for luxury hotel executive suites, living room media credenzas, and open dining spaces.',
-        smartAutomationInfo: 'Independent app control for all 3 sockets and 6 lighting loops. Full scene scheduling and power analytics.',
-        socketInfo: 'Triple 16A universal shuttered sockets with child protection.',
-        load: '6 Lighting Circuits + 3 Universal 16A Sockets',
-        boxSize: '12-Module Standard Plate (250 × 200 mm)',
-        idealFor: 'Executive Suites, Media Credenzas, Dining Buffets',
+        tagline: 'Executive Lounge & Dining Credenza (6 Switches + 3 Outlets)',
+        desc: 'Six lighting circuits paired with three universal power sockets.',
+        smartAutomationInfo: 'Scene & 3-socket scheduling.',
+        socketInfo: 'Triple 16A universal shuttered sockets.',
+        load: '6 × 10A Channels + 3 × 16A Sockets',
+        boxSize: '12-Module Two-Tier (250 × 200 mm)',
+        idealFor: 'Executive Suites, Credenzas, Dining Buffets',
         features: [
-          'Three heavy-duty universal smart sockets on one unified glass plate',
-          'Six capacitive touch switches with soft night-dimming backlights',
-          'Surge protection preserves connected audio-video and kitchen appliances',
-          'Works 100% offline via local home mesh network without internet'
+          '6 lighting channels + 3 heavy 16A outlets across two ergonomic rows',
+          'Ideal balance for dining warmers, espresso machines & room lighting',
+          'Independent socket schedules + 4kV surge protection built in'
         ]
       },
       {
@@ -583,20 +578,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '4 Panels + 4 Sockets',
         touchPanels: 4,
         sockets: 4,
+        img: '/media/plates/12m-4p-4s.png',
         badge: 'Quad Socket Hub',
         title: '12 Moduler Quad Touch Switch & 4-Socket Power Board',
-        tagline: 'Modern Kitchen Island & Bar Counter Multi-Appliance Station',
-        desc: 'Four lighting circuits combined with four independent 16A universal smart sockets. Perfect for kitchen islands with high-power blenders, coffee machines, and pendant lighting.',
-        smartAutomationInfo: 'Group appliance automation and individual socket schedules. Overload thermal protection with automatic push notifications.',
-        socketInfo: 'Four universal shuttered sockets with 4kV transient surge suppression.',
-        load: '4 Lighting Circuits + 4 Universal 16A Sockets',
-        boxSize: '12-Module Standard Plate (250 × 200 mm)',
-        idealFor: 'Kitchen Islands, Breakfast Bars, Commercial Cafes',
+        tagline: 'Modern Kitchen Island & Breakfast Bar Station (4+4 Layout)',
+        desc: 'Four lighting circuits combined with four independent 16A universal smart sockets.',
+        smartAutomationInfo: 'Group appliance automation & overload alerts.',
+        socketInfo: 'Four universal shuttered sockets.',
+        load: '4 × 10A Channels + 4 × 16A Sockets',
+        boxSize: '12-Module Two-Tier (250 × 200 mm)',
+        idealFor: 'Kitchen Islands, Breakfast Bars, Cafes',
         features: [
-          'Four 16A power sockets for simultaneous kitchen appliance operation',
-          'Four touch lighting switches for bar spots, pendants, and perimeter coves',
-          'Child-safe spring shutters prevent insertion of foreign objects',
-          '5-Year comprehensive replacement warranty from Neurolinx'
+          'Symmetric 2 switches + 2 sockets per tier (4 lights + 4 heavy outlets)',
+          'Simultaneously powers heavy kitchen blenders, ovens & island spots',
+          'Child-safe internal shutters + real-time app overload cutoffs'
         ]
       },
       {
@@ -605,20 +600,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '2 Panels + 5 Sockets',
         touchPanels: 2,
         sockets: 5,
+        img: '/media/plates/12m-2p-5s.png',
         badge: '5-Socket Power Bank',
         title: '12 Moduler Dual Touch Switch & 5-Socket Heavy Power Board',
-        tagline: 'High-Density AV Studio & Commercial Workstation Command Center',
-        desc: 'Two lighting channels with five heavy-duty universal smart sockets. Engineered for broadcast studios, AV racks, and multi-computer editing suites.',
-        smartAutomationInfo: '"Studio On" scene powers on monitors, audio interfaces, and task lights with one tap. Overload protection with real-time telemetry.',
-        socketInfo: 'Five universal shuttered sockets with solid brass contact clips.',
-        load: '2 Lighting Circuits + 5 Universal 16A Sockets',
-        boxSize: '12-Module Standard Plate (250 × 200 mm)',
-        idealFor: 'Recording Studios, Video Editing Suites, Server Workstations',
+        tagline: 'AV Editing Bay & Commercial Desk Center (5 Outlets + 2 Switches)',
+        desc: 'Two lighting channels with five heavy-duty universal smart sockets.',
+        smartAutomationInfo: 'Studio On one-tap power trigger.',
+        socketInfo: 'Five universal shuttered sockets.',
+        load: '2 × 10A Channels + 5 × 16A Sockets',
+        boxSize: '12-Module Two-Tier (250 × 200 mm)',
+        idealFor: 'Audio/Video Studios, Multi-PC Desks, Labs',
         features: [
-          'Five independently controllable universal smart outlets',
-          'Dual touch switches for studio lighting and accent backlights',
-          'Heavy-duty solid-state relays with zero-cross switching',
-          'Toughened 4mm diamond-cut crystal glass plate'
+          '5 independent 16A smart sockets (2 top + 3 bottom) + 2 lighting keys',
+          'Studio On scene sequences studio lights & workstation hardware',
+          'Solid phosphor-bronze contacts + individual power draw logs'
         ]
       }
     ],
@@ -630,21 +625,21 @@ export function RetrofitTouchPanels() {
         shortLabel: '12 Panels + 2 Sockets',
         touchPanels: 12,
         sockets: 2,
+        img: '/media/plates/16m-12p-2s.png',
         badge: 'Most Popular',
         isPopular: true,
         title: '16 Moduler 12 Touch Switch & Dual 16A Universal Socket Board',
-        tagline: 'Ultimate Two-Tier Penthouse Command: 12 Lighting Zones + Dual Sockets',
-        desc: 'The pinnacle of architectural smart switching: Two-tier high-density crystal glass board managing 12 lighting and fan circuits across large open-plan penthouses alongside dual universal power sockets.',
-        smartAutomationInfo: 'Master floor automation hub: "Master Sleep", "Away Security Mode" (activates simulated occupancy lighting while you travel), and voice-directed scene transitions.',
-        socketInfo: 'Dual heavy 16A universal sockets with child safety lockouts, solid-state relays with zero-cross switching for infinite relay life, and 4kV spike arresters.',
-        load: '12 Lighting Circuits + Dual 16A Universal Sockets',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Grand Penthouse Drawing Halls, Villa Main Entry, Corporate Boardrooms',
+        tagline: 'Flagship Two-Tier Penthouse Command (12 Lights + 2 Sockets)',
+        desc: 'Two-tier high-density crystal glass board managing 12 lighting circuits + 2 sockets.',
+        smartAutomationInfo: 'Master Sleep & Away Security occupancy mode.',
+        socketInfo: 'Dual heavy 16A universal sockets with 4kV arresters.',
+        load: '12 × 10A Channels + Dual 16A Sockets',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'Penthouse Great Halls, Villas, Boardrooms',
         features: [
-          'Centralized room command: control every ceiling light, spot, wall sconce & fan',
-          'Dual-tier ergonomic layout with dedicated room master controls',
-          'Dual universal shuttered sockets for high-power electronics and cleaning gear',
-          '100% offline local mesh ensures uninterrupted switching during network outages'
+          'Two symmetric rows of 6 switches + 1 universal 16A socket each',
+          'Away Security mode simulates evening occupancy while traveling',
+          'Whole-floor offline mesh linking + 4kV surge protection built in'
         ]
       },
       {
@@ -653,20 +648,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '16 Touch Switches',
         touchPanels: 16,
         sockets: 0,
+        img: '/media/plates/16m-16p-0s.png',
         badge: 'Full Master Lighting',
         title: '16 Moduler Two-Tier Master Command Switchboard (16 Lighting Zones)',
-        tagline: 'Whole-Floor Penthouse Architectural Grand Lighting Command Panel',
-        desc: 'Sixteen capacitive touch circuits arranged across an ergonomic two-tier crystal glass plate. Manages every lighting zone, spot, fan, and cove across multi-room penthouse suites.',
-        smartAutomationInfo: 'Whole-residence scene coordination: Party Mode, Cinema Mode, Relax, and All Off. Two-way mesh linking with all other switchboards in the home.',
-        socketInfo: 'Sixteen solid-state relays with zero-cross snubber circuits and 4kV surge clamping.',
-        load: '16 Lighting / Mood Circuits (10A each / up to 10,000W total)',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Penthouse Great Halls, Luxury Villa Entries, Boutique Hotel Lobbies',
+        tagline: 'Architectural Whole-Floor Lighting Panel (16 Capacitive Channels)',
+        desc: 'Sixteen capacitive touch circuits arranged across an ergonomic two-tier plate.',
+        smartAutomationInfo: 'Whole-residence scene orchestration.',
+        socketInfo: 'Sixteen solid-state zero-cross relays.',
+        load: '16 × 10A Channels (10,000W Max)',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'Penthouse Foyers, Villa Entries, Banquet Halls',
         features: [
-          'Sixteen independent capacitive feather-touch switches on dual-tier layout',
-          'Master double-tap "All Off" button switches off entire floor with one touch',
-          'Customizable cyan and warm amber status backlights with soft night-dimming',
-          'Covered by Neurolinx 5-Year Comprehensive Hassle-Free Replacement Warranty'
+          '16 × 10A switches (two 4×2 grids) consolidating entire multi-zone halls',
+          'Double-tap Master All-Off turns off an entire floor in one touch',
+          '2-way wireless synchronization eliminates long staircase conduits'
         ]
       },
       {
@@ -675,20 +670,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '14 Panels + 1 Socket',
         touchPanels: 14,
         sockets: 1,
+        img: '/media/plates/16m-14p-1s.png',
         badge: 'Single Socket Combo',
         title: '16 Moduler 14 Touch Switch & 16A Universal Socket Board',
-        tagline: 'Grand Penthouse Multi-Circuit Master Panel with Heavy Power Point',
-        desc: 'Fourteen capacitive lighting circuits paired with a single 16A universal power socket. Offers maximum lighting zone coverage while maintaining a dedicated convenience outlet.',
-        smartAutomationInfo: 'App and voice control for all 15 circuits. Astronomical clock schedules for sunrise/sunset automated lighting.',
-        socketInfo: '16A universal shuttered socket with child-safe spring shutters.',
-        load: '14 Lighting Circuits + 1 Universal 16A Socket',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Penthouse Living Areas, Luxury Villa Foyers, Corporate Suites',
+        tagline: 'Maximum Multi-Zone Lighting Coverage with 1 Heavy Power Point',
+        desc: 'Fourteen capacitive lighting circuits paired with a single 16A universal power socket.',
+        smartAutomationInfo: 'Sunrise/sunset astronomical scheduling.',
+        socketInfo: '16A universal shuttered socket.',
+        load: '14 × 10A Channels + 1 × 16A Socket',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'Luxury Villa Foyers, Corporate Suites, Penthouses',
         features: [
-          'Fourteen feather-touch lighting channels with individual cyan LED halos',
-          'Integrated universal power socket handles vacuum cleaners and appliances',
-          'Zero-cross relay switching extends smart LED bulb lifespan 3x',
-          '4mm toughened crystal glass with diamond-cut bevelled edges'
+          '14 capacitive switches (8 top + 6 bottom) + 1 utility 16A socket',
+          'Astronomical sunrise/sunset routines keep facades & foyers automated',
+          'Zero-cross relays protect high-end chandeliers & architectural LEDs'
         ]
       },
       {
@@ -697,20 +692,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '10 Panels + 3 Sockets',
         touchPanels: 10,
         sockets: 3,
+        img: '/media/plates/16m-10p-3s.png',
         badge: 'Triple Socket Command',
         title: '16 Moduler 10 Touch Switch & Triple 16A Socket Board',
-        tagline: 'Executive Boardroom & Luxury Presidential Suite Command Station',
-        desc: 'Ten capacitive touch switches alongside three heavy-duty universal smart sockets. Perfect for boardroom conference tables, executive consoles, and hotel presidential suites.',
-        smartAutomationInfo: '"Presentation Mode" dims room lights and activates projector and screen power sockets. Voice integration via Alexa and Google Assistant.',
-        socketInfo: 'Triple 16A universal shuttered sockets with independent relay cutoff.',
-        load: '10 Lighting Circuits + 3 Universal 16A Sockets',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Boardrooms, Luxury Hotel Suites, Penthouse Entertainment Dens',
+        tagline: 'Boardroom & Presidential Suite Hub (10 Switches + 3 Outlets)',
+        desc: 'Ten capacitive touch switches alongside three heavy-duty universal smart sockets.',
+        smartAutomationInfo: 'Presentation Mode lights + AV outlets.',
+        socketInfo: 'Triple 16A universal shuttered sockets.',
+        load: '10 × 10A Channels + 3 × 16A Sockets',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'Boardrooms, Presidential Suites, Home Theatres',
         features: [
-          'Ten lighting channels + three heavy-duty universal smart sockets',
-          'Independent app scheduling and energy monitoring for all circuits',
-          'Child-safe spring shutters on all three socket outlets',
-          'Built-in 4kV MOV industrial surge arrestor protects connected equipment'
+          '10 touch zones + 3 × 16A sockets for projectors, screens & audio',
+          'Presentation Mode dims lights & powers meeting hardware at once',
+          '4kV industrial surge arrestor + child-safe socket shutters'
         ]
       },
       {
@@ -719,20 +714,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '8 Panels + 4 Sockets',
         touchPanels: 8,
         sockets: 4,
+        img: '/media/plates/16m-8p-4s.png',
         badge: 'Quad Socket Station',
         title: '16 Moduler 8 Touch Switch & 4-Socket Heavy Power Board',
-        tagline: 'Balanced Dual-Tier Architecture: 8 Lighting Zones + 4 Heavy Sockets',
-        desc: 'Eight capacitive lighting circuits paired with four universal smart sockets. An exquisitely balanced switchboard for sprawling entertainment areas and media rooms.',
-        smartAutomationInfo: 'Independent app control for all 12 circuits. Custom scene creation with automated night-dimming after 10 PM.',
-        socketInfo: 'Four universal shuttered sockets with 4kV transient surge suppression.',
-        load: '8 Lighting Circuits + 4 Universal 16A Sockets',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Home Theatres, Entertainment Lounges, Penthouse Drawing Rooms',
+        tagline: 'Equal Two-Tier Harmony: 8 Lighting Zones & 4 Heavy Sockets',
+        desc: 'Eight capacitive lighting circuits paired with four universal smart sockets.',
+        smartAutomationInfo: 'Balanced 12-circuit automation & night dim.',
+        socketInfo: 'Four universal shuttered sockets.',
+        load: '8 × 10A Channels + 4 × 16A Sockets',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'Home Theatres, Entertainment Lounges, Studios',
         features: [
-          'Four 16A smart power sockets for complete AV rack equipment',
-          'Eight capacitive glass touch switches for layered room illumination',
-          'Overload thermal cut-off with automatic push notifications to phone',
-          'Toughened diamond-cut black crystal glass plate'
+          'Mirror-balanced rows: 4 touch switches + 2 × 16A sockets per tier',
+          'Runs full AV racks & 8 architectural light/fan loops from one board',
+          'Overload thermal trip + high/low voltage auto-isolation'
         ]
       },
       {
@@ -741,20 +736,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '6 Panels + 5 Sockets',
         touchPanels: 6,
         sockets: 5,
+        img: '/media/plates/16m-6p-5s.png',
         badge: '5-Socket Power Hub',
         title: '16 Moduler 6 Touch Switch & 5-Socket Heavy Power Board',
-        tagline: 'Open-Plan Penthouse Living & Kitchenette Multi-Appliance Station',
-        desc: 'Six lighting circuits combined with five heavy-duty universal smart sockets. Engineered for luxury open-concept penthouse spaces with integrated kitchenette counters.',
-        smartAutomationInfo: 'Group appliance automation, countdown sleep timers, and live kWh telemetry for all 5 power outlets.',
-        socketInfo: 'Five universal shuttered sockets with solid brass contact clips.',
-        load: '6 Lighting Circuits + 5 Universal 16A Sockets',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Open-Plan Penthouses, Studio Apartments, Kitchenette Consoles',
+        tagline: 'Open-Plan Studio & Kitchenette Power + Lighting Command',
+        desc: 'Six lighting circuits combined with five heavy-duty universal smart sockets.',
+        smartAutomationInfo: 'Countdown timers & live socket kWh logs.',
+        socketInfo: 'Five universal shuttered sockets.',
+        load: '6 × 10A Channels + 5 × 16A Sockets',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'Open Penthouses, Studio Lofts, Kitchenettes',
         features: [
-          'Five independently switchable 16A smart outlets on luxury crystal glass',
-          'Six feather-touch switches for room spots, pendants, and perimeter coves',
-          'Child-safe spring shutters prevent insertion of foreign objects',
-          '100% offline local mesh ensures uninterrupted switching during network outages'
+          '6 room switches + 5 heavy 16A universal sockets across two tiers',
+          'Individual app power schedules + live kWh monitoring per outlet',
+          'Works 100% locally via home mesh network if Wi-Fi goes offline'
         ]
       },
       {
@@ -763,20 +758,20 @@ export function RetrofitTouchPanels() {
         shortLabel: '4 Panels + 6 Sockets',
         touchPanels: 4,
         sockets: 6,
+        img: '/media/plates/16m-4p-6s.png',
         badge: '6-Socket Power Bank',
         title: '16 Moduler Quad Touch Switch & 6-Socket Commercial Power Center',
-        tagline: 'Luxury Media Room AV Rack & High-Capacity Multi-Charging Bank',
-        desc: 'Four lighting circuits paired with six heavy-duty universal smart sockets. The ultimate power and lighting hub for audio-video racks, editing suites, and commercial charging stations.',
-        smartAutomationInfo: 'Individual app control and scheduling for each socket outlet. Comprehensive electrical current telemetry and high/low voltage surge protection.',
-        socketInfo: 'Six universal shuttered sockets with 4kV industrial surge clamping.',
-        load: '4 Lighting Circuits + 6 Universal 16A Sockets',
-        boxSize: '16-Module Two-Tier Standard Box (250 × 250 mm)',
-        idealFor: 'Commercial Studios, AV Equipment Racks, Multi-Charging Consoles',
+        tagline: 'High-Capacity 6-Outlet Media Rack & Commercial Charging Bank',
+        desc: 'Four lighting circuits paired with six heavy-duty universal smart sockets.',
+        smartAutomationInfo: 'Individual app control for all 10 circuits.',
+        socketInfo: 'Six universal shuttered sockets.',
+        load: '4 × 10A Channels + 6 × 16A Sockets',
+        boxSize: '16-Module Two-Tier (250 × 250 mm)',
+        idealFor: 'AV Equipment Racks, Studios, Charging Banks',
         features: [
-          'Six heavy-duty universal smart sockets on one expansive glass plate',
-          'Four capacitive touch lighting switches with cyan LED backlights',
-          'Child-safe internal spring shutters on all six receptacles',
-          '5-Year comprehensive replacement warranty from Neurolinx'
+          '6 heavy 16A universal sockets (3 top + 3 bottom) + 4 touch switches',
+          'Independent socket control replaces bulky extension cords cleanly',
+          '4kV transient surge clamp + child-safe shutters on all 6 outlets'
         ]
       }
     ]
@@ -787,73 +782,73 @@ export function RetrofitTouchPanels() {
     {
       id: '1-sockets',
       name: '1 sockets',
-      title: '1 sockets Smart Convenience Power Board (6A/10A Rating)',
-      tagline: 'Compact Smart Automation Socket for Everyday Devices, Lamps & Gadgets',
-      desc: 'Single-module smart socket engineered to retrofit standard backbox cutouts. Provides smart on/off scheduling, energy consumption tracking, and voice automation for table lamps, home entertainment peripherals, audio equipment, and everyday appliances.',
-      smartAutomationInfo: 'App & Voice Control via Alexa and Google Assistant. Create automated sunrise/sunset routines, countdown sleep timers for mobile charging, and view daily/weekly kilowatt-hour (kWh) power consumption graphs.',
-      socketInfo: 'Internal spring-loaded child-safety shutters, solid phosphor-bronze spring clips, 10A continuous / 16A peak resistive rating, and integrated 3kV surge suppression.',
-      load: '10A Continuous (2200W resistive / 500W inductive)',
-      boxSize: '1-Module Standard Indian Junction Box (50 × 86 mm)',
-      idealFor: 'Bedside Phone Charging, Study Table Lamps, Smart Speakers, Wi-Fi Routers',
+      img: '/media/plates/socket-1.png',
+      title: '1 Smart Power Socket Plate (Compact 1M)',
+      tagline: 'Single Retrofit Smart Socket for Lamps, Routers & Night Chargers',
+      desc: 'Single-module smart socket engineered to retrofit standard backbox cutouts.',
+      smartAutomationInfo: 'App countdown timers & kWh power monitoring.',
+      socketInfo: 'Child-safe shutters + 3kV surge guard.',
+      load: '10A Continuous (2200W Max)',
+      boxSize: '1-Module Box (50 × 86 mm)',
+      idealFor: 'Bedside Chargers, Table Lamps, Wi-Fi Routers',
       features: [
-        'App scheduled sleep-timer turns off power after 2 hours to prevent battery damage',
-        'Built-in child protection shutters prevent insertion of foreign objects',
-        'Real-time power monitoring alerts you to ghost power drain and standby waste',
-        'Compact single-module form factor fits any standard modular switch plate'
+        '1 × 10A/16A universal socket with internal child-protection shutters',
+        'Auto-off sleep timer protects phone & laptop batteries overnight',
+        'Tracks daily power usage & alerts on standby vampire load'
       ]
     },
     {
       id: '2-sockets',
       name: '2 sockets',
-      title: '2 sockets Heavy-Duty 16A Smart Power Board',
-      tagline: 'High-Wattage Dedicated Power Controller for Kitchen & Utility Appliances',
-      desc: 'Standard universal multi-pin power socket with heavy-duty smart solid-state relay. Built for power-hungry appliances including microwaves, refrigerators, electric irons, room heaters, and washing machines.',
-      smartAutomationInfo: 'Automate high-load appliance schedules and monitor real-time electrical current. Set automated power cut-off if voltage drops below 170V or surges above 270V to protect expensive inverter appliances.',
-      socketInfo: 'Heavy-duty 16A continuous / 25A inductive inrush rating, flame-retardant poly-carbonate core, solid brass contacts, and 4kV MOV transient surge arrestor.',
-      load: '16A Continuous / 20A Max (3500W load capacity)',
-      boxSize: '2-Module Standard Junction Box (86 × 86 mm)',
-      idealFor: 'Microwave Ovens, Refrigerators, Washing Machines, Dishwashers, Heaters',
+      img: '/media/plates/socket-2.png',
+      title: '2 Smart Power Sockets Plate (Dual 16A)',
+      tagline: 'Dual Independent 16A Heavy Power Outlets on Crystal Glass',
+      desc: 'Dual universal multi-pin power sockets with independent solid-state relays.',
+      smartAutomationInfo: 'Independent app & voice control for both outlets.',
+      socketInfo: 'Dual 16A shuttered outlets with 4kV surge clamp.',
+      load: '2 × 16A Independent (3500W Max)',
+      boxSize: '4-Module Box (146 × 86 mm)',
+      idealFor: 'Kitchen Counters, Laundry Appliances, Desks',
       features: [
-        'Smart overload and thermal cut-off with automatic instant notification to phone',
-        'High-grade phosphor-bronze grip prevents loose contact sparking and heating',
-        'Multi-standard universal socket fits Indian 3-pin (large & small), UK, and EU plugs',
-        'Synchronized with home energy management to run appliances during off-peak hours'
+        'Dual 16A/25A relays control left & right appliances independently',
+        'Supports Indian 3-pin (6A & 16A), UK & EU plugs safely',
+        'Auto-cuts power during voltage spikes (>270V) or brownouts (<170V)'
       ]
     },
     {
       id: '3-sockets',
       name: '3 sockets',
-      title: '3 sockets 25A Smart Power Board with Feather-Touch Isolator',
-      tagline: 'Dedicated High-Inrush Controller for Water Geysers & Split Air Conditioners',
-      desc: 'Comprehensive smart unit combining a 25A heavy-duty universal socket with an integrated capacitive feather-touch glass isolator switch. Built specifically for high-inrush inductive compressor loads and high-wattage water heating elements.',
-      smartAutomationInfo: 'Schedule your morning shower routine: turn on geyser at 6:30 AM and automatically turn off after 20 minutes to save electricity. Pre-cool rooms with AC schedules and trigger geyser activation via voice: "Alexa, turn on the master geyser".',
-      socketInfo: '25A heavy-duty industrial rating with zero-cross snubber circuit to prevent contact arc degradation, ceramic thermal barrier, and automatic under/over-voltage isolation.',
-      load: '25A Continuous / 32A Inrush (up to 5500W heavy inductive & heating load)',
-      boxSize: '3-Module Standard Junction Box (120 × 86 mm)',
-      idealFor: 'Instant & Storage Water Geysers, 1.5 - 2.5 Ton Air Conditioners, EV Chargers',
+      img: '/media/plates/socket-3.png',
+      title: '3 Smart Power Sockets Plate (Triple 16A Hub)',
+      tagline: 'Triple Heavy-Duty Smart Power Bar for Workstations & AV Media',
+      desc: 'Three independent universal smart sockets unified under tempered crystal glass.',
+      smartAutomationInfo: 'Group scheduling & per-outlet power cutoffs.',
+      socketInfo: 'Triple 16A universal shuttered outlets.',
+      load: '3 × 16A Independent (5000W Max)',
+      boxSize: '6 / 8-Module Box (200 × 86 mm)',
+      idealFor: 'Workstations, TV Consoles, Coffee Stations',
       features: [
-        'Dedicated capacitive glass touch switch with dual-color LED status indicator',
-        'Zero-cross relay switching technology eliminates electrical arcing during startup',
-        'Automated morning geyser timers guarantee zero wasted electricity or boiling dry',
-        'Heavy 32A peak inrush endurance rated for continuous commercial & villa use'
+        '3 independent 16A smart sockets replacing external surge strips',
+        'One-tap scenes power down monitors, speakers & peripherals together',
+        'Heavy phosphor-bronze clips prevent contact heat & pin arcing'
       ]
     },
     {
       id: '4-sockets',
       name: '4 sockets',
-      title: '4 sockets Dual Multi-Pin & 30W USB-C Fast-Charge Station',
-      tagline: 'Architectural Workstation & Luxury Bedside Multi-Appliance Charging Hub',
-      desc: 'High-density command socket plate featuring dual independent 16A universal shuttered outlets coupled with dual Type-C (30W Power Delivery) and USB-A (QuickCharge 3.0) smart charging ports in a diamond-bevelled black crystal glass surround.',
-      smartAutomationInfo: 'Independent channel automation: control left socket, right socket, and USB ports individually from your mobile app. Create "Workstation Mode" that powers up monitors, laptop chargers, and desk lighting with one tap.',
-      socketInfo: 'Dual 16A universal shuttered sockets + 30W USB-C PD / 18W USB-A smart chip with intelligent device detection, thermal dissipation shielding, and 4kV industrial surge clamp.',
-      load: 'Dual 16A Independent Sockets + 30W USB-C PD Fast Charger',
-      boxSize: '4-Module Standard Junction Box (146 × 86 mm)',
-      idealFor: 'Executive Work Desks, Luxury Bedside Consoles, TV Entertainment Units',
+      img: '/media/plates/socket-4.png',
+      title: '4 Smart Power Sockets Plate (Quad 16A Bank)',
+      tagline: 'Architectural 4-Outlet Power Bank for Kitchens, Racks & Studios',
+      desc: 'Four independent 16A universal shuttered outlets on diamond-cut crystal glass.',
+      smartAutomationInfo: 'Individual scheduling & live telemetry per outlet.',
+      socketInfo: 'Quad 16A universal shuttered sockets with 4kV surge clamp.',
+      load: '4 × 16A Independent (7000W Max)',
+      boxSize: '8-Module Box (224 × 86 mm)',
+      idealFor: 'Kitchen Islands, Server Racks, AV Studios',
       features: [
-        'Integrated 30W USB-C Power Delivery charges iPhones, iPads, and MacBooks at max speed',
-        'Dual independent 16A sockets allow controlling two appliances separately',
-        'Child-safe spring shutters on both sockets with independent power monitoring',
-        'Sleek diamond-cut black crystal glass plate flush mounts cleanly into backboxes'
+        '4 independently switchable 16A outlets for high-draw appliances',
+        'Real-time wattage monitoring + instant thermal overload shutoff',
+        'Child-safe internal shutters & 4kV industrial surge suppression'
       ]
     }
   ];
@@ -916,145 +911,98 @@ export function RetrofitTouchPanels() {
   });
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
 
-  // Stepper handlers: step through available pre-sets for this module
-  const handleStepConfig = (direction: 'touch-inc' | 'touch-dec' | 'socket-inc' | 'socket-dec') => {
-    const currentIndex = currentModuleConfigs.findIndex(c => c.id === activeConfig.id);
-    if (currentIndex === -1) return;
-
-    if (direction === 'touch-inc' || direction === 'socket-dec') {
-      // Find config with higher touch panels
-      const target = currentModuleConfigs.find(c => c.touchPanels > activeConfig.touchPanels);
-      if (target) {
-        setSelectedConfigId(target.id);
-        setInquiryForm(prev => ({
-          ...prev,
-          automationFor: `${activeBox.label} (${target.name}) Setup`
-        }));
-      }
-    } else if (direction === 'touch-dec' || direction === 'socket-inc') {
-      // Find config with higher sockets
-      const target = currentModuleConfigs.find(c => c.sockets > activeConfig.sockets);
-      if (target) {
-        setSelectedConfigId(target.id);
-        setInquiryForm(prev => ({
-          ...prev,
-          automationFor: `${activeBox.label} (${target.name}) Setup`
-        }));
-      }
-    }
-  };
-
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Only That One Image (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24">
-        <div className="relative w-full">
-          <img 
-            src="/media/retrofit_touch_panel_hero.jpg" 
-            alt="Retrofit & Touch Switches Smart Home Automation - Neurolinx"
+      {/* ── Slide 1: Full-Bleed Retrofit & Touch Panels Panoramic Hero Banner (2172 x 724) ── */}
+      <div
+        id="hero"
+        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+      >
+        <div className="relative w-full max-w-[2172px] mx-auto">
+          <img
+            src="/media/retrofit_touch_panels_panoramic_hero.jpg?v=fullBleed2172"
+            alt="Retrofit & Touch Panel - Smart Home Automation - Neurolinx"
+            width={2172}
+            height={724}
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-auto block"
           />
+
+          {/* Subtle Ambient Scrim for Clean Text Readability */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          {/* Centered Title in the Middle of the Image */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+              <span className="text-white">Retrofit &amp; </span>
+              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
+                Touch Panel
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
 
-      {/* ── Slide 2: Models And Features of Smart Devices (Matching User Reference Image) ── */}
-      <div id="models-features" className="w-full bg-white py-16 sm:py-20 md:py-24 border-b border-gray-100">
+      {/* ── Slide 2: Models And Features of Smart Devices ── */}
+      <div id="models-features" className="w-full bg-white pt-8 sm:pt-12 md:pt-14 pb-12 sm:pb-16 md:pb-20 border-b border-gray-100">
         <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Title with company logo colors: Red, White, and Black */}
-          <div className="text-center mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-sm border border-gray-800">
-              <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
-              <span>Modular Touch Panels & Sockets</span>
+
+          {/* Stylish Architectural Section Title */}
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-b from-[#161922] to-[#0B0D12] text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.35)] border border-slate-700/70">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+              </span>
+              <span>Modular Touch Panels &amp; Sockets</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-2 sm:mb-3">
-              Models And Features of
+
+            <h2 className="font-display text-3xl sm:text-4xl md:text-[52px] font-extrabold tracking-[-0.03em] leading-[1.12] text-slate-900">
+              <span className="block text-slate-900">Models And Features of</span>
+              <span className="relative inline-block mt-1 sm:mt-1.5 pb-2.5">
+                <span className="bg-gradient-to-r from-[#E0001B] via-[#F41F37] to-[#9E0014] bg-clip-text text-transparent">
+                  Smart Devices
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[92%] h-[3px] rounded-full bg-gradient-to-r from-transparent via-brand-red to-transparent"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-[65%] h-[6px] rounded-full bg-brand-red/25 blur-sm pointer-events-none"
+                />
+              </span>
             </h2>
-            <div className="inline-flex items-center gap-2.5 text-3xl sm:text-4xl md:text-5xl font-black">
-              <span className="text-brand-red relative inline-block pb-1.5">
-                Smart
-                <span className="absolute bottom-0 left-0 w-full h-[3px] sm:h-[4px] bg-brand-red rounded-full"></span>
-              </span>
-              <span className="text-black relative inline-block pb-1.5">
-                Devices
-                <span className="absolute bottom-0 left-0 w-full h-[3px] sm:h-[4px] bg-black rounded-full"></span>
-              </span>
-            </div>
-            <p className="text-slate-500 text-xs sm:text-sm max-w-xl mx-auto mt-3 font-medium">
+
+            <p className="text-slate-500 text-xs sm:text-[15px] max-w-xl mx-auto mt-4 leading-relaxed font-medium">
               Select any modular switchboard box size below to customize your touch panels and smart power sockets.
             </p>
           </div>
 
-          {/* Modular Boxes: 1 Moduler, 2 Moduler, 4 Moduler, 8 Moduler, 10 Moduler, 12 Moduler, 16 Moduler (Row 1: 3, Row 2: 3, Row 3: 1 centered) */}
-          <div className="max-w-4xl mx-auto mb-14 sm:mb-16">
-            <div className="flex flex-col items-center gap-3.5 sm:gap-4.5">
-              
-              {/* Row 1: 3 Boxes (1 Moduler, 2 Moduler, 4 Moduler) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4.5 w-full">
-                {modularBoxes.slice(0, 3).map((box) => {
-                  const isActive = activeModulerBox === box.id;
-                  return (
-                    <button
-                      key={box.id}
-                      type="button"
-                      onClick={() => handleSelectModuleBox(box.id)}
-                      className={`w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl sm:rounded-[20px] text-sm sm:text-[15px] md:text-base font-bold tracking-tight transition-all duration-200 border cursor-pointer select-none flex items-center justify-center text-center shadow-xs ${
-                        isActive
-                          ? 'bg-black text-white border-black shadow-md scale-[1.02]'
-                          : 'bg-[#F9FAFB] hover:bg-gray-100 hover:border-gray-300 text-slate-800 border-gray-200/90'
-                      }`}
-                    >
-                      <span>{box.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Row 2: 3 Boxes (8 Moduler, 10 Moduler, 12 Moduler) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4.5 w-full">
-                {modularBoxes.slice(3, 6).map((box) => {
-                  const isActive = activeModulerBox === box.id;
-                  return (
-                    <button
-                      key={box.id}
-                      type="button"
-                      onClick={() => handleSelectModuleBox(box.id)}
-                      className={`w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl sm:rounded-[20px] text-sm sm:text-[15px] md:text-base font-bold tracking-tight transition-all duration-200 border cursor-pointer select-none flex items-center justify-center text-center shadow-xs ${
-                        isActive
-                          ? 'bg-black text-white border-black shadow-md scale-[1.02]'
-                          : 'bg-[#F9FAFB] hover:bg-gray-100 hover:border-gray-300 text-slate-800 border-gray-200/90'
-                      }`}
-                    >
-                      <span>{box.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Row 3: Last 1 Box Centered (16 Moduler) */}
-              <div className="flex justify-center w-full">
-                <div className="w-full sm:w-[calc(33.333%-0.75rem)]">
-                  {(() => {
-                    const box = modularBoxes[6];
-                    const isActive = activeModulerBox === box.id;
-                    return (
-                      <button
-                        key={box.id}
-                        type="button"
-                        onClick={() => handleSelectModuleBox(box.id)}
-                        className={`w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl sm:rounded-[20px] text-sm sm:text-[15px] md:text-base font-bold tracking-tight transition-all duration-200 border cursor-pointer select-none flex items-center justify-center text-center shadow-xs ${
-                          isActive
-                            ? 'bg-black text-white border-black shadow-md scale-[1.02]'
-                            : 'bg-[#F9FAFB] hover:bg-gray-100 hover:border-gray-300 text-slate-800 border-gray-200/90'
-                        }`}
-                      >
-                        <span>{box.label}</span>
-                      </button>
-                    );
-                  })()}
-                </div>
-              </div>
+          {/* Modular Boxes: Clean Minimalist Chips matching reference style */}
+          <div className="max-w-6xl mx-auto mb-12 sm:mb-14">
+            <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+              {modularBoxes.map((box) => {
+                const isActive = activeModulerBox === box.id;
+                return (
+                  <button
+                    key={box.id}
+                    type="button"
+                    onClick={() => handleSelectModuleBox(box.id)}
+                    aria-pressed={isActive}
+                    className={`min-w-[138px] sm:min-w-[148px] px-6 sm:px-7 py-3.5 sm:py-[15px] rounded-[11px] text-sm sm:text-[15px] font-medium tracking-normal transition-all duration-150 border cursor-pointer select-none inline-flex items-center justify-center text-center ${
+                      isActive
+                        ? 'bg-black text-white border-black shadow-sm'
+                        : 'bg-[#F4F4F5] hover:bg-[#EAEAEB] text-slate-900 border-[#D8D8DC] hover:border-[#BDBDC4]'
+                    }`}
+                  >
+                    <span>{box.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -1069,7 +1017,7 @@ export function RetrofitTouchPanels() {
               <div className="w-full lg:w-5/12 xl:w-[42%] flex flex-col justify-start">
                 
                 {/* Select Category & Option Card */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-xs mb-4">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-xs">
                   <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-gray-100">
                     <div className="flex items-center gap-2">
                       <Sliders className="w-4 h-4 text-brand-red" />
@@ -1153,7 +1101,7 @@ export function RetrofitTouchPanels() {
                         </div>
 
                         {/* Clickable Configuration Option Cards */}
-                        <div className="space-y-2 mb-3">
+                        <div className="space-y-2">
                           {currentModuleConfigs.map((cfg) => {
                             const isSelected = activeConfig.id === cfg.id;
                             return (
@@ -1203,140 +1151,85 @@ export function RetrofitTouchPanels() {
                           })}
                         </div>
 
-                        {/* Steppers & Quantity Adjuster */}
-                        <div className="bg-[#F8F9FA] rounded-xl p-3 border border-gray-200 space-y-2.5">
-                          <div className="flex items-center justify-between text-xs font-semibold text-slate-700">
-                            <span className="flex items-center gap-1.5">
-                              <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                              <span>Touch Panels Count:</span>
-                            </span>
-                            <div className="flex items-center gap-1.5">
-                              <button
-                                type="button"
-                                onClick={() => handleStepConfig('touch-dec')}
-                                disabled={activeConfig.touchPanels === 0}
-                                className="w-6 h-6 rounded-md bg-white border border-gray-200 hover:bg-gray-100 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center cursor-pointer"
-                              >
-                                <Minus className="w-3 h-3 text-slate-700" />
-                              </button>
-                              <span className="w-6 text-center font-bold text-slate-900 text-xs">
-                                {activeConfig.touchPanels}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => handleStepConfig('touch-inc')}
-                                disabled={activeConfig.touchPanels >= activeBox.capacity}
-                                className="w-6 h-6 rounded-md bg-white border border-gray-200 hover:bg-gray-100 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center cursor-pointer"
-                              >
-                                <Plus className="w-3 h-3 text-slate-700" />
-                              </button>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center justify-between text-xs font-semibold text-slate-700">
-                            <span className="flex items-center gap-1.5">
-                              <Zap className="w-3.5 h-3.5 text-brand-red" />
-                              <span>Smart Sockets Count:</span>
-                            </span>
-                            <div className="flex items-center gap-1.5">
-                              <button
-                                type="button"
-                                onClick={() => handleStepConfig('socket-dec')}
-                                disabled={activeConfig.sockets === 0}
-                                className="w-6 h-6 rounded-md bg-white border border-gray-200 hover:bg-gray-100 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center cursor-pointer"
-                              >
-                                <Minus className="w-3 h-3 text-slate-700" />
-                              </button>
-                              <span className="w-6 text-center font-bold text-slate-900 text-xs">
-                                {activeConfig.sockets}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => handleStepConfig('socket-inc')}
-                                disabled={(activeConfig.sockets * 2) >= activeBox.capacity}
-                                className="w-6 h-6 rounded-md bg-white border border-gray-200 hover:bg-gray-100 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center cursor-pointer"
-                              >
-                                <Plus className="w-3 h-3 text-slate-700" />
-                              </button>
-                            </div>
-                          </div>
-
-                          {/* Module Capacity Meter */}
-                          <div className="pt-1.5 border-t border-gray-200/80">
-                            <div className="flex items-center justify-between text-[11px] font-bold mb-1">
-                              <span className="text-gray-500">Box Capacity Meter:</span>
-                              <span className="text-emerald-700">
-                                {activeConfig.touchPanels * 1 + activeConfig.sockets * 2} / {activeBox.capacity} Modules (100% Filled)
-                              </span>
-                            </div>
-                            <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                              <div className="h-full bg-emerald-500 rounded-full w-full"></div>
-                            </div>
-                          </div>
-                        </div>
-
                       </div>
 
                     </div>
                   ) : (
                     /* Standalone Sockets Mode */
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
-                        <span>Socket Models</span>
-                        <span className="text-[10px] font-semibold text-gray-400">4 Options</span>
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={selectedSocketId}
-                          onChange={(e) => {
-                            const id = e.target.value;
-                            setSelectedSocketId(id);
-                            const socket = socketOptions.find(s => s.id === id);
-                            if (socket) {
-                              setInquiryForm(prev => ({
-                                ...prev,
-                                automationFor: `${socket.name} Setup`
-                              }));
-                            }
-                          }}
-                          className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
-                        >
-                          {socketOptions.map((opt) => (
-                            <option key={opt.id} value={opt.id}>
-                              {opt.name}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                          <span>Socket Models</span>
+                          <span className="text-[10px] font-semibold text-gray-400">4 Options</span>
+                        </label>
+                        <div className="relative">
+                          <select
+                            value={selectedSocketId}
+                            onChange={(e) => {
+                              const id = e.target.value;
+                              setSelectedSocketId(id);
+                              const socket = socketOptions.find(s => s.id === id);
+                              if (socket) {
+                                setInquiryForm(prev => ({
+                                  ...prev,
+                                  automationFor: `${socket.name} Setup`
+                                }));
+                              }
+                            }}
+                            className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
+                          >
+                            {socketOptions.map((opt) => (
+                              <option key={opt.id} value={opt.id}>
+                                {opt.name}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        </div>
+                      </div>
+
+                      {/* Clickable Standalone Socket Option Cards */}
+                      <div className="pt-3 border-t border-gray-100 space-y-2">
+                        {socketOptions.map((opt) => {
+                          const isSelected = activeSocketItem.id === opt.id;
+                          return (
+                            <button
+                              key={opt.id}
+                              type="button"
+                              onClick={() => {
+                                setSelectedSocketId(opt.id);
+                                setInquiryForm(prev => ({
+                                  ...prev,
+                                  automationFor: `${opt.name} Setup`
+                                }));
+                              }}
+                              className={`w-full p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 ${
+                                isSelected
+                                  ? 'bg-black text-white border-black shadow-sm ring-1 ring-black'
+                                  : 'bg-[#F9FAFB] hover:bg-gray-100 text-slate-800 border-gray-200'
+                              }`}
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                                  isSelected ? 'border-brand-red bg-brand-red' : 'border-gray-400 bg-white'
+                                }`}>
+                                  {isSelected && <Check className="w-2.5 h-2.5 text-white stroke-[3]" />}
+                                </div>
+                                <div className="min-w-0">
+                                  <div className="text-xs font-bold capitalize truncate">
+                                    {opt.name}
+                                  </div>
+                                  <div className={`text-[10px] font-medium truncate ${isSelected ? 'text-gray-300' : 'text-gray-500'}`}>
+                                    {opt.boxSize}
+                                  </div>
+                                </div>
+                              </div>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
-                </div>
-
-                {/* Active Model Standard Highlights Card */}
-                <div className="p-4 rounded-2xl bg-white border border-gray-200/80 shadow-xs space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Active Standard</span>
-                    <span className="text-xs font-bold text-brand-red bg-red-50 px-2.5 py-0.5 rounded-full border border-red-100">
-                      {selectedCategory === 'touch-panels' ? activeBox.label : activeSocketItem.name}
-                    </span>
-                  </div>
-                  <div className="text-xs text-slate-700 font-semibold space-y-2 pt-2 border-t border-gray-100">
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400">Standard Box:</span>
-                      <span className="text-slate-800 font-bold text-right">
-                        {selectedCategory === 'touch-panels' ? activeConfig.boxSize : activeSocketItem.boxSize}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400">Plate Material:</span>
-                      <span className="text-slate-800 font-bold">4mm Toughened Crystal Glass</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400">Warranty:</span>
-                      <span className="text-emerald-600 font-bold">5-Year Comprehensive</span>
-                    </div>
-                  </div>
                 </div>
 
               </div>
@@ -1361,177 +1254,105 @@ export function RetrofitTouchPanels() {
                     </div>
                   </div>
 
-                  {/* ── Interactive Visual Switchboard Plate Preview ── */}
-                  <div className="mb-6 rounded-2xl bg-gradient-to-b from-[#181D26] to-[#0D111A] p-5 sm:p-6 border border-slate-700/80 shadow-2xl relative overflow-hidden group">
-                    {/* Glass sheen highlight */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/10 pointer-events-none rounded-2xl"></div>
-                    
-                    {/* Top Plate Brand Header */}
-                    <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-700/60 relative z-10">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
-                        <span className="text-[11px] font-mono tracking-widest text-slate-300 uppercase font-semibold">
-                          NEUROLINX • {selectedCategory === 'touch-panels' ? activeBox.label : activeSocketItem.name} GLASS PLATE
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-mono tracking-wider text-slate-400">
-                        {selectedCategory === 'touch-panels' 
-                          ? `${activeConfig.touchPanels}P + ${activeConfig.sockets}S (${activeBox.capacity}M)`
-                          : 'STANDALONE SMART POWER'}
-                      </span>
+                  {/* ── Studio Product Switchboard Image Preview ── */}
+                  <div className="mb-6 rounded-2xl bg-white p-2 sm:p-4 border border-gray-200/80 shadow-sm overflow-hidden group">
+                    <div className="relative w-full aspect-[1280/760] flex items-center justify-center bg-white rounded-xl overflow-hidden">
+                      <img
+                        key={selectedCategory === 'touch-panels' ? activeConfig.id : activeSocketItem.id}
+                        src={`${selectedCategory === 'touch-panels' ? activeConfig.img : activeSocketItem.img}?v=centered1`}
+                        alt={
+                          selectedCategory === 'touch-panels'
+                            ? `${activeBox.label} - ${activeConfig.name} Smart Touch Switchboard`
+                            : `${activeSocketItem.name} Smart Power Socket Plate`
+                        }
+                        loading="eager"
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
                     </div>
+                  </div>
 
-                    {/* Switchboard Elements: Touch Panels + Universal Sockets Grid */}
-                    <div className="relative z-10">
+                  {/* Concise Board Title & 1-Line Summary */}
+                  <div className="mb-4">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-1">
                       {selectedCategory === 'touch-panels' ? (
-                        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 py-2">
-                          
-                          {/* Render Capacitive Touch Switches */}
-                          {Array.from({ length: activeConfig.touchPanels }).map((_, i) => (
-                            <div 
-                              key={`touch-${i}`}
-                              className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-[#090C12] border border-cyan-500/40 p-2.5 flex flex-col items-center justify-between shadow-[0_0_14px_rgba(6,182,212,0.18)] hover:border-cyan-400 transition-all cursor-pointer group/btn"
-                            >
-                              <div className="w-full flex items-center justify-between">
-                                <span className="text-[8px] font-mono text-cyan-400 font-bold">L{i + 1}</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_rgba(6,182,212,1)]"></span>
-                              </div>
-                              <div className="w-7 h-7 rounded-full border border-cyan-400/50 bg-cyan-950/40 flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                                {i % 4 === 0 && <Lightbulb className="w-3.5 h-3.5 text-cyan-300" />}
-                                {i % 4 === 1 && <Fan className="w-3.5 h-3.5 text-cyan-300" />}
-                                {i % 4 === 2 && <Sparkles className="w-3.5 h-3.5 text-cyan-300" />}
-                                {i % 4 === 3 && <Power className="w-3.5 h-3.5 text-cyan-300" />}
-                              </div>
-                              <span className="text-[8px] font-semibold text-slate-400 tracking-tight">TOUCH</span>
-                            </div>
-                          ))}
-
-                          {/* Render Universal Smart Power Sockets (Each is 2M Wide) */}
-                          {Array.from({ length: activeConfig.sockets }).map((_, i) => (
-                            <div 
-                              key={`socket-${i}`}
-                              className="w-28 sm:w-32 h-16 sm:h-18 rounded-2xl bg-[#090C12] border border-slate-700 p-2.5 flex items-center justify-between shadow-inner relative hover:border-slate-500 transition-all"
-                            >
-                              {/* 3-Pin Universal Socket Graphic */}
-                              <div className="flex flex-col items-center justify-center gap-1 w-14">
-                                {/* Top Ground Pin */}
-                                <div className="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-700 shadow-inner"></div>
-                                {/* Live & Neutral Slotted Pins */}
-                                <div className="flex items-center gap-2">
-                                  <div className="w-2 h-3 rounded-xs bg-slate-900 border border-slate-700"></div>
-                                  <div className="w-2 h-3 rounded-xs bg-slate-900 border border-slate-700"></div>
-                                </div>
-                              </div>
-
-                              {/* Socket Details & Power Indicator */}
-                              <div className="flex flex-col items-end justify-between h-full py-0.5">
-                                <div className="flex items-center gap-1.5">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-brand-red shadow-[0_0_6px_rgba(224,0,27,0.9)] animate-pulse"></span>
-                                  <span className="text-[9px] font-mono text-brand-red font-bold">16A</span>
-                                </div>
-                                <span className="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">
-                                  SMART POWER
-                                </span>
-                              </div>
-                            </div>
-                          ))}
-
-                        </div>
+                        activeConfig.sockets === 0 ? (
+                          <>
+                            <span className="text-black">{activeBox.label}: </span>
+                            <span className="text-brand-red">
+                              {activeConfig.touchPanels} Touch {activeConfig.touchPanels === 1 ? 'Panel' : 'Panels'}
+                            </span>
+                          </>
+                        ) : activeConfig.touchPanels === 0 ? (
+                          <>
+                            <span className="text-black">{activeBox.label}: </span>
+                            <span className="text-brand-red">
+                              {activeConfig.sockets} Smart {activeConfig.sockets === 1 ? 'Socket' : 'Sockets'}
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-black">{activeBox.label}: </span>
+                            <span className="text-brand-red">
+                              {activeConfig.touchPanels} Touch {activeConfig.touchPanels === 1 ? 'Panel' : 'Panels'}
+                            </span>
+                            <span className="text-black">
+                              {' '}&amp; {activeConfig.sockets} Smart {activeConfig.sockets === 1 ? 'Socket' : 'Sockets'}
+                            </span>
+                          </>
+                        )
                       ) : (
-                        /* Standalone Socket Visual */
-                        <div className="flex items-center justify-center gap-4 py-2">
-                          <div className="w-32 h-20 rounded-2xl bg-[#090C12] border border-slate-700 p-3 flex items-center justify-between shadow-inner">
-                            <div className="flex flex-col items-center justify-center gap-1.5 w-14">
-                              <div className="w-3 h-3 rounded-full bg-slate-900 border border-slate-700"></div>
-                              <div className="flex items-center gap-2.5">
-                                <div className="w-2 h-3 rounded-xs bg-slate-900 border border-slate-700"></div>
-                                <div className="w-2 h-3 rounded-xs bg-slate-900 border border-slate-700"></div>
-                              </div>
-                            </div>
-                            <div className="flex flex-col items-end justify-between h-full">
-                              <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_8px_rgba(224,0,27,1)]"></span>
-                              <span className="text-[9px] font-mono text-brand-red font-bold">SMART 16A</span>
-                            </div>
-                          </div>
-                        </div>
+                        <span className="text-black">{activeSocketItem.title}</span>
                       )}
-                    </div>
+                    </h3>
 
-                    {/* Bottom Specs Bar */}
-                    <div className="mt-3.5 pt-2.5 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-                      <span className="font-medium">
-                        {selectedCategory === 'touch-panels' 
-                          ? `${activeConfig.touchPanels} Feather-Touch Circuits • ${activeConfig.sockets} Smart Sockets`
-                          : 'Universal Shuttered Safety Outlets'}
+                    <p className="text-brand-red font-semibold text-xs sm:text-[13px]">
+                      {selectedCategory === 'touch-panels' ? activeConfig.tagline : activeSocketItem.tagline}
+                    </p>
+                  </div>
+
+                  {/* Essential Board Specs Grid (2x2 Compact Key Specs) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-4">
+                    <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-2xs">
+                      <span className="text-[10px] text-gray-400 font-bold block uppercase tracking-wider mb-0.5">
+                        Channel Output
                       </span>
-                      <span className="text-cyan-400 font-mono font-semibold">Active Preview</span>
+                      <span className="text-xs font-bold text-slate-900">
+                        {selectedCategory === 'touch-panels'
+                          ? `${activeConfig.touchPanels} × Touch Switch${activeConfig.touchPanels === 1 ? '' : 'es'} • ${activeConfig.sockets} × Socket${activeConfig.sockets === 1 ? '' : 's'}`
+                          : `${activeSocketItem.name} • Independent 16A Relay Control`}
+                      </span>
                     </div>
-                  </div>
-
-                  {/* Title & Tagline with Company Logo Colors */}
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">
-                    {selectedCategory === 'touch-panels' ? (
-                      <>
-                        <span className="text-black">{activeBox.label}: </span>
-                        <span className="text-brand-red">{activeConfig.touchPanels} Touch Panels</span>
-                        <span className="text-black"> & {activeConfig.sockets} Smart Sockets</span>
-                      </>
-                    ) : (
-                      <span className="text-black">{activeSocketItem.title}</span>
-                    )}
-                  </h3>
-                  
-                  <p className="text-brand-red font-semibold text-xs sm:text-sm mb-4">
-                    {selectedCategory === 'touch-panels' ? activeConfig.tagline : activeSocketItem.tagline}
-                  </p>
-
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                    {selectedCategory === 'touch-panels' ? activeConfig.desc : activeSocketItem.desc}
-                  </p>
-
-                  {/* Smart Home Automation Capabilities Box */}
-                  <div className="bg-white p-4 sm:p-5 rounded-2xl border border-gray-100 shadow-2xs mb-5 space-y-2">
-                    <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                      <Wifi className="w-3.5 h-3.5 text-brand-red" />
-                      <span>Smart Home Automation Capabilities</span>
-                    </h5>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                      {selectedCategory === 'touch-panels' ? activeConfig.smartAutomationInfo : activeSocketItem.smartAutomationInfo}
-                    </p>
-                  </div>
-
-                  {/* Smart Socket Specification Box */}
-                  <div className="bg-white p-4 sm:p-5 rounded-2xl border border-gray-100 shadow-2xs mb-6 space-y-2">
-                    <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                      <Zap className="w-3.5 h-3.5 text-brand-red" />
-                      <span>Smart Socket Specification & Protection</span>
-                    </h5>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                      {selectedCategory === 'touch-panels' ? activeConfig.socketInfo : activeSocketItem.socketInfo}
-                    </p>
-                  </div>
-
-                  {/* Quick Specs Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                    <div className="bg-white p-3.5 rounded-xl border border-gray-100 shadow-2xs">
-                      <span className="text-[11px] text-gray-400 font-semibold block uppercase">Load & Socket Rating</span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900">
+                    <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-2xs">
+                      <span className="text-[10px] text-gray-400 font-bold block uppercase tracking-wider mb-0.5">
+                        Load &amp; Power Rating
+                      </span>
+                      <span className="text-xs font-bold text-slate-900">
                         {selectedCategory === 'touch-panels' ? activeConfig.load : activeSocketItem.load}
                       </span>
                     </div>
-                    <div className="bg-white p-3.5 rounded-xl border border-gray-100 shadow-2xs">
-                      <span className="text-[11px] text-gray-400 font-semibold block uppercase">Junction Standard</span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900">
+                    <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-2xs">
+                      <span className="text-[10px] text-gray-400 font-bold block uppercase tracking-wider mb-0.5">
+                        Wall Box Standard
+                      </span>
+                      <span className="text-xs font-bold text-slate-900">
                         {selectedCategory === 'touch-panels' ? activeConfig.boxSize : activeSocketItem.boxSize}
+                      </span>
+                    </div>
+                    <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-2xs">
+                      <span className="text-[10px] text-gray-400 font-bold block uppercase tracking-wider mb-0.5">
+                        Ideal For
+                      </span>
+                      <span className="text-xs font-bold text-slate-900">
+                        {selectedCategory === 'touch-panels' ? activeConfig.idealFor : activeSocketItem.idealFor}
                       </span>
                     </div>
                   </div>
 
-                  {/* Feature Checklist */}
-                  <div className="space-y-2.5 mb-8">
-                    {(selectedCategory === 'touch-panels' ? activeConfig.features : activeSocketItem.features).map((feat, fi) => (
-                      <div key={fi} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                        <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  {/* Key Board Highlights (Concise, Specific to Active Board) */}
+                  <div className="space-y-1.5 mb-5">
+                    {(selectedCategory === 'touch-panels' ? activeConfig.features : activeSocketItem.features).slice(0, 3).map((feat, fi) => (
+                      <div key={fi} className="flex items-start gap-2 text-xs text-slate-700">
+                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -1631,16 +1452,6 @@ export function RetrofitTouchPanels() {
                     </span>
                   </div>
                 </div>
-              </div>
-
-              {/* Decorative Brand Emblem at the divider seam */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
               </div>
 
             </div>

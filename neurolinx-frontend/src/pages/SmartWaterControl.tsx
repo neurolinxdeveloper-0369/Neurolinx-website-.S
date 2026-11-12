@@ -79,53 +79,43 @@ export function SmartWaterControl() {
     {
       id: 'oht',
       name: 'Overhead Tank (OHT) Automation',
-      subtitle: 'Ultrasonic Non-Contact Overhead Reservoir Controller',
+      subtitle: 'Smart Automatic Pump & Motor Controller',
       modelNumber: 'Neurolinx WCS-OHT Pro',
-      tagline: 'Autonomous Level Sensing, Zero Overflow & Auto Cut-Off',
-      desc: 'Precision non-contact ultrasonic soundwave technology measures tank level without submerged metallic probes that rust, scale, or corrode. Automatically triggers the booster/submersible pump at 25% low capacity and cuts off power precisely at 95% full to eliminate water wastage and ceiling dampness.',
+      tagline: 'Automated Tank-to-Sump Automation & Dry-Run Protection',
+      desc: 'Intelligent pump controller that automates overhead tank and underground sump water cycles with complete motor protection.',
       image: '/media/smart_water_controller_hardware.jpg',
       badgeColor: 'bg-cyan-500/10 text-cyan-600 border-cyan-500/20',
       specs: [
-        { label: 'Sensor Technology', val: 'Ultrasonic Time-of-Flight (Non-Contact)' },
-        { label: 'Sensing Range', val: '0.20m to 5.0m (±1mm Precision)' },
-        { label: 'Motor Compatibility', val: '0.5 HP to 5 HP (Single & Three Phase)' },
-        { label: 'Enclosure Rating', val: 'IP65 Weatherproof & UV-Resistant ABS' },
-        { label: 'Auto Trigger Levels', val: 'Low Start: 25% | Full Cut-off: 95%' },
-        { label: 'Dry Run Response', val: '< 8 Seconds Automatic Motor Cutoff' },
-        { label: 'Connectivity', val: '2.4GHz Wi-Fi + LoRa / Local RF Sync' },
-        { label: 'App Features', val: 'Live Level %, Litres, Pump Switch & Alarms' }
+        { label: 'Motor Capacity', val: 'Up to 3 HP / 5 HP (Single & 3-Phase)' },
+        { label: 'Sensing Technology', val: 'Non-Contact Ultrasonic & Stainless Probes' },
+        { label: 'Protection', val: 'Dry-Run, Voltage Fluctuation & Thermal Cut-off' },
+        { label: 'Connectivity', val: 'Wi-Fi, Mobile App & Manual Bypass Switch' }
       ],
       highlights: [
-        '100% Non-contact ultrasonic sensing: zero corrosion, rust, or calcium buildup',
-        'Built-in high-inrush zero-cross relay prevents pump starter contact pitting',
-        'Mobile app telemetry: see exact tank water level in litres and percentage',
-        'Zero overflow guarantee prevents structural roof leakage and electricity waste'
+        { title: 'Fully Automated Pumping', detail: 'Starts when tank is low, stops automatically when full' },
+        { title: 'Dry-Run Guard', detail: 'Protects motor from burnout by sensing water absence instantly' },
+        { title: 'Live Tank Telemetry', detail: 'Real-time % water level display and smartphone remote control' }
       ]
     },
     {
       id: 'sump',
       name: 'Underground Sump & Borewell Logic',
-      subtitle: 'Dual-Tank Cascading Interlock & Dry-Run Motor Protection',
+      subtitle: 'Dual-Tank Cascading Interlock & Borewell Guard',
       modelNumber: 'Neurolinx WCS-Dual Pro',
-      tagline: 'Intelligent Sump Management & Borewell Dry-Run Safeguard',
-      desc: 'Multi-tank intelligence engineered for residential villas, gated communities, and commercial towers. Coordinates municipal corporation water inflow, underground sump reserves, and borewell pumps. Features instant dry-run detection that shuts off the pump within 8 seconds if water ceases flowing, preventing motor burnout.',
+      tagline: 'Zero-Dry-Run Interlock & Municipal Supply Intake Automation',
+      desc: 'Multi-tank controller that coordinates municipal supply inflow, underground sumps, and borewells without dry-run risk.',
       image: '/media/smart_water_tank_architecture.jpg',
       badgeColor: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
       specs: [
-        { label: 'Dual-Tank Logic', val: 'Cascading Sump-to-Overhead Interlock' },
-        { label: 'Dry-Run Safeguard', val: 'Instant Thermal & Water-Current Trip' },
-        { label: 'Borewell Support', val: 'Submersible, Jet & Monoblock Pumps' },
-        { label: 'Municipal Sensing', val: 'Detects Main Line Water Arrival' },
-        { label: 'Phase Protection', val: 'Single-Phasing & Phase Reversal Trip' },
-        { label: 'Voltage Window', val: '160V Low Cut - 270V High Cut' },
-        { label: 'Manual Bypass', val: 'Emergency Physical Toggle Switch' },
-        { label: 'Certifications', val: 'CE, RoHS & ISO 9001:2015 Compliant' }
+        { label: 'Tank Coordination', val: 'Cascading Sump-to-OHT Interlock' },
+        { label: 'Pump Support', val: 'Submersible, Jet & Monoblock Motors' },
+        { label: 'Phase & Voltage Guard', val: '160V–270V Cut-off & Phase Reversal' },
+        { label: 'Manual Override', val: 'Emergency Physical Bypass Toggle' }
       ],
       highlights: [
-        'Cascading interlock guarantees pump NEVER runs if underground sump is empty',
-        'Automatic municipal supply intake fills sump without manual valve monitoring',
-        'Dry-run protection prevents costly motor coil rewinding and downtime',
-        'Phase-failure and voltage surge cut-offs safeguard 3-phase heavy industrial motors'
+        { title: 'Cascading Sump Lock', detail: 'Guarantees pump never starts when underground sump is empty' },
+        { title: 'Smart Supply Intake', detail: 'Automatically captures municipal inflow without manual valves' },
+        { title: 'Surge & Phase Safety', detail: 'Shields 1-phase & 3-phase motors from burnout and voltage spikes' }
       ]
     }
   ];
@@ -135,16 +125,35 @@ export function SmartWaterControl() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: High Impact Visual Hero Banner (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-b border-gray-100">
-        <div className="relative w-full">
-          <img 
-            src="/media/smart_water_control_hero.jpg?v=2" 
-            alt="Smart Water Control System - Automated • Efficient • Reliable" 
+      {/* ── Slide 1: Full-Bleed Smart Water Control System 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 Retrofit & Touch Panel container) ── */}
+      <div
+        id="hero"
+        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+      >
+        <div className="relative w-full max-w-[2172px] mx-auto">
+          <img
+            src="/media/smart_water_control_hero_4k.jpg?v=uhd4kCleanWall"
+            alt="Smart Water Control System - Automated Water Level & Pump Controller - Neurolinx"
+            width={3840}
+            height={1280}
             loading="eager"
             fetchPriority="high"
-            className="w-full h-auto block shadow-2xl"
+            className="w-full h-auto block"
           />
+
+          {/* Subtle Ambient Scrim for Clean Text Readability */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          {/* Centered Title Positioned in the Calm Twilight Window (~1 cm shifted left) */}
+          <div className="absolute top-[26%] sm:top-[25%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+              <span className="text-white">Smart Water </span>
+              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
+                Control System
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -189,7 +198,7 @@ export function SmartWaterControl() {
           </div>
 
           {/* 2-Column Split: Left Product Showcase + Right Live Water Telemetry Simulator */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left 7 Columns: Product Hardware Showcase & Specifications */}
             <div className="lg:col-span-7 bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-10 border border-gray-100 shadow-sm flex flex-col justify-between">
@@ -212,15 +221,15 @@ export function SmartWaterControl() {
                 </div>
 
                 {/* Title & Tagline */}
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-3">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-2.5">
                   {currentSystem.subtitle}
                 </h3>
-                <p className="text-brand-red font-semibold text-sm sm:text-base mb-6">
+                <p className="text-brand-red font-semibold text-sm sm:text-base mb-5">
                   {currentSystem.tagline}
                 </p>
 
                 {/* 4K Studio Hardware Image */}
-                <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-8 shadow-sm border border-gray-100 bg-[#0B0F19]">
+                <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-6 shadow-sm border border-gray-100 bg-[#0B0F19]">
                   <img 
                     src={currentSystem.image} 
                     alt={currentSystem.subtitle} 
@@ -232,17 +241,17 @@ export function SmartWaterControl() {
                   </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+                {/* Summary Description */}
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
                   {currentSystem.desc}
                 </p>
 
-                {/* Technical Specifications Grid */}
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+                {/* Core Specifications (2x2 Grid) */}
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3.5 flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-brand-red" />
-                  <span>Hardware &amp; Operational Parameters</span>
+                  <span>Core Specifications</span>
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   {currentSystem.specs.map((item, idx) => (
                     <div key={idx} className="p-3.5 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
                       <span className="text-[11px] font-medium text-gray-500">{item.label}</span>
@@ -252,14 +261,14 @@ export function SmartWaterControl() {
                 </div>
 
                 {/* Highlights List */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-6">
                   {currentSystem.highlights.map((feat, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
-                        {feat}
+                        <strong className="text-slate-900 font-bold">{feat.title}:</strong> {feat.detail}
                       </span>
                     </div>
                   ))}
@@ -287,14 +296,14 @@ export function SmartWaterControl() {
             </div>
 
             {/* Right 5 Columns: Interactive Real-Time Water Telemetry Simulator */}
-            <div className="lg:col-span-5 bg-[#0C101A] text-white p-6 sm:p-8 lg:p-10 rounded-[28px] sm:rounded-[36px] flex flex-col justify-between border border-white/10 relative overflow-hidden shadow-2xl">
+            <div className="lg:col-span-5 h-fit lg:self-start bg-[#0C101A] text-white p-6 sm:p-8 rounded-[28px] sm:rounded-[36px] flex flex-col border border-white/10 relative overflow-hidden shadow-2xl">
               
               {/* Cyan Ambient Glow */}
               <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
+                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                   <div>
                     <span className="text-[11px] font-mono text-cyan-400 font-bold tracking-widest uppercase block">
                       SIMULATOR
@@ -310,7 +319,7 @@ export function SmartWaterControl() {
                 </div>
 
                 {/* Digital LCD Dual-Tank Gauge Box */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-black/70 border border-cyan-500/30 shadow-[inset_0_2px_12px_rgba(6,182,212,0.15)] mb-6 font-mono">
+                <div className="p-4 sm:p-5 rounded-2xl bg-black/70 border border-cyan-500/30 shadow-[inset_0_2px_12px_rgba(6,182,212,0.15)] mb-5 font-mono">
                   
                   <div className="flex items-center justify-between text-xs text-gray-400 border-b border-white/10 pb-3 mb-4">
                     <span>{currentSystem.modelNumber}</span>
@@ -368,7 +377,7 @@ export function SmartWaterControl() {
                 </div>
 
                 {/* Interactive Controls & Usage Simulator */}
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3 mb-5">
                   
                   {/* Mode Selector */}
                   <div className="flex items-center justify-between gap-2 p-1.5 bg-white/5 rounded-xl border border-white/10">
@@ -432,7 +441,7 @@ export function SmartWaterControl() {
               </div>
 
               {/* Bottom Quick Order Button */}
-              <div className="mt-6 pt-5 border-t border-white/10">
+              <div className="mt-5 pt-4 border-t border-white/10">
                 <a
                   href="#slide-4"
                   className="w-full py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center block cursor-pointer"

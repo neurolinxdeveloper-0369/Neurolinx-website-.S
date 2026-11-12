@@ -69,16 +69,35 @@ export function PowerSupply() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: High Impact Visual Hero Banner (Full-Width Edge-to-Edge Clean Architecture) ── */}
-      <div id="hero" className="w-full bg-[#05070D] relative overflow-hidden pt-20 sm:pt-24 border-b border-white/10">
-        <div className="relative w-full max-w-[1920px] mx-auto">
-          <img 
-            src="/media/power_supply_drivers_hero.jpg?v=v2" 
-            alt="Power Supply & Drivers - Reliable Power Solutions for Industrial, Commercial & Smart Automation Applications"
+      {/* ── Slide 1: Full-Bleed Power Supply & Drivers 4K UHD Panoramic Hero Banner (3840 x 1280, matching 3:1 Retrofit & Touch Panel container) ── */}
+      <div
+        id="hero"
+        className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24 border-none"
+      >
+        <div className="relative w-full max-w-[2172px] mx-auto">
+          <img
+            src="/media/power_supply_drivers_hero_4k.jpg?v=uhd4kStudio"
+            alt="Power Supply & Drivers - Reliable Power Solutions for Industrial, Commercial & Smart Automation Applications - Neurolinx"
+            width={3840}
+            height={1280}
             loading="eager"
             fetchPriority="high"
-            className="w-full h-auto block shadow-2xl"
+            className="w-full h-auto block"
           />
+
+          {/* Subtle Ambient Scrim for Clean Text Readability */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          {/* Centered Title Positioned in the Calm Dark Concrete Centerpiece (~1 cm shifted left) */}
+          <div className="absolute top-[26%] sm:top-[25%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
+            <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+              <span className="text-white">Power Supply &amp; </span>
+              <span className="text-cyan-400 relative inline-block pb-1">
+                Drivers
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400/90 rounded-full" />
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -571,15 +590,6 @@ export function PowerSupply() {
                 </div>
               </div>
 
-              {/* Decorative Brand Emblem at the divider seam rotating slowly */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
-              </div>
 
             </div>
 

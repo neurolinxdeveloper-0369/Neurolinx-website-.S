@@ -385,16 +385,6 @@ export function FootLamps() {
                 </div>
               </div>
 
-              {/* Decorative Brand Emblem at the divider seam rotating slowly */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
-              </div>
-
             </div>
 
             {/* Right Panel: Soft Light Gray Background */}
