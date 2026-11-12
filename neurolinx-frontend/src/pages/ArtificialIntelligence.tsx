@@ -1,70 +1,119 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export function ArtificialIntelligence() {
   const products = [
-    { title: "Edge AI", desc: "On-device inference and logic", img: "/media/edge_ai.jpg" },
-    { title: "Computer Vision", desc: "Defect detection and optical sorting", img: "/media/computer_vision.jpg" },
-    { title: "Predictive Maintenance", desc: "Vibration and thermal anomaly ML models", img: "/media/predictive_maintenance.jpg" },
-    { title: "NLP Interfaces", desc: "Voice-driven industrial control systems", img: "/media/nlp_interfaces.jpg" }
+    { title: "Edge AI", desc: "On-device inference and logic" },
+    { title: "Computer Vision", desc: "Defect detection and optical sorting" },
+    { title: "Predictive Maintenance", desc: "Vibration and thermal anomaly ML models" },
+    { title: "NLP Interfaces", desc: "Voice-driven industrial control systems" }
   ];
 
   return (
-    <div className="w-full bg-white flex flex-col font-body">
+    <div className="w-full bg-[#08090D] text-white flex flex-col font-body selection:bg-[#E5092C] selection:text-white min-h-screen">
+      
       {/* Cinematic Hero */}
-      <div className="relative w-full flex items-center justify-center overflow-hidden bg-brand-charcoal " style={{ minHeight: '60vh' }}>
+      <div className="relative w-full flex items-center justify-center overflow-hidden bg-[#08090D] pt-28 pb-20 sm:pt-36 sm:pb-28 border-b border-[#292A32]/80">
+        
+        {/* Subtle dark-red radial glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-[#E5092C]/[0.08] rounded-full blur-[150px] pointer-events-none"></div>
+
         <img 
           src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
           alt="Artificial"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 filter grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08090D] via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[#08090D]/50 pointer-events-none"></div>
         
-        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 mt-16">
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-brand-red/50 bg-brand-red/20 text-white font-medium text-sm tracking-wide uppercase backdrop-blur-md">
-            Machine Learning
+        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 sm:px-6">
+          <div className="reveal-item section-badge">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+            <span>Machine Learning</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-display font-black tracking-tighter text-white mb-6 leading-[1.1] drop-shadow-2xl">
+
+          <h1 className="reveal-item font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[64px] text-white tracking-tight leading-[1.12] mb-5">
             Artificial <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">
+            <span className="text-[#E5092C] inline-block">
               Intelligence.
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl font-light drop-shadow-md">
+
+          <p className="reveal-item section-desc max-w-2xl mx-auto">
             Edge computing, predictive maintenance, and computer vision models optimized for industrial hardware.
           </p>
         </div>
       </div>
 
       {/* Feature Section */}
-      <div className="py-32 px-8 max-w-7xl mx-auto w-full">
-         <div className="flex flex-col items-center text-center">
-             <h2 className="text-4xl md:text-5xl font-black text-brand-charcoal mb-6 leading-tight">
-               Cognitive Hardware.
-             </h2>
-             <p className="text-gray-500 text-lg leading-relaxed mb-16 max-w-2xl">
-               Deploying neural networks directly onto edge devices for zero-latency decision making.
-             </p>
-             
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto gap-8 mb-16 w-full text-left">
-               {products.map((product, i) => (
-                 <div key={i} className="flex flex-col bg-white overflow-hidden rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow group cursor-pointer">
-                   <div className="h-48 w-full overflow-hidden">
-                     <img src={product.img} alt={product.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                   </div>
-                   <div className="p-6 flex flex-col flex-1 bg-gray-50/50">
-                     <h3 className="text-xl font-bold text-brand-charcoal mb-2">{product.title}</h3>
-                     <p className="text-sm text-gray-500">{product.desc}</p>
-                   </div>
-                 </div>
-               ))}
-             </div>
+      <div className="w-full bg-[#101116] py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292A32]/80 relative">
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            <div className="lg:col-span-6 space-y-6">
+              <div className="reveal-item section-badge">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+                <span>Core Capabilities</span>
+              </div>
 
-             <button className="px-10 py-4 bg-brand-red text-white rounded-full font-bold shadow-lg hover:bg-red-700 hover:shadow-xl transition-all hover:-translate-y-1">
-               Learn More
-             </button>
-         </div>
-</div>
+              <h2 className="reveal-item section-heading">
+                Cognitive Hardware.
+              </h2>
+
+              <p className="reveal-item section-desc">
+                Deploying neural networks directly onto edge devices for zero-latency decision making.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                {products.map((product, i) => (
+                  <div 
+                    key={i} 
+                    className="reveal-card flex flex-col bg-[#17181E] rounded-2xl p-5 sm:p-6 border border-[#292A32] hover:border-[#E5092C]/50 transition-all duration-300 shadow-xl group hover:-translate-y-1"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-[#101116] border border-[#292A32] flex items-center justify-center mb-4 group-hover:bg-[#E5092C]/10 transition-colors">
+                      <CheckCircle2 className="w-5 h-5 text-[#E5092C]" />
+                    </div>
+                    <h3 className="card-title text-base sm:text-lg mb-1.5">{product.title}</h3>
+                    <p className="card-desc">{product.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  className="font-body inline-flex items-center gap-2 px-7 py-3.5 bg-[#E5092C] hover:bg-[#d00827] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide shadow-lg shadow-[#E5092C]/25 transition-all hover:scale-[1.02] cursor-pointer"
+                >
+                  <span>Inquire for Project</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-6 relative sticky top-[120px]">
+              <div className="rounded-3xl overflow-hidden border border-[#292A32] shadow-2xl relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  alt="Artificial" 
+                  className="w-full object-cover h-[450px] sm:h-[550px] filter grayscale hover:grayscale-0 transition-all duration-500" 
+                />
+                
+                <div className="absolute bottom-6 left-6 right-6 bg-[#17181E]/95 backdrop-blur-md p-5 rounded-2xl border border-[#292A32] flex items-center space-x-4 shadow-2xl">
+                  <div className="w-12 h-12 bg-[#E5092C]/15 border border-[#E5092C]/30 text-[#E5092C] rounded-xl flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="font-display font-bold text-base sm:text-lg text-white leading-tight">Edge Inference</div>
+                    <div className="font-body text-xs text-[#A1A1AA] uppercase tracking-wider font-semibold mt-0.5">Industry Certified</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,41 +1,50 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ChevronLeft,
-  ChevronRight, 
-  Linkedin, 
+  ArrowDown, 
   ArrowRight, 
+  Linkedin, 
   CheckCircle2, 
-  Play, 
-  Pause
+  ExternalLink, 
+  X, 
+  ChevronDown, 
+  ChevronUp, 
+  ShieldCheck, 
+  Cpu, 
+  Award, 
+  Quote 
 } from 'lucide-react';
 
+interface Milestone {
+  year: string;
+  title: string;
+  image: string;
+  tag: string;
+  summary: string;
+  points: string[];
+}
+
+interface Founder {
+  name: string;
+  role: string;
+  bio: string;
+  quote?: string;
+  image: string;
+  linkedin: string;
+}
+
 export function About() {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [selectedFounder, setSelectedFounder] = useState<Founder | null>(null);
+  const [expandedMilestones, setExpandedMilestones] = useState<Record<number, boolean>>({});
 
-  const [currentFounder, setCurrentFounder] = useState(0);
-  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-
-  const toggleVideo = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const milestones = [
+  // Milestones: 100% of facts, dates, achievements and points preserved
+  const milestones: Milestone[] = [
     {
       year: "2026",
       title: "Developed FogPass (Fog Pilot Assistance System)",
       image: "/media/fog_pass.png",
       tag: "Railways Safety Innovation",
+      summary: "Engineered and developed the advanced FogPass locomotive assistance system with real-time GPS positioning and rugged fail-safe architecture.",
       points: [
         "Engineered and developed the advanced FogPass device for railway locomotives to navigate dense fog and low-visibility conditions with zero speed delays.",
         "Equipped with high-accuracy GPS positioning, real-time audio-visual distance countdown to upcoming signals, and rugged fail-safe hardware tailored for loco pilots.",
@@ -47,6 +56,7 @@ export function About() {
       title: "Foot Lamp Project Completion & Railway Signal Exchanging",
       image: "/media/signaling_systems.jpg",
       tag: "Railway Milestones",
+      summary: "Delivered high-durability coach illumination and automated trackside communication protocols for Indian railway networks.",
       points: [
         "Successfully completed the end-to-end Railway Foot Lamp project, delivering high-durability, energy-efficient illumination for coaches and platforms.",
         "Engineered and completed the Railway Signal Exchanging project, enhancing automated trackside communication and locomotive exchange protocols.",
@@ -58,6 +68,7 @@ export function About() {
       title: "Company Founding, Railway Foot Lamp & Home Automation R&D",
       image: "/media/foot_lamps.png",
       tag: "Foundation & Launch",
+      summary: "Incorporated Neurolinx Global with dual focus on mission-critical railway electronics and next-gen IoT smart home systems.",
       points: [
         "Founded our company in 2024 with a vision to revolutionize smart technology, electronic control systems, and transportation engineering.",
         "Completed initial railway electronic projects, including the pilot design and validation of the specialized Foot Lamp system.",
@@ -66,7 +77,8 @@ export function About() {
     }
   ];
 
-  const founders = [
+  // Founders: 100% of original bio, quotes, roles, names, and images preserved
+  const founders: Founder[] = [
     {
       name: "V.V Bharath",
       role: "CEO",
@@ -100,417 +112,357 @@ export function About() {
     }
   ];
 
-  const coreValues = [
-    {
-      name: "Integrity",
-      icon: "/media/about/integrity.png",
-      desc: "Unwavering commitment to honesty, safety, and transparent engineering in every product."
-    },
-    {
-      name: "Customer Centric",
-      icon: "/media/about/customer-centric.png",
-      desc: "Designing intuitive, hassle-free solutions focused around real user convenience."
-    },
-    {
-      name: "Inventive Mindset",
-      icon: "/media/about/inventive.png",
-      desc: "Continuous curiosity and bold innovation that redefine what modern automation can do."
-    },
-    {
-      name: "Empowerment",
-      icon: "/media/about/empowerment.png",
-      desc: "Giving individuals and partners total mastery and autonomy over their spaces."
-    },
-    {
-      name: "Collective Victory",
-      icon: "/media/about/collective-victory.png",
-      desc: "Collaborative growth where company, partners, and customers thrive together."
+  const toggleMilestone = (index: number) => {
+    setExpandedMilestones(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
-  ];
-
-  const nextFounder = () => {
-    setCurrentFounder(prev => (prev + 1) % founders.length);
   };
 
-  const prevFounder = () => {
-    setCurrentFounder(prev => (prev - 1 + founders.length) % founders.length);
-  };
-
+  // Keyboard accessibility and body scroll lock for founder modal
   useEffect(() => {
-    if (isAutoplayPaused) return;
-    const timer = setInterval(() => {
-      setCurrentFounder(prev => (prev + 1) % founders.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isAutoplayPaused, founders.length]);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
-    if (distance > 50) {
-      // Swiped left -> scroll right to left
-      nextFounder();
-    } else if (distance < -50) {
-      // Swiped right -> scroll left to right
-      prevFounder();
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedFounder(null);
+      }
+    };
+    if (selectedFounder) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
     }
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedFounder]);
 
   return (
-    <div className="w-full bg-[#FAFAFA] text-slate-800 font-body overflow-x-hidden">
+    <div className="w-full bg-[#08090D] text-white font-body selection:bg-[#E5092C] selection:text-white overflow-x-hidden">
 
-      {/* 1. HERO BANNER */}
-      <section className="relative w-full min-h-[340px] sm:min-h-[400px] md:min-h-[460px] lg:min-h-[500px] overflow-hidden flex items-center justify-center bg-black py-12 sm:py-16">
-        <img 
-          src="/media/about/Banner.png" 
-          alt="Neurolinx About Banner" 
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-70"
+      {/* ========================================================================= */}
+      {/* 1. HERO SECTION – Modern Corporate Technology Hero                         */}
+      {/* ========================================================================= */}
+      <section className="relative w-full overflow-hidden bg-[#08090D] pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 border-b border-[#292A32]/80">
+        
+        {/* Subtle dark-red radial glow behind the main heading */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[340px] sm:h-[420px] bg-[#E5092C]/[0.08] rounded-full blur-[160px] pointer-events-none"></div>
+
+        {/* Ambient grid overlay pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, #FFFFFF 1px, transparent 0)`,
+            backgroundSize: '36px 36px'
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E0001B]/15 border border-[#E0001B]/30 text-red-400 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#E0001B] animate-pulse"></span>
-            About Our Journey
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          
+          {/* Eyebrow Badge */}
+          <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+            <span>About Neurolinx Global</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
-            Powered by People, Driven by <span className="text-[#E0001B] inline-block">Smart Innovation</span>
+
+          {/* Main H1 Heading */}
+          <h1 className="reveal-item font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[64px] text-white tracking-tight leading-[1.12] max-w-5xl mx-auto">
+            Powered by People. Driven by <span className="text-[#E5092C] inline-block">Smart Innovation.</span>
           </h1>
-          <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
+
+          {/* Section Lead Paragraph */}
+          <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mt-5 sm:mt-6 px-2 font-normal">
             Transforming spaces across India through intuitive IoT automation, precision engineering, and customer-first design.
           </p>
+
+          {/* Action Buttons */}
+          <div className="reveal-item mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={() => scrollToSection('our-story')}
+              className="font-body inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#E5092C] hover:bg-[#d00827] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-[#E5092C]/25 hover:shadow-[#E5092C]/40 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+            >
+              <span>Explore Our Journey</span>
+              <ArrowDown className="w-4 h-4 animate-bounce" />
+            </button>
+
+            <Link
+              to="/contact"
+              className="font-body inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#17181E] hover:bg-[#202129] border border-[#292A32] hover:border-white/20 text-white text-xs sm:text-sm font-medium transition-all duration-300 group"
+            >
+              <span>Contact Our Team</span>
+              <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:translate-x-1 group-hover:text-white transition-all" />
+            </Link>
+          </div>
+
+
+
         </div>
       </section>
 
+      {/* ========================================================================= */}
+      {/* 2. WHO WE ARE – Modern Split Layout (Two-Column)                           */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#101116] relative border-b border-[#292A32]/80">
+        
+        {/* Subtle ambient red background blur */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[450px] h-[450px] bg-[#E5092C]/[0.05] rounded-full blur-[140px] pointer-events-none"></div>
 
-      {/* 2. INNOVATING TODAY SECTION (VISION & MISSION) */}
-      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Column: Heading & Introduction */}
-            <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 text-red-700 text-[11px] sm:text-xs font-semibold rounded-md uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E0001B]"></span>
-                Who We Are
+            {/* Left Column: Who We Are & Overview */}
+            <div className="lg:col-span-6 space-y-5 text-left">
+              
+              {/* Eyebrow Badge */}
+              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+                <span>Who We Are</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-display font-bold text-gray-900 leading-[1.25]">
-                <span className="text-[#E0001B]">Innovating</span> Today to Empower Tomorrow’s Smart Living
+
+              {/* Section H2 Heading */}
+              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+                <span className="text-[#E5092C]">Innovating</span> Today to Empower Tomorrow’s Smart Living
               </h2>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
+
+              {/* Section Lead Paragraph */}
+              <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed font-normal">
                 Neurolinx is India’s foremost pioneer in wireless and wired IoT electrical automation. Born from a relentless passion for innovation, we engineer hardware and software that make residential, commercial, hospitality, and healthcare environments effortless, energy-efficient, and intelligently responsive.
               </p>
-              <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E0001B] shrink-0" />
-                  <span className="font-semibold text-gray-800">100% In-House R&D</span>
+
+              {/* Achievements & Credibility Badges */}
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
+                  <Cpu className="w-5 h-5 text-[#E5092C] shrink-0" />
+                  <span className="font-body text-xs sm:text-sm font-semibold text-white">100% In-House R&amp;D</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E0001B] shrink-0" />
-                  <span className="font-semibold text-gray-800">Made In India</span>
+                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
+                  <Award className="w-5 h-5 text-[#E5092C] shrink-0" />
+                  <span className="font-body text-xs sm:text-sm font-semibold text-white">Made In India Excellence</span>
+                </div>
+                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
+                  <ShieldCheck className="w-5 h-5 text-[#E5092C] shrink-0" />
+                  <span className="font-body text-xs sm:text-sm font-semibold text-white">Rail-Grade Safety Standards</span>
+                </div>
+                <div className="reveal-card flex items-center gap-3 p-3.5 rounded-xl bg-[#17181E] border border-[#292A32]">
+                  <CheckCircle2 className="w-5 h-5 text-[#E5092C] shrink-0" />
+                  <span className="font-body text-xs sm:text-sm font-semibold text-white">Certified Cloud Architecture</span>
                 </div>
               </div>
+
             </div>
 
-            {/* Right Column: Vision & Mission Dual Card */}
-            <div className="lg:col-span-7">
-              <div className="bg-gradient-to-br from-[#FFF9F9] to-[#FFF0F1] border border-red-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-sm space-y-6 sm:space-y-8">
-                
-                {/* Vision Block */}
-                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-red-200/60 shadow-sm flex items-center justify-center p-3 sm:p-3.5 shrink-0">
+            {/* Right Column: Premium Separate Cards for Vision & Mission */}
+            <div className="lg:col-span-6 flex flex-col gap-6">
+              
+              {/* Vision Card */}
+              <div className="reveal-card bg-[#17181E] border border-[#292A32] hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-xl">
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-xl bg-[#101116] border border-[#292A32] group-hover:border-[#E5092C]/50 group-hover:bg-[#E5092C]/10 flex items-center justify-center p-3 shrink-0 transition-all duration-300 shadow-inner">
                     <img 
-                      src="/media/about/our-vision.png" 
-                      alt="Our Vision" 
-                      className="w-full h-full object-contain"
+                      src="/media/about/our-vision-red.png" 
+                      alt="Our Vision Icon" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(229,9,44,0.45)]"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-gray-900 mb-1.5 sm:mb-2">Our Vision</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                      The purpose is to make the life of people smarter & better.
+                  <div className="flex-1">
+                    <div className="font-body inline-block text-[10px] sm:text-[11px] font-bold text-[#E5092C] tracking-wider uppercase mb-1">
+                      Forward Horizon
+                    </div>
+                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
+                      Our Vision
+                    </h3>
+                    <p className="font-body text-[#A1A1AA] text-xs sm:text-sm md:text-base leading-relaxed font-normal">
+                      The purpose is to make the life of people smarter &amp; better.
                     </p>
                   </div>
                 </div>
+              </div>
 
-                <div className="border-t border-red-200/50"></div>
-
-                {/* Mission Block */}
-                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-red-200/60 shadow-sm flex items-center justify-center p-3 sm:p-3.5 shrink-0">
+              {/* Mission Card */}
+              <div className="reveal-card bg-[#17181E] border border-[#292A32] hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-xl">
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-xl bg-[#101116] border border-[#292A32] group-hover:border-[#E5092C]/50 group-hover:bg-[#E5092C]/10 flex items-center justify-center p-3 shrink-0 transition-all duration-300 shadow-inner">
                     <img 
-                      src="/media/about/our-mission.png" 
-                      alt="Our Mission" 
-                      className="w-full h-full object-contain"
+                      src="/media/about/our-mission-red.png" 
+                      alt="Our Mission Icon" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(229,9,44,0.45)]"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-gray-900 mb-1.5 sm:mb-2">Our Mission</h3>
-                    <p className="text-gray-600 leading-relaxed text-base">
+                  <div className="flex-1">
+                    <div className="font-body inline-block text-[10px] sm:text-[11px] font-bold text-[#E5092C] tracking-wider uppercase mb-1">
+                      Core Commitment
+                    </div>
+                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
+                      Our Mission
+                    </h3>
+                    <p className="font-body text-[#A1A1AA] text-xs sm:text-sm md:text-base leading-relaxed font-normal">
                       The mission is to be the leading player in the IoT-based Electrical industry.
                     </p>
                   </div>
                 </div>
-
               </div>
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 3. OUR CORE VALUES SECTION */}
-      <section className="py-14 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#0E131F] text-white relative overflow-hidden">
-        {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-80 sm:w-96 h-80 sm:h-96 bg-[#E0001B]/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* ========================================================================= */}
+      {/* 3. OUR STORY – Compact & Premium Interactive Timeline                      */}
+      {/* ========================================================================= */}
+      <section id="our-story" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#08090D] relative border-b border-[#292A32]/80">
+        
+        {/* Subtle ambient red glow on the timeline side */}
+        <div className="absolute top-1/3 right-0 w-[450px] h-[450px] bg-[#E5092C]/[0.05] rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Side: Core Values Description */}
-            <div className="lg:col-span-4 space-y-4 sm:space-y-6 text-center lg:text-left">
-              <span className="text-[11px] sm:text-xs uppercase tracking-widest text-red-400 font-semibold">
-                Guiding Principles
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-tight">
-                Our Core <span className="text-[#E0001B]">Values</span>
+            {/* Left Column: Sticky Overview & Story Illustration */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
+              
+              {/* Eyebrow Badge */}
+              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+                <span>Milestones &amp; Evolution</span>
+              </div>
+
+              {/* Section H2 Heading */}
+              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+                Our <span className="text-[#E5092C]">Story</span>
               </h2>
-              <p className="text-gray-300 leading-relaxed text-sm sm:text-base max-w-lg mx-auto lg:mx-0">
-                Guided by purpose and powered by innovation, our values define how we think, build, and lead.
+
+              {/* Section Lead Paragraph */}
+              <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed font-normal">
+                Founded in 2024, our journey has rapidly advanced from specialized railway safety engineering and pilot electronics to next-gen intelligent home automation and mission-critical signaling innovations.
               </p>
-              <div className="pt-2">
-                <Link 
-                  to="/contact" 
-                  className="inline-flex items-center gap-2 px-6 py-3 sm:py-3.5 rounded-full bg-[#E0001B] hover:bg-[#c00017] text-white font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-red-900/30 group"
-                >
-                  <span>Contact Us</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Side: Core Values Grid */}
-            <div className="lg:col-span-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4 md:gap-5">
-                {coreValues.map((val, index) => (
-                  <div 
-                    key={index} 
-                    className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#161C2E] border border-white/5 hover:border-[#E0001B]/40 transition-all duration-300 hover:-translate-y-1 group"
-                  >
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/5 flex items-center justify-center p-2.5 sm:p-3 mb-3 sm:mb-4 group-hover:bg-[#E0001B]/10 transition-colors">
-                      <img 
-                        src={val.icon} 
-                        alt={val.name} 
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <h4 className="text-base sm:text-lg font-display font-bold text-white mb-1.5 sm:mb-2 group-hover:text-red-400 transition-colors">
-                      {val.name}
-                    </h4>
-                    <p className="text-xs text-gray-400 leading-relaxed">
-                      {val.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. OUR CULTURE SECTION */}
-      <section className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-2">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-gray-900 tracking-tight">
-              Our <span className="text-[#E0001B]">Culture</span>
-            </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 italic">
-              "Much like our wireless automation, our people are connected with unseen wires of bonding, trust, integrity, and empathy."
-            </p>
-          </div>
-
-          {/* 3-Column Cultural Collage & Video */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
-            
-            {/* Center Video Card on top for mobile, middle for desktop */}
-            <div className="lg:order-2 lg:col-span-6 w-full">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-white bg-black aspect-video flex items-center justify-center group">
-                <video 
-                  ref={videoRef}
-                  src="/media/about/About-Smart-node-video.mp4" 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Control overlay */}
-                <button 
-                  onClick={toggleVideo} 
-                  className="absolute bottom-3 sm:bottom-5 right-3 sm:right-5 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all shadow-lg hover:scale-105 cursor-pointer"
-                  aria-label={isPlaying ? "Pause video" : "Play video"}
-                >
-                  {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
-                </button>
-
-                <div className="absolute top-3 sm:top-5 left-3 sm:left-5 bg-black/50 backdrop-blur-md text-white text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#E0001B] animate-ping"></span>
-                  Life at Neurolinx
-                </div>
-              </div>
-            </div>
-
-            {/* Left Photo Column */}
-            <div className="lg:order-1 lg:col-span-3 grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
-              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm sm:shadow-md border border-gray-100 group">
-                <img 
-                  src="/media/about/our-culture1.png" 
-                  alt="Our Culture 1" 
-                  className="w-full h-32 sm:h-44 lg:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm sm:shadow-md border border-gray-100 group">
-                <img 
-                  src="/media/about/our-culture2.png" 
-                  alt="Our Culture 2" 
-                  className="w-full h-32 sm:h-44 lg:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-
-            {/* Right Photo Column */}
-            <div className="lg:order-3 lg:col-span-3 grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
-              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm sm:shadow-md border border-gray-100 group">
-                <img 
-                  src="/media/about/our-culture3.png" 
-                  alt="Our Culture 3" 
-                  className="w-full h-32 sm:h-44 lg:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm sm:shadow-md border border-gray-100 group">
-                <img 
-                  src="/media/about/our-culture4.png" 
-                  alt="Our Culture 4" 
-                  className="w-full h-32 sm:h-44 lg:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. OUR STORY (MILESTONES TIMELINE) */}
-      <section className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 bg-[#F8FAF9]">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16">
-            
-            {/* Left Sticky Column: Overview & Illustration */}
-            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-6 sm:space-y-8">
-              <div>
-                <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#E0001B] font-bold">
-                  Our Evolution
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-gray-900 mt-1 sm:mt-2">
-                  Our <span className="text-[#E0001B]">Story</span>
-                </h2>
-                <p className="mt-3 sm:mt-4 text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                  Founded in 2024, our journey has rapidly advanced from specialized railway safety engineering and pilot electronics to next-gen intelligent home automation and mission-critical signaling innovations.
-                </p>
-              </div>
 
               {/* Story Illustration Card */}
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden bg-white p-4 sm:p-6 shadow-sm sm:shadow-md border border-gray-100">
+              <div className="reveal-card rounded-2xl sm:rounded-3xl overflow-hidden bg-[#17181E] p-5 sm:p-6 md:p-8 border border-[#292A32] shadow-2xl max-w-lg w-full">
                 <img 
                   src="/media/about/our-story.png" 
                   alt="Our Story Illustration" 
-                  className="w-full h-auto object-contain mx-auto max-h-[360px]"
+                  className="w-full h-auto object-contain mx-auto max-h-[260px] sm:max-h-[300px] md:max-h-[330px] filter drop-shadow-lg" 
                 />
               </div>
 
-              {/* Key Highlights Metrics */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#E0001B]">2024</span>
-                  <span className="text-[11px] sm:text-xs text-gray-500 mt-1 uppercase font-medium">Inception Year</span>
+              {/* Stats Strip */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg w-full">
+                <div className="reveal-card bg-[#17181E] p-4 sm:p-5 rounded-2xl border border-[#292A32] text-center shadow-lg hover:border-[#E5092C]/40 transition-colors">
+                  <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-[#E5092C]">2024–2026</span>
+                  <span className="font-body text-[10px] sm:text-[11px] text-[#A1A1AA] uppercase tracking-wider font-semibold mt-1 block">Active Roadmaps</span>
                 </div>
-                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#E0001B]">3+</span>
-                  <span className="text-[11px] sm:text-xs text-gray-500 mt-1 uppercase font-medium">Railways Systems</span>
-                </div>
-                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-xl sm:text-2xl font-display font-extrabold text-[#E0001B]">FogPass</span>
-                  <span className="text-[11px] sm:text-xs text-gray-500 mt-1 uppercase font-medium">Flagship Tech</span>
-                </div>
-                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-xl sm:text-2xl font-display font-extrabold text-[#E0001B]">IoT R&D</span>
-                  <span className="text-[11px] sm:text-xs text-gray-500 mt-1 uppercase font-medium">Home Automation</span>
+                <div className="reveal-card bg-[#17181E] p-4 sm:p-5 rounded-2xl border border-[#292A32] text-center shadow-lg hover:border-[#E5092C]/40 transition-colors">
+                  <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-white">Safety Certified</span>
+                  <span className="font-body text-[10px] sm:text-[11px] text-[#A1A1AA] uppercase tracking-wider font-semibold mt-1 block">Mission Critical</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Timeline Cards */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="relative pl-5 sm:pl-7 md:pl-8 border-l-2 border-red-200/80 space-y-6 sm:space-y-8">
-                {milestones.map((item, index) => (
-                  <div key={index} className="relative group">
-                    {/* Glowing Bullet */}
-                    <div className="absolute -left-[27px] sm:-left-[35px] md:-left-[39px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[3px] sm:border-4 border-[#E0001B] shadow-md group-hover:scale-125 transition-transform duration-300"></div>
-                    
-                    {/* Content Card */}
-                    <div className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md hover:border-red-200 transition-all duration-300">
-                      <div className="flex flex-wrap items-center justify-between gap-2.5 mb-3 sm:mb-4">
-                        <span className="text-xl sm:text-2xl font-display font-black text-[#E0001B] tracking-tight">
-                          {item.year}
-                        </span>
-                        <span className="text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-full bg-red-50 text-red-700 border border-red-100">
-                          {item.tag}
-                        </span>
-                      </div>
+            {/* Right Column: Compact Vertical Timeline */}
+            <div className="lg:col-span-7">
+              <div className="relative pl-6 sm:pl-7 border-l-2 border-[#292A32] space-y-4 sm:space-y-5">
+                
+                {milestones.map((item, index) => {
+                  const isExpanded = !!expandedMilestones[index];
+
+                  return (
+                    <div key={index} className="reveal-card relative group">
                       
-                      <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start text-center sm:text-left">
-                        {item.image && (
-                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-50 border border-gray-100 shrink-0 p-2 flex items-center justify-center">
-                            <img 
-                              src={item.image} 
-                              alt={item.title} 
-                              className="w-full h-full object-contain"
-                            />
-                          </div>
-                        )}
-                        <div className="flex-1">
-                          <h4 className="text-base sm:text-lg md:text-xl font-display font-bold text-gray-900 mb-2">
-                            {item.title}
-                          </h4>
-                          <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-600 leading-relaxed list-disc list-inside text-left">
-                            {item.points.map((p, pIdx) => (
-                              <li key={pIdx} className="text-gray-600">
-                                <span>{p}</span>
-                              </li>
-                            ))}
-                          </ul>
+                      {/* Milestone Glowing Indicator Node */}
+                      <div className="absolute -left-[31px] sm:-left-[35px] top-4 z-20 flex items-center justify-center">
+                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#08090D] border-2 border-[#E5092C] shadow-md shadow-[#E5092C]/50 flex items-center justify-center group-hover:scale-125 transition-transform duration-300">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#E5092C]"></div>
                         </div>
                       </div>
+
+                      {/* Milestone Card */}
+                      <div className="bg-[#17181E] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#292A32] hover:border-[#E5092C]/50 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        
+                        {/* Header: Year & Tag */}
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                          <span className="font-display font-black text-xl sm:text-2xl text-white group-hover:text-[#E5092C] transition-colors tracking-tight">
+                            {item.year}
+                          </span>
+                          <span className="font-body text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#E5092C]/10 text-[#E5092C] border border-[#E5092C]/25 tracking-wide">
+                            {item.tag}
+                          </span>
+                        </div>
+
+                        {/* Title & Project Image */}
+                        <div className="flex items-start gap-3 sm:gap-4 mb-2.5">
+                          {item.image && (
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-[#08090D] border border-[#292A32] p-1.5 shrink-0 flex items-center justify-center overflow-hidden">
+                              <img 
+                                src={item.image} 
+                                alt={item.title} 
+                                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                          )}
+                          <div className="flex-1">
+                            <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug tracking-tight">
+                              {item.title}
+                            </h3>
+                            <p className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal mt-1">
+                              {item.summary}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Expandable Points Content */}
+                        <div className="pt-2 border-t border-[#292A32]/80">
+                          
+                          {/* First point always visible */}
+                          <div className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] mt-1.5 shrink-0"></span>
+                            <span>{item.points[0]}</span>
+                          </div>
+
+                          {/* Remaining points toggle smoothly */}
+                          {isExpanded && (
+                            <div className="space-y-1.5 mt-2 pt-2 border-t border-[#292A32]/60 animate-fadeIn">
+                              {item.points.slice(1).map((p, pIdx) => (
+                                <div key={pIdx} className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal flex items-start gap-2">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] mt-1.5 shrink-0"></span>
+                                  <span>{p}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Read More / Show Less Toggle Button */}
+                          <button
+                            type="button"
+                            onClick={() => toggleMilestone(index)}
+                            className="font-body mt-2.5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-white hover:text-[#E5092C] transition-colors cursor-pointer group/btn"
+                          >
+                            <span>{isExpanded ? 'Show Less' : `Read More Details (${item.points.length - 1} more)`}</span>
+                            {isExpanded ? (
+                              <ChevronUp className="w-3.5 h-3.5 text-[#E5092C]" />
+                            ) : (
+                              <ChevronDown className="w-3.5 h-3.5 text-[#E5092C] group-hover/btn:translate-y-0.5 transition-transform" />
+                            )}
+                          </button>
+
+                        </div>
+
+                      </div>
+
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
+
               </div>
             </div>
 
@@ -519,144 +471,194 @@ export function About() {
         </div>
       </section>
 
-      {/* 6. MEET OUR FOUNDERS */}
-      <section className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto">
+      {/* ========================================================================= */}
+      {/* 4. MEET OUR FOUNDERS – Executive Profile Grid (All 4 Founders)             */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[#101116] relative border-b border-[#292A32]/80">
+        
+        {/* Subtle ambient red glow behind founders */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-[#E5092C]/[0.05] rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 px-2">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-gray-900">
-              Meet our <span className="text-[#E0001B]">Founders</span>
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            
+            {/* Eyebrow Badge */}
+            <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181E] border border-[#292A32] text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+              <span>Leadership Team</span>
+            </div>
+
+            {/* Section H2 Heading */}
+            <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+              Meet Our <span className="text-[#E5092C]">Founders</span>
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600">
-              Driven by purpose and powered by passion, meet the visionaries shaping the future of smart living.
+
+            {/* Section Lead Paragraph */}
+            <p className="reveal-item font-body text-[#A1A1AA] text-sm sm:text-base md:text-lg leading-relaxed font-normal mt-4">
+              Driven by purpose and powered by passion, meet the executive leaders shaping the future of smart living and precision electronics.
             </p>
           </div>
 
-          {/* Quick Founder Selector Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
-            {founders.map((f, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentFounder(i)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  currentFounder === i 
-                    ? 'bg-[#E0001B] text-white shadow-md shadow-red-500/20 scale-105' 
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900'
-                }`}
-              >
-                {f.name} <span className="opacity-80 text-[11px] font-normal">({f.role})</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Slider Container with Smooth Right-to-Left Scroll */}
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsAutoplayPaused(true)}
-            onMouseLeave={() => setIsAutoplayPaused(false)}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {/* Slide Track */}
-            <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-gray-200/90 bg-[#FAFAFA] shadow-xl">
+          {/* Executive Team Grid: 4 cards on desktop, 2 on tablet, 1 on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+            {founders.map((founder, idx) => (
               <div 
-                className="flex transition-transform duration-700 ease-out"
-                style={{ transform: `translateX(-${currentFounder * 100}%)` }}
+                key={idx}
+                className="reveal-card bg-[#17181E] rounded-2xl border border-[#292A32] hover:border-[#E5092C]/60 transition-all duration-300 p-5 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#E5092C]/10"
               >
-                {founders.map((founder, idx) => (
+                <div>
+                  
+                  {/* Portrait Container */}
                   <div 
-                    key={idx} 
-                    className="w-full shrink-0 p-6 sm:p-10 md:p-12 lg:p-14"
+                    onClick={() => setSelectedFounder(founder)}
+                    className="aspect-[4/5] rounded-xl overflow-hidden bg-[#08090D] border border-[#292A32] mb-5 relative group-hover:border-[#E5092C]/40 transition-colors cursor-pointer"
                   >
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                      
-                      {/* Left: Avatar, Name, Role, Connect */}
-                      <div className="lg:col-span-4 flex flex-col items-center text-center">
-                        <div className="w-44 h-52 sm:w-56 sm:h-64 rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 mb-5 group">
-                          <img 
-                            src={founder.image} 
-                            alt={founder.name} 
-                            className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                          />
-                        </div>
-                        <h3 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-1">
-                          {founder.name}
-                        </h3>
-                        <div className="inline-block px-3 py-1 bg-red-100/70 text-[#E0001B] rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                          {founder.role}
-                        </div>
-                        {founder.linkedin && (
-                          <a 
-                            href={founder.linkedin} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="inline-flex items-center gap-2 text-xs font-semibold text-gray-700 hover:text-[#E0001B] transition-colors bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-sm hover:shadow"
-                          >
-                            <Linkedin className="w-4 h-4 text-[#0077b5]" />
-                            <span>Connect on LinkedIn</span>
-                          </a>
-                        )}
-                      </div>
+                    <img 
+                      src={founder.image} 
+                      alt={founder.name} 
+                      className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+                    />
+                    
+                    {/* Subtle bottom gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#17181E] via-transparent to-transparent opacity-80" />
 
-                      {/* Right: Divider & Detailed Content */}
-                      <div className="lg:col-span-8 lg:border-l lg:border-gray-200 lg:pl-10">
-                        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 font-normal">
-                          {founder.bio}
-                        </p>
-                        
-                        {founder.quote && (
-                          <div className="p-4 sm:p-5 bg-white rounded-2xl border-l-4 border-[#E0001B] shadow-sm">
-                            <p className="text-sm sm:text-base italic text-gray-800 font-medium leading-snug">
-                              “{founder.quote}”
-                            </p>
-                          </div>
-                        )}
-                      </div>
-
+                    {/* Role Pill Badge */}
+                    <div className="font-body absolute bottom-3 left-3 px-3 py-1 rounded-md bg-[#08090D]/90 border border-[#292A32] text-xs font-bold text-[#E5092C] tracking-wider uppercase backdrop-blur-md">
+                      {founder.role}
                     </div>
                   </div>
-                ))}
+
+                  {/* Founder Name & Designation */}
+                  <h3 
+                    onClick={() => setSelectedFounder(founder)}
+                    className="font-display font-bold text-xl text-white tracking-tight group-hover:text-[#E5092C] transition-colors cursor-pointer"
+                  >
+                    {founder.name}
+                  </h3>
+                  <div className="font-body text-xs text-[#A1A1AA] font-semibold uppercase tracking-wider mt-0.5">
+                    Co-Founder &amp; {founder.role}
+                  </div>
+
+                  {/* Short Bio Preview */}
+                  <p className="font-body text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-3 line-clamp-3 font-normal">
+                    {founder.bio}
+                  </p>
+
+                </div>
+
+                {/* Footer Actions: Read Full Bio & LinkedIn */}
+                <div className="border-t border-[#292A32] pt-4 mt-5 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedFounder(founder)}
+                    className="font-body inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-[#E5092C] transition-colors cursor-pointer"
+                  >
+                    <span>Read Biography</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#E5092C]" />
+                  </button>
+
+                  {founder.linkedin && (
+                    <a
+                      href={founder.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${founder.name} LinkedIn Profile`}
+                      className="w-8 h-8 rounded-lg bg-[#08090D] hover:bg-[#0077b5] text-[#A1A1AA] hover:text-white border border-[#292A32] flex items-center justify-center transition-colors shadow-sm"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+
               </div>
-            </div>
-
-            {/* Left / Right Arrow Navigation Buttons */}
-            <button
-              onClick={prevFounder}
-              aria-label="Previous Founder"
-              className="absolute left-2 sm:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-700 hover:text-[#E0001B] hover:scale-110 transition-all duration-200 z-10"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-            <button
-              onClick={nextFounder}
-              aria-label="Next Founder"
-              className="absolute right-2 sm:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-700 hover:text-[#E0001B] hover:scale-110 transition-all duration-200 z-10"
-            >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-          </div>
-
-          {/* Bottom Pagination Dots Pill (matching reference slider dots) */}
-          <div className="flex justify-center mt-6">
-            <div className="inline-flex items-center gap-2.5 bg-gray-900/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
-              {founders.map((_, dotIdx) => (
-                <button
-                  key={dotIdx}
-                  onClick={() => setCurrentFounder(dotIdx)}
-                  aria-label={`Go to founder slide ${dotIdx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentFounder === dotIdx 
-                      ? 'w-7 bg-[#E0001B]' 
-                      : 'w-2.5 bg-white/60 hover:bg-white'
-                  }`}
-                />
-              ))}
-            </div>
+            ))}
           </div>
 
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* 5. EXECUTIVE PROFILE MODAL (Full details, quotes & credentials)             */}
+      {/* ========================================================================= */}
+      {selectedFounder && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setSelectedFounder(null)}
+        >
+          <div 
+            className="bg-[#17181E] border border-[#292A32] rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8 md:p-10 text-left"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setSelectedFounder(null)}
+              aria-label="Close dialog"
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-[#08090D] hover:bg-[#E5092C] text-[#A1A1AA] hover:text-white border border-[#292A32] flex items-center justify-center transition-colors cursor-pointer z-10"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
+              
+              {/* Left: Founder Portrait */}
+              <div className="md:col-span-5 flex flex-col items-center text-center">
+                <div className="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden bg-[#08090D] border border-[#292A32] shadow-xl mb-4">
+                  <img 
+                    src={selectedFounder.image} 
+                    alt={selectedFounder.name} 
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <h3 className="font-display font-bold text-2xl text-white tracking-tight mb-1">
+                  {selectedFounder.name}
+                </h3>
+                <div className="font-body px-3.5 py-1 rounded-full bg-[#E5092C]/10 border border-[#E5092C]/30 text-[#E5092C] text-xs font-bold uppercase tracking-wider mb-4">
+                  {selectedFounder.role} &bull; Co-Founder
+                </div>
+                {selectedFounder.linkedin && (
+                  <a
+                    href={selectedFounder.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body inline-flex items-center gap-2 text-xs font-semibold text-white bg-[#08090D] hover:bg-[#0077b5] px-4 py-2.5 rounded-xl border border-[#292A32] transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4 text-[#0077b5] group-hover:text-white" />
+                    <span>Connect on LinkedIn</span>
+                  </a>
+                )}
+              </div>
+
+              {/* Right: Full Detailed Biography & Quote */}
+              <div className="md:col-span-7 space-y-5">
+                <div>
+                  <h4 className="font-body text-xs uppercase tracking-widest text-[#E5092C] font-bold mb-2">
+                    Executive Biography
+                  </h4>
+                  <p className="font-body text-sm sm:text-base text-[#A1A1AA] leading-relaxed font-normal">
+                    {selectedFounder.bio}
+                  </p>
+                </div>
+
+                {selectedFounder.quote && (
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#101116] border border-[#292A32] relative">
+                    <Quote className="w-6 h-6 text-[#E5092C]/40 mb-2" />
+                    <p className="font-body text-sm sm:text-base italic text-white/90 leading-snug font-medium">
+                      &ldquo;{selectedFounder.quote}&rdquo;
+                    </p>
+                  </div>
+                )}
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      )}
 
     </div>
   );

@@ -5,6 +5,126 @@ import { Footer } from './components/layout/Footer'
 import { CustomCursor } from './components/ui/CustomCursor'
 
 // Scroll to top or anchor on route change
+
+// Smooth sequential top-to-bottom cascade reveal across pages
+function PageContentRevealer() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Small frame delay to ensure new page DOM elements are fully rendered
+    const setupTimer = setTimeout(() => {
+      // 1. Gather all content items that participate in reveal
+      let elements = Array.from(
+        document.querySelectorAll<HTMLElement>('.reveal-item, .reveal-card, [data-reveal]')
+      );
+
+      // Auto-detect content elements on pages without explicit markers
+      if (elements.length < 5) {
+        const autoElements = Array.from(
+          document.querySelectorAll<HTMLElement>(
+            'main section h1, main section h2, main section p, main section .grid > div, main section [data-card-item], main section .panel'
+          )
+        ).filter(el => {
+          const rect = el.getBoundingClientRect();
+          return rect.height > 24 && rect.width > 60;
+        });
+        autoElements.forEach(el => el.classList.add('reveal-item'));
+        elements = Array.from(new Set([...elements, ...autoElements]));
+      }
+
+      // 2. Sort all elements strictly by their physical top-to-bottom document position
+      elements.sort((a, b) => {
+        const rA = a.getBoundingClientRect();
+        const rB = b.getBoundingClientRect();
+        const topA = rA.top + window.scrollY;
+        const topB = rB.top + window.scrollY;
+        if (Math.abs(topA - topB) > 16) {
+          return topA - topB;
+        }
+        return rA.left - rB.left;
+      });
+
+      // 3. Reset all elements to initial state (opacity: 0, translateY: 22px)
+      elements.forEach(el => {
+        el.classList.remove('revealed');
+      });
+
+      const viewportHeight = window.innerHeight;
+      let initialIndex = 0;
+
+      // 4. Assign smooth cascading delays to elements in the initial viewport
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const isInInitialView = rect.top < viewportHeight * 0.95 && rect.bottom > 0;
+
+        if (isInInitialView) {
+          const delay = initialIndex * 70 + 40;
+          el.style.transitionDelay = `${delay}ms`;
+          initialIndex++;
+        } else {
+          el.style.transitionDelay = '0ms';
+        }
+      });
+
+      // 5. Trigger initial viewport cascade
+      requestAnimationFrame(() => {
+        elements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < viewportHeight * 0.95 && rect.bottom > 0) {
+            el.classList.add('revealed');
+          }
+        });
+      });
+
+      // 6. Observe elements further down the page to reveal smoothly on scroll
+      const observer = new IntersectionObserver((entries) => {
+        const visibleEntries = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => {
+            const rA = a.boundingClientRect;
+            const rB = b.boundingClientRect;
+            return rA.top - rB.top || rA.left - rB.left;
+          });
+
+        visibleEntries.forEach((entry, idx) => {
+          const target = entry.target as HTMLElement;
+          if (!target.classList.contains('revealed')) {
+            target.style.transitionDelay = `${idx * 75 + 40}ms`;
+            target.classList.add('revealed');
+            observer.unobserve(target);
+          }
+        });
+      }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      // Observe all elements that have not yet been revealed
+      elements.forEach(el => {
+        if (!el.classList.contains('revealed')) {
+          observer.observe(el);
+        }
+      });
+
+      // 7. Safety fallback to guarantee no content stays hidden
+      const safetyTimer = setTimeout(() => {
+        elements.forEach(el => el.classList.add('revealed'));
+      }, 2500);
+
+      return () => {
+        clearTimeout(safetyTimer);
+        observer.disconnect();
+      };
+    }, 50);
+
+    return () => {
+      clearTimeout(setupTimer);
+    };
+  }, [pathname]);
+
+  return null;
+}
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -102,6 +222,7 @@ function App() {
     <>
       <CustomCursor />
       <ScrollToTop />
+      <PageContentRevealer />
 
       <div className="min-h-screen bg-black flex flex-col relative font-body">
         <Header />
@@ -160,6 +281,7 @@ function App() {
               <Route path="/robotics" element={<Robotics />} />
               <Route path="/ai" element={<ArtificialIntelligence />} />
               <Route path="/rms-smart-metering" element={<RmsSmartMetering />} />
+              <Route path="/solutions" element={<RmsSmartMetering />} />
               <Route path="/iot" element={<InternetOfThings />} />
               <Route path="/internet-of-things" element={<InternetOfThings />} />
               <Route path="/pos-application" element={<PosApplication />} />
