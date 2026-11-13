@@ -38,11 +38,10 @@ export function LocoHeadlight() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Hero Banner (Indian Railways Twin-Beam LED LOCO Headlight) ── */}
+      {/* ── Slide 1: Hero Banner (Sized to match FogPASS Hero Dimensions) ── */}
       <div 
         id="hero"
-        style={{ minHeight: 'calc(100vh + 1.5cm)' }}
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[calc(100vh+1.5cm)] pt-24 pb-16"
+        className="relative w-full overflow-hidden text-white flex items-center min-h-[460px] sm:h-[500px] md:h-[540px] lg:h-[580px] xl:h-[635px] 2xl:h-[724px] pt-24 sm:pt-28 pb-16"
       >
         {/* Real Indian Railways Locomotive Front Headlight Background */}
         <div className="absolute inset-0 z-0">

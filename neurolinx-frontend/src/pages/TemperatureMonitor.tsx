@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { 
   CheckCircle2, 
-  Check, 
   Wifi, 
   ArrowRight, 
   Sparkles, 
@@ -36,9 +35,6 @@ export function TemperatureMonitor() {
 
   // Interactive Temperature Slider State (°C)
   const [currentTemp, setCurrentTemp] = useState<number>(24.5);
-
-  // Active Model Tab
-  const [activeModelTab, setActiveModelTab] = useState<'tempsense-air' | 'tempguard-pro' | 'climatmesh-gateway'>('tempsense-air');
 
   // Contact Inquiry Form State
   const [inquiryForm, setInquiryForm] = useState({
@@ -194,14 +190,12 @@ export function TemperatureMonitor() {
               Models And Features of
             </h2>
             
-            <div className="inline-flex items-center gap-2.5 text-3xl sm:text-4xl md:text-5xl font-black">
-              <span className="text-brand-red relative inline-block pb-1.5">
-                Smart
-                <span className="absolute bottom-0 left-0 w-full h-[3px] sm:h-[4px] bg-brand-red rounded-full"></span>
-              </span>
-              <span className="text-black relative inline-block pb-1.5">
-                Devices
-                <span className="absolute bottom-0 left-0 w-full h-[3px] sm:h-[4px] bg-black rounded-full"></span>
+            <div className="inline-flex items-center text-3xl sm:text-4xl md:text-5xl font-black">
+              <span className="relative inline-block pb-1.5">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-red-600 to-[#700000]">
+                  Smart Devices
+                </span>
+                <span className="absolute bottom-0 left-0 w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-brand-red via-red-600 to-[#700000] rounded-full"></span>
               </span>
             </div>
             
@@ -484,195 +478,63 @@ export function TemperatureMonitor() {
 
           </div>
 
-          {/* ── 3 Core Hardware Models Section ── */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="text-center mb-10">
-              <span className="text-xs font-bold text-brand-red uppercase tracking-wider bg-red-50 px-3 py-1 rounded-full border border-red-100">
-                Hardware Portfolio
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-2">
-                Engineered for Residential Villas, IT Data Centers & Cold Chains
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              {/* Model 1: TempSense Air */}
-              <div className="bg-white rounded-[28px] border border-gray-200/90 p-6 shadow-sm flex flex-col justify-between hover:border-black transition-all">
-                <div>
-                  <div className="w-full h-48 rounded-2xl overflow-hidden mb-5 bg-[#0D111A]">
-                    <img 
-                      src="/media/temperature_sensor_hardware.jpg" 
-                      alt="Neurolinx TempSense Air Wireless Sensor"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-brand-red uppercase tracking-wider bg-red-50 px-2.5 py-0.5 rounded-full border border-red-100">
-                    Residential & Luxury Suites
-                  </span>
-                  <h4 className="text-lg font-black text-slate-900 mt-2 mb-1">
-                    TempSense Air
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                    Ultra-compact magnetic mount wireless sensor with Swiss Sensirion SHT40 core, crystal-clear OLED display, and 5-year battery life.
-                  </p>
-                  <ul className="space-y-2 text-xs text-slate-700 mb-6">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Magnetic wall & bedside table dock</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>High-contrast live OLED status screen</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>CR2477 coin cell with 5-year endurance</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900">Standard Room Model</span>
-                  <a href="#contact-consultation" className="text-xs font-bold text-brand-red hover:underline flex items-center gap-1">
-                    <span>Inquire</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Model 2: TempGuard Pro */}
-              <div className="bg-white rounded-[28px] border-2 border-black p-6 shadow-md flex flex-col justify-between relative">
-                <div className="absolute -top-3 right-6 bg-brand-red text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
-                  Enterprise Grade
-                </div>
-                <div>
-                  <div className="w-full h-48 rounded-2xl overflow-hidden mb-5 bg-[#0D111A]">
-                    <img 
-                      src="/media/temperature_monitoring_dashboard.jpg" 
-                      alt="Neurolinx TempGuard Pro Enterprise Controller"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-900 uppercase tracking-wider bg-gray-100 px-2.5 py-0.5 rounded-full border border-gray-200">
-                    Server Rooms & Cold Chains
-                  </span>
-                  <h4 className="text-lg font-black text-slate-900 mt-2 mb-1">
-                    TempGuard Pro
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                    DIN-Rail and 19" rack-mount industrial climate controller with dual external thermal probes, PoE power, and integrated siren relay contacts.
-                  </p>
-                  <ul className="space-y-2 text-xs text-slate-700 mb-6">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Dual stainless steel thermal probe inputs</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Modbus RTU / RS485 & dry contact alarms</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Direct siren and exhaust fan interlock</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900">Industrial DIN/Rack</span>
-                  <a href="#contact-consultation" className="text-xs font-bold text-brand-red hover:underline flex items-center gap-1">
-                    <span>Inquire</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Model 3: ClimateMesh Multi-Zone Gateway */}
-              <div className="bg-white rounded-[28px] border border-gray-200/90 p-6 shadow-sm flex flex-col justify-between hover:border-black transition-all">
-                <div>
-                  <div className="w-full h-48 rounded-2xl overflow-hidden mb-5 bg-[#0D111A]">
-                    <img 
-                      src="/media/temperature_monitor_hero.jpg" 
-                      alt="Neurolinx ClimateMesh IoT Gateway"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                    Central Automation Hub
-                  </span>
-                  <h4 className="text-lg font-black text-slate-900 mt-2 mb-1">
-                    ClimateMesh Gateway
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                    High-capacity centralized IoT gateway interconnecting up to 64 wireless climate nodes with 100% offline edge rule execution and cloud logging.
-                  </p>
-                  <ul className="space-y-2 text-xs text-slate-700 mb-6">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Connects 64 wireless temperature sensors</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>4G LTE cellular fallback & Wi-Fi mesh</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Exportable CSV / PDF 24/7 audit logs</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900">Multi-Zone Hub</span>
-                  <a href="#contact-consultation" className="text-xs font-bold text-brand-red hover:underline flex items-center gap-1">
-                    <span>Inquire</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
           {/* ── Key Architectural Features Grid ── */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             
-            <div className="p-5 rounded-2xl bg-[#F8F9FA] border border-gray-200/80 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center mb-3">
-                <Wind className="w-4 h-4 text-brand-red" />
+            <div className="p-7 sm:p-8 rounded-[24px] sm:rounded-3xl bg-[#F8F9FA] border border-gray-200/90 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-black/30 transition-all duration-300">
+              <div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black text-white flex items-center justify-center mb-5 shadow-xs">
+                  <Wind className="w-6 h-6 text-brand-red" />
+                </div>
+                <h5 className="text-base sm:text-lg font-black text-slate-900 mb-2.5 tracking-tight">
+                  Automated AC Pre-Cooling
+                </h5>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Wirelessly triggers Universal IR Blaster or smart AC relays the second room temperature crosses your custom comfort threshold.
+                </p>
               </div>
-              <h5 className="text-sm font-bold text-slate-900">Automated AC Pre-Cooling</h5>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Wirelessly triggers Universal IR Blaster or smart AC relays the second room temperature crosses your custom comfort threshold.
-              </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#F8F9FA] border border-gray-200/80 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center mb-3">
-                <Bell className="w-4 h-4 text-brand-red" />
+            <div className="p-7 sm:p-8 rounded-[24px] sm:rounded-3xl bg-[#F8F9FA] border border-gray-200/90 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-black/30 transition-all duration-300">
+              <div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black text-white flex items-center justify-center mb-5 shadow-xs">
+                  <Bell className="w-6 h-6 text-brand-red" />
+                </div>
+                <h5 className="text-base sm:text-lg font-black text-slate-900 mb-2.5 tracking-tight">
+                  Triple-Channel Alert Engine
+                </h5>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Emergency push notification to mobile devices, SMS/Webhook dispatch, and local high-decibel audible alarm on thermal spikes.
+                </p>
               </div>
-              <h5 className="text-sm font-bold text-slate-900">Triple-Channel Alert Engine</h5>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Emergency push notification to mobile devices, SMS/Webhook dispatch, and local high-decibel audible alarm on thermal spikes.
-              </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#F8F9FA] border border-gray-200/80 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center mb-3">
-                <FileText className="w-4 h-4 text-emerald-400" />
+            <div className="p-7 sm:p-8 rounded-[24px] sm:rounded-3xl bg-[#F8F9FA] border border-gray-200/90 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-black/30 transition-all duration-300">
+              <div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black text-white flex items-center justify-center mb-5 shadow-xs">
+                  <FileText className="w-6 h-6 text-brand-red" />
+                </div>
+                <h5 className="text-base sm:text-lg font-black text-slate-900 mb-2.5 tracking-tight">
+                  24/7 Regulatory Audit Logs
+                </h5>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Continuous telemetry logging with timestamped exportable PDF/Excel reports compliant with ISO 9001 and cold-chain compliance.
+                </p>
               </div>
-              <h5 className="text-sm font-bold text-slate-900">24/7 Regulatory Audit Logs</h5>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Continuous telemetry logging with timestamped exportable PDF/Excel reports compliant with ISO 9001 and cold-chain compliance.
-              </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#F8F9FA] border border-gray-200/80 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center mb-3">
-                <ShieldCheck className="w-4 h-4 text-brand-red" />
+            <div className="p-7 sm:p-8 rounded-[24px] sm:rounded-3xl bg-[#F8F9FA] border border-gray-200/90 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-black/30 transition-all duration-300">
+              <div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black text-white flex items-center justify-center mb-5 shadow-xs">
+                  <ShieldCheck className="w-6 h-6 text-brand-red" />
+                </div>
+                <h5 className="text-base sm:text-lg font-black text-slate-900 mb-2.5 tracking-tight">
+                  100% Offline Local Mesh
+                </h5>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Sensors trigger HVAC relays and local sirens across the local mesh network with zero dependency on external cloud or active internet.
+                </p>
               </div>
-              <h5 className="text-sm font-bold text-slate-900">100% Offline Local Mesh</h5>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Sensors trigger HVAC relays and local sirens across the local mesh network with zero dependency on external cloud or active internet.
-              </p>
             </div>
 
           </div>

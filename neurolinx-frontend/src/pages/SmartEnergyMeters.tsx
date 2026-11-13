@@ -54,9 +54,11 @@ export function SmartEnergyMeters() {
           <div className="absolute top-[13.5%] sm:top-[13%] left-0 right-0 -translate-y-1/2 -translate-x-4 sm:-translate-x-7 md:-translate-x-10 flex justify-center pointer-events-none z-10 px-4 text-center">
             <h1 className="whitespace-nowrap text-sm sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
               <span className="text-white">1-ϕ &amp; 3-ϕ </span>
-              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
-                Smart Energy Meters
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              <span className="relative inline-block pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
+                <span className="bg-gradient-to-r from-brand-red via-red-600 to-[#700000] bg-clip-text text-transparent inline-block">
+                  Smart Energy Meters
+                </span>
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-brand-red via-red-600 to-[#700000] rounded-full" />
               </span>
             </h1>
           </div>
@@ -157,7 +159,7 @@ export function SmartEnergyMeters() {
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black mb-2.5 tracking-tight leading-tight">
-                Track Live <span className="text-brand-red">Power Usage</span> &amp; <span className="text-black">Cut Electricity Bills</span>
+                Track Live Power Usage &amp; Cut Electricity Bills
               </h2>
 
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 max-w-xl">

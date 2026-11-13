@@ -937,9 +937,11 @@ export function RetrofitTouchPanels() {
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 px-4 text-center">
             <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-bold tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
               <span className="text-white">Retrofit &amp; </span>
-              <span className="text-brand-red drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] relative inline-block pb-1">
-                Touch Panel
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red/90 rounded-full" />
+              <span className="relative inline-block pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
+                <span className="bg-gradient-to-r from-brand-red via-red-600 to-[#700000] bg-clip-text text-transparent inline-block">
+                  Touch Panel
+                </span>
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-brand-red via-red-600 to-[#700000] rounded-full" />
               </span>
             </h1>
           </div>

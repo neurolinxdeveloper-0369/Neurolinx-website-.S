@@ -551,11 +551,11 @@ export function UniversalIrBlaster() {
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
-          {/* Main 2-Tone Card Container */}
-          <div className="rounded-[32px] md:rounded-[36px] border border-gray-100 overflow-hidden shadow-sm flex flex-col lg:flex-row items-stretch">
+          {/* Main Unified Card Container */}
+          <div className="rounded-[32px] md:rounded-[36px] border border-gray-200/80 overflow-hidden shadow-sm flex flex-col lg:flex-row items-stretch bg-[#F8F9FA]">
             
-            {/* Left Panel: Pure White Background (Snug & Attached to Form) */}
-            <div className="w-full lg:w-[36%] xl:w-[34%] bg-white px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-gray-100/80">
+            {/* Left Panel: Matching Soft Light Gray Background */}
+            <div className="w-full lg:w-[36%] xl:w-[34%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-gray-200/80">
               
               <div>
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
