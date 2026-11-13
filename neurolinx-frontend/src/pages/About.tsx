@@ -6,8 +6,6 @@ import {
   Linkedin, 
   ExternalLink, 
   X, 
-  ChevronDown, 
-  ChevronUp, 
   Quote 
 } from 'lucide-react';
 
@@ -31,32 +29,31 @@ interface Founder {
 
 export function About() {
   const [selectedFounder, setSelectedFounder] = useState<Founder | null>(null);
-  const [expandedMilestones, setExpandedMilestones] = useState<Record<number, boolean>>({});
 
   // Milestones: 100% of facts, dates, achievements and points preserved
   const milestones: Milestone[] = [
     {
       year: "2026",
-      title: "Developed FogPass (Fog Pilot Assistance System)",
+      title: "FogPass — Fog Pilot Assistance System",
       image: "/media/fog_pass.png",
       tag: "Railways Safety Innovation",
       summary: "Engineered and developed the advanced FogPass locomotive assistance system with real-time GPS positioning and rugged fail-safe architecture.",
       points: [
-        "Engineered and developed the advanced FogPass device for railway locomotives to navigate dense fog and low-visibility conditions with zero speed delays.",
-        "Equipped with high-accuracy GPS positioning, real-time audio-visual distance countdown to upcoming signals, and rugged fail-safe hardware tailored for loco pilots.",
-        "Expanded our smart technology footprint across mission-critical transportation and automated infrastructure."
+        "Developed FogPass, an advanced Fog Pilot Assistance System for railway locomotives, designed to support loco pilots during dense fog and low-visibility conditions.",
+        "The system provides high-accuracy GPS/GNSS positioning, real-time audio-visual distance countdowns for upcoming signals and landmarks, and rugged fail-safe hardware tailored for locomotive operations.",
+        "FogPass strengthens our presence in mission-critical transportation and automated infrastructure, supporting safer and more confident train operations in challenging weather conditions."
       ]
     },
     {
       year: "2025",
-      title: "Foot Lamp Project Completion & Railway Signal Exchanging",
+      title: "Foot Lamp Project Completion & Railway Signal Exchange",
       image: "/media/signaling_systems.jpg",
       tag: "Railway Milestones",
       summary: "Delivered high-durability coach illumination and automated trackside communication protocols for Indian railway networks.",
       points: [
-        "Successfully completed the end-to-end Railway Foot Lamp project, delivering high-durability, energy-efficient illumination for coaches and platforms.",
-        "Engineered and completed the Railway Signal Exchanging project, enhancing automated trackside communication and locomotive exchange protocols.",
-        "Strengthened in-house precision manufacturing, quality testing, and field compliance certifications."
+        "Successfully completed the end-to-end Railway Foot Lamp project, delivering durable, energy-efficient illumination for railway coaches and platforms.",
+        "Engineered and completed the Railway Signal Exchange System, enabling automated communication between locomotive crews and station staff.",
+        "Strengthened in-house precision manufacturing, quality testing, and field-compliance processes."
       ]
     },
     {
@@ -107,13 +104,6 @@ export function About() {
       linkedin: "https://www.linkedin.com"
     }
   ];
-
-  const toggleMilestone = (index: number) => {
-    setExpandedMilestones(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -253,12 +243,12 @@ export function About() {
             </div>
 
             {/* Right Column: Premium Separate Cards for Vision & Mission */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
+            <div className="lg:col-span-5 grid grid-cols-1 auto-rows-fr gap-4 sm:gap-5 lg:mt-14">
               
               {/* Vision Card */}
-              <div className="reveal-card bg-white border border-gray-200 hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-red-50/70 border border-red-100 group-hover:border-[#E5092C]/40 group-hover:bg-red-50 flex items-center justify-center p-3 shrink-0 transition-all duration-300">
+              <div className="reveal-card h-full flex items-center bg-white border border-gray-200 hover:border-[#E5092C]/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 group hover:-translate-y-1 shadow-sm hover:shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-red-50/70 border border-red-100 group-hover:border-[#E5092C]/40 group-hover:bg-red-50 flex items-center justify-center p-2.5 shrink-0 transition-all duration-300">
                     <img 
                       src="/media/about/our-vision-red.png" 
                       alt="Our Vision Icon" 
@@ -269,20 +259,20 @@ export function About() {
                     <div className="font-body inline-block text-[10px] sm:text-[11px] font-bold text-[#E5092C] tracking-wider uppercase mb-1">
                       Forward Horizon
                     </div>
-                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
+                    <h3 className="font-display font-bold text-base sm:text-lg md:text-xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors mb-1.5">
                       Our Vision
                     </h3>
-                    <p className="font-body text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
-                      The purpose is to make the life of people smarter &amp; better.
+                    <p className="font-body text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                      To become a trusted Indian technology company delivering intelligent, secure, and reliable IoT, automation, energy, railway, and industrial solutions that improve everyday life and business performance.
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Mission Card */}
-              <div className="reveal-card bg-white border border-gray-200 hover:border-[#E5092C]/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 group hover:-translate-y-1 shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-red-50/70 border border-red-100 group-hover:border-[#E5092C]/40 group-hover:bg-red-50 flex items-center justify-center p-3 shrink-0 transition-all duration-300">
+              <div className="reveal-card h-full flex items-center bg-white border border-gray-200 hover:border-[#E5092C]/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 group hover:-translate-y-1 shadow-sm hover:shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-red-50/70 border border-red-100 group-hover:border-[#E5092C]/40 group-hover:bg-red-50 flex items-center justify-center p-2.5 shrink-0 transition-all duration-300">
                     <img 
                       src="/media/about/our-mission-red.png" 
                       alt="Our Mission Icon" 
@@ -293,11 +283,11 @@ export function About() {
                     <div className="font-body inline-block text-[10px] sm:text-[11px] font-bold text-[#E5092C] tracking-wider uppercase mb-1">
                       Core Commitment
                     </div>
-                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors mb-2">
+                    <h3 className="font-display font-bold text-base sm:text-lg md:text-xl text-slate-900 tracking-tight group-hover:text-[#E5092C] transition-colors mb-1.5">
                       Our Mission
                     </h3>
-                    <p className="font-body text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
-                      The mission is to be the leading player in the IoT-based Electrical industry.
+                    <p className="font-body text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                      To design and deliver practical technology products that combine robust hardware, intelligent software, secure connectivity, and dependable support—helping customers automate operations, save energy, improve safety, and make better decisions.
                     </p>
                   </div>
                 </div>
@@ -310,152 +300,102 @@ export function About() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. OUR STORY – Compact & Premium Interactive Timeline                      */}
+      {/* 3. OUR STORY (MILESTONES TIMELINE)                                        */}
       {/* ========================================================================= */}
-      <section id="our-story" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white relative border-b border-gray-200">
-        
-        {/* Subtle ambient red glow on the timeline side */}
-        <div className="absolute top-1/3 right-0 w-[450px] h-[450px] bg-[#E5092C]/[0.04] rounded-full blur-[140px] pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section id="our-story" className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 bg-[#F8FAF9] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
             
-            {/* Left Column: Sticky Overview & Story Illustration */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
-              
-              {/* Eyebrow Badge */}
-              <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
-                <span>Milestones &amp; Evolution</span>
+            {/* Left Sticky Column: Overview & Illustration */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 self-start space-y-4">
+              <div>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#E0001B] font-bold">
+                  Our Evolution
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mt-1 leading-tight">
+                  Our <span className="text-[#E0001B]">Story</span>
+                </h2>
+                <p className="mt-2 text-gray-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
+                  Founded in 2024, our journey has rapidly advanced from specialized railway safety engineering and pilot electronics to next-gen intelligent home automation and mission-critical signaling innovations.
+                </p>
               </div>
 
-              {/* Section H2 Heading */}
-              <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight">
-                Our <span className="text-[#E5092C]">Story</span>
-              </h2>
-
-              {/* Section Lead Paragraph */}
-              <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
-                Founded in 2024, our journey has rapidly advanced from specialized railway safety engineering and pilot electronics to next-gen intelligent home automation and mission-critical signaling innovations.
-              </p>
-
               {/* Story Illustration Card */}
-              <div className="reveal-card rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-50 p-5 sm:p-6 md:p-8 border border-gray-200 shadow-sm max-w-lg w-full">
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-white p-3 sm:p-4 shadow-sm border border-gray-100 w-full">
                 <img 
                   src="/media/about/our-story.png" 
                   alt="Our Story Illustration" 
-                  className="w-full h-auto object-contain mx-auto max-h-[260px] sm:max-h-[300px] md:max-h-[330px] filter drop-shadow-md" 
+                  className="w-full h-auto object-contain mx-auto max-h-[210px] sm:max-h-[240px]"
                 />
               </div>
 
-              {/* Stats Strip */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg w-full">
-                <div className="reveal-card bg-slate-50 p-4 sm:p-5 rounded-2xl border border-gray-200 text-center shadow-sm hover:border-[#E5092C]/40 transition-colors">
-                  <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-[#E5092C]">2024–2026</span>
-                  <span className="font-body text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-wider font-semibold mt-1 block">Active Roadmaps</span>
+              {/* Key Highlights Metrics */}
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 w-full">
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
+                  <span className="block text-lg sm:text-xl font-display font-extrabold text-[#E0001B]">2024</span>
+                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Inception Year</span>
                 </div>
-                <div className="reveal-card bg-slate-50 p-4 sm:p-5 rounded-2xl border border-gray-200 text-center shadow-sm hover:border-[#E5092C]/40 transition-colors">
-                  <span className="block font-display font-black text-xl sm:text-2xl md:text-3xl text-slate-900">Safety Certified</span>
-                  <span className="font-body text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-wider font-semibold mt-1 block">Mission Critical</span>
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
+                  <span className="block text-lg sm:text-xl font-display font-extrabold text-[#E0001B]">3+</span>
+                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Railways Systems</span>
+                </div>
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
+                  <span className="block text-base sm:text-lg font-display font-extrabold text-[#E0001B]">FogPass</span>
+                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Flagship Tech</span>
+                </div>
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
+                  <span className="block text-base sm:text-lg font-display font-extrabold text-[#E0001B]">IoT R&D</span>
+                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Home Automation</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Compact Vertical Timeline */}
+            {/* Right Column: Timeline Cards */}
             <div className="lg:col-span-7">
-              <div className="relative pl-6 sm:pl-7 border-l-2 border-gray-200 space-y-4 sm:space-y-5">
-                
-                {milestones.map((item, index) => {
-                  const isExpanded = !!expandedMilestones[index];
-
-                  return (
-                    <div key={index} className="reveal-card relative group">
+              <div className="relative pl-5 sm:pl-7 md:pl-8 border-l-2 border-red-200/80 grid grid-cols-1 auto-rows-fr gap-3 sm:gap-3.5">
+                {milestones.map((item, index) => (
+                  <div key={index} className="relative group flex">
+                    {/* Glowing Bullet centered exactly on the 2px left border */}
+                    <div className="absolute -left-[21px] sm:-left-[29px] md:-left-[33px] -translate-x-1/2 top-2 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[3px] sm:border-4 border-[#E0001B] shadow-md group-hover:scale-125 transition-transform duration-300"></div>
+                    
+                    {/* Content Card */}
+                    <div className="w-full bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 shadow-sm border border-gray-100 hover:shadow-md hover:border-red-200 transition-all duration-300 flex flex-col">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5 sm:mb-2">
+                        <span className="text-lg sm:text-xl font-display font-black text-[#E0001B] tracking-tight">
+                          {item.year}
+                        </span>
+                        <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-100">
+                          {item.tag}
+                        </span>
+                      </div>
                       
-                      {/* Milestone Glowing Indicator Node */}
-                      <div className="absolute -left-[31px] sm:-left-[35px] top-4 z-20 flex items-center justify-center">
-                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-white border-2 border-[#E5092C] shadow-sm shadow-[#E5092C]/30 flex items-center justify-center group-hover:scale-125 transition-transform duration-300">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#E5092C]"></div>
+                      <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-start text-center sm:text-left">
+                        {item.image && (
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden bg-slate-50 border border-gray-100 shrink-0 p-1 flex items-center justify-center">
+                            <img 
+                              src={item.image} 
+                              alt={item.title} 
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1">
+                          <h4 className="text-sm sm:text-[15px] font-display font-bold text-gray-900 mb-1">
+                            {item.title}
+                          </h4>
+                          <ul className="space-y-1 text-[11px] sm:text-xs text-gray-600 leading-snug list-disc list-outside pl-4 text-left">
+                            {item.points.map((p, pIdx) => (
+                              <li key={pIdx} className="text-gray-600">
+                                <span>{p}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
-
-                      {/* Milestone Card */}
-                      <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-gray-200 hover:border-[#E5092C]/50 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                        
-                        {/* Header: Year & Tag */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                          <span className="font-display font-black text-xl sm:text-2xl text-slate-900 group-hover:text-[#E5092C] transition-colors tracking-tight">
-                            {item.year}
-                          </span>
-                          <span className="font-body text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-[#E5092C] border border-red-200 tracking-wide">
-                            {item.tag}
-                          </span>
-                        </div>
-
-                        {/* Title & Project Image */}
-                        <div className="flex items-start gap-3 sm:gap-4 mb-2.5">
-                          {item.image && (
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-slate-50 border border-gray-200 p-1.5 shrink-0 flex items-center justify-center overflow-hidden">
-                              <img 
-                                src={item.image} 
-                                alt={item.title} 
-                                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          )}
-                          <div className="flex-1">
-                            <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 leading-snug tracking-tight">
-                              {item.title}
-                            </h3>
-                            <p className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mt-1">
-                              {item.summary}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Expandable Points Content */}
-                        <div className="pt-2 border-t border-gray-100">
-                          
-                          {/* First point always visible */}
-                          <div className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] mt-1.5 shrink-0"></span>
-                            <span>{item.points[0]}</span>
-                          </div>
-
-                          {/* Remaining points toggle smoothly */}
-                          {isExpanded && (
-                            <div className="space-y-1.5 mt-2 pt-2 border-t border-gray-100 animate-fadeIn">
-                              {item.points.slice(1).map((p, pIdx) => (
-                                <div key={pIdx} className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] mt-1.5 shrink-0"></span>
-                                  <span>{p}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                          {/* Read More / Show Less Toggle Button */}
-                          <button
-                            type="button"
-                            onClick={() => toggleMilestone(index)}
-                            className="font-body mt-2.5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-slate-800 hover:text-[#E5092C] transition-colors cursor-pointer group/btn"
-                          >
-                            <span>{isExpanded ? 'Show Less' : `Read More Details (${item.points.length - 1} more)`}</span>
-                            {isExpanded ? (
-                              <ChevronUp className="w-3.5 h-3.5 text-[#E5092C]" />
-                            ) : (
-                              <ChevronDown className="w-3.5 h-3.5 text-[#E5092C] group-hover/btn:translate-y-0.5 transition-transform" />
-                            )}
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-                  );
-                })}
-
+                  </div>
+                ))}
               </div>
             </div>
 
