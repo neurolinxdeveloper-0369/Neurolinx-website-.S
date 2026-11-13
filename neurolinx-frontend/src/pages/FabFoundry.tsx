@@ -14,36 +14,12 @@ export function FabFoundry() {
     <div className="w-full bg-[#08090D] text-white flex flex-col font-body selection:bg-[#E5092C] selection:text-white min-h-screen">
       
       {/* Cinematic Hero */}
-      <div className="relative w-full flex items-center justify-center overflow-hidden bg-[#08090D] pt-28 pb-20 sm:pt-36 sm:pb-28 border-b border-[#292A32]/80">
-        
-        {/* Subtle dark-red radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-[#E5092C]/[0.08] rounded-full blur-[150px] pointer-events-none"></div>
-
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <img 
           src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
           alt="Fab Foundry"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 filter grayscale"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090D] via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-[#08090D]/50 pointer-events-none"></div>
-        
-        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 sm:px-6">
-          <div className="reveal-item section-badge">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
-            <span>Scalable Production</span>
-          </div>
-
-          <h1 className="reveal-item font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[64px] text-white tracking-tight leading-[1.12] mb-5">
-            Fab Foundry <br />
-            <span className="text-[#E5092C] inline-block">
-              Services.
-            </span>
-          </h1>
-
-          <p className="reveal-item section-desc max-w-2xl mx-auto">
-            End-to-end semiconductor and precision electronics manufacturing services for hardware innovators.
-          </p>
-        </div>
       </div>
 
       {/* Feature Section */}

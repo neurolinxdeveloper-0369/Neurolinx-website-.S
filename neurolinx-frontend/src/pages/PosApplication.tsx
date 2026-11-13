@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { 
   Zap, 
   Package, 
@@ -8,8 +7,7 @@ import {
   BarChart3, 
   UserCheck, 
   CreditCard, 
-  Layers, 
-  ArrowRight 
+  Layers 
 } from 'lucide-react';
 
 export function PosApplication() {
@@ -63,41 +61,12 @@ export function PosApplication() {
       {/* ========================================================================= */}
       {/* SECTION 1: CINEMATIC HERO BANNER                                          */}
       {/* ========================================================================= */}
-      <div className="relative w-full flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '60vh' }}>
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <img 
           src="/media/pos_hero_banner.jpg" 
           alt="Neurolinx POS Application"
-          className="absolute inset-0 w-full h-full object-cover opacity-40 brightness-95"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-black/50"></div>
-        
-        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 mt-20 pb-16">
-          <h1 className="text-4xl md:text-6xl font-display font-black tracking-tighter text-white mb-6 leading-tight drop-shadow-2xl">
-            POS <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Application</span>
-          </h1>
-          <p className="text-base md:text-lg text-gray-200 max-w-2xl font-light drop-shadow-md mb-8">
-            Streamline billing, sales, inventory, and everyday business operations with Neurolinx POS Application.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
-              href="#features" 
-              className="px-7 py-3.5 rounded-full bg-brand-red hover:bg-red-700 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 flex items-center gap-2 group cursor-pointer"
-            >
-              <span>Explore Features</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-
-            <Link 
-              to="/pos-demo" 
-              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-md font-bold text-sm tracking-wide transition-all shadow-md flex items-center gap-2 cursor-pointer"
-            >
-              <span>Request a Demo</span>
-            </Link>
-          </div>
-        </div>
       </div>
 
       {/* ========================================================================= */}

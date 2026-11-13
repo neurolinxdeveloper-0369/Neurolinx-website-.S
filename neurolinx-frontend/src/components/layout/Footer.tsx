@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
-  const { pathname } = useLocation();
-  const isHomeAutomation = pathname.replace(/\/+$/, '') === '/home-automation';
-
   return (
-    <footer className={`bg-black text-gray-300 pt-16 sm:pt-20 lg:pt-24 ${isHomeAutomation ? 'pb-0' : 'pb-8 sm:pb-10'} rounded-tl-[52px_38px] rounded-tr-[52px_38px] md:rounded-tl-[72px_52px] md:rounded-tr-[72px_52px] xl:rounded-tl-[84px_54px] xl:rounded-tr-[84px_54px] -mt-[38px] md:-mt-[52px] xl:-mt-[54px] shadow-[0_-1px_0_0_rgba(255,255,255,0.16)] relative z-20 overflow-hidden`}>
+    <footer className="bg-black text-gray-300 pt-16 sm:pt-20 lg:pt-24 pb-0 rounded-tl-[52px_38px] rounded-tr-[52px_38px] md:rounded-tl-[72px_52px] md:rounded-tr-[72px_52px] xl:rounded-tl-[84px_54px] xl:rounded-tr-[84px_54px] -mt-[38px] md:-mt-[52px] xl:-mt-[54px] shadow-[0_-1px_0_0_rgba(255,255,255,0.16)] relative z-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Section: Grid */}
@@ -105,17 +102,16 @@ export function Footer() {
         
       </div>
 
-      {isHomeAutomation && (
-        <div className="w-full relative z-10 mt-6 sm:mt-8 p-0 border-0 overflow-hidden select-none">
-          <img
-            src="/media/neurolinx_footer_watermark.png"
-            alt="NEUROLINX"
-            width={1024}
-            height={182}
-            className="w-full h-auto block border-0 outline-none p-0"
-          />
-        </div>
-      )}
+      {/* Global NEUROLINX Watermark across all pages (matching Smart Home Automation) */}
+      <div className="w-full relative z-10 mt-6 sm:mt-8 p-0 border-0 overflow-hidden select-none">
+        <img
+          src="/media/neurolinx_footer_watermark.png"
+          alt="NEUROLINX"
+          width={1024}
+          height={182}
+          className="w-full h-auto block border-0 outline-none p-0"
+        />
+      </div>
     </footer>
   );
 }
