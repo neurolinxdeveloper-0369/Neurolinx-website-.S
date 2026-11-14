@@ -16,7 +16,7 @@ export function FabFoundry() {
       {/* Cinematic Hero */}
       <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <img 
-          src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+          src="/media/fab_foundry_hero.jpg" 
           alt="Fab Foundry"
           className="w-full h-full object-cover"
         />

@@ -62,7 +62,7 @@ export function InternetOfThings() {
       {/* ========================================================================= */}
       {/* SECTION 1: CINEMATIC HERO BANNER                                          */}
       {/* ========================================================================= */}
-      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <img 
           src="/media/smart_home_hero_iot.jpg" 
           alt="Internet of Things (IoT) Solutions"
