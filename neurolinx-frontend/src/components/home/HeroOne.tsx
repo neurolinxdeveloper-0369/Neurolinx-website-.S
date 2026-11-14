@@ -88,7 +88,7 @@ export function HeroOne() {
             className="hero-para-reveal text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-body max-w-sm sm:max-w-md lg:max-w-lg"
             style={{ animationDelay: '920ms' }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Pioneering next-generation smart home automation, industrial IoT ecosystems, and mission-critical railway electronics. We engineer intuitive, retrofit technology designed to make modern living effortless, intelligent, and beautifully connected.
           </p>
         </div>
       </div>

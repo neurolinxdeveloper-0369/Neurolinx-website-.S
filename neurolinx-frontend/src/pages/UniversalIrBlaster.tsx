@@ -798,6 +798,76 @@ export function UniversalIrBlaster() {
         </div>
       </div>
 
+    
+      {/* ── Slide 6: Frequently Asked Questions (SmartNode Style) ── */}
+      <div className="w-full bg-[#F8F8F8] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold text-brand-red uppercase tracking-wider">IR Blaster FAQ</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 mt-1">Frequently Asked Questions</h2>
+            <p className="text-sm text-gray-500 mt-2">Answers about line-of-sight range, brand library compatibility, and voice control.</p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "Does the IR Blaster need direct line of sight with appliances?",
+                a: "Our device features a ring of 7 high-output infrared diodes offering 360-degree hemispherical coverage. As long as it is placed centrally in the room or on a tabletop, the infrared pulses bounce off walls and ceilings to reach ACs and entertainment units effortlessly."
+              },
+              {
+                q: "Is my AC or TV brand supported?",
+                a: "Yes. Our cloud database stores over 80,000+ pre-mapped remote control codes for all major brands (Daikin, Voltas, LG, Samsung, Sony, Panasonic, Tata Sky, Airtel, etc.). It also has a learning mode to capture any custom or rare remote."
+              },
+              {
+                q: "Can I create automated schedules for my air conditioner?",
+                a: "Absolutely. You can schedule your AC to turn ON 15 minutes before you arrive home, cycle between 24°C and 26°C through the night, or automatically turn off if you leave the room."
+              },
+              {
+                q: "Does it support voice commands with Alexa and Google Assistant?",
+                a: "Yes. You can say 'Alexa, set AC to 22 degrees', 'Hey Google, turn on TV', or 'Alexa, mute the soundbar'."
+              }
+            ].map((faq, idx) => (
+              <div 
+                key={idx} 
+                className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-xs hover:border-gray-200 transition-all p-5 sm:p-6"
+              >
+                <h4 className="text-base font-bold text-gray-900 mb-2">{faq.q}</h4>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Slide 7: SmartNode Signature Dark CTA Section with Rounded-T ── */}
+      <div className="w-full bg-black text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 rounded-t-[40px] md:rounded-t-[60px] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider text-red-400">
+            <Sparkles className="w-3.5 h-3.5 text-brand-red" />
+            <span>Consolidate All Your Remotes</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+            Take Unified Control of <span className="text-brand-red">Your Entertainment & Climate.</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            Eliminate clutter and control every infrared device with your voice and smartphone.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <Link
+              to="/contact"
+              className="px-8 py-3.5 rounded-full bg-brand-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-red-900/30"
+            >
+              Order IR Blaster
+            </Link>
+            <Link
+              to="/home-automation"
+              className="px-8 py-3.5 rounded-full bg-white text-black hover:bg-gray-100 font-bold text-xs uppercase tracking-wider transition-all"
+            >
+              Explore Products
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

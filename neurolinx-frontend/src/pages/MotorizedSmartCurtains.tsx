@@ -843,6 +843,76 @@ export function MotorizedSmartCurtains() {
         </div>
       </div>
 
+    
+      {/* ── Slide 5: Frequently Asked Questions (SmartNode Style) ── */}
+      <div className="w-full bg-[#F8F8F8] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold text-brand-red uppercase tracking-wider">Curtain Automation FAQ</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 mt-1">Frequently Asked Questions</h2>
+            <p className="text-sm text-gray-500 mt-2">Common questions regarding curtain track lengths, dual drapes, and motor lifespan.</p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "What happens if there is a power cut? Can I still move the curtains?",
+                a: "Yes. All Neurolinx motorized tracks feature an integrated manual clutch. During a power failure, you can glide the curtains open or closed by hand just like traditional drapery with zero motor resistance."
+              },
+              {
+                q: "What is the Gentle-Pull Touch feature?",
+                a: "If you gently tug the curtain fabric by approximately 5cm in either direction, the optical sensors inside the motor detect the movement and automatically glide the curtains to the fully open or closed position."
+              },
+              {
+                q: "Can the track accommodate curved 90-degree corner windows or bay windows?",
+                a: "Yes. We offer precision custom bending services for 90° corner windows, semi-circular bay windows, and continuous L-shaped curtain tracks up to 12 meters in length."
+              },
+              {
+                q: "Can I control the curtains using smart glass touch switches or voice?",
+                a: "Absolutely. You can operate them using physical glass touch switchboards, dedicated wireless remotes, the smartphone app, or hands-free voice commands via Alexa, Google Home, and Siri."
+              }
+            ].map((faq, idx) => (
+              <div 
+                key={idx} 
+                className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-xs hover:border-gray-200 transition-all p-5 sm:p-6"
+              >
+                <h4 className="text-base font-bold text-gray-900 mb-2">{faq.q}</h4>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Slide 6: SmartNode Signature Dark CTA Section with Rounded-T ── */}
+      <div className="w-full bg-black text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 rounded-t-[40px] md:rounded-t-[60px] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider text-red-400">
+            <Sparkles className="w-3.5 h-3.5 text-brand-red" />
+            <span>Effortless Sunlight & Privacy Management</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+            Automate Your Curtains & <span className="text-brand-red">Elevate Your Living.</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            Schedule a window measurement consultation or visit our Experience Center to test our whisper-quiet motorized tracks in person.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <Link
+              to="/contact"
+              className="px-8 py-3.5 rounded-full bg-brand-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-red-900/30"
+            >
+              Get Track Estimate
+            </Link>
+            <Link
+              to="/home-automation"
+              className="px-8 py-3.5 rounded-full bg-white text-black hover:bg-gray-100 font-bold text-xs uppercase tracking-wider transition-all"
+            >
+              Explore All Products
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, ArrowRight, Tag, BookOpen } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Sparkles } from 'lucide-react';
 
 export function Blogs() {
   const blogs = [
@@ -67,38 +67,37 @@ export function Blogs() {
   ];
 
   return (
-    <div className="w-full bg-[#0B0F19] min-h-screen text-white font-body pt-24 pb-20">
+    <div className="w-full bg-[#F8F8F8] min-h-screen text-slate-800 font-body selection:bg-brand-red selection:text-white">
       
-      {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-6">
-          <BookOpen className="w-3.5 h-3.5" />
-          <span>Neurolinx Insights</span>
+      {/* ── Hero Header: Clean White Canvas ── */}
+      <section className="relative w-full pt-32 pb-16 sm:pt-36 sm:pb-20 bg-white border-b border-gray-100 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl mx-auto">
+            Blogs &amp; <span className="text-[#E0001B]">Technology Articles</span>
+          </h1>
+          <p className="mt-4 sm:mt-5 text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Explore research whitepapers, engineering deep-dives, and announcements covering modern automation, rail systems, bio-photonic lighting, and semiconductors.
+          </p>
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight text-white mb-6">
-          Blogs &amp; Technology Articles
-        </h1>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Explore research whitepapers, engineering deep-dives, and announcements covering modern automation, rail systems, bio-photonic lighting, and semiconductors.
-        </p>
-      </div>
+      </section>
 
-      {/* Blog Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* ── Blog Grid Section: Clean White Cards on Soft #F8F8F8 Canvas ── */}
+      <section className="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {blogs.map((blog) => (
             <article 
               key={blog.id}
-              className="bg-slate-900/60 border border-white/10 rounded-3xl overflow-hidden hover:border-brand-red/50 hover:shadow-2xl hover:shadow-brand-red/10 transition-all duration-300 flex flex-col group"
+              className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col group"
             >
-              <div className="h-52 w-full overflow-hidden relative">
+              <div className="h-52 w-full overflow-hidden relative bg-gray-100">
                 <img 
                   src={blog.image} 
                   alt={blog.title} 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-emerald-300 border border-white/10">
+                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#E0001B] border border-gray-200/80 shadow-xs">
                     {blog.tag}
                   </span>
                 </div>
@@ -106,27 +105,27 @@ export function Blogs() {
 
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-gray-500" />
+                      <Calendar className="w-3.5 h-3.5 text-gray-400" />
                       {blog.date}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-gray-500" />
+                      <Clock className="w-3.5 h-3.5 text-gray-400" />
                       {blog.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-red transition-colors leading-snug">
+                  <h2 className="text-lg font-bold text-gray-900 mb-2.5 group-hover:text-[#E0001B] transition-colors leading-snug">
                     {blog.title}
-                  </h3>
+                  </h2>
 
-                  <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-6">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3 mb-6">
                     {blog.summary}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-brand-red group-hover:translate-x-1 transition-transform">
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#E0001B] group-hover:translate-x-1 transition-transform">
                   <span>Read Article</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -134,8 +133,40 @@ export function Blogs() {
             </article>
           ))}
         </div>
-      </div>
+      </section>
+
+      {/* ── Signature SmartNode Dark CTA Banner with Rounded-T ── */}
+      <section className="py-16 sm:py-20 bg-black text-white rounded-t-[40px] md:rounded-t-[60px] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider text-red-400">
+            <Sparkles className="w-3.5 h-3.5 text-[#E0001B]" />
+            <span>Stay Ahead With Neurolinx</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+            Pioneering the Next Era of <span className="text-[#E0001B]">Intelligent Engineering.</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            Interested in collaboration, research publications, or adopting our smart hardware systems?
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <Link
+              to="/contact"
+              className="px-8 py-3.5 rounded-full bg-[#E0001B] hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-red-900/30"
+            >
+              Contact Our Engineers
+            </Link>
+            <Link
+              to="/home-automation"
+              className="px-8 py-3.5 rounded-full bg-white text-black hover:bg-gray-100 font-bold text-xs uppercase tracking-wider transition-all"
+            >
+              Explore Solutions
+            </Link>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
 }
+
+export default Blogs;
