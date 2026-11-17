@@ -40,8 +40,8 @@ export interface ModuleConfigOption {
 }
 
 export function RetrofitTouchPanels() {
-  // Active Modular Box Selection for the 3-3-1 top grid (1 Moduler, 2 Moduler, etc.)
-  const [activeModulerBox, setActiveModulerBox] = useState<string>('4-moduler');
+  // Active Modular Box Selection for the 3-3-1 top grid (1 Modular, 2 Modular, etc.)
+  const [activeModularBox, setActiveModularBox] = useState<string>('4-modular');
 
   // Category selection: 'touch-panels' (default) or 'sockets'
   const [selectedCategory, setSelectedCategory] = useState<'touch-panels' | 'sockets'>('touch-panels');
@@ -55,18 +55,18 @@ export function RetrofitTouchPanels() {
 
   // Constant Top Modular Boxes (7 Sizes)
   const modularBoxes = [
-    { id: '1-moduler', label: '1 Moduler', code: '1M', dimensions: '50 × 86 mm', panelId: '1-panels', capacity: 1, standardSize: '1-Module Indian Standard Junction Box (50 × 86 mm)' },
-    { id: '2-moduler', label: '2 Moduler', code: '2M', dimensions: '86 × 86 mm', panelId: '2-panels', capacity: 2, standardSize: '2-Module Standard Junction Box (86 × 86 mm)' },
-    { id: '4-moduler', label: '4 Moduler', code: '4M', dimensions: '146 × 86 mm', panelId: '4-panels', capacity: 4, standardSize: '4-Module Indian Standard Junction Box (146 × 86 mm)' },
-    { id: '8-moduler', label: '8 Moduler', code: '8M', dimensions: '224 × 86 mm', panelId: '8-panels', capacity: 8, standardSize: '8-Module Horizontal / Square Box (224 × 86 mm)' },
-    { id: '10-moduler', label: '10 Moduler', code: '10M', dimensions: '250 × 146 mm', panelId: '10-panels', capacity: 10, standardSize: '10-Module Horizontal Box (250 × 146 mm)' },
-    { id: '12-moduler', label: '12 Moduler', code: '12M', dimensions: '250 × 200 mm', panelId: '12-panels', capacity: 12, standardSize: '12-Module Standard Plate (250 × 200 mm)' },
-    { id: '16-moduler', label: '16 Moduler', code: '16M', dimensions: '250 × 250 mm', panelId: '16-panels', capacity: 16, standardSize: '16-Module Two-Tier Standard Box (250 × 250 mm)' },
+    { id: '1-modular', label: '1 Modular', code: '1M', dimensions: '50 × 86 mm', panelId: '1-panels', capacity: 1, standardSize: '1-Module Indian Standard Junction Box (50 × 86 mm)' },
+    { id: '2-modular', label: '2 Modular', code: '2M', dimensions: '86 × 86 mm', panelId: '2-panels', capacity: 2, standardSize: '2-Module Standard Junction Box (86 × 86 mm)' },
+    { id: '4-modular', label: '4 Modular', code: '4M', dimensions: '146 × 86 mm', panelId: '4-panels', capacity: 4, standardSize: '4-Module Indian Standard Junction Box (146 × 86 mm)' },
+    { id: '8-modular', label: '8 Modular', code: '8M', dimensions: '224 × 86 mm', panelId: '8-panels', capacity: 8, standardSize: '8-Module Horizontal / Square Box (224 × 86 mm)' },
+    { id: '10-modular', label: '10 Modular', code: '10M', dimensions: '250 × 146 mm', panelId: '10-panels', capacity: 10, standardSize: '10-Module Horizontal Box (250 × 146 mm)' },
+    { id: '12-modular', label: '12 Modular', code: '12M', dimensions: '250 × 200 mm', panelId: '12-panels', capacity: 12, standardSize: '12-Module Standard Plate (250 × 200 mm)' },
+    { id: '16-modular', label: '16 Modular', code: '16M', dimensions: '250 × 250 mm', panelId: '16-panels', capacity: 16, standardSize: '16-Module Two-Tier Standard Box (250 × 250 mm)' },
   ];
 
   // Comprehensive Selected Options Dictionary for all 7 Module Sizes (Options-Wise: Touch Panels + Sockets)
   const moduleConfigsMap: Record<string, ModuleConfigOption[]> = {
-    '1-moduler': [
+    '1-modular': [
       {
         id: '1m-1p-0s',
         name: '1 Touch Panel + 0 Sockets',
@@ -76,7 +76,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/1m-1p-0s.png',
         badge: 'Dedicated Switch',
         isPopular: true,
-        title: '1 Moduler Smart Touch Switch Board (1 Lighting Channel)',
+        title: '1 Modular Smart Touch Switch Board (1 Lighting Channel)',
         tagline: 'Compact Feather-Touch Smart Switching for Single Circuit',
         desc: 'Single capacitive feather-touch tempered crystal glass switch. Fits any standard 1-module backbox cutout to control a single lighting loop, exhaust fan, or accent cove strip with full smartphone and voice automation.',
         smartAutomationInfo: 'Control high-efficiency lighting remotely via smartphone or voice with Alexa and Google Assistant. Set daily auto-off timer schedules and track real-time power consumption.',
@@ -98,7 +98,7 @@ export function RetrofitTouchPanels() {
         sockets: 1,
         img: '/media/plates/1m-0p-1s.png',
         badge: 'Power Point',
-        title: '1 Moduler Smart Power Socket Board (10A Continuous)',
+        title: '1 Modular Smart Power Socket Board (10A Continuous)',
         tagline: 'Compact Single-Outlet Retrofit Power Point with Sleep Timer',
         desc: 'Single 1-module smart power socket with integrated solid-state relay.',
         smartAutomationInfo: 'App and voice control.',
@@ -114,7 +114,7 @@ export function RetrofitTouchPanels() {
       }
     ],
 
-    '2-moduler': [
+    '2-modular': [
       {
         id: '2m-2p-0s',
         name: '2 Touch Panels + 0 Sockets',
@@ -124,7 +124,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/2m-2p-0s.png',
         badge: 'Dual Lighting',
         isPopular: true,
-        title: '2 Moduler Dual Touch Switch Board (2 Lighting Channels)',
+        title: '2 Modular Dual Touch Switch Board (2 Lighting Channels)',
         tagline: 'Compact Dual-Zone Capacitive Touch Switch for Secondary Walls',
         desc: 'Dual capacitive feather-touch switches on diamond-cut crystal glass.',
         smartAutomationInfo: 'Dual lighting scenes and night-dimming.',
@@ -146,7 +146,7 @@ export function RetrofitTouchPanels() {
         sockets: 1,
         img: '/media/plates/2m-0p-1s.png',
         badge: 'Heavy Appliance',
-        title: '2 Moduler Heavy-Duty 16A/25A Smart Power Socket Board',
+        title: '2 Modular Heavy-Duty 16A/25A Smart Power Socket Board',
         tagline: 'High-Inrush Power Controller Built for Water Geysers & Split ACs',
         desc: 'Full 2-module universal multi-pin heavy-duty smart power socket.',
         smartAutomationInfo: 'Morning geyser schedules & voltage cutoff.',
@@ -162,7 +162,7 @@ export function RetrofitTouchPanels() {
       }
     ],
 
-    '4-moduler': [
+    '4-modular': [
       {
         id: '4m-2p-1s',
         name: '2 Touch Panels + 1 Smart Socket',
@@ -172,7 +172,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/4m-2p-1s.png',
         badge: 'Most Popular',
         isPopular: true,
-        title: '4 Moduler Dual Touch Switch & 16A Universal Socket Board',
+        title: '4 Modular Dual Touch Switch & 16A Universal Socket Board',
         tagline: 'Balanced Bedside & Study Desk Lighting + 16A Power Point',
         desc: 'Two capacitive touch switches paired alongside an integrated 16A universal shuttered power socket.',
         smartAutomationInfo: 'Goodnight lighting scene + socket sleep timer.',
@@ -194,7 +194,7 @@ export function RetrofitTouchPanels() {
         sockets: 0,
         img: '/media/plates/4m-4p-0s.png',
         badge: 'Full Lighting',
-        title: '4 Moduler Quad Touch Switch Board (4 Lighting Circuits)',
+        title: '4 Modular Quad Touch Switch Board (4 Lighting Circuits)',
         tagline: 'Dedicated 4-Zone Room Lighting & Scene Control Center',
         desc: 'Four capacitive feather-touch circuits on a 4-module luxury crystal glass plate.',
         smartAutomationInfo: 'Multi-circuit scene dimming and master All-Off.',
@@ -216,7 +216,7 @@ export function RetrofitTouchPanels() {
         sockets: 2,
         img: '/media/plates/4m-0p-2s.png',
         badge: 'Dual Power Hub',
-        title: '4 Moduler Dual Heavy-Duty 16A Smart Socket Board',
+        title: '4 Modular Dual Heavy-Duty 16A Smart Socket Board',
         tagline: 'Dual Independent 16A Outlets for Kitchen Counters & Workstations',
         desc: 'Dual independent 16A universal smart power sockets on a single 4-module plate.',
         smartAutomationInfo: 'Separate timers and voice control per outlet.',
@@ -232,7 +232,7 @@ export function RetrofitTouchPanels() {
       }
     ],
 
-    '8-moduler': [
+    '8-modular': [
       {
         id: '8m-6p-1s',
         name: '6 Touch Panels + 1 Smart Socket',
@@ -242,7 +242,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/8m-6p-1s.png',
         badge: 'Most Popular',
         isPopular: true,
-        title: '8 Moduler 6 Touch Switch & 16A Universal Socket Board',
+        title: '8 Modular 6 Touch Switch & 16A Universal Socket Board',
         tagline: 'Standard Living Room & Master Suite 6-Light + Socket Console',
         desc: 'Six capacitive touch switches paired with an integrated 16A universal power socket.',
         smartAutomationInfo: 'One-touch scenes + socket digital lock.',
@@ -264,7 +264,7 @@ export function RetrofitTouchPanels() {
         sockets: 0,
         img: '/media/plates/8m-8p-0s.png',
         badge: 'Full Lighting',
-        title: '8 Moduler Octa Touch Switch Board (8 Lighting Circuits)',
+        title: '8 Modular Octa Touch Switch Board (8 Lighting Circuits)',
         tagline: 'High-Density 8-Zone Lighting & Fan Architecture for Living Spaces',
         desc: 'High-density 8-module architectural glass touch board consolidating 8 circuits.',
         smartAutomationInfo: 'Multi-gang mesh scenes.',
@@ -286,7 +286,7 @@ export function RetrofitTouchPanels() {
         sockets: 2,
         img: '/media/plates/8m-4p-2s.png',
         badge: 'Dual Socket Combo',
-        title: '8 Moduler Quad Touch Switch & Dual 16A Socket Board',
+        title: '8 Modular Quad Touch Switch & Dual 16A Socket Board',
         tagline: 'Suite Lighting & Dual Charging Outlets on a Single 8M Console',
         desc: 'Four capacitive lighting channels paired with dual independent 16A universal power sockets.',
         smartAutomationInfo: 'Independent socket timers + 4-zone lights.',
@@ -308,7 +308,7 @@ export function RetrofitTouchPanels() {
         sockets: 3,
         img: '/media/plates/8m-2p-3s.png',
         badge: 'Triple Socket Hub',
-        title: '8 Moduler Dual Touch Switch & Triple Smart Socket Board',
+        title: '8 Modular Dual Touch Switch & Triple Smart Socket Board',
         tagline: 'Workstation & Media Console Hub with Triple Smart Outlets',
         desc: 'Two capacitive touch switches with three independent universal power sockets.',
         smartAutomationInfo: 'Workstation power scenes.',
@@ -330,7 +330,7 @@ export function RetrofitTouchPanels() {
         sockets: 4,
         img: '/media/plates/8m-0p-4s.png',
         badge: 'Quad Power Hub',
-        title: '8 Moduler Quad Heavy-Duty 16A Smart Socket Board',
+        title: '8 Modular Quad Heavy-Duty 16A Smart Socket Board',
         tagline: 'Dedicated 4-Outlet Power Bank for Kitchens & AV Racks',
         desc: 'Four independent 16A universal smart sockets on a single 8-module plate.',
         smartAutomationInfo: 'Individual kWh metering across all 4 sockets.',
@@ -346,7 +346,7 @@ export function RetrofitTouchPanels() {
       }
     ],
 
-    '10-moduler': [
+    '10-modular': [
       {
         id: '10m-8p-1s',
         name: '8 Touch Panels + 1 Smart Socket',
@@ -356,7 +356,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/10m-8p-1s.png',
         badge: 'Most Popular',
         isPopular: true,
-        title: '10 Moduler 8 Touch Switch & 16A Universal Socket Board',
+        title: '10 Modular 8 Touch Switch & 16A Universal Socket Board',
         tagline: 'Luxury TV Wall & Living Hall Command Console (8 Switches + Socket)',
         desc: 'Extensive capacitive glass panel integrating 8 lighting channels alongside a 16A socket.',
         smartAutomationInfo: 'Cinema Mode dimming + EMI-filtered socket.',
@@ -378,7 +378,7 @@ export function RetrofitTouchPanels() {
         sockets: 0,
         img: '/media/plates/10m-10p-0s.png',
         badge: 'Full Lighting',
-        title: '10 Moduler 10-Gang Touch Switch Board (10 Lighting Circuits)',
+        title: '10 Modular 10-Gang Touch Switch Board (10 Lighting Circuits)',
         tagline: 'Grand Drawing Room 10-Circuit Chandelier, Cove & Fan Switch',
         desc: 'Ten capacitive feather-touch switches on diamond-cut crystal glass.',
         smartAutomationInfo: 'Whole-room scene hub with offline mesh.',
@@ -400,7 +400,7 @@ export function RetrofitTouchPanels() {
         sockets: 2,
         img: '/media/plates/10m-6p-2s.png',
         badge: 'Dual Socket Balance',
-        title: '10 Moduler 6 Touch Switch & Dual 16A Universal Socket Board',
+        title: '10 Modular 6 Touch Switch & Dual 16A Universal Socket Board',
         tagline: 'Media Wall Lighting Controller with Dual 16A Appliance Outlets',
         desc: 'Six lighting circuits paired with dual independent 16A universal power sockets.',
         smartAutomationInfo: 'Movie scene lighting + dual media sockets.',
@@ -422,7 +422,7 @@ export function RetrofitTouchPanels() {
         sockets: 3,
         img: '/media/plates/10m-4p-3s.png',
         badge: 'Triple Socket Station',
-        title: '10 Moduler Quad Touch Switch & Triple 16A Socket Board',
+        title: '10 Modular Quad Touch Switch & Triple 16A Socket Board',
         tagline: 'AV Credenza Station Pairing 4 Switches with 3 Smart Sockets',
         desc: 'Four lighting circuits combined with three universal smart sockets.',
         smartAutomationInfo: 'Unified AV equipment & room lighting control.',
@@ -444,7 +444,7 @@ export function RetrofitTouchPanels() {
         sockets: 4,
         img: '/media/plates/10m-2p-4s.png',
         badge: 'Quad Socket Hub',
-        title: '10 Moduler Dual Touch Switch & 4-Socket Heavy Power Board',
+        title: '10 Modular Dual Touch Switch & 4-Socket Heavy Power Board',
         tagline: 'Kitchen Island & Pantry Power Console (4 Sockets + 2 Switches)',
         desc: 'Two lighting channels alongside four heavy-duty universal smart sockets.',
         smartAutomationInfo: 'Scheduled morning appliance routines.',
@@ -466,7 +466,7 @@ export function RetrofitTouchPanels() {
         sockets: 5,
         img: '/media/plates/10m-0p-5s.png',
         badge: '5-Socket Power Bank',
-        title: '10 Moduler Quintuple Heavy-Duty 16A Smart Socket Board',
+        title: '10 Modular Quintuple Heavy-Duty 16A Smart Socket Board',
         tagline: '5-Outlet High-Wattage Power Hub for Labs, Racks & Pantry Walls',
         desc: 'Five independent 16A universal smart sockets on a single 10-module plate.',
         smartAutomationInfo: 'Individual app scheduling & kWh telemetry.',
@@ -482,7 +482,7 @@ export function RetrofitTouchPanels() {
       }
     ],
 
-    '12-moduler': [
+    '12-modular': [
       {
         id: '12m-8p-2s',
         name: '8 Touch Panels + 2 Smart Sockets',
@@ -492,7 +492,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/12m-8p-2s.png',
         badge: 'Most Popular',
         isPopular: true,
-        title: '12 Moduler 8 Touch Switch & Dual 16A Universal Socket Board',
+        title: '12 Modular 8 Touch Switch & Dual 16A Universal Socket Board',
         tagline: 'Villa Great Room Standard: Dual-Tier 8 Lights + Dual Sockets',
         desc: 'Eight capacitive touch switches combined with dual universal power sockets.',
         smartAutomationInfo: 'Sunrise/sunset astronomical scenes.',
@@ -514,7 +514,7 @@ export function RetrofitTouchPanels() {
         sockets: 0,
         img: '/media/plates/12m-12p-0s.png',
         badge: 'Full Lighting',
-        title: '12 Moduler 12-Gang Touch Switch Board (12 Lighting Zones)',
+        title: '12 Modular 12-Gang Touch Switch Board (12 Lighting Zones)',
         tagline: 'Double-Height Hall Architectural Master Switch (12 Touch Zones)',
         desc: 'Expansive 12-module crystal glass board consolidating 12 lighting & fan zones.',
         smartAutomationInfo: 'Centralized room command via offline mesh.',
@@ -536,7 +536,7 @@ export function RetrofitTouchPanels() {
         sockets: 1,
         img: '/media/plates/12m-10p-1s.png',
         badge: 'Single Socket Combo',
-        title: '12 Moduler 10 Touch Switch & 16A Universal Socket Board',
+        title: '12 Modular 10 Touch Switch & 16A Universal Socket Board',
         tagline: 'Grand Room 10-Circuit Switchboard with Integrated 16A Socket',
         desc: 'Ten capacitive lighting circuits paired with a single 16A universal power socket.',
         smartAutomationInfo: 'Custom multi-zone dimming scenes.',
@@ -558,7 +558,7 @@ export function RetrofitTouchPanels() {
         sockets: 3,
         img: '/media/plates/12m-6p-3s.png',
         badge: 'Triple Socket Lounge',
-        title: '12 Moduler 6 Touch Switch & Triple 16A Socket Board',
+        title: '12 Modular 6 Touch Switch & Triple 16A Socket Board',
         tagline: 'Executive Lounge & Dining Credenza (6 Switches + 3 Outlets)',
         desc: 'Six lighting circuits paired with three universal power sockets.',
         smartAutomationInfo: 'Scene & 3-socket scheduling.',
@@ -580,7 +580,7 @@ export function RetrofitTouchPanels() {
         sockets: 4,
         img: '/media/plates/12m-4p-4s.png',
         badge: 'Quad Socket Hub',
-        title: '12 Moduler Quad Touch Switch & 4-Socket Power Board',
+        title: '12 Modular Quad Touch Switch & 4-Socket Power Board',
         tagline: 'Modern Kitchen Island & Breakfast Bar Station (4+4 Layout)',
         desc: 'Four lighting circuits combined with four independent 16A universal smart sockets.',
         smartAutomationInfo: 'Group appliance automation & overload alerts.',
@@ -602,7 +602,7 @@ export function RetrofitTouchPanels() {
         sockets: 5,
         img: '/media/plates/12m-2p-5s.png',
         badge: '5-Socket Power Bank',
-        title: '12 Moduler Dual Touch Switch & 5-Socket Heavy Power Board',
+        title: '12 Modular Dual Touch Switch & 5-Socket Heavy Power Board',
         tagline: 'AV Editing Bay & Commercial Desk Center (5 Outlets + 2 Switches)',
         desc: 'Two lighting channels with five heavy-duty universal smart sockets.',
         smartAutomationInfo: 'Studio On one-tap power trigger.',
@@ -618,7 +618,7 @@ export function RetrofitTouchPanels() {
       }
     ],
 
-    '16-moduler': [
+    '16-modular': [
       {
         id: '16m-12p-2s',
         name: '12 Touch Panels + 2 Smart Sockets',
@@ -628,7 +628,7 @@ export function RetrofitTouchPanels() {
         img: '/media/plates/16m-12p-2s.png',
         badge: 'Most Popular',
         isPopular: true,
-        title: '16 Moduler 12 Touch Switch & Dual 16A Universal Socket Board',
+        title: '16 Modular 12 Touch Switch & Dual 16A Universal Socket Board',
         tagline: 'Flagship Two-Tier Penthouse Command (12 Lights + 2 Sockets)',
         desc: 'Two-tier high-density crystal glass board managing 12 lighting circuits + 2 sockets.',
         smartAutomationInfo: 'Master Sleep & Away Security occupancy mode.',
@@ -650,7 +650,7 @@ export function RetrofitTouchPanels() {
         sockets: 0,
         img: '/media/plates/16m-16p-0s.png',
         badge: 'Full Master Lighting',
-        title: '16 Moduler Two-Tier Master Command Switchboard (16 Lighting Zones)',
+        title: '16 Modular Two-Tier Master Command Switchboard (16 Lighting Zones)',
         tagline: 'Architectural Whole-Floor Lighting Panel (16 Capacitive Channels)',
         desc: 'Sixteen capacitive touch circuits arranged across an ergonomic two-tier plate.',
         smartAutomationInfo: 'Whole-residence scene orchestration.',
@@ -672,7 +672,7 @@ export function RetrofitTouchPanels() {
         sockets: 1,
         img: '/media/plates/16m-14p-1s.png',
         badge: 'Single Socket Combo',
-        title: '16 Moduler 14 Touch Switch & 16A Universal Socket Board',
+        title: '16 Modular 14 Touch Switch & 16A Universal Socket Board',
         tagline: 'Maximum Multi-Zone Lighting Coverage with 1 Heavy Power Point',
         desc: 'Fourteen capacitive lighting circuits paired with a single 16A universal power socket.',
         smartAutomationInfo: 'Sunrise/sunset astronomical scheduling.',
@@ -694,7 +694,7 @@ export function RetrofitTouchPanels() {
         sockets: 3,
         img: '/media/plates/16m-10p-3s.png',
         badge: 'Triple Socket Command',
-        title: '16 Moduler 10 Touch Switch & Triple 16A Socket Board',
+        title: '16 Modular 10 Touch Switch & Triple 16A Socket Board',
         tagline: 'Boardroom & Presidential Suite Hub (10 Switches + 3 Outlets)',
         desc: 'Ten capacitive touch switches alongside three heavy-duty universal smart sockets.',
         smartAutomationInfo: 'Presentation Mode lights + AV outlets.',
@@ -716,7 +716,7 @@ export function RetrofitTouchPanels() {
         sockets: 4,
         img: '/media/plates/16m-8p-4s.png',
         badge: 'Quad Socket Station',
-        title: '16 Moduler 8 Touch Switch & 4-Socket Heavy Power Board',
+        title: '16 Modular 8 Touch Switch & 4-Socket Heavy Power Board',
         tagline: 'Equal Two-Tier Harmony: 8 Lighting Zones & 4 Heavy Sockets',
         desc: 'Eight capacitive lighting circuits paired with four universal smart sockets.',
         smartAutomationInfo: 'Balanced 12-circuit automation & night dim.',
@@ -738,7 +738,7 @@ export function RetrofitTouchPanels() {
         sockets: 5,
         img: '/media/plates/16m-6p-5s.png',
         badge: '5-Socket Power Hub',
-        title: '16 Moduler 6 Touch Switch & 5-Socket Heavy Power Board',
+        title: '16 Modular 6 Touch Switch & 5-Socket Heavy Power Board',
         tagline: 'Open-Plan Studio & Kitchenette Power + Lighting Command',
         desc: 'Six lighting circuits combined with five heavy-duty universal smart sockets.',
         smartAutomationInfo: 'Countdown timers & live socket kWh logs.',
@@ -760,7 +760,7 @@ export function RetrofitTouchPanels() {
         sockets: 6,
         img: '/media/plates/16m-4p-6s.png',
         badge: '6-Socket Power Bank',
-        title: '16 Moduler Quad Touch Switch & 6-Socket Commercial Power Center',
+        title: '16 Modular Quad Touch Switch & 6-Socket Commercial Power Center',
         tagline: 'High-Capacity 6-Outlet Media Rack & Commercial Charging Bank',
         desc: 'Four lighting circuits paired with six heavy-duty universal smart sockets.',
         smartAutomationInfo: 'Individual app control for all 10 circuits.',
@@ -855,13 +855,13 @@ export function RetrofitTouchPanels() {
 
   // Active Modular Box object
   const activeBox = useMemo(() => {
-    return modularBoxes.find(b => b.id === activeModulerBox) || modularBoxes[2];
-  }, [activeModulerBox]);
+    return modularBoxes.find(b => b.id === activeModularBox) || modularBoxes[2];
+  }, [activeModularBox]);
 
   // Current list of configuration options for the active module
   const currentModuleConfigs = useMemo(() => {
-    return moduleConfigsMap[activeModulerBox] || moduleConfigsMap['4-moduler'];
-  }, [activeModulerBox]);
+    return moduleConfigsMap[activeModularBox] || moduleConfigsMap['4-modular'];
+  }, [activeModularBox]);
 
   // Currently active configuration option
   const activeConfig = useMemo(() => {
@@ -876,7 +876,7 @@ export function RetrofitTouchPanels() {
 
   // Handle switching module box from top buttons or dropdown
   const handleSelectModuleBox = (boxId: string) => {
-    setActiveModulerBox(boxId);
+    setActiveModularBox(boxId);
     setSelectedCategory('touch-panels');
     const box = modularBoxes.find(b => b.id === boxId);
     if (box) {
@@ -902,7 +902,7 @@ export function RetrofitTouchPanels() {
   const [inquiryForm, setInquiryForm] = useState({
     name: '',
     email: '',
-    automationFor: '4 Moduler (2 Touch Panels + 1 Socket) Setup',
+    automationFor: '4 Modular (2 Touch Panels + 1 Socket) Setup',
     projectType: 'New Building',
     controlOptions: [] as string[],
     contactNumber: '',
@@ -988,7 +988,7 @@ export function RetrofitTouchPanels() {
           <div className="max-w-6xl mx-auto mb-12 sm:mb-14">
             <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
               {modularBoxes.map((box) => {
-                const isActive = activeModulerBox === box.id;
+                const isActive = activeModularBox === box.id;
                 return (
                   <button
                     key={box.id}
@@ -1076,7 +1076,7 @@ export function RetrofitTouchPanels() {
                         </label>
                         <div className="relative">
                           <select
-                            value={activeModulerBox}
+                            value={activeModularBox}
                             onChange={(e) => handleSelectModuleBox(e.target.value)}
                             className="w-full appearance-none bg-[#F9FAFB] hover:bg-gray-100 text-slate-900 text-xs sm:text-sm font-bold py-2.5 px-3 pr-8 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer transition-all shadow-2xs"
                           >
@@ -1490,6 +1490,11 @@ export function RetrofitTouchPanels() {
                 <form 
                   onSubmit={(e) => {
                     e.preventDefault();
+                    try {
+                      const leads = JSON.parse(localStorage.getItem('neurolinx_form_leads') || '[]');
+                      leads.push({ ...inquiryForm, form: 'Retrofit & Touch Panels Inquiry', timestamp: new Date().toISOString() });
+                      localStorage.setItem('neurolinx_form_leads', JSON.stringify(leads));
+                    } catch {}
                     setInquirySubmitted(true);
                   }}
                   className="space-y-4 sm:space-y-5"
@@ -1546,7 +1551,7 @@ export function RetrofitTouchPanels() {
                   {/* Row 3: Control For (multiple options) */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-2">
-                      Control For ( you can select multiple option )
+                      Control For (Select all that apply)
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
@@ -1607,20 +1612,6 @@ export function RetrofitTouchPanels() {
                   <p className="text-[11px] sm:text-xs text-gray-500 leading-normal">
                     By submitting this form, you agree that we may use your information for marketing purposes and to send you announcements
                   </p>
-
-                  {/* Captcha */}
-                  <div>
-                    <div className="font-serif tracking-widest text-lg font-bold text-gray-700 select-none mb-1.5 px-1">
-                      F M4 B
-                    </div>
-                    <input 
-                      type="text" 
-                      placeholder="Enter Captcha"
-                      value={inquiryForm.captchaInput}
-                      onChange={(e) => setInquiryForm({...inquiryForm, captchaInput: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
-                    />
-                  </div>
 
                   {/* Submit Button */}
                   <div className="pt-1">

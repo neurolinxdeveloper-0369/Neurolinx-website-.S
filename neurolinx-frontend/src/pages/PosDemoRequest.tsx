@@ -28,6 +28,13 @@ export function PosDemoRequest() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      const leads = JSON.parse(localStorage.getItem('neurolinx_form_leads') || '[]');
+      leads.push({ ...demoForm, form: 'POS Demo Request', timestamp: new Date().toISOString() });
+      localStorage.setItem('neurolinx_form_leads', JSON.stringify(leads));
+    } catch {
+      // Fallback
+    }
     setDemoSubmitted(true);
   };
 

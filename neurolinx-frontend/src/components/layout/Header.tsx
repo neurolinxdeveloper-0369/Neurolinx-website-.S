@@ -28,6 +28,7 @@ export function Header() {
     if (productsTimeoutRef.current) clearTimeout(productsTimeoutRef.current);
     setSolutionsDropdown(false);
     setProductsDropdown(false);
+    setMobileMenuOpen(false);
   };
 
   const handleSolutionsEnter = () => {
@@ -90,6 +91,7 @@ export function Header() {
     { name: "Fab Foundry", path: "/fab-foundry" },
     { name: "Chip-Level Designing", path: "/chip-level-design" },
     { name: "Robotics & AI", path: "/robotics" },
+    { name: "Wind & Solar Power", path: "/wind-solar" },
     { name: "POS Application", path: "/pos-application" },
   ];
 

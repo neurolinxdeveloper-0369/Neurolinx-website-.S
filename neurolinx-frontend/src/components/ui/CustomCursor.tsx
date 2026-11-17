@@ -17,14 +17,14 @@ export function CustomCursor() {
       return;
     }
 
-    // Hide default cursor across interactive elements
+    // Hide default cursor across non-input interactive elements
     const style = document.createElement('style');
     style.id = 'custom-cursor-style';
-    style.innerHTML = `* { cursor: none !important; }`;
+    style.innerHTML = `*:not(input):not(textarea):not(select) { cursor: none !important; } input, textarea { cursor: text !important; } select { cursor: pointer !important; }`;
     document.head.appendChild(style);
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
 
@@ -83,7 +83,7 @@ export function CustomCursor() {
       document.removeEventListener('mouseenter', handleMouseEnter);
       if (style.parentNode) style.parentNode.removeChild(style);
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <div 

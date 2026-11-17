@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BRAND_LETTERS = [
   { char: 'N', isRed: false },
@@ -90,6 +91,24 @@ export function HeroOne() {
           >
             Pioneering next-generation smart home automation, industrial IoT ecosystems, and mission-critical railway electronics. We engineer intuitive, retrofit technology designed to make modern living effortless, intelligent, and beautifully connected.
           </p>
+
+          <div 
+            className="hero-para-reveal pt-6 sm:pt-7 flex flex-wrap items-center gap-3.5"
+            style={{ animationDelay: '1080ms' }}
+          >
+            <Link
+              to="/home-automation"
+              className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full bg-brand-red hover:bg-[#b00015] text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl shadow-brand-red/30 hover:scale-105"
+            >
+              Explore Products
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 border border-white/20 hover:border-white/40 backdrop-blur-md"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
     </div>

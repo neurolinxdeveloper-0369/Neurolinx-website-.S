@@ -726,6 +726,11 @@ export function HomeAutomation() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
+                    try {
+                      const leads = JSON.parse(localStorage.getItem('neurolinx_form_leads') || '[]');
+                      leads.push({ ...inquiryForm, form: 'Home Automation Consultation', timestamp: new Date().toISOString() });
+                      localStorage.setItem('neurolinx_form_leads', JSON.stringify(leads));
+                    } catch {}
                     setInquirySubmitted(true);
                   }}
                   className="space-y-4 sm:space-y-5"

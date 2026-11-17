@@ -14,16 +14,43 @@ export function ChipLevelDesign() {
     <div className="w-full bg-[#08090D] text-white flex flex-col font-body selection:bg-[#E5092C] selection:text-white min-h-screen">
       
       {/* Cinematic Hero */}
-      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <div className="relative w-full min-h-[65vh] sm:min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center overflow-hidden bg-black pt-24 pb-16">
         <img 
           src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
           alt="Chip-Level Designing"
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover opacity-45"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08090D] via-black/60 to-black/80" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider text-red-400 border border-white/10">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+            <span>Semiconductors & VLSI Design</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-tight">
+            Precision Silicon &amp; <span className="text-[#E5092C]">Chip-Level Design</span>
+          </h1>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Accelerating silicon engineering from RTL architecture and UVM verification to physical synthesis, tapeout, and impedance-matched HDI PCB layouts.
+          </p>
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5">
+            <Link
+              to="/contact"
+              className="px-7 py-3.5 rounded-full bg-[#E5092C] hover:bg-[#c00724] text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#E5092C]/25"
+            >
+              Inquire for Project
+            </Link>
+            <a
+              href="#capabilities"
+              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-all border border-white/15"
+            >
+              Explore Capabilities
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Feature Section */}
-      <div className="w-full bg-[#101116] py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292A32]/80 relative">
+      <div id="capabilities" className="w-full bg-[#101116] py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292A32]/80 relative">
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
@@ -70,7 +97,7 @@ export function ChipLevelDesign() {
             <div className="lg:col-span-6 relative sticky top-[120px]">
               <div className="rounded-3xl overflow-hidden border border-[#292A32] shadow-2xl relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                   alt="Chip-Level Designing" 
                   className="w-full object-cover h-[450px] sm:h-[550px] filter grayscale hover:grayscale-0 transition-all duration-500" 
                 />
@@ -80,8 +107,8 @@ export function ChipLevelDesign() {
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="font-display font-bold text-base sm:text-lg text-white leading-tight">Nanometer Precision</div>
-                    <div className="font-body text-xs text-[#A1A1AA] uppercase tracking-wider font-semibold mt-0.5">Industry Certified</div>
+                    <div className="font-display font-bold text-base sm:text-lg text-white leading-tight">IPC-A-610 Class 3</div>
+                    <div className="font-body text-xs text-[#A1A1AA] uppercase tracking-wider font-semibold mt-0.5">High Reliability Assembly</div>
                   </div>
                 </div>
               </div>
@@ -93,3 +120,5 @@ export function ChipLevelDesign() {
     </div>
   );
 }
+
+export default ChipLevelDesign;

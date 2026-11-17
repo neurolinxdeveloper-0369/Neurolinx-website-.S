@@ -49,6 +49,7 @@ export function Footer() {
               <li><Link to="/fab-foundry" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Fab Foundry</Link></li>
               <li><Link to="/chip-level-design" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Chip-Level Designing</Link></li>
               <li><Link to="/robotics" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Robotics &amp; AI</Link></li>
+              <li><Link to="/wind-solar" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Wind &amp; Solar Power</Link></li>
               <li><Link to="/pos-application" className="text-gray-400 hover:text-brand-red transition-colors text-sm">POS Application</Link></li>
             </ul>
           </div>

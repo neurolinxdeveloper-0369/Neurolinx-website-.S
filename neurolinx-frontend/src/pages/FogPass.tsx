@@ -44,12 +44,11 @@ export function FogPass() {
   const [inquiryForm, setInquiryForm] = useState({
     name: '',
     email: '',
-    automationFor: 'Apartment',
-    projectType: 'New Building',
-    controlOptions: [] as string[],
+    procurementUnit: 'Zonal Railway Division',
+    projectType: 'Locomotive Fleet Deployment',
+    subsystemsRequired: [] as string[],
     contactNumber: '',
-    city: '',
-    captchaInput: ''
+    city: ''
   });
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
 
@@ -444,12 +443,11 @@ export function FogPass() {
                       setInquiryForm({
                         name: '',
                         email: '',
-                        automationFor: 'Apartment',
-                        projectType: 'New Building',
-                        controlOptions: [],
+                        procurementUnit: 'Zonal Railway Division',
+                        projectType: 'Locomotive Fleet Deployment',
+                        subsystemsRequired: [],
                         contactNumber: '',
-                        city: '',
-                        captchaInput: ''
+                        city: ''
                       });
                     }}
                     className="px-6 py-2.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-brand-red transition-colors cursor-pointer"
@@ -461,6 +459,11 @@ export function FogPass() {
                 <form 
                   onSubmit={(e) => {
                     e.preventDefault();
+                    try {
+                      const leads = JSON.parse(localStorage.getItem('neurolinx_form_leads') || '[]');
+                      leads.push({ ...inquiryForm, form: 'FogPass Consultation', timestamp: new Date().toISOString() });
+                      localStorage.setItem('neurolinx_form_leads', JSON.stringify(leads));
+                    } catch {}
                     setInquirySubmitted(true);
                   }}
                   className="space-y-4 sm:space-y-5"
@@ -489,61 +492,63 @@ export function FogPass() {
                     </div>
                   </div>
 
-                  {/* Row 2: Automation For & Project Type */}
+                  {/* Row 2: Procurement Unit & Deployment Scope */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Automation For</label>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Railway Organization / Unit</label>
                       <select 
-                        value={inquiryForm.automationFor}
-                        onChange={(e) => setInquiryForm({...inquiryForm, automationFor: e.target.value})}
+                        value={inquiryForm.procurementUnit}
+                        onChange={(e) => setInquiryForm({...inquiryForm, procurementUnit: e.target.value})}
                         className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs cursor-pointer"
                       >
-                        <option>Apartment</option>
-                        <option>Villa / Independent House</option>
-                        <option>Office / Commercial Space</option>
-                        <option>Hotel / Hospitality</option>
+                        <option>Zonal Railway Division</option>
+                        <option>Locomotive Shed / Workshop</option>
+                        <option>Dedicated Freight Corridor (DFCCIL)</option>
+                        <option>Private Rail Logistics Operator</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Project Type</label>
+                      <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">Deployment Scope</label>
                       <select 
                         value={inquiryForm.projectType}
                         onChange={(e) => setInquiryForm({...inquiryForm, projectType: e.target.value})}
                         className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs cursor-pointer"
                       >
-                        <option>New Building</option>
-                        <option>Existing / Renovation</option>
-                        <option>Under Construction</option>
+                        <option>Locomotive Fleet Deployment</option>
+                        <option>Cab Retrofit Upgrade</option>
+                        <option>Pilot Demonstration Unit</option>
+                        <option>Route Survey & Geo-Mapping</option>
                       </select>
                     </div>
                   </div>
 
-                  {/* Row 3: Control For (multiple options) */}
+                  {/* Row 3: Subsystems Required */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-2">
-                      Control For ( you can select multiple option )
+                      Required Hardware / Accessories
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
-                        'Lighting & Scene Control',
-                        'Safety & Security Control',
-                        'Curtain & Appliances Control',
-                        'Home Theatre System'
+                        'FogPASS In-Cab Device',
+                        'Dual GNSS & NavIC Antenna Kit',
+                        'Locomotive 110V DC Power Converter',
+                        'Rugged Magnetic Mounting Bracket',
+                        'Geo-Referenced Route Database Tool'
                       ].map((option) => {
-                        const isChecked = inquiryForm.controlOptions.includes(option);
+                        const isChecked = inquiryForm.subsystemsRequired.includes(option);
                         return (
                           <label 
                             key={option} 
                             className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none"
                           >
                             <input 
-                              type="checkbox"
+                              type="checkbox" 
                               checked={isChecked}
                               onChange={() => {
                                 const next = isChecked 
-                                  ? inquiryForm.controlOptions.filter(o => o !== option)
-                                  : [...inquiryForm.controlOptions, option];
-                                setInquiryForm({...inquiryForm, controlOptions: next});
+                                  ? inquiryForm.subsystemsRequired.filter(o => o !== option)
+                                  : [...inquiryForm.subsystemsRequired, option];
+                                setInquiryForm({...inquiryForm, subsystemsRequired: next});
                               }}
                               className="w-4 h-4 rounded border-gray-300 text-black focus:ring-0 accent-black cursor-pointer bg-white"
                             />
@@ -582,20 +587,6 @@ export function FogPass() {
                   <p className="text-[11px] sm:text-xs text-gray-500 leading-normal">
                     By submitting this form, you agree that we may use your information for marketing purposes and to send you announcements
                   </p>
-
-                  {/* Captcha */}
-                  <div>
-                    <div className="font-serif tracking-widest text-lg font-bold text-gray-700 select-none mb-1.5 px-1">
-                      F M4 B
-                    </div>
-                    <input 
-                      type="text" 
-                      placeholder="Enter Captcha"
-                      value={inquiryForm.captchaInput}
-                      onChange={(e) => setInquiryForm({...inquiryForm, captchaInput: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-100 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/30 shadow-xs" 
-                    />
-                  </div>
 
                   {/* Submit Button */}
                   <div className="pt-1">

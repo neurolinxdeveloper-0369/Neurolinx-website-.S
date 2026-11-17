@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 export function NonUvDisinfection() {
-  // 6 Core Disinfection Products matching Home Automation 6-card grid
+  // 5 Core Disinfection Products in product catalog
   const disinfectionProducts = [
     {
       id: "cleanroom-panel",

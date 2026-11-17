@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { CustomCursor } from './components/ui/CustomCursor'
@@ -198,6 +198,7 @@ const Blogs = lazy(() => import('./pages/Blogs').then(m => ({ default: m.Blogs }
 const ExperienceView = lazy(() => import('./pages/ExperienceView').then(m => ({ default: m.ExperienceView })));
 const Offices = lazy(() => import('./pages/Offices').then(m => ({ default: m.Offices })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
+const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -294,6 +295,7 @@ function App() {
               <Route path="/experience" element={<ExperienceView />} />
               <Route path="/offices" element={<Offices />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>
@@ -303,12 +305,12 @@ function App() {
 
       {/* SmartNode Style Vertical Sticky "Contact Us" Tab on Right Edge (Hidden on Home Dashboard) */}
       {location.pathname !== '/' && (
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[#E0001B] hover:bg-[#c00017] text-white font-bold text-xs uppercase tracking-widest py-3 px-1.5 rounded-l-xl shadow-2xl transition-all duration-300 hover:pr-3 [writing-mode:vertical-rl] rotate-180 flex items-center justify-center gap-1.5"
         >
           <span>Contact Us</span>
-        </a>
+        </Link>
       )}
 
       {/* Floating WhatsApp Widget */}

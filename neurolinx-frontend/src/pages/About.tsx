@@ -70,13 +70,13 @@ export function About() {
     }
   ];
 
-  // Founders: 100% of original bio, quotes, roles, names, and images preserved
+  // Founders: Professional profiles, quotes, and credentials
   const founders: Founder[] = [
     {
       name: "V.V Bharath",
       role: "CEO",
-      bio: "Vallabhaneni Venkata Bharath Chowdary Chief Executive Officer and son of Vallabhaneni Venkata Ram.He Holds Bachelor degree in Electronic and Communication and Masters degree in Electrical Engineering from California state University Fullerton. Young but 15 Years of experience in Electronics. Identifying the New Products for development and drive the Product to a fully running Prototype.",
-      quote: "Take care of minutes, hours will take care of themselves",
+      bio: "Vallabhaneni Venkata Bharath Chowdary is the Chief Executive Officer of Neurolinx Global Private Limited. He holds a Bachelor's degree in Electronics & Communication and a Master's degree in Electrical Engineering from California State University, Fullerton. With over 15 years of electronic engineering expertise, he spearheads new product discovery and drives each solution from concept to high-precision prototype and mass manufacturing.",
+      quote: "Take care of minutes, hours will take care of themselves.",
       image: "/media/about/vv-bharath.png",
       linkedin: "https://www.linkedin.com"
     },
@@ -84,22 +84,23 @@ export function About() {
       name: "Sai Pavan S",
       role: "CTO",
       bio: "Sai Pavan Sudha is a seasoned technology leader with more than 2 decades of experience in the design, development, and deployment of automation systems tailored for the railway, utility, and home sectors. He leads cutting-edge initiatives in embedded systems, SCADA solutions, and IoT-based automation, driving digital transformation across critical infrastructure. Throughout his career, Sai Pavan has held key leadership roles, including Technical Project Manager at Ashine Techno Drives and Deputy Manager at AMI Tech India Pvt. Ltd., where he successfully led high-impact projects focused on railway and utility automation systems. His expertise lies in delivering robust, scalable, and innovative automation solutions that meet the evolving demands of modern infrastructure.",
+      quote: "Reliability is never an accident; it is the deliberate result of relentless engineering.",
       image: "/media/about/sai-pavan.png",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "V Harshitha",
       role: "CFO",
-      bio: "V Harshitha is the one of the director and co-founder of Neurolinx Global Private Limited. She holds degree in Electronics and Instrumention and holds a master’s degree in MBA, specialized in Operation and Finance from Vignan Jyothi Institute of Management, Hyderabad. After her studies, she gained some experience in accounts and financing by handling accounts in her father’s firm. Currently she is holding the position of Head of Finance.",
-      quote: "Every situation gives us some experience; Experience is best teacher it will make us learn new things",
+      bio: "V Harshitha is a co-founder and director of Neurolinx Global Private Limited. She holds a degree in Electronics & Instrumentation and an MBA specialized in Operations and Finance from Vignan Jyothi Institute of Management, Hyderabad. She oversees corporate finance, investment planning, and financial governance as Head of Finance.",
+      quote: "Every situation gives us some experience; experience is the best teacher that empowers us to learn and grow.",
       image: "/media/about/v-harshitha.png",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "V Prabhath",
       role: "CSO",
-      bio: "Prabhath Chowdary Vallabhaneni is a results-driven leader with deep expertise in marketing, hospitality, and restaurant management. As Managing Partner at Neurolinx Global Pvt. Ltd. (since Nov 2024), he drives strategic growth and innovation. He also leads operations at Seven A Luxury Hotel (since Jul 2018) and Spice Nation Restaurant (since Oct 2020), focusing on guest satisfaction, revenue growth, and brand excellence. Armed with an MBA from GRIET and a BBM from Gitams Vizag, Prabhath excels in digital marketing, brand strategy, business development, hospitality management, team leadership, and CRM.",
-      quote: "Leadership is not about titles, it's about impact, influence, and inspiration",
+      bio: "Prabhath Chowdary Vallabhaneni is a results-driven leader with deep expertise in enterprise marketing, brand strategy, and operations. As Managing Partner at Neurolinx Global, he drives strategic business growth, partner ecosystems, and market expansion. Holding an MBA from GRIET and a BBM from GITAM Vizag, Prabhath excels in digital strategy, business development, team leadership, and CRM.",
+      quote: "Leadership is not about titles; it's about impact, influence, and inspiration.",
       image: "/media/about/v-prabhath.png",
       linkedin: "https://www.linkedin.com"
     }
