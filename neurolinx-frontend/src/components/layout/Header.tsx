@@ -104,9 +104,11 @@ export function Header() {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body ${
-      scrolled 
-        ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3' 
-        : ['/about', '/careers', '/contact', '/offices', '/leadership', '/pos-demo'].includes(location.pathname) ? 'bg-[#0B0F19]/95 backdrop-blur-md shadow-lg py-3.5 sm:py-5' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
+      ['/rms-smart-metering', '/solutions'].includes(location.pathname)
+        ? 'bg-[#2F333B] border-b border-white/10 shadow-lg py-2.5 sm:py-3'
+        : scrolled 
+          ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3' 
+          : ['/about', '/careers', '/contact', '/offices', '/leadership', '/pos-demo', '/fab-foundry'].includes(location.pathname) ? 'bg-[#0B0F19]/95 backdrop-blur-md shadow-lg py-3.5 sm:py-5' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
     }`}>
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between min-h-[48px] sm:min-h-[52px]">
         
@@ -156,7 +158,7 @@ export function Header() {
               type="button"
               onClick={() => setSolutionsDropdown(prev => !prev)}
               className={`flex items-center gap-1 xl:gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
-                solutionsDropdown || ['/rms-smart-metering', '/iot', '/internet-of-things', '/fab-foundry', '/chip-level-design', '/robotics', '/ai', '/pos-application'].includes(location.pathname)
+                solutionsDropdown || ['/solutions', '/rms-smart-metering', '/iot', '/internet-of-things', '/fab-foundry', '/chip-level-design', '/robotics', '/ai', '/pos-application'].includes(location.pathname)
                   ? 'text-white bg-white/10 font-bold' 
                   : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}

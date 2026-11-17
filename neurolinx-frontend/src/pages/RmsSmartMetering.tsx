@@ -38,42 +38,55 @@ export function RmsSmartMetering() {
     <div className="w-full bg-white text-slate-800 flex flex-col font-body selection:bg-brand-red selection:text-white">
       
       {/* ========================================================================= */}
-      {/* SECTION 1: CINEMATIC HERO BANNER                                          */}
+      {/* ── Slide 1: Full-Bleed Panoramic Hero Banner (Total Fit in Hero Section) ── */}
       {/* ========================================================================= */}
-      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      <div 
+        id="hero"
+        className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#2F333B]"
+      >
+        {/* Hero Background Image - Shifted down to clear the fixed compact header */}
         <img 
-          src="/media/rms_hero_banner.jpg" 
+          src="/media/rms_hero_banner.jpg?v=headerColor2F333B" 
           alt="Neurolinx RMS Application - Wind & Solar Data in One Dashboard"
-          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-center translate-y-7 sm:translate-y-9 md:translate-y-11"
         />
       </div>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: PROJECT OVERVIEW (MATCHING POS SECTION 2 LAYOUT)               */}
+      {/* SECTION 2: PROJECT OVERVIEW                                               */}
       {/* ========================================================================= */}
-      <section id="overview" className="w-full py-20 sm:py-24 bg-[#F8F9FA] border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="overview" className="w-full py-20 sm:py-24 bg-white border-b border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center">
-            {/* Header Accent Line */}
+          {/* Header Block */}
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <div className="flex items-center justify-center space-x-3 mb-4">
               <div className="w-8 sm:w-10 h-1 bg-brand-red rounded-full"></div>
               <span className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs">PROJECT OVERVIEW</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-slate-900 mb-6 leading-tight">
-              Remote Monitoring for <br className="hidden sm:block" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-slate-900 leading-tight">
+              Centralized Wind &amp; Solar <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-500">
-                Wind &amp; Solar Energy
+                Remote Monitoring Solutions
               </span>
             </h2>
+          </div>
 
-            <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed mb-4">
-              Integrated hardware and software solutions to collect, transmit, and monitor your renewable energy data.
+          {/* Narrative Content */}
+          <div className="max-w-3xl mx-auto space-y-5 text-slate-600 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
+            <p>
+              The Neurolinx <strong className="text-slate-900 font-bold">Remote Monitoring System (RMS)</strong> delivers a high-reliability engineering framework for comprehensive <strong className="text-slate-900 font-bold">wind and solar monitoring</strong>. Purpose-built for modern clean energy infrastructure, the platform bridges distributed power generation assets with engineering personnel, ensuring technical and managerial stakeholders maintain continuous, convenient remote access to vital performance indicators and operating parameters across every facility.
             </p>
 
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Our Remote Monitoring System brings wind and solar energy data together in one software platform. Hardware collects data from connected equipment and transfers it to our software, helping users monitor their installations remotely. We provide hardware and software support to keep the monitoring solution running smoothly.
+            <p>
+              Engineered as part of our specialized <strong className="text-slate-900 font-bold">industrial IoT solutions</strong>, rugged field hardware interfaces directly with on-site equipment to capture critical electrical and mechanical metrics. This telemetry is transmitted to our <strong className="text-slate-900 font-bold">centralized monitoring software</strong>, allowing personnel to supervise individual installations or manage distributed multi-facility portfolios from a single screen. This unified architecture eliminates information silos and simplifies system-wide oversight.
+            </p>
+
+            <p>
+              Neurolinx delivers complete <strong className="text-slate-900 font-bold">renewable energy monitoring solutions</strong>, encompassing dedicated hardware engineering, software deployment, turnkey system integration, and dependable technical support. By providing superior equipment visibility and intuitive record management, our platform streamlines routine maintenance planning and empowers leadership to execute informed operational decisions—establishing Neurolinx as an essential technology partner for sustainable energy infrastructure.
             </p>
           </div>
 

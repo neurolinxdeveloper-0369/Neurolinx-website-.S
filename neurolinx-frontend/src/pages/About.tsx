@@ -157,17 +157,18 @@ export function About() {
           {/* Eyebrow Badge */}
           <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
-            <span>About Neurolinx Global</span>
+            <span>ABOUT NEUROLINX GLOBAL</span>
           </div>
 
           {/* Main H1 Heading */}
           <h1 className="reveal-item font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[64px] text-slate-900 tracking-tight leading-[1.12] max-w-5xl mx-auto">
-            Powered by People. Driven by <span className="text-[#E5092C] inline-block">Smart Innovation.</span>
+            Engineering Smarter Solutions. <br className="hidden sm:inline" />
+            <span className="text-[#E5092C] inline-block">Powering a Connected Future.</span>
           </h1>
 
           {/* Section Lead Paragraph */}
           <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mt-5 sm:mt-6 px-2 font-normal">
-            Transforming spaces across India through intuitive IoT automation, precision engineering, and customer-first design.
+            At Neurolinx Global, we transform innovative ideas into intelligent, reliable, and future-ready technology solutions. From smart home automation and IoT systems to railway technologies, industrial monitoring, and advanced engineering, we develop solutions that simplify everyday life and empower businesses.
           </p>
 
           {/* Action Buttons */}
@@ -181,10 +182,10 @@ export function About() {
             </button>
 
             <Link
-              to="/contact"
+              to="/solutions"
               className="font-body inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 border border-gray-200 hover:border-slate-300 text-slate-800 text-xs sm:text-sm font-medium transition-all duration-300 group shadow-sm"
             >
-              <span>Contact Our Team</span>
+              <span>Discover Our Solutions</span>
               <ArrowRight className="w-4 h-4 text-slate-500 group-hover:translate-x-1 group-hover:text-[#E5092C] transition-all" />
             </Link>
           </div>
@@ -303,77 +304,86 @@ export function About() {
       {/* ========================================================================= */}
       {/* 3. OUR STORY (MILESTONES TIMELINE)                                        */}
       {/* ========================================================================= */}
-      <section id="our-story" className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 bg-[#F8FAF9] border-b border-gray-200">
-        <div className="max-w-7xl mx-auto">
+      <section id="our-story" className="pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6 lg:px-6 xl:px-10 bg-white relative border-b border-gray-200">
+        {/* Subtle ambient red background blur */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[450px] h-[450px] bg-[#E5092C]/[0.04] rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div className="max-w-[1440px] mx-auto relative z-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             
             {/* Left Sticky Column: Overview & Illustration */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 self-start space-y-4">
-              <div>
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#E0001B] font-bold">
-                  Our Evolution
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mt-1 leading-tight">
-                  Our <span className="text-[#E0001B]">Story</span>
+            <div className="lg:col-span-5 lg:sticky lg:top-24 self-start space-y-5 text-left">
+              <div className="space-y-3">
+                {/* Eyebrow Badge matching Who We Are */}
+                <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-1 shadow-sm font-body">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
+                  <span>Our Evolution</span>
+                </div>
+
+                {/* Section H2 Heading matching Who We Are */}
+                <h2 className="reveal-item font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[30px] xl:text-[38px] text-slate-900 tracking-tight leading-tight">
+                  Our <span className="text-[#E5092C]">Story</span>
                 </h2>
-                <p className="mt-2 text-gray-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
+
+                {/* Body paragraph matching Who We Are font, size, and alignment */}
+                <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal text-left sm:text-justify">
                   Founded in 2024, our journey has rapidly advanced from specialized railway safety engineering and pilot electronics to next-gen intelligent home automation and mission-critical signaling innovations.
                 </p>
               </div>
 
               {/* Story Illustration Card */}
-              <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-white p-3 sm:p-4 shadow-sm border border-gray-100 w-full">
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-white p-3 sm:p-4 shadow-sm border border-gray-200 hover:border-[#E5092C]/40 transition-all duration-300 w-full">
                 <img 
                   src="/media/about/our-story.png" 
                   alt="Our Story Illustration" 
-                  className="w-full h-auto object-contain mx-auto max-h-[210px] sm:max-h-[240px]"
+                  className="w-full h-auto object-contain mx-auto max-h-[220px] sm:max-h-[260px]"
                 />
               </div>
 
               {/* Key Highlights Metrics */}
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 w-full">
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-lg sm:text-xl font-display font-extrabold text-[#E0001B]">2024</span>
-                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Inception Year</span>
+              <div className="grid grid-cols-2 gap-3 w-full">
+                <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-gray-200 shadow-sm text-center hover:border-red-200 transition-colors">
+                  <span className="block text-xl sm:text-2xl font-display font-extrabold text-[#E5092C]">2024</span>
+                  <span className="text-xs text-slate-500 mt-0.5 uppercase font-medium block font-body">Inception Year</span>
                 </div>
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-lg sm:text-xl font-display font-extrabold text-[#E0001B]">3+</span>
-                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Railways Systems</span>
+                <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-gray-200 shadow-sm text-center hover:border-red-200 transition-colors">
+                  <span className="block text-xl sm:text-2xl font-display font-extrabold text-[#E5092C]">3+</span>
+                  <span className="text-xs text-slate-500 mt-0.5 uppercase font-medium block font-body">Railways Systems</span>
                 </div>
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-base sm:text-lg font-display font-extrabold text-[#E0001B]">FogPass</span>
-                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Flagship Tech</span>
+                <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-gray-200 shadow-sm text-center hover:border-red-200 transition-colors">
+                  <span className="block text-lg sm:text-xl font-display font-extrabold text-[#E5092C]">FogPass</span>
+                  <span className="text-xs text-slate-500 mt-0.5 uppercase font-medium block font-body">Flagship Tech</span>
                 </div>
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-100 shadow-sm text-center">
-                  <span className="block text-base sm:text-lg font-display font-extrabold text-[#E0001B]">IoT R&D</span>
-                  <span className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 uppercase font-medium block">Home Automation</span>
+                <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-gray-200 shadow-sm text-center hover:border-red-200 transition-colors">
+                  <span className="block text-lg sm:text-xl font-display font-extrabold text-[#E5092C]">IoT R&amp;D</span>
+                  <span className="text-xs text-slate-500 mt-0.5 uppercase font-medium block font-body">Home Automation</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Timeline Cards */}
             <div className="lg:col-span-7">
-              <div className="relative pl-5 sm:pl-7 md:pl-8 border-l-2 border-red-200/80 grid grid-cols-1 auto-rows-fr gap-3 sm:gap-3.5">
+              <div className="relative pl-5 sm:pl-7 md:pl-8 border-l-2 border-red-200/80 flex flex-col gap-3.5 sm:gap-4">
                 {milestones.map((item, index) => (
-                  <div key={index} className="relative group flex">
+                  <div key={index} className="relative group">
                     {/* Glowing Bullet centered exactly on the 2px left border */}
-                    <div className="absolute -left-[21px] sm:-left-[29px] md:-left-[33px] -translate-x-1/2 top-2 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[3px] sm:border-4 border-[#E0001B] shadow-md group-hover:scale-125 transition-transform duration-300"></div>
+                    <div className="absolute -left-[21px] sm:-left-[29px] md:-left-[33px] -translate-x-1/2 top-4 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[3px] sm:border-4 border-[#E5092C] shadow-md group-hover:scale-125 transition-transform duration-300"></div>
                     
                     {/* Content Card */}
-                    <div className="w-full bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 shadow-sm border border-gray-100 hover:shadow-md hover:border-red-200 transition-all duration-300 flex flex-col">
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5 sm:mb-2">
-                        <span className="text-lg sm:text-xl font-display font-black text-[#E0001B] tracking-tight">
+                    <div className="w-full bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-200 hover:shadow-md hover:border-red-300 transition-all duration-300">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <span className="text-xl sm:text-2xl font-display font-black text-[#E5092C] tracking-tight">
                           {item.year}
                         </span>
-                        <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-100">
+                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-100 font-body">
                           {item.tag}
                         </span>
                       </div>
                       
-                      <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-start text-center sm:text-left">
+                      <div className="flex flex-col sm:flex-row gap-3.5 items-center sm:items-start text-center sm:text-left">
                         {item.image && (
-                          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden bg-slate-50 border border-gray-100 shrink-0 p-1 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-50 border border-gray-200 shrink-0 p-1 flex items-center justify-center">
                             <img 
                               src={item.image} 
                               alt={item.title} 
@@ -382,12 +392,12 @@ export function About() {
                           </div>
                         )}
                         <div className="flex-1">
-                          <h4 className="text-sm sm:text-[15px] font-display font-bold text-gray-900 mb-1">
+                          <h4 className="text-base sm:text-lg font-display font-bold text-slate-900 mb-1.5">
                             {item.title}
                           </h4>
-                          <ul className="space-y-1 text-[11px] sm:text-xs text-gray-600 leading-snug list-disc list-outside pl-4 text-left">
+                          <ul className="space-y-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed list-disc list-outside pl-4 text-left font-body">
                             {item.points.map((p, pIdx) => (
-                              <li key={pIdx} className="text-gray-600">
+                              <li key={pIdx} className="text-slate-600">
                                 <span>{p}</span>
                               </li>
                             ))}
@@ -408,7 +418,7 @@ export function About() {
       {/* ========================================================================= */}
       {/* 4. MEET OUR FOUNDERS – Executive Profile Grid (All 4 Founders)             */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white relative border-b border-gray-200">
+      <section className="pt-10 sm:pt-12 md:pt-14 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white relative border-b border-gray-200">
         
         {/* Subtle ambient red glow behind founders */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-[#E5092C]/[0.04] rounded-full blur-[160px] pointer-events-none"></div>
@@ -416,10 +426,10 @@ export function About() {
         <div className="max-w-7xl mx-auto relative z-10">
           
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             
             {/* Eyebrow Badge */}
-            <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-5 shadow-sm">
+            <div className="reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold tracking-widest uppercase text-[#E5092C] mb-3 sm:mb-4 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E5092C] animate-pulse"></span>
               <span>Leadership Team</span>
             </div>
@@ -430,7 +440,7 @@ export function About() {
             </h2>
 
             {/* Section Lead Paragraph */}
-            <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal mt-4">
+            <p className="reveal-item font-body text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal mt-3">
               Driven by purpose and powered by passion, meet the executive leaders shaping the future of smart living and precision electronics.
             </p>
           </div>
