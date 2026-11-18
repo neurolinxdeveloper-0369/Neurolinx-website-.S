@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { 
   ShieldCheck, 
   Zap, 
-  ArrowRight, 
   CheckCircle2, 
   Eye, 
   Sliders, 
   Layers, 
-  ChevronRight, 
   ChevronDown, 
   PlusCircle, 
   Lock, 
@@ -297,24 +295,6 @@ export function LocoHeadlight() {
                     </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 w-full">
-                <a
-                  href="#slide-4"
-                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
-                >
-                  <span>Request Consultation</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a
-                  href="#slide-4"
-                  className="px-6 py-3 bg-slate-900 hover:bg-black text-white rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm sm:ml-auto"
-                >
-                  <span>Have Questions?</span>
-                  <ChevronRight className="w-4 h-4 text-white" />
-                </a>
               </div>
             </div>
 

@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { 
   ShieldCheck, 
   Zap, 
-  ArrowRight, 
   CheckCircle2, 
   Eye, 
   Sliders, 
   Layers, 
-  ChevronRight, 
   ChevronDown, 
   PlusCircle, 
   Lock, 
@@ -17,8 +15,8 @@ import {
 import { Link } from 'react-router-dom';
 
 export function MarkerLight() {
-  // Device view toggle (Red Aspect vs White Aspect View)
-  const [activeDeviceView, setActiveDeviceView] = useState<'red' | 'white'>('red');
+  // Device view toggle (Hardware Unit vs Locomotive In-Service View)
+  const [activeDeviceView, setActiveDeviceView] = useState<'hardware' | 'locomotive'>('hardware');
 
   // Contact Inquiry Form State (Slide 4)
   const [inquiryForm, setInquiryForm] = useState({
@@ -99,7 +97,7 @@ export function MarkerLight() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            {/* Left: Product Card with Interactive Switcher (matching FogPASS reference design) */}
+            {/* Left: What We Provide (Hardware Unit Showcase & Supply Scope) */}
             <div className="lg:col-span-5 relative order-2 lg:order-1">
               <div className="relative bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-xl">
                 
@@ -107,32 +105,32 @@ export function MarkerLight() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-bold border border-slate-200 shadow-xs">
                     <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
-                    <span>{activeDeviceView === 'red' ? 'Red Danger / Tail Aspect' : 'White Forward Aspect'}</span>
+                    <span>{activeDeviceView === 'hardware' ? 'Hardware Luminaire Unit' : 'In-Service Cab Mount'}</span>
                   </div>
 
                   <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-[10px] font-bold text-slate-600">
                     <button
-                      onClick={() => setActiveDeviceView('red')}
+                      onClick={() => setActiveDeviceView('hardware')}
                       className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                        activeDeviceView === 'red' ? 'bg-white text-slate-900 shadow-xs font-black' : 'hover:text-slate-900'
+                        activeDeviceView === 'hardware' ? 'bg-white text-slate-900 shadow-xs font-black' : 'hover:text-slate-900'
                       }`}
                     >
-                      Red Aspect
+                      Hardware Unit
                     </button>
                     <button
-                      onClick={() => setActiveDeviceView('white')}
+                      onClick={() => setActiveDeviceView('locomotive')}
                       className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                        activeDeviceView === 'white' ? 'bg-white text-slate-900 shadow-xs font-black' : 'hover:text-slate-900'
+                        activeDeviceView === 'locomotive' ? 'bg-white text-slate-900 shadow-xs font-black' : 'hover:text-slate-900'
                       }`}
                     >
-                      White Aspect
+                      In-Service Mount
                     </button>
                   </div>
                 </div>
 
                 {/* Inbuilt Image Container with exact FogPASS dimensions */}
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-slate-950 flex items-center justify-center p-2 border border-slate-200 shadow-inner">
-                  {activeDeviceView === 'red' ? (
+                  {activeDeviceView === 'hardware' ? (
                     <img
                       src="/media/loco_marker_hardware.jpg"
                       alt="Neurolinx Dual-Color LED Marker Light Hardware Unit"
@@ -147,18 +145,18 @@ export function MarkerLight() {
                   )}
                 </div>
 
-                {/* Card Text matching FogPASS format with white background */}
+                {/* Card Text: Simple, Clean & Concise */}
                 <div className="mt-5 text-left">
                   <h3 className="text-xl sm:text-2xl font-display font-black text-slate-900 tracking-tight leading-snug">
-                    DUAL-COLOR LED LOCO MARKER LIGHT
+                    LED MARKER LIGHT UNIT
                   </h3>
                   
                   <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1 mb-2.5">
-                    (RDSO/ELRS/SPEC/PR/0021 Compliant Red &amp; White Position Indicator)
+                    (RDSO-Compliant Red &amp; White Position Luminaire)
                   </p>
 
                   <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    Equipped with independent red and white sealed optical modules with anti-glare collimating lenses. White aspects indicate train head positioning, while red aspects designate train tail/rear boundaries across busy multi-track junctions.
+                    Complete turnkey optical luminaire engineered for Indian Railways locomotives, featuring independent red/white sealed chambers and wide-input constant current driver.
                   </p>
 
                   <div className="flex items-center gap-3 mb-5">
@@ -183,51 +181,51 @@ export function MarkerLight() {
                     <span className="text-xs font-black text-slate-900">&gt; 1.5 km</span>
                   </div>
                   <div className="p-2 rounded-xl bg-slate-50 border border-slate-200/80 shadow-2xs">
-                    <span className="text-[10px] font-bold text-slate-500 block uppercase">Power</span>
-                    <span className="text-xs font-black text-slate-900">&lt; 15W Total</span>
+                    <span className="text-[10px] font-bold text-slate-500 block uppercase">Voltage</span>
+                    <span className="text-xs font-black text-slate-900">72V - 140V DC</span>
                   </div>
                 </div>
 
                 <div className="mt-3 text-center">
                   <span className="text-[11px] text-slate-600 flex items-center justify-center gap-1.5 font-medium">
                     <Radio className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>RDSO Compliant &bull; 72V to 140V DC Supply &bull; &gt;100,000 Hours Lifespan</span>
+                    <span>RDSO Compliant &bull; IP66 Ingress &bull; &gt;100,000 Hours Lifespan</span>
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Right: Operational Capabilities & Performance Metrics */}
+            {/* Right: What the Product Does (Operational Functions & Fail-Safe Signaling) */}
             <div className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-brand-red text-xs font-bold tracking-wider uppercase mb-4">
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
-                <span>Locomotive Orientation &amp; Position Signaling</span>
+                <span>Operational Role &amp; Railway Safety Function</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-3 tracking-tight leading-tight">
-                Unmistakable Red &amp; White Position Indication Day and Night.
+                What Does the Railway LED Marker Light Do?
               </h2>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Complies with General and Subsidiary Rules (G&amp;SR) of Indian Railways. Informs station masters, cabin operators, and gatekeepers whether a locomotive is leading or trailing, operating light engine, or shunting across yard limits.
+                Under the Indian Railways General and Subsidiary Rules (G&amp;SR), LED Marker Lights serve as life-critical visual positioning beacons mounted on both locomotive cabs. They establish unmistakable train orientation, rear tail boundary protection, and yard movement signaling day and night.
               </p>
 
-              {/* 4 Key Performance Metrics (matching FogPASS structure) */}
+              {/* 4 Performance Metrics */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mb-6">
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
                   <div className="w-8 h-8 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-2">
                     <Eye className="w-4 h-4" />
                   </div>
                   <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">&gt; 1.5 km</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Optical Range</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Clear Visibility</div>
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center mb-2">
                     <Sparkles className="w-4 h-4" />
                   </div>
-                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">&gt; 100k h</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Continuous Life</div>
+                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">Dual Aspect</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Red &amp; White Beams</div>
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left hover:border-brand-red/40 transition-colors shadow-xs">
@@ -242,33 +240,33 @@ export function MarkerLight() {
                   <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-2">
                     <Zap className="w-4 h-4" />
                   </div>
-                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">&lt; 15W</div>
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Low Consumption</div>
+                  <div className="text-lg sm:text-xl font-display font-black text-slate-900 leading-none mb-1">&gt; 100,000 h</div>
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Operational Life</div>
                 </div>
               </div>
 
-              {/* 4 Practical High-Impact Highlights */}
+              {/* 4 Practical High-Impact Highlights Explaining WHAT THE PRODUCT DOES */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full mb-7">
                 <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
                   <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
                     <Eye className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Independent Dual-Aspect Optic Modules</h4>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">1. Forward Direction Indication (White Aspect)</h4>
                     <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Hermetically sealed Red (630nm) and White (6000K) chambers with anti-glare collimators prevent internal optical cross-talk.
+                      Emits an intense 6000K white marker beam on the locomotive front to signal active forward travel to station masters, cabin staff, and level-crossing gatemen over 1.5 km away.
                     </p>
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-red-100 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
                     <Lock className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Cast Aluminum Corrosion-Resistant Armor</h4>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">2. Train Tail &amp; Rear Boundary Protection (Red Aspect)</h4>
                     <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Powder-coated die-cast body endures flying ballast gravel, sulfur dust, and intense monsoon humidity.
+                      Displays a rich 630nm red danger beam at the rear of light engines, bankers, and train consists, establishing a clear visual boundary to warn following trains and prevent rear-end collisions.
                     </p>
                   </div>
                 </div>
@@ -278,42 +276,24 @@ export function MarkerLight() {
                     <Zap className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">Wide Input 72V to 140V DC Supply</h4>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">3. Yard Shunting &amp; Light Engine Maneuvering</h4>
                     <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Direct locomotive battery bus compatibility with built-in surge suppressors against switching surges.
+                      Enables precise optical identification during complex station yard marshalling, coach attachment, and junction loops, eliminating confusion among trackside ground crews.
                     </p>
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">IEC 61373 Bogie Vibration Compliance</h4>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">4. Fail-Safe Dual-Channel Redundancy</h4>
                     <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Tested to Category 1 Class B shock parameters, ensuring zero solder fatigue over decades of continuous rail service.
+                      Employs independent series-parallel LED matrices with segregated current drivers—if one LED fails, the remaining circuit maintains full luminous compliance with zero blackout risk.
                     </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 w-full">
-                <a
-                  href="#slide-4"
-                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold shadow-lg shadow-brand-red/20 hover:bg-red-700 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2 group cursor-pointer text-xs sm:text-sm"
-                >
-                  <span>Request Consultation</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a
-                  href="#slide-4"
-                  className="px-6 py-3 bg-slate-900 hover:bg-black text-white rounded-xl font-semibold shadow-xs transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm sm:ml-auto"
-                >
-                  <span>Have Questions?</span>
-                  <ChevronRight className="w-4 h-4 text-white" />
-                </a>
               </div>
             </div>
 

@@ -36,47 +36,43 @@ export function FootLamps() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Hero Banner (Sized to match FogPASS Hero Dimensions) ── */}
-      <div 
+      {/* ── Slide 1: Full-Bleed Foot Lamps Panoramic Hero Banner ── */}
+      <div
         id="hero"
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[460px] sm:h-[500px] md:h-[540px] lg:h-[580px] xl:h-[635px] 2xl:h-[724px] pt-24 sm:pt-28 pb-16"
+        className="w-full bg-[#808080] relative overflow-hidden pt-20 sm:pt-24 border-none flex items-center justify-center"
       >
-        {/* Real Indian Railways Rolling Stock Exterior Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/media/railway_foot_lamps.jpg"
-            alt="Modern Indian Railways electric rolling stock with passenger footstep illumination"
-            className="w-full h-full object-cover object-center opacity-100 brightness-110 contrast-105 filter"
-          />
-          {/* Subtle light directional gradient so text pops while background remains clear */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/35 to-transparent"></div>
-          <div className="absolute inset-0 bg-black/10"></div>
-        </div>
-
-        {/* Content Container: Only Title */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-3xl flex flex-col items-start text-left">
-            {/* Heading: Foot Lamps in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              <span className="text-white">Foot Lamps </span>
-              <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
+        <div className="relative w-full max-w-[2172px] mx-auto flex items-center justify-center">
+          {/* Top Title Overlay */}
+          <div className="absolute top-5 sm:top-7 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-10 text-center w-full px-4 pointer-events-none">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-black tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              Foot Lamps
             </h1>
           </div>
-        </div>
 
-        {/* Floating Bottom Down-Arrow Pill */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
-          <a
-            href="#about-foot-lamps"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
-          >
-            <span>Scroll to Explore</span>
-            <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
-          </a>
+          <img
+            src="/media/foot_lamps_panoramic_hero.png?v=centered4k"
+            alt="Railway Foot Lamps - Smart Rolling Stock Illumination - Neurolinx"
+            width={2171}
+            height={724}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-auto block"
+          />
+
+          {/* Floating Bottom Down-Arrow Pill */}
+          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
+            <a
+              href="#about-foot-lamps"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
+            >
+              <span>Scroll to Explore</span>
+              <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* ── Slide 2: About Foot Lamps (Complete Architecture & Hardware Showcase) ── */}
+      {/* ── Slide 2: About Foot Lamps (Complete Architecture & Hardware Showcase - Light Theme Reverted) ── */}
       <div 
         id="about-foot-lamps"
         className="relative w-full overflow-hidden text-slate-900 bg-white py-20 lg:py-24 px-6 lg:px-8 border-b border-slate-200"

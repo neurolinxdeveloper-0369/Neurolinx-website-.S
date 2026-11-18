@@ -44,53 +44,39 @@ export function SignalExchangers() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Hero Banner (Sized to match FogPASS Hero Dimensions) ── */}
+      {/* ── Slide 1: Signal Exchangers 4K Panoramic Hero Banner ── */}
       <div 
         id="hero"
-        className="relative w-full overflow-hidden text-white flex items-center min-h-[460px] sm:h-[500px] md:h-[540px] lg:h-[580px] xl:h-[635px] 2xl:h-[724px] pt-24 sm:pt-28 pb-16"
+        className="w-full bg-[#808080] relative overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-4 sm:pb-6 px-2 sm:px-4 lg:px-6 border-none flex items-center justify-center"
       >
-        {/* Real Indian Railways Trackside ESE Signaling Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/media/signal_exchanger_hero.jpg"
-            alt="Indian Railways Electronic Signal Exchanger trackside unit at platform post with locomotive"
-            className="w-full h-full object-cover object-center opacity-100 brightness-110 contrast-105 filter"
-          />
-          {/* Subtle light directional gradient so the left side remains readable while background pops */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent"></div>
-          <div className="absolute inset-0 bg-black/10"></div>
-        </div>
-
-        {/* Content Container Matching FogPASS Page Exactly */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-3xl flex flex-col items-start text-left">
-            
-            {/* Frosted Glass Pill Badge: RAILWAY SAFETY · SIGNALING · INTERLOCKING */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 text-white text-[11px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-6 backdrop-blur-md shadow-sm">
-              <span>RAILWAY SAFETY</span>
-              <span className="text-white/70">•</span>
-              <span>SIGNALING</span>
-              <span className="text-white/70">•</span>
-              <span>INTERLOCKING</span>
-            </div>
-
-            {/* Heading: Signal Exchanger in White + Details in Brand Red */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              <span className="text-white">Signal Exchangers </span>
-              <span className="text-brand-red drop-shadow-[0_0_25px_rgba(224,0,27,0.45)]">Details</span>
+        <div className="relative w-full max-w-[2450px] mx-auto flex items-center justify-center">
+          {/* Top Title Overlay */}
+          <div className="absolute top-1 sm:top-2 md:top-4 left-1/2 -translate-x-1/2 z-10 text-center w-full px-4 pointer-events-none">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-black tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              Signal Exchangers
             </h1>
           </div>
-        </div>
 
-        {/* Floating Bottom Down-Arrow Pill */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
-          <a
-            href="#about-signal-exchanger"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
-          >
-            <span>Scroll to Explore</span>
-            <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
-          </a>
+          <img 
+            src="/media/signal_exchangers_hero_4k.png?v=ultra4k" 
+            alt="Neurolinx Electronic Signal Exchanger (ESE) - Fail-Safe Optical & Electronic Interlocking"
+            width={2450}
+            height={816}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full max-w-[2450px] h-auto max-h-[850px] object-contain block mx-auto scale-[1.06] sm:scale-[1.08] transition-transform duration-500 hover:scale-[1.10]"
+          />
+
+          {/* Floating Bottom Down-Arrow Pill */}
+          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
+            <a
+              href="#about-signal-exchanger"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
+            >
+              <span>Scroll to Explore</span>
+              <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
+            </a>
+          </div>
         </div>
       </div>
 
