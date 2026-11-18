@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
-import { Routes, Route, useLocation, Link } from 'react-router-dom'
+import { Routes, Route, useLocation, Link, Navigate } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { CustomCursor } from './components/ui/CustomCursor'
@@ -195,6 +195,7 @@ const About = lazy(() => import('./pages/About').then(m => ({ default: m.About }
 const Leadership = lazy(() => import('./pages/Leadership').then(m => ({ default: m.Leadership })));
 const Careers = lazy(() => import('./pages/Careers').then(m => ({ default: m.Careers })));
 const Blogs = lazy(() => import('./pages/Blogs').then(m => ({ default: m.Blogs })));
+const BlogDetail = lazy(() => import('./pages/BlogDetail').then(m => ({ default: m.BlogDetail })));
 const ExperienceView = lazy(() => import('./pages/ExperienceView').then(m => ({ default: m.ExperienceView })));
 const Offices = lazy(() => import('./pages/Offices').then(m => ({ default: m.Offices })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
@@ -272,7 +273,7 @@ function App() {
               <Route path="/marker-light" element={<MarkerLight />} />
               <Route path="/railways/marker-light" element={<MarkerLight />} />
               <Route path="/products/marker-light" element={<MarkerLight />} />
-              <Route path="/wind-solar" element={<WindSolar />} />
+              <Route path="/wind-solar" element={<Navigate to="/rms-smart-metering" replace />} />
               <Route path="/power-supply" element={<PowerSupply />} />
               <Route path="/products/power-supply" element={<PowerSupply />} />
               <Route path="/power-supply-drivers" element={<PowerSupply />} />
@@ -292,6 +293,7 @@ function App() {
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/:slug" element={<BlogDetail />} />
               <Route path="/experience" element={<ExperienceView />} />
               <Route path="/offices" element={<Offices />} />
               <Route path="/contact" element={<Contact />} />

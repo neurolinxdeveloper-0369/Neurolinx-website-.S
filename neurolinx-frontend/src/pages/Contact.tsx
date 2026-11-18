@@ -87,36 +87,6 @@ export function Contact() {
     }
   ];
 
-  const offices = [
-    {
-      city: "Hyderabad",
-      title: "Corporate HQ & Experience Studio",
-      address: "C12/A, Industrial Area, Kushaiguda, ECIL Post, Secunderabad, Telangana 500062",
-      phone: "+91 70134 86961",
-      email: "info@neurolinx.in",
-      hours: "Mon - Sat: 9:30 AM - 7:00 PM",
-      isPrimary: true
-    },
-    {
-      city: "Bengaluru",
-      title: "R&D & Embedded Systems Lab",
-      address: "Outer Ring Road, Bellandur Tech Corridor, Bengaluru, Karnataka 560103",
-      phone: "+91 70134 86961",
-      email: "bangalore@neurolinx.in",
-      hours: "Mon - Fri: 9:00 AM - 6:30 PM",
-      isPrimary: false
-    },
-    {
-      city: "Pune",
-      title: "Western Regional Hub",
-      address: "Kharadi IT Park, Pune, Maharashtra 411014",
-      phone: "+91 70134 86961",
-      email: "pune@neurolinx.in",
-      hours: "Mon - Fri: 9:30 AM - 6:30 PM",
-      isPrimary: false
-    }
-  ];
-
   return (
     <div className="w-full bg-[#F8F8F8] text-slate-800 font-body selection:bg-brand-red selection:text-white">
 
@@ -433,65 +403,7 @@ export function Contact() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. EXPERIENCE CENTERS & REGIONAL HUBS                                     */}
-      {/* ========================================================================= */}
-      <section className="py-16 bg-white border-t border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold text-[#E0001B] uppercase tracking-wider">Experience Centers</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mt-1">
-              Visit Our Experience Studios
-            </h2>
-            <p className="text-sm text-gray-500 mt-2">
-              Experience the magic of feather-touch crystal glass switches, voice commands, and automated motorized curtains in real-time.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {offices.map((office, idx) => (
-              <div 
-                key={idx} 
-                className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
-                  office.isPrimary 
-                    ? 'bg-gradient-to-b from-white to-red-50/20 border-red-200 shadow-md' 
-                    : 'bg-white border-gray-100 hover:border-gray-200 shadow-xs'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#E0001B]">{office.city}</span>
-                    {office.isPrimary && (
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#E0001B] text-white">
-                        Headquarters
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{office.title}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-4">{office.address}</p>
-                </div>
-
-                <div className="pt-4 border-t border-gray-100 space-y-2 text-xs">
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Phone className="w-3.5 h-3.5 text-[#E0001B]" />
-                    <a href={`tel:${office.phone}`} className="hover:underline font-medium">{office.phone}</a>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Mail className="w-3.5 h-3.5 text-[#E0001B]" />
-                    <a href={`mailto:${office.email}`} className="hover:underline">{office.email}</a>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{office.hours}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 5. FREQUENTLY ASKED QUESTIONS (FAQ)                                      */}
+      {/* 4. FREQUENTLY ASKED QUESTIONS (FAQ)                                      */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

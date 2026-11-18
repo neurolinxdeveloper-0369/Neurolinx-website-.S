@@ -49,7 +49,6 @@ export function Footer() {
               <li><Link to="/fab-foundry" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Fab Foundry</Link></li>
               <li><Link to="/chip-level-design" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Chip-Level Designing</Link></li>
               <li><Link to="/robotics" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Robotics &amp; AI</Link></li>
-              <li><Link to="/wind-solar" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Wind &amp; Solar Power</Link></li>
               <li><Link to="/pos-application" className="text-gray-400 hover:text-brand-red transition-colors text-sm">POS Application</Link></li>
             </ul>
           </div>
@@ -59,6 +58,7 @@ export function Footer() {
             <h4 className="text-white font-bold tracking-wider uppercase mb-6 text-sm">Company</h4>
             <ul className="space-y-4">
               <li><Link to="/about" className="text-gray-400 hover:text-brand-red transition-colors text-sm">About Us</Link></li>
+              <li><Link to="/blogs" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Blogs &amp; Insights</Link></li>
               <li><Link to="/leadership" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Leadership Team</Link></li>
               <li><Link to="/careers" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Careers</Link></li>
               <li><Link to="/offices" className="text-gray-400 hover:text-brand-red transition-colors text-sm">Global Offices</Link></li>
@@ -106,7 +106,7 @@ export function Footer() {
       {/* Global NEUROLINX Watermark across all pages (matching Smart Home Automation) */}
       <div className="w-full relative z-10 mt-6 sm:mt-8 p-0 border-0 overflow-hidden select-none">
         <img
-          src="/media/neurolinx_footer_watermark.png"
+          src="/media/neurolinx_footer_watermark.png?v=orig"
           alt="NEUROLINX"
           width={1024}
           height={182}

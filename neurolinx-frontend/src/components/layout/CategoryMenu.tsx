@@ -9,7 +9,6 @@ export function CategoryMenu() {
     { name: "Home Automation", path: "/home-automation" },
     { name: "Non-UV Disinfection Light", path: "/non-uv-disinfection" },
     { name: "Railways", path: "/railways" },
-    { name: "Wind/Solar", path: "/wind-solar" },
     { name: "Power Supply & Drivers", path: "/power-supply" },
     { name: "Chip-Level Designing", path: "/chip-level-design" },
     { name: "Fab Foundry", path: "/fab-foundry" },

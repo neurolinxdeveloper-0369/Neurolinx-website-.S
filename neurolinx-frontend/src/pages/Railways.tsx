@@ -8,13 +8,11 @@ import {
   ArrowRight, 
   ChevronRight,
   ChevronDown,
-  Download
+  Download,
+  Home
 } from 'lucide-react';
 
 export function Railways() {
-  // Category filter for Railway Products
-  const [filterCategory, setFilterCategory] = useState<'all' | 'signaling' | 'lighting' | 'loco'>('all');
-
   const railwayProducts = [
     {
       id: "fog-pass",
@@ -88,11 +86,6 @@ export function Railways() {
     }
   ];
 
-  const filteredProducts = railwayProducts.filter(p => {
-    if (filterCategory === 'all') return true;
-    return p.category === filterCategory;
-  });
-
   // Contact & Consultation form state
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
   const [inquiryForm, setInquiryForm] = useState({
@@ -109,210 +102,181 @@ export function Railways() {
   return (
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
-      {/* ── Slide 1: Indian Railways Products Lineup Banner (Dark Theme with "Products Range" Title) ── */}
+      {/* ── Slide 1: Indian Railways Products Lineup Banner (Luxury 4K Lineup - 2172 x 724) ── */}
       <div 
         id="hero"
-        className="w-full bg-[#080B11] relative overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/5 flex flex-col items-center justify-center"
+        className="w-full bg-[#8C8C8E] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-none flex items-center justify-center"
       >
-        <div className="relative w-full max-w-[2172px] mx-auto flex flex-col items-center justify-center">
-          
-          {/* Centered White "Products Range" Title matching reference design */}
-          <div className="text-center z-10 mb-2 sm:mb-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-white tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              Products Range
-            </h1>
-          </div>
-
-          <div className="relative w-full flex items-center justify-center">
-            <img 
-              src="/media/railways_products_lineup_hero.jpg?v=darkenedRangeV1" 
-              alt="Indian Railways Electronics & Lighting Systems - Products Range"
-              width={2172}
-              height={724}
-              loading="eager"
-              fetchPriority="high"
-              className="w-full max-w-[2172px] h-auto max-h-[724px] object-contain block mx-auto filter brightness-90 contrast-105 transition-all duration-500 hover:brightness-100"
-            />
-          </div>
-        </div>
-
-        {/* Scroll Indicator to Slide 2 */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center">
-          <a
-            href="#features"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-xl transition-all hover:scale-105"
-          >
-            <span>Explore Products</span>
-            <ChevronDown className="w-3.5 h-3.5 text-brand-red animate-bounce" />
-          </a>
+        <div className="w-full max-w-[2172px] mx-auto flex items-center justify-center">
+          <h1 className="sr-only">Our Railway Products Range - Neurolinx</h1>
+          <img 
+            src="/media/railways_products_lineup_hero.png?v=premium4kUltraV3" 
+            alt="Our Railway Products Range - Neurolinx Indian Railways Electronics & Lighting Systems"
+            width={2172}
+            height={724}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full max-w-[2172px] h-auto max-h-[724px] object-contain block mx-auto transition-transform duration-500 hover:scale-[1.005]"
+          />
         </div>
       </div>
 
-      {/* ── Slide 2: Smart Functional Features & 7 Railway Products (With Individual Separate Pages) ── */}
-      <div id="features" className="py-20 px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-gray-100">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-block mb-3 px-3.5 py-1 rounded-full bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest border border-red-200">
-            Smart Functional Features
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-            Complete Rolling Stock <span className="text-brand-red">&amp; Signaling Portfolio.</span>
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-            All 7 product lines built strictly to Indian Railway standards, RDSO specifications, and ruggedized for extreme field longevity.
-          </p>
-
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-            {[
-              { id: 'all', label: 'All 7 Railway Products' },
-              { id: 'signaling', label: 'Signaling & Fog Pass' },
-              { id: 'lighting', label: 'Coach Lighting & Foot Lamps' },
-              { id: 'loco', label: 'Locomotive Exterior Lights' }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setFilterCategory(tab.id as any)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  filterCategory === tab.id
-                    ? 'bg-brand-red text-white shadow-md shadow-brand-red/30'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+      {/* ── Slide 2: Products Catalog (Left Featured Card + Right Product Grid matching Home Automation) ── */}
+      <div id="features" className="w-full bg-white py-10 md:py-14 border-b border-gray-100">
+        <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Breadcrumb Navigation matching Home Automation */}
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-5 font-medium">
+            <Link to="/" className="flex items-center gap-1.5 hover:text-black transition-colors text-gray-600">
+              <Home className="w-4 h-4 text-gray-700" />
+              <span>Home</span>
+            </Link>
+            <span className="text-gray-400 font-normal">&gt;</span>
+            <span className="text-gray-900 font-semibold">Railways</span>
           </div>
-        </div>
 
-        {/* 7 Product Cards Grid with Links to Individual Separate Pages */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProducts.map((prod) => (
-            <Link key={prod.id} to={prod.link} className="block h-full group">
-              <div className="flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 cursor-pointer h-full">
-                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-gray-900">
-                  <img 
-                    src={prod.img} 
-                    alt={prod.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+          <div className="flex flex-col lg:flex-row items-stretch gap-2.5 lg:gap-3">
+            
+            {/* Left Featured Card (User's Uploaded Railway Technology Card - Decreased by 1.5cm to match right side) */}
+            <div className="w-full lg:w-[25%] xl:w-[24%] shrink-0 flex flex-col min-h-[464px] sm:min-h-[524px] lg:min-h-0">
+              <div className="relative w-full h-full rounded-[24px] overflow-hidden flex flex-col shadow-sm group">
+                <img 
+                  src="/media/railway_technology_left_feature.jpg?v=noViewMore" 
+                  alt="Railway Technology & Intelligent Safety Solutions"
+                  className="w-full h-full object-cover object-top rounded-[24px] transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <a 
+                  href="#railway-showcase" 
+                  className="absolute inset-0 z-10" 
+                  aria-label="Explore Railway Technology & Intelligent Safety Solutions"
+                />
+              </div>
+            </div>
 
-                </div>
-
-                <div className="p-6 flex items-center justify-between gap-4 flex-1">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
+            {/* Right Product Cards (7 Products with Equal Size in 4-Column Grid, Height Decreased by 1.5cm Total to Match Left) */}
+            <div className="w-full lg:w-[75%] xl:w-[76%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {railwayProducts.map((prod) => (
+                <Link 
+                  key={prod.id} 
+                  to={prod.link} 
+                  className="group flex flex-col justify-between bg-[#F8F9FA] rounded-[24px] overflow-hidden border border-gray-100/80 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                >
+                  <div className="relative flex-1 w-full p-2.5 sm:p-3 pb-0 min-h-[220px] sm:min-h-[245px] lg:min-h-[260px] overflow-hidden">
+                    <div className="w-full h-full overflow-hidden rounded-[18px] bg-slate-900">
+                      <img 
+                        src={prod.img} 
+                        alt={prod.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-3.5 sm:p-4 pt-2.5 sm:pt-3 flex items-center justify-between gap-2 shrink-0">
+                    <h3 className="text-sm sm:text-[15px] font-semibold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-1">
                       {prod.title}
                     </h3>
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-1">{prod.tagline}</p>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-colors shadow-sm">
+                      <ChevronRight className="w-4 h-4 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                    </div>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-all shadow-sm">
-                    <ChevronRight className="w-5 h-5 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+                </Link>
+              ))}
+            </div>
+
+          </div>
         </div>
       </div>
 
-      {/* ── Slide 3: Project Overview (Matching User Reference Image) ── */}
+      {/* ── Slide 3: Project Overview ── */}
       <section 
         id="railway-showcase" 
-        style={{ maxWidth: 'calc(72rem - 1.5cm)', width: 'calc(100% - 1.5cm)' }}
-        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 mx-auto"
+        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 max-w-[1280px] 2xl:max-w-[1360px] mx-auto w-full"
       >
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-7">
-          <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full border border-brand-red/20 bg-red-50 text-brand-red font-semibold text-xs uppercase tracking-wider">
-            <span>Project Overview</span>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-slate-900 mb-3 leading-tight">
             Advanced Navigation for <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-600">
               FogPASS &amp; Railway Systems
             </span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed">
-            Integrated hardware and software solutions to navigate, monitor, and safeguard locomotive operations.
-          </p>
         </div>
 
-        {/* Detailed Overview Card matching exact reference design */}
-        <div className="bg-gray-50 rounded-2xl sm:rounded-3xl py-6 sm:py-8 px-6 sm:px-10 md:px-12 border border-gray-100 shadow-sm">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
+        {/* Master Layout Frame (Unified Architecture, Neutral Monochrome Styling, No Random Colors) */}
+        <div className="bg-[#F8F9FA] rounded-[28px] sm:rounded-[32px] border border-gray-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
+          {/* Executive Overview Statement */}
+          <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10">
+            <p className="text-base sm:text-lg lg:text-[18px] text-slate-700 leading-relaxed font-normal">
               Our FogPASS and Railway Navigation Systems bring satellite-based positioning, route awareness, and timely landmark alerts together into a focused in-cab experience. We manufacture our FogPASS products using high-grade local materials, strengthening domestic supply chains and ensuring rapid deployment. We provide dedicated 24/7 technical services and field support to keep operations running smoothly without interruption. By streamlining direct in-house engineering and production, we offer dependable, RDSO-compliant railway safety solutions at highly competitive, low prices compared to prevailing market rates.
             </p>
           </div>
-        </div>
 
-        {/* 3 Key Option Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 md:mt-12">
-          {/* Box 1: Local Materials */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <ShieldCheck className="w-6 h-6" />
+          {/* 3 Key Pillars: Clean Neutral Monochrome Order (No Colors Added) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+            {/* Box 1: Local Materials */}
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-11 h-11 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-5 h-5 text-slate-800" />
+                </div>
+                <span className="inline-block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                  100% Indigenous
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">
+                  Manufactured with Local Materials
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  We manufacture FogPASS devices and auxiliary electronics using certified indigenous components and domestic metallurgy, ensuring rapid spare availability, rugged longevity, and complete self-reliance.
+                </p>
               </div>
-              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
-                100% Indigenous
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
-                Manufactured with Local Materials
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                We manufacture FogPASS devices and auxiliary electronics using certified indigenous components and domestic metallurgy, ensuring rapid spare availability, rugged longevity, and complete self-reliance.
-              </p>
+            </div>
+
+            {/* Box 2: 24/7 Services */}
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-11 h-11 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <Clock className="w-5 h-5 text-slate-800" />
+                </div>
+                <span className="inline-block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                  Round-The-Clock
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">
+                  24/7 Support &amp; Field Services
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Our dedicated railway engineering team provides continuous 24/7 technical hotline support, on-site loco shed commissioning, software calibration, and rapid field assistance across all zonal divisions.
+                </p>
+              </div>
+            </div>
+
+            {/* Box 3: Low Market Prices */}
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-11 h-11 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <Zap className="w-5 h-5 text-slate-800" />
+                </div>
+                <span className="inline-block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                  Market Leading Value
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">
+                  Highly Competitive Pricing
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  By streamlining in-house design, software integration, and direct domestic manufacturing, we deliver top-tier RDSO-compliant railway systems at prices substantially lower than prevailing market rates.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Box 2: 24/7 Services */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-slate-100 text-black flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <Clock className="w-6 h-6" />
-              </div>
-              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
-                Round-The-Clock
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
-                24/7 Support &amp; Field Services
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Our dedicated railway engineering team provides continuous 24/7 technical hotline support, on-site loco shed commissioning, software calibration, and rapid field assistance across all zonal divisions.
-              </p>
-            </div>
+          {/* Download Brochure CTA Button */}
+          <div className="mt-8 sm:mt-10 flex justify-center">
+            <a
+              href="/media/neurolinx_railway_systems_brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+            >
+              Download Brochure
+            </a>
           </div>
-
-          {/* Box 3: Low Market Prices */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-red/30 transition-all flex flex-col justify-between group">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <Zap className="w-6 h-6" />
-              </div>
-              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider mb-2">
-                Market Leading Value
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
-                Highly Competitive Pricing
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                By streamlining in-house design, software integration, and direct domestic manufacturing, we deliver top-tier RDSO-compliant railway systems at prices substantially lower than prevailing market rates.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Downside Option: Download Brochure - Opens uploaded 11-page FogPASS PDF in a new tab */}
-        <div className="mt-10 md:mt-12 flex justify-center">
-          <a
-            href="/media/neurolinx_railway_systems_brochure.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
-          >
-            Download Brochure
-          </a>
         </div>
       </section>
 
