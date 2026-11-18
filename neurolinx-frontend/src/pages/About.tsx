@@ -143,15 +143,6 @@ export function About() {
         {/* Subtle red radial glow behind the main heading */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[340px] sm:h-[420px] bg-[#E5092C]/[0.05] rounded-full blur-[160px] pointer-events-none"></div>
 
-        {/* Ambient grid overlay pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0F172A 1px, transparent 0)`,
-            backgroundSize: '36px 36px'
-          }}
-        />
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
           {/* Eyebrow Badge */}

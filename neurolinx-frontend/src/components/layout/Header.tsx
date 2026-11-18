@@ -91,7 +91,6 @@ export function Header() {
     { name: "Fab Foundry", path: "/fab-foundry" },
     { name: "Chip-Level Designing", path: "/chip-level-design" },
     { name: "Robotics & AI", path: "/robotics" },
-    { name: "Wind & Solar Power", path: "/wind-solar" },
     { name: "POS Application", path: "/pos-application" },
   ];
 
@@ -108,7 +107,7 @@ export function Header() {
         ? 'bg-[#2F333B] border-b border-white/10 shadow-lg py-2.5 sm:py-3'
         : scrolled 
           ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3' 
-          : ['/about', '/careers', '/contact', '/offices', '/leadership', '/pos-demo', '/fab-foundry'].includes(location.pathname) ? 'bg-[#0B0F19]/95 backdrop-blur-md shadow-lg py-3.5 sm:py-5' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
+          : ['/about', '/careers', '/contact', '/offices', '/leadership', '/pos-demo', '/fab-foundry'].includes(location.pathname) || location.pathname.startsWith('/blogs') ? 'bg-[#0B0F19]/95 backdrop-blur-md shadow-lg py-3.5 sm:py-5' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
     }`}>
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between min-h-[48px] sm:min-h-[52px]">
         
@@ -235,7 +234,7 @@ export function Header() {
             to="/blogs" 
             onClick={closeAllDropdowns}
             className={`px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
-              location.pathname === '/blogs' 
+              location.pathname.startsWith('/blogs') 
                 ? 'text-white bg-white/10 font-bold' 
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
             }`}

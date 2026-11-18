@@ -44,13 +44,13 @@ export function RmsSmartMetering() {
         id="hero"
         className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#2F333B]"
       >
-        {/* Hero Background Image - Shifted down to clear the fixed compact header */}
+        {/* Hero Background Image - Positioned with object-top and translate-y to comfortably clear the fixed header and move text down */}
         <img 
           src="/media/rms_hero_banner.jpg?v=headerColor2F333B" 
           alt="Neurolinx RMS Application - Wind & Solar Data in One Dashboard"
           loading="eager"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center translate-y-7 sm:translate-y-9 md:translate-y-11"
+          className="absolute inset-0 w-full h-full object-cover object-top translate-y-12 sm:translate-y-16 md:translate-y-20"
         />
       </div>
 
