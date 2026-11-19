@@ -569,88 +569,17 @@ export function HomeAutomation() {
         <div id="faq" className="max-w-[1160px] xl:max-w-[1220px] 2xl:max-w-[1260px] w-full mx-auto px-4 sm:px-6">
 
           {/* Main Elevated Light + White Split Container */}
-          <div className="relative rounded-[28px] md:rounded-[34px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.10)] border border-gray-200/80 bg-[#F7F8FA] flex flex-col lg:flex-row items-stretch">
+          <div className="rounded-[32px] md:rounded-[36px] border border-gray-100/80 overflow-hidden shadow-xs flex flex-col lg:flex-row items-stretch bg-[#F8F9FA]">
 
             {/* Left Light Pearl Panel with Red & Silver Ribbon Waves */}
-            <div className="w-full lg:w-[37%] xl:w-[36%] bg-gradient-to-br from-white via-[#F9FAFB] to-[#EEF0F4] relative overflow-hidden px-7 sm:px-9 lg:px-10 pt-9 sm:pt-11 pb-14 lg:pb-11 flex flex-col justify-start">
-              {/* Flowing Silver & Crimson Ribbon Waves matching reference */}
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 420 560"
-                preserveAspectRatio="none"
-                className="pointer-events-none absolute inset-0 w-full h-full"
-              >
-                <defs>
-                  <linearGradient id="haLightWaveSilver1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
-                    <stop offset="55%" stopColor="#E5E7EB" stopOpacity="0.7" />
-                    <stop offset="100%" stopColor="#D1D5DB" stopOpacity="0.55" />
-                  </linearGradient>
-                  <linearGradient id="haLightWaveSilver2" x1="0%" y1="30%" x2="100%" y2="85%">
-                    <stop offset="0%" stopColor="#F3F4F6" stopOpacity="0.85" />
-                    <stop offset="60%" stopColor="#E5E7EB" stopOpacity="0.75" />
-                    <stop offset="100%" stopColor="#CBD5E1" stopOpacity="0.4" />
-                  </linearGradient>
-                  <linearGradient id="haLightWaveRedTop" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FF3347" />
-                    <stop offset="55%" stopColor="#E0001B" />
-                    <stop offset="100%" stopColor="#9E0012" />
-                  </linearGradient>
-                  <linearGradient id="haLightWaveRedBottom" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#8F0010" />
-                    <stop offset="50%" stopColor="#D90416" />
-                    <stop offset="100%" stopColor="#FF2E43" />
-                  </linearGradient>
-                </defs>
-
-                {/* Top diagonal soft grey wave */}
-                <path
-                  d="M210,-10 C255,65 325,115 430,140 L430,-10 Z"
-                  fill="url(#haLightWaveSilver1)"
-                />
-                {/* Top-right crimson ribbon sweeping into form seam */}
-                <path
-                  d="M275,-10 C325,52 372,92 430,108 L430,22 C382,12 342,-2 315,-10 Z"
-                  fill="url(#haLightWaveRedTop)"
-                />
-                <path
-                  d="M235,-10 C295,62 355,110 430,132 L430,102 C365,80 318,40 270,-10 Z"
-                  fill="#E0001B"
-                  opacity="0.22"
-                />
-
-                {/* Mid-bottom flowing silver silk curves */}
-                <path
-                  d="M-20,335 C85,370 185,435 430,360 L430,570 L-20,570 Z"
-                  fill="url(#haLightWaveSilver2)"
-                />
-                <path
-                  d="M-20,435 C120,400 245,485 430,430 L430,570 L-20,570 Z"
-                  fill="#FFFFFF"
-                  opacity="0.72"
-                />
-
-                {/* Bottom sweeping crimson ribbon */}
-                <path
-                  d="M45,570 C155,515 280,455 430,450 L430,570 Z"
-                  fill="url(#haLightWaveRedBottom)"
-                />
-                <path
-                  d="M-20,535 C115,495 255,442 430,442 L430,462 C265,468 135,522 35,570 L-20,570 Z"
-                  fill="#EF1D2B"
-                  opacity="0.32"
-                />
-              </svg>
-
-              <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-950 leading-[1.12] tracking-tight">
+            <div className="w-full lg:w-[36%] xl:w-[34%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-10 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative">
+              <div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-[#D90416]">Questions</span><span className="text-slate-950">?</span>
+                  <span className="text-brand-red">Questions?</span>
                 </h2>
 
-                <div className="w-14 h-1 rounded-full bg-[#D90416] mt-3 mb-5" />
-
-                <p className="text-sm sm:text-[15px] font-semibold text-slate-900 mb-9 tracking-tight">
+                <p className="text-sm sm:text-base font-semibold text-slate-800 mb-9 tracking-tight italic">
                   “Let’s make a Smarter World together”
                 </p>
 
@@ -660,8 +589,8 @@ export function HomeAutomation() {
                     href="tel:+917013486961"
                     className="flex items-center gap-3.5 text-slate-900 hover:text-[#D90416] transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-black text-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-[#D90416] transition-colors">
-                      <Phone className="w-4 h-4 text-white" />
+                    <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red transition-all">
+                      <Phone className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" />
                     </div>
                     <span className="text-sm sm:text-[15px] font-semibold">+91 7013486961</span>
                   </a>
@@ -671,16 +600,16 @@ export function HomeAutomation() {
                     href="mailto:info@neurolinx.in"
                     className="flex items-center gap-3.5 text-slate-900 hover:text-[#D90416] transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-black text-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-[#D90416] transition-colors">
-                      <Mail className="w-4 h-4 text-white" />
+                    <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-gray-100 flex items-center justify-center shrink-0 group-hover:border-brand-red transition-all">
+                      <Mail className="w-4 h-4 text-slate-900 group-hover:text-brand-red transition-colors" />
                     </div>
                     <span className="text-sm sm:text-[15px] font-semibold">info@neurolinx.in</span>
                   </a>
 
                   {/* Address */}
                   <div className="flex items-start gap-3.5 text-slate-800">
-                    <div className="w-10 h-10 rounded-xl bg-black text-white shadow-sm flex items-center justify-center shrink-0 mt-0.5">
-                      <MapPin className="w-4 h-4 text-white" />
+                    <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-gray-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <MapPin className="w-4 h-4 text-slate-900" />
                     </div>
                     <span className="text-xs sm:text-[13px] font-medium text-slate-800 leading-relaxed">
                       NEUROLINX GLOBAL PRIVATE LIMITED,<br />
@@ -694,7 +623,7 @@ export function HomeAutomation() {
             </div>
 
             {/* Right White Overlapping Form Panel */}
-            <div className="w-full lg:w-[65%] xl:w-[66%] -mt-6 lg:mt-0 lg:-ml-5 relative z-10 rounded-[26px] md:rounded-[30px] bg-white shadow-[-10px_0_32px_rgba(15,23,42,0.08)] px-6 sm:px-8 lg:px-10 py-8 sm:py-10 flex-1 flex flex-col justify-center">
+            <div className="w-full lg:w-[64%] xl:w-[66%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-10 py-9 sm:py-12 lg:py-14 flex-1">
               {inquirySubmitted ? (
                 <div className="bg-[#F8F9FB] rounded-2xl p-8 sm:p-12 text-center border border-gray-100">
                   <CheckCircle2 className="w-12 h-12 text-brand-red mx-auto mb-3" />
@@ -945,7 +874,7 @@ export function HomeAutomation() {
                   <div className="pt-1">
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-xl bg-gradient-to-r from-[#D90416] to-[#B8000F] hover:from-[#E0001B] hover:to-[#9B000D] text-white font-bold text-sm sm:text-[15px] shadow-[0_6px_20px_rgba(224,0,27,0.32)] hover:shadow-[0_8px_24px_rgba(224,0,27,0.42)] transition-all cursor-pointer"
+                      className="px-9 py-3 rounded-lg bg-black text-white font-bold text-sm hover:bg-neutral-800 transition-colors shadow-xs cursor-pointer"
                     >
                       <span>Submit</span>
                       <ArrowRight className="w-4 h-4" />

@@ -101,13 +101,13 @@ export function Header() {
     { name: "Power Supply & Drivers", path: "/power-supply" },
   ];
 
+  const isHome = location.pathname === '/' || location.pathname === '';
+
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body ${
-      ['/rms-smart-metering', '/solutions'].includes(location.pathname)
-        ? 'bg-[#2F333B] border-b border-white/10 shadow-lg py-2.5 sm:py-3'
-        : scrolled 
-          ? 'bg-[#0B0F19]/85 backdrop-blur-md shadow-2xl py-3' 
-          : ['/about', '/careers', '/contact', '/offices', '/leadership', '/pos-demo', '/fab-foundry'].includes(location.pathname) || location.pathname.startsWith('/blogs') ? 'bg-[#0B0F19]/95 backdrop-blur-md shadow-lg py-3.5 sm:py-5' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-3.5 sm:py-5'
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body shadow-lg py-2.5 sm:py-3 ${
+      isHome 
+        ? (scrolled ? 'bg-black/90 backdrop-blur-md' : 'bg-black')
+        : 'bg-[#2F333B]'
     }`}>
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between min-h-[48px] sm:min-h-[52px]">
         
@@ -172,7 +172,7 @@ export function Header() {
                 onMouseEnter={handleSolutionsEnter}
                 onMouseLeave={handleSolutionsLeave}
               >
-                <div className="w-[320px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col">
+                <div className={`w-[320px] ${isHome ? 'bg-black/95' : 'bg-[#2F333B]'} backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col`}>
                   {solutions.map((item, idx) => (
                     <Link
                       key={idx}
@@ -213,7 +213,7 @@ export function Header() {
                 onMouseEnter={handleProductsEnter}
                 onMouseLeave={handleProductsLeave}
               >
-                <div className="w-[270px] bg-[#0B0F19]/95 backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col">
+                <div className={`w-[270px] ${isHome ? 'bg-black/95' : 'bg-[#2F333B]'} backdrop-blur-2xl border border-white/10 rounded-xl p-1.5 shadow-2xl shadow-black/90 animate-in fade-in slide-in-from-top-1 duration-150 flex flex-col`}>
                   {products.map((item, idx) => (
                     <Link
                       key={idx}
@@ -282,7 +282,7 @@ export function Header() {
 
       {/* Mobile Slide-Out / Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0C101A] border-b border-white/15 px-6 py-6 animate-in slide-in-from-top duration-300 max-h-[80vh] overflow-y-auto">
+        <div className={`lg:hidden ${isHome ? 'bg-black' : 'bg-[#2F333B]'} border-b border-white/15 px-6 py-6 animate-in slide-in-from-top duration-300 max-h-[80vh] overflow-y-auto`}>
           <div className="flex flex-col space-y-3">
             <Link to="/" onClick={closeAllDropdowns} className="text-sm font-semibold text-white py-2 border-b border-white/5">
               Home

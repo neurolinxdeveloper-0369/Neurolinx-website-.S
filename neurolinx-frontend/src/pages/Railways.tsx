@@ -105,12 +105,12 @@ export function Railways() {
       {/* ── Slide 1: Indian Railways Products Lineup Banner (Luxury 4K Lineup - 2172 x 724) ── */}
       <div 
         id="hero"
-        className="w-full bg-[#8C8C8E] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-none flex items-center justify-center"
+        className="w-full bg-[#2E2F34] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-none flex items-center justify-center"
       >
         <div className="w-full max-w-[2172px] mx-auto flex items-center justify-center">
           <h1 className="sr-only">Our Railway Products Range - Neurolinx</h1>
           <img 
-            src="/media/railways_products_lineup_hero.png?v=premium4kUltraV3" 
+            src="/media/railway_products_range_hero.jpg?v=darkLuxury4k" 
             alt="Our Railway Products Range - Neurolinx Indian Railways Electronics & Lighting Systems"
             width={2172}
             height={724}
@@ -285,21 +285,21 @@ export function Railways() {
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           
           {/* Main 2-Tone Card Container matching Home Automation */}
-          <div id="rfq-form" className="rounded-[32px] md:rounded-[36px] border border-gray-100 overflow-hidden shadow-sm flex flex-col lg:flex-row items-stretch">
+          <div id="rfq-form" className="rounded-[32px] md:rounded-[36px] border border-gray-100/80 overflow-hidden shadow-xs flex flex-col lg:flex-row items-stretch bg-[#F8F9FA]">
             
             {/* Left Panel: Pure White Background (Snug & Attached to Form) */}
-            <div className="w-full lg:w-[36%] xl:w-[34%] bg-white px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-gray-100/80">
+            <div className="w-full lg:w-[36%] xl:w-[34%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-10 py-9 sm:py-12 lg:py-14 flex flex-col justify-between relative">
               
               <div>
                 {/* Title colored in brand Red and Blue like Neurolinx logo */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
                   Have<br />
-                  <span className="text-brand-red">Questions</span><span className="text-black">?</span>
+                  <span className="text-brand-red">Questions?</span>
                 </h2>
                 
-                <p className="text-sm sm:text-base font-bold text-slate-800 mb-9 tracking-tight">
-                  “Let’s make a Smarter World together”
-                </p>
+                <p className="text-sm sm:text-base font-semibold text-slate-800 mb-8 tracking-tight italic">
+                “Let’s make a Smarter World together”
+              </p>
 
                 <div className="space-y-6">
                   {/* Phone */}
@@ -345,7 +345,7 @@ export function Railways() {
             </div>
 
             {/* Right Panel: Soft Light Gray Background */}
-            <div className="w-full lg:w-[64%] xl:w-[66%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-9 py-9 sm:py-12 lg:py-14 flex-1">
+            <div className="w-full lg:w-[64%] xl:w-[66%] bg-[#F8F9FA] px-6 sm:px-8 lg:px-10 py-9 sm:py-12 lg:py-14 flex-1">
               {inquirySubmitted ? (
                 <div className="bg-white rounded-2xl p-8 sm:p-12 text-center border border-gray-100 shadow-sm">
                   <CheckCircle2 className="w-12 h-12 text-brand-red mx-auto mb-3" />
@@ -512,7 +512,7 @@ export function Railways() {
                   <div className="pt-1">
                     <button
                       type="submit"
-                      className="px-9 py-3 rounded-lg bg-black text-white font-semibold text-sm hover:bg-brand-red transition-colors shadow-sm cursor-pointer"
+                      className="px-9 py-3 rounded-lg bg-black text-white font-bold text-sm hover:bg-neutral-800 transition-colors shadow-xs cursor-pointer"
                     >
                       Submit
                     </button>
