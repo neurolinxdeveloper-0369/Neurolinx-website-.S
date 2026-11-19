@@ -978,10 +978,6 @@ export function RetrofitTouchPanels() {
                 />
               </span>
             </h2>
-
-            <p className="text-slate-500 text-xs sm:text-[15px] max-w-xl mx-auto mt-4 leading-relaxed font-medium">
-              Select any modular switchboard box size below to customize your touch panels and smart power sockets.
-            </p>
           </div>
 
           {/* Modular Boxes: Clean Minimalist Chips matching reference style */}
@@ -1008,18 +1004,18 @@ export function RetrofitTouchPanels() {
             </div>
           </div>
 
-          {/* ── Downside Section: Selected Module Detail Showcase Card ── */}
+          {/* ── Downside Section: Selected Module Detail Showcase Card (3-Column Layout: Left Options | Middle Image | Right Content) ── */}
           <div 
             id="selected-module-showcase" 
-            className="max-w-6xl mx-auto bg-[#F8F9FA] rounded-[32px] md:rounded-[40px] p-6 sm:p-10 lg:p-12 border border-gray-100 shadow-sm transition-all duration-300 scroll-mt-24"
+            className="w-full mx-auto bg-[#F8F9FA] rounded-[32px] md:rounded-[36px] p-5 sm:p-6 lg:p-8 border border-gray-100 shadow-sm transition-all duration-300 scroll-mt-24"
           >
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+            <div className="flex flex-col lg:flex-row items-stretch gap-5 lg:gap-6">
               
-              {/* ── LEFT SIDE: Select Options for Touch Panels & Sockets ── */}
-              <div className="w-full lg:w-5/12 xl:w-[42%] flex flex-col justify-start">
+              {/* ── LEFT COLUMN: Select Options for Touch Panels & Sockets ── */}
+              <div className="w-full lg:w-[31%] xl:w-[30%] shrink-0 flex flex-col">
                 
                 {/* Select Category & Option Card */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-xs">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-xs h-full flex flex-col">
                   <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-gray-100">
                     <div className="flex items-center gap-2">
                       <Sliders className="w-4 h-4 text-brand-red" />
@@ -1236,46 +1232,48 @@ export function RetrofitTouchPanels() {
 
               </div>
 
-              {/* ── RIGHT SIDE: Switchboard Glass Plate Visual Preview & Technical Information ── */}
-              <div className="w-full lg:w-7/12 xl:w-[58%] flex flex-col justify-between">
+              {/* ── MIDDLE COLUMN: Switchboard Glass Plate Visual Preview ── */}
+              <div className="w-full lg:w-[35%] xl:w-[36%] flex flex-col">
+                {/* Badges */}
+                <div className="flex flex-wrap items-center gap-2 mb-3.5">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black text-white text-[11px] font-bold shadow-xs">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-red" />
+                    <span>{selectedCategory === 'touch-panels' ? `${activeBox.label} Architecture` : `${activeSocketItem.name} Architecture`}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-brand-red text-[11px] font-bold border border-red-200">
+                    <Sliders className="w-3 h-3 text-brand-red" />
+                    <span>{selectedCategory === 'touch-panels' ? activeConfig.name : 'Dedicated Socket Plate'}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold border border-emerald-200">
+                    <Zap className="w-3 h-3 text-emerald-600" />
+                    <span>4mm Toughened Crystal Glass</span>
+                  </div>
+                </div>
+
+                {/* ── Studio Product Switchboard Image Preview ── */}
+                <div className="flex-1 rounded-2xl bg-white p-3 sm:p-5 border border-gray-200/80 shadow-sm overflow-hidden group flex items-center justify-center">
+                  <div className="relative w-full aspect-[1280/760] flex items-center justify-center bg-white rounded-xl overflow-hidden">
+                    <img
+                      key={selectedCategory === 'touch-panels' ? activeConfig.id : activeSocketItem.id}
+                      src={`${selectedCategory === 'touch-panels' ? activeConfig.img : activeSocketItem.img}?v=centered1`}
+                      alt={
+                        selectedCategory === 'touch-panels'
+                          ? `${activeBox.label} - ${activeConfig.name} Smart Touch Switchboard`
+                          : `${activeSocketItem.name} Smart Power Socket Plate`
+                      }
+                      loading="eager"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* ── RIGHT COLUMN: Technical Information, Specs & Quote CTA ── */}
+              <div className="w-full lg:w-[34%] xl:w-[34%] flex flex-col justify-between">
                 <div>
-                  
-                  {/* Badges */}
-                  <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black text-white text-xs font-bold shadow-xs">
-                      <Sparkles className="w-3.5 h-3.5 text-brand-red" />
-                      <span>{selectedCategory === 'touch-panels' ? `${activeBox.label} Architecture` : `${activeSocketItem.name} Architecture`}</span>
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-brand-red text-xs font-bold border border-red-200">
-                      <Sliders className="w-3.5 h-3.5 text-brand-red" />
-                      <span>{selectedCategory === 'touch-panels' ? activeConfig.name : 'Dedicated Socket Plate'}</span>
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
-                      <Zap className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>4mm Toughened Crystal Glass</span>
-                    </div>
-                  </div>
-
-                  {/* ── Studio Product Switchboard Image Preview ── */}
-                  <div className="mb-6 rounded-2xl bg-white p-2 sm:p-4 border border-gray-200/80 shadow-sm overflow-hidden group">
-                    <div className="relative w-full aspect-[1280/760] flex items-center justify-center bg-white rounded-xl overflow-hidden">
-                      <img
-                        key={selectedCategory === 'touch-panels' ? activeConfig.id : activeSocketItem.id}
-                        src={`${selectedCategory === 'touch-panels' ? activeConfig.img : activeSocketItem.img}?v=centered1`}
-                        alt={
-                          selectedCategory === 'touch-panels'
-                            ? `${activeBox.label} - ${activeConfig.name} Smart Touch Switchboard`
-                            : `${activeSocketItem.name} Smart Power Socket Plate`
-                        }
-                        loading="eager"
-                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
-
                   {/* Concise Board Title & 1-Line Summary */}
                   <div className="mb-4">
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-1">
+                    <h3 className="text-lg sm:text-xl xl:text-[22px] font-black text-slate-900 tracking-tight mb-1 leading-snug">
                       {selectedCategory === 'touch-panels' ? (
                         activeConfig.sockets === 0 ? (
                           <>
@@ -1306,10 +1304,6 @@ export function RetrofitTouchPanels() {
                         <span className="text-black">{activeSocketItem.title}</span>
                       )}
                     </h3>
-
-                    <p className="text-brand-red font-semibold text-xs sm:text-[13px]">
-                      {selectedCategory === 'touch-panels' ? activeConfig.tagline : activeSocketItem.tagline}
-                    </p>
                   </div>
 
                   {/* Essential Board Specs Grid (2x2 Compact Key Specs) */}
@@ -1351,7 +1345,7 @@ export function RetrofitTouchPanels() {
                   </div>
 
                   {/* Key Board Highlights (Concise, Specific to Active Board) */}
-                  <div className="space-y-1.5 mb-5">
+                  <div className="space-y-1.5">
                     {(selectedCategory === 'touch-panels' ? activeConfig.features : activeSocketItem.features).slice(0, 3).map((feat, fi) => (
                       <div key={fi} className="flex items-start gap-2 text-xs text-slate-700">
                         <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
@@ -1359,27 +1353,6 @@ export function RetrofitTouchPanels() {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                {/* Inquire Action Button */}
-                <div>
-                  <a
-                    href="#contact-consultation"
-                    onClick={() => {
-                      setInquiryForm(prev => ({
-                        ...prev,
-                        automationFor: selectedCategory === 'touch-panels'
-                          ? `${activeBox.label} (${activeConfig.name}) Setup`
-                          : `${activeSocketItem.name} Setup`
-                      }));
-                    }}
-                    className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-brand-red hover:bg-red-700 text-white font-bold text-xs sm:text-sm transition-colors shadow-md shadow-brand-red/20 cursor-pointer"
-                  >
-                    <span>
-                      Configure & Request Quote for {selectedCategory === 'touch-panels' ? `${activeBox.label} (${activeConfig.shortLabel})` : activeSocketItem.name}
-                    </span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
                 </div>
               </div>
 
