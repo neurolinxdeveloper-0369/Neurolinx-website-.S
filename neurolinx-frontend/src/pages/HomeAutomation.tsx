@@ -17,7 +17,7 @@ import {
   Home, 
   Building2, 
   Hotel, 
-  ArrowRight, 
+
   ChevronRight,
   Phone,
   Mail,
@@ -870,14 +870,13 @@ export function HomeAutomation() {
                     />
                   </div>
 
-                  {/* Row 7: Red Gradient Submit Button */}
-                  <div className="pt-1">
+                  {/* Row 7: Submit Button */}
+                  <div className="pt-2 flex justify-center">
                     <button
                       type="submit"
-                      className="px-9 py-3 rounded-lg bg-black text-white font-bold text-sm hover:bg-neutral-800 transition-colors shadow-xs cursor-pointer"
+                      className="px-10 py-3 rounded-lg bg-black text-white font-bold text-sm hover:bg-neutral-800 transition-colors shadow-xs cursor-pointer text-center"
                     >
-                      <span>Submit</span>
-                      <ArrowRight className="w-4 h-4" />
+                      Submit
                     </button>
                   </div>
                 </form>

@@ -25,7 +25,6 @@ export function BlogDetail() {
   const navigate = useNavigate();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [activeSection, setActiveSection] = useState<string>('');
-  const [readingProgress, setReadingProgress] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
@@ -133,11 +132,6 @@ export function BlogDetail() {
   // Handle Reading Progress & Scroll Detection
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
-        setReadingProgress(progress);
-      }
       setShowBackToTop(window.scrollY > 400);
 
       // ScrollSpy for Active Section
@@ -200,14 +194,6 @@ export function BlogDetail() {
   return (
     <div className="w-full bg-[#FAFAFB] min-h-screen text-slate-800 font-body selection:bg-brand-red selection:text-white relative">
       
-      {/* ── Reading Progress Bar (Fixed Top) ── */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-[60]">
-        <div 
-          className="h-full bg-gradient-to-r from-brand-red to-red-600 transition-all duration-150 ease-out"
-          style={{ width: `${readingProgress}%` }}
-        />
-      </div>
-
       {/* ── Floating Back to Top Button ── */}
       {showBackToTop && (
         <button
