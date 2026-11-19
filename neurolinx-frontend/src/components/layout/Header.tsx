@@ -104,10 +104,10 @@ export function Header() {
   const isHome = location.pathname === '/' || location.pathname === '';
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body shadow-lg py-2.5 sm:py-3 ${
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body h-[68px] sm:h-[76px] flex items-center ${
       isHome 
-        ? (scrolled ? 'bg-black/90 backdrop-blur-md' : 'bg-black')
-        : 'bg-[#2F333B]'
+        ? (scrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent shadow-none')
+        : 'bg-[#2F333B] shadow-lg'
     }`}>
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between min-h-[48px] sm:min-h-[52px]">
         
@@ -128,7 +128,7 @@ export function Header() {
             onClick={closeAllDropdowns}
             className={`px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-full text-[11px] xl:text-xs font-semibold tracking-wide transition-colors ${
               location.pathname === '/' 
-                ? 'text-white bg-white/10 font-bold' 
+                ? (isHome && !scrolled ? 'text-white font-bold' : 'text-white bg-white/10 font-bold')
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
             }`}
           >

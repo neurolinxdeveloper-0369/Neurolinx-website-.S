@@ -599,10 +599,10 @@ export function NonUvDisinfection() {
     <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
 
       {/* ── Hero Banner Section (Full-Width Edge-to-Edge Clean Architecture matching Home Automation) ── */}
-      <div className="w-full bg-[#0B0F19] relative overflow-hidden pt-20 sm:pt-24">
+      <div className="w-full bg-[#2F333B] relative overflow-hidden pt-[68px] sm:pt-[76px]">
         <div className="relative w-full">
           <img 
-            src="/media/non_uv_disinfection_hero.jpg" 
+            src="/media/non_uv_disinfection_hero.jpg?v=crisp2k" 
             alt="Non-UV Disinfection Light Systems - 100% Human Safe Continuous Sterilization"
             className="w-full h-auto block"
           />
@@ -997,15 +997,7 @@ export function NonUvDisinfection() {
                 </div>
               </div>
 
-              {/* Decorative Brand Emblem at the divider seam rotating slowly */}
-              <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <img 
-                  src="/media/logo.png" 
-                  alt="Neurolinx" 
-                  style={{ animation: 'spin 18s linear infinite' }}
-                  className="w-12 h-12 object-contain drop-shadow-sm" 
-                />
-              </div>
+              
 
             </div>
 
