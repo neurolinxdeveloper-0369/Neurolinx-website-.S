@@ -981,8 +981,8 @@ export function RetrofitTouchPanels() {
           </div>
 
           {/* Modular Boxes: Clean Minimalist Chips matching reference style */}
-          <div className="max-w-6xl mx-auto mb-12 sm:mb-14">
-            <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+          <div className="max-w-6xl mx-auto mb-10 sm:mb-14 px-2">
+            <div className="flex flex-wrap items-center justify-center gap-2 xs:gap-3 sm:gap-4">
               {modularBoxes.map((box) => {
                 const isActive = activeModularBox === box.id;
                 return (
@@ -991,7 +991,7 @@ export function RetrofitTouchPanels() {
                     type="button"
                     onClick={() => handleSelectModuleBox(box.id)}
                     aria-pressed={isActive}
-                    className={`min-w-[138px] sm:min-w-[148px] px-6 sm:px-7 py-3.5 sm:py-[15px] rounded-[11px] text-sm sm:text-[15px] font-medium tracking-normal transition-all duration-150 border cursor-pointer select-none inline-flex items-center justify-center text-center ${
+                    className={`min-w-[92px] xs:min-w-[115px] sm:min-w-[148px] px-3 xs:px-4 sm:px-7 py-2 xs:py-2.5 sm:py-[15px] rounded-[10px] sm:rounded-[11px] text-xs xs:text-sm sm:text-[15px] font-medium tracking-normal transition-all duration-150 border cursor-pointer select-none inline-flex items-center justify-center text-center ${
                       isActive
                         ? 'bg-black text-white border-black shadow-sm'
                         : 'bg-[#F4F4F5] hover:bg-[#EAEAEB] text-slate-900 border-[#D8D8DC] hover:border-[#BDBDC4]'

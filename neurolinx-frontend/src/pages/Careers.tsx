@@ -7,7 +7,6 @@ import {
   CheckCircle2, 
   Home, 
   Cpu, 
-  Zap, 
   Target, 
   Users, 
   Lightbulb, 
@@ -73,63 +72,7 @@ export function Careers() {
     }
   ];
 
-  // 2. Innovation & Technology Projects Showcase
-  const technologyProjects = [
-    {
-      domain: "Railway Safety Engineering",
-      title: "Centimeter-Accurate GNSS Navigation in Zero Visibility",
-      description: "The Neurolinx FogPASS unit integrates dual-constellation GPS and NavIC positioning with geo-referenced railway track topography. It delivers real-time audio-visual distance countdowns to loco pilots approaching signals, neutral sections, and level crossings in northern winter fogs.",
-      stats: [
-        { label: "Operating Range", value: "-10°C to +70°C" },
-        { label: "Surge Protection", value: "10kV Isolation" },
-        { label: "Positioning Standard", value: "GPS + NavIC" }
-      ],
-      image: "/media/fogpass_hero_4k.jpg",
-      badge: "RDSO Compliant",
-      link: "/fog-pass"
-    },
-    {
-      domain: "Intelligent Robotics & Edge Vision",
-      title: "Real-Time Embedded Perception for Autonomous Logistics",
-      description: "By embedding low-power neural accelerators adjacent to optical image sensors, Neurolinx autonomous mobile robots execute obstacle segmentation and dynamic path recalculation without cloud dependencies, eliminating travel latency and ensuring uncompromised safety.",
-      stats: [
-        { label: "Inference Latency", value: "< 10 ms" },
-        { label: "Precision", value: "INT8 Tensor" },
-        { label: "Navigation", value: "3D LiDAR SLAM" }
-      ],
-      image: "/media/agv_logistics.jpg",
-      badge: "Edge AI Acceleration",
-      link: "/robotics"
-    },
-    {
-      domain: "Renewable Energy Telemetry",
-      title: "Unified Monitoring for Multi-Gigawatt Solar & Wind Assets",
-      description: "Our dedicated Remote Monitoring System hardware bridges string inverters, weather stations, and power transformers with centralized cloud analytics, providing renewable asset owners with complete operational visibility and streamlined maintenance coordination.",
-      stats: [
-        { label: "Protocol Support", value: "Modbus / MQTT" },
-        { label: "Telemetry Accuracy", value: "Class 0.5S" },
-        { label: "Architecture", value: "Unified Software" }
-      ],
-      image: "/media/remote_monitoring_system_hero.jpg",
-      badge: "Industrial Telemetry",
-      link: "/rms-smart-metering"
-    },
-    {
-      domain: "Architectural Smart Living",
-      title: "Luxury Offline-First Touch Automation Ecosystems",
-      description: "Engineered with aerospace-grade CNC aluminum and tempered capacitive glass, our retrofit switchboards deliver instantaneous sub-5ms local switching while fitting seamlessly into standard existing electrical wall conduits without rewiring.",
-      stats: [
-        { label: "Switch Latency", value: "0ms Local" },
-        { label: "Relay Endurance", value: "100k+ Cycles" },
-        { label: "Installation", value: "Retrofit Conduit" }
-      ],
-      image: "/media/touch_board_premium.jpg",
-      badge: "Precision Living",
-      link: "/retrofit-touch-panels"
-    }
-  ];
-
-  // 4. Our Vision Pillars
+  // 2. Our Vision Pillars
   const visionPillars = [
     {
       icon: Target,
@@ -183,10 +126,10 @@ export function Careers() {
           {/* Quick CTA Actions */}
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#projects"
+              href="#culture"
               className="px-8 py-3.5 rounded-full bg-[#E0001B] hover:bg-[#c00017] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl shadow-red-600/30 hover:scale-105 flex items-center gap-2"
             >
-              <span>Explore Our Technology</span>
+              <span>Explore Life &amp; Culture</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -223,7 +166,7 @@ export function Careers() {
       {/* ========================================================================= */}
       {/* 2. LIFE AT NEUROLINX (Mission, Innovation Approach, Culture)              */}
       {/* ========================================================================= */}
-      <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="culture" className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-[#E0001B] text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
@@ -309,92 +252,7 @@ export function Careers() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. INNOVATION & TECHNOLOGY (Projects & Engineering Capabilities)         */}
-      {/* ========================================================================= */}
-      <section id="projects" className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-[#E0001B] text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
-            <Zap className="w-3.5 h-3.5" />
-            <span>Applied Engineering</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight leading-tight">
-            Innovation &amp; Technology
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed font-light">
-            Real-world deployments engineered by Neurolinx, proving our capabilities in high-stakes environments across transportation, power grids, and autonomous automation.
-          </p>
-        </div>
-
-        {/* 4 Deep-Dive Project Cards in 2x2 Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {technologyProjects.map((project, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl border border-gray-200/80 shadow-md hover:shadow-2xl hover:border-red-200 transition-all duration-300 flex flex-col overflow-hidden group"
-            >
-              {/* Image Banner */}
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-gray-900 shrink-0">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                
-                <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#E0001B] text-white shadow-sm uppercase tracking-wider">
-                    {project.badge}
-                  </span>
-                </div>
-
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="text-[11px] font-semibold text-red-300 uppercase tracking-wider">
-                    {project.domain}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white mt-1 leading-snug">
-                    {project.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Description & Stats */}
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                    {project.description}
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-3 pt-4 border-t border-gray-100 mb-6">
-                    {project.stats.map((s, sIdx) => (
-                      <div key={sIdx} className="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
-                        <p className="text-xs sm:text-sm font-bold text-gray-900 font-display">{s.value}</p>
-                        <p className="text-[10px] text-gray-500 mt-0.5 uppercase tracking-wider font-medium">{s.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between pt-2">
-                  <span className="text-xs text-gray-400">Production Proven System</span>
-                  <Link
-                    to={project.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E0001B] group-hover:translate-x-1 transition-transform"
-                  >
-                    <span>Read Technology Case</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 5. OUR VISION (Innovation, Collaboration, Continuous Learning)            */}
+      {/* 3. OUR VISION (Innovation, Collaboration, Continuous Learning)            */}
       {/* ========================================================================= */}
       <section className="py-20 sm:py-28 bg-white border-y border-gray-200 text-slate-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

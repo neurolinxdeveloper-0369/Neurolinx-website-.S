@@ -180,7 +180,7 @@ export function BlogDetail() {
 
   if (!post) {
     return (
-      <div className="w-full min-h-screen bg-white flex items-center justify-center pt-24">
+      <div className="w-full min-h-screen bg-[#FAFAFB] flex items-center justify-center pt-24">
         <div className="text-center space-y-4">
           <div className="w-12 h-12 border-4 border-brand-red border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="text-gray-500 font-medium">Loading article...</p>
@@ -206,10 +206,10 @@ export function BlogDetail() {
       )}
 
       {/* ── Header Spacer ── */}
-      <div className="h-20 sm:h-24 bg-[#0B0F19]" />
+      <div className="h-20 sm:h-24 bg-[#FAFAFB]" />
 
       {/* ── Breadcrumb & Article Header Section ── */}
-      <header className="w-full bg-white border-b border-gray-200 pt-8 sm:pt-12 pb-10 sm:pb-14">
+      <header className="w-full bg-[#FAFAFB] pt-8 sm:pt-12 pb-10 sm:pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb Navigation */}

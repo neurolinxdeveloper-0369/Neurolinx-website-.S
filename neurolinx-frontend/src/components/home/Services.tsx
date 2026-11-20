@@ -139,9 +139,9 @@ function ContinuousCarousel({ items }: ContinuousCarouselProps) {
         type="button"
         onClick={() => handleManualScroll('left')}
         aria-label="Previous 4 cards"
-        className="absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-brand-red text-white border border-white/25 hover:border-brand-red flex items-center justify-center shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
+        className="absolute left-1 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-brand-red text-white border border-white/25 hover:border-brand-red flex items-center justify-center shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
       >
-        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
+        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
       </button>
 
       {/* Slider Track (Exactly 4 cards visible on desktop in a line) */}
@@ -194,9 +194,9 @@ function ContinuousCarousel({ items }: ContinuousCarouselProps) {
         type="button"
         onClick={() => handleManualScroll('right')}
         aria-label="Next 4 cards"
-        className="absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-brand-red text-white border border-white/25 hover:border-brand-red flex items-center justify-center shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
+        className="absolute right-1 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-brand-red text-white border border-white/25 hover:border-brand-red flex items-center justify-center shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
       >
-        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
+        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-white stroke-[2.5]" />
       </button>
     </div>
   );

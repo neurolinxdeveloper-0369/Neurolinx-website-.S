@@ -27,6 +27,36 @@ export function Blogs() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const articlesPerPage = 9;
   const articlesGridRef = useRef<HTMLDivElement>(null);
+  const categoriesScrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    const el = categoriesScrollRef.current;
+    if (el) {
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      setCanScrollLeft(scrollLeft > 4);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 6);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, []);
+
+  const scrollCategories = (direction: 'left' | 'right') => {
+    const el = categoriesScrollRef.current;
+    if (el) {
+      const scrollAmount = 280;
+      el.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScroll, 320);
+    }
+  };
 
   // Set document SEO title & meta description
   useEffect(() => {
@@ -155,36 +185,61 @@ export function Blogs() {
         </div>
       </section>
 
-      {/* ── 2. SEARCH & CATEGORY FILTER BAR ── */}
-      <section className="sticky top-16 sm:top-20 z-30 bg-white/95 backdrop-blur-md border-y border-gray-200/80 shadow-sm transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+      {/* ── 2. SEARCH & CATEGORY FILTER BAR (Search and Topics in One Line) ── */}
+      <section className="sticky top-[68px] sm:top-[76px] z-30 bg-white/95 backdrop-blur-md border-y border-gray-200/80 shadow-sm transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
           
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 w-full">
             
             {/* Search Input Box */}
-            <div className="relative w-full lg:w-96 shrink-0">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <div className="relative w-40 xs:w-52 sm:w-64 md:w-72 lg:w-80 shrink-0">
+              <Search className="absolute left-3 sm:left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 pointer-events-none" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search articles by title, keyword, or topic..."
-                className="w-full pl-10 pr-10 py-2.5 rounded-full bg-gray-50 border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E0001B]/30 focus:border-[#E0001B] transition-all"
+                placeholder="Search articles..."
+                className="w-full pl-8 sm:pl-9 pr-8 py-2 sm:py-2.5 rounded-full bg-gray-50 border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E0001B]/30 focus:border-[#E0001B] transition-all"
               />
               {searchQuery && (
                 <button
+                  type="button"
                   onClick={() => setSearchQuery('')}
                   aria-label="Clear search"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 cursor-pointer"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
 
-            {/* Category Filter Pills (Horizontal Scroll on Mobile/Tablet) */}
-            <div className="w-full overflow-x-auto no-scrollbar py-1">
-              <div className="flex items-center gap-2 min-w-max">
+            {/* Subtle Vertical Divider */}
+            <div className="h-6 w-px bg-gray-200 shrink-0 hidden sm:block" />
+
+            {/* Category Topics Track with Navigation Arrows */}
+            <div className="relative flex items-center flex-1 min-w-0">
+              
+              {/* Left Arrow Button */}
+              <button
+                type="button"
+                onClick={() => scrollCategories('left')}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left to see previous topics"
+                className={`shrink-0 mr-1 sm:mr-1.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border flex items-center justify-center transition-all cursor-pointer shadow-2xs ${
+                  canScrollLeft
+                    ? 'border-gray-300 text-slate-800 hover:bg-[#E0001B] hover:text-white hover:border-[#E0001B] active:scale-95'
+                    : 'border-gray-200 text-gray-300 opacity-25 cursor-not-allowed pointer-events-none'
+                }`}
+              >
+                <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
+              </button>
+
+              {/* Single Horizontal Line Track */}
+              <div
+                ref={categoriesScrollRef}
+                onScroll={checkScroll}
+                className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scroll-smooth py-1 w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              >
                 {BLOG_CATEGORIES.map((category) => {
                   const isActive = activeCategory.toLowerCase() === category.toLowerCase();
                   const count = categoryCounts[category] ?? 0;
@@ -192,8 +247,9 @@ export function Blogs() {
                   return (
                     <button
                       key={category}
+                      type="button"
                       onClick={() => setActiveCategory(category)}
-                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${
+                      className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-xs sm:text-[13px] font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 shrink-0 cursor-pointer select-none ${
                         isActive
                           ? 'bg-[#E0001B] text-white shadow-md shadow-red-500/25 scale-[1.02]'
                           : 'bg-gray-100 hover:bg-gray-200/80 text-gray-700 hover:text-gray-900 border border-transparent'
@@ -211,6 +267,22 @@ export function Blogs() {
                   );
                 })}
               </div>
+
+              {/* Right Arrow Button */}
+              <button
+                type="button"
+                onClick={() => scrollCategories('right')}
+                disabled={!canScrollRight}
+                aria-label="Scroll right to see remaining topics"
+                className={`shrink-0 ml-1 sm:ml-1.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border flex items-center justify-center transition-all cursor-pointer shadow-2xs ${
+                  canScrollRight
+                    ? 'border-gray-300 text-slate-800 hover:bg-[#E0001B] hover:text-white hover:border-[#E0001B] active:scale-95'
+                    : 'border-gray-200 text-gray-300 opacity-25 cursor-not-allowed pointer-events-none'
+                }`}
+              >
+                <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+              </button>
+
             </div>
 
           </div>

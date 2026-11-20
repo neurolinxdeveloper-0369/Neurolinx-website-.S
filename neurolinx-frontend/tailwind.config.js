@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "420px",
+        ...defaultTheme.screens,
+      },
       colors: {
         brand: {
           red: "#E0001B",

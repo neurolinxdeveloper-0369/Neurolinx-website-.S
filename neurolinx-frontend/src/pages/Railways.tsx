@@ -125,16 +125,6 @@ export function Railways() {
       <div id="features" className="w-full bg-white py-10 md:py-14 border-b border-gray-100">
         <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb Navigation matching Home Automation */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-5 font-medium">
-            <Link to="/" className="flex items-center gap-1.5 hover:text-black transition-colors text-gray-600">
-              <Home className="w-4 h-4 text-gray-700" />
-              <span>Home</span>
-            </Link>
-            <span className="text-gray-400 font-normal">&gt;</span>
-            <span className="text-gray-900 font-semibold">Railways</span>
-          </div>
-
           <div className="flex flex-col lg:flex-row items-stretch gap-2.5 lg:gap-3">
             
             {/* Left Featured Card (User's Uploaded Railway Technology Card - Decreased by 1.5cm to match right side) */}

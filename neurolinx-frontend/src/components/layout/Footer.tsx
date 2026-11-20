@@ -7,7 +7,7 @@ export function Footer() {
       style={{ backgroundColor: '#202124' }}
       className="text-gray-300 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 border-t border-white/10 relative z-10 overflow-hidden"
     >
-      {/* Large NEUROLINX Watermark Behind Footer Content - Total Text Fully Visible */}
+      {/* Large NEUROLINX Watermark Behind Footer Content - Reduced Opacity for Crisp Text Legibility */}
       <div 
         aria-hidden="true" 
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden px-4 sm:px-6 lg:px-8"
@@ -15,7 +15,7 @@ export function Footer() {
         <img
           src="/media/neurolinx_watermark_white_transparent.png"
           alt=""
-          className="w-full max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] h-auto object-contain opacity-[0.14] sm:opacity-[0.16] select-none pointer-events-none"
+          className="w-full max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] h-auto object-contain opacity-[0.03] sm:opacity-[0.035] select-none pointer-events-none"
         />
       </div>
 

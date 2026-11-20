@@ -6,7 +6,7 @@ export function AboutUs() {
       {/* Subtle ambient crimson nebula glow matching hero section */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-red/[0.08] rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-14 xl:gap-20 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-14 xl:gap-20 items-center relative z-10">
         
         {/* Left Side: Image / Graphics */}
         <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[40px] overflow-hidden shadow-2xl border border-white/10 h-[320px] sm:h-[400px] md:h-[460px] lg:h-[500px] xl:h-[580px]">

@@ -169,15 +169,15 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
           {/* Left Column: Form Card */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-gray-100 shadow-lg shadow-gray-200/50">
-            <div className="mb-8">
+          <div className="lg:col-span-7 bg-white p-4 xs:p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-lg shadow-gray-200/50">
+            <div className="mb-6 sm:mb-8">
               <span className="text-xs font-bold text-[#E0001B] uppercase tracking-wider">Free Consultation</span>
-              <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mt-1">Book a Smart Home Demo</h2>
-              <p className="text-sm text-gray-500 mt-2">Fill in your requirements and our solutions architect will connect with a tailored proposal.</p>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-gray-900 mt-1">Book a Smart Home Demo</h2>
+              <p className="text-xs sm:text-sm text-gray-500 mt-2">Fill in your requirements and our solutions architect will connect with a tailored proposal.</p>
             </div>
 
             {submitted ? (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 text-center space-y-4">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 sm:p-8 text-center space-y-4">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -193,14 +193,14 @@ export function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                 
                 {/* Space Type Selector */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
                     What Space Are You Automating?
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-2.5">
                     {['Home / Residential', 'Commercial / Office', 'Hotel / Hospitality', 'Dealer / Partner Inquiry'].map((type) => (
                       <button
                         type="button"

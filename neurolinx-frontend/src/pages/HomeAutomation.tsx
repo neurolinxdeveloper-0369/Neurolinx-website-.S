@@ -295,16 +295,6 @@ export function HomeAutomation() {
       <div id="products-catalog" className="w-full bg-white py-10 md:py-14">
         <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb Navigation matching reference */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-5 font-medium">
-            <a href="/" className="flex items-center gap-1.5 hover:text-black transition-colors text-gray-600">
-              <Home className="w-4 h-4 text-gray-700" />
-              <span>Home</span>
-            </a>
-            <span className="text-gray-400 font-normal">&gt;</span>
-            <span className="text-gray-900 font-semibold">Products</span>
-          </div>
-
           <div className="flex flex-col lg:flex-row items-stretch gap-2 lg:gap-2.5">
             
             {/* Left Featured Card (Interactive ON / OFF Theme Card) */}

@@ -42,9 +42,12 @@ export function TrustBar() {
   return (
     <section className="w-full bg-transparent pb-16 sm:pb-20 lg:pb-24 pt-6 sm:pt-8 relative z-10 border-t border-white/10">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border border-white/10 bg-zinc-900/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl divide-y sm:divide-y-0 divide-white/10 sm:divide-x">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-3.5 lg:gap-0 lg:border lg:border-white/10 lg:bg-zinc-900/60 lg:backdrop-blur-md rounded-2xl lg:overflow-hidden lg:shadow-2xl lg:divide-x lg:divide-white/10">
           {features.map((feat, i) => (
-            <div key={i} className="flex items-center justify-center py-5 sm:py-6 lg:py-7 px-3 sm:px-4 hover:bg-white/[0.04] transition-colors cursor-default">
+            <div 
+              key={i} 
+              className="flex items-center justify-start sm:justify-center py-4 sm:py-5 lg:py-7 px-4 sm:px-4 bg-zinc-900/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border border-white/10 lg:border-0 rounded-xl lg:rounded-none hover:bg-white/[0.04] transition-colors cursor-default"
+            >
               <div className="flex items-center space-x-3 sm:space-x-4">
                 <div className="shrink-0 text-gray-300 [&>svg]:w-6 [&>svg]:h-6 sm:[&>svg]:w-7 sm:[&>svg]:h-7 lg:[&>svg]:w-8 lg:[&>svg]:h-8">
                   {feat.icon}

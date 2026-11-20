@@ -11,6 +11,38 @@
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Safe Area Inset support for modern iOS & Android devices */
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+  }
+
+  /* Prevent media & canvas horizontal overflows across all devices */
+  img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent text overflow on narrow mobile screens (iPhone SE, Android 320px/360px) */
+  h1, h2, h3, h4, h5, h6, p, span, a {
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   * {
@@ -32,6 +64,7 @@
 
   body {
     @apply bg-background-slate text-brand-light font-body antialiased selection:bg-brand-red selection:text-brand-light;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   
   h1, h2, h3, h4, h5, h6 {

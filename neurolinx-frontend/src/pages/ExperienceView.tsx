@@ -9,7 +9,7 @@ export function ExperienceView() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-red/15 rounded-full blur-[160px] pointer-events-none" />
 
       {/* Navigation Breadcrumb */}
-      <div className="absolute top-24 sm:top-28 left-6 sm:left-10 z-20">
+      <div className="absolute top-20 sm:top-28 left-4 sm:left-10 z-20">
         <Link 
           to="/" 
           className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-400 hover:text-white transition-colors group"

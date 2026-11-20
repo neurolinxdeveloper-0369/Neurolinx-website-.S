@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   CheckCircle2, 
   ChevronRight, 
-  Home,
-  ShieldCheck,
   Zap,
   Sparkles,
   Layers,
@@ -596,34 +594,22 @@ export function NonUvDisinfection() {
   ];
 
   return (
-    <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white">
+    <div className="w-full bg-white flex flex-col font-body selection:bg-brand-red selection:text-white pt-[68px] sm:pt-[76px]">
 
-      {/* ── Hero Banner Section (Full-Width Edge-to-Edge Clean Architecture matching Home Automation) ── */}
-      <div className="w-full bg-[#2F333B] relative overflow-hidden pt-[68px] sm:pt-[76px]">
-        <div className="relative w-full">
+      {/* ── Slide 1: Hero Banner Section (UHD 4K Upscaled 3:1 Ratio, No Background) ── */}
+      <div id="hero" className="w-full relative overflow-hidden">
+        <div className="w-full max-w-[2172px] mx-auto">
           <img 
-            src="/media/non_uv_disinfection_hero.jpg?v=crisp2k" 
+            src="/media/non_uv_disinfection_hero_4k.jpg?v=4kUhd" 
+            srcSet="/media/non_uv_disinfection_hero_3x1.jpg 2172w, /media/non_uv_disinfection_hero_4k.jpg 4344w"
+            sizes="(max-width: 1440px) 100vw, 2172px"
             alt="Non-UV Disinfection Light Systems - 100% Human Safe Continuous Sterilization"
+            width={2172}
+            height={724}
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-auto block"
           />
-        </div>
-      </div>
-
-      {/* ── Key Highlights Strip: 100% Safe, Continuous 24/7, Certified IEC 62471 ── */}
-      <div className="w-full bg-slate-900 border-y border-slate-800 text-white py-4 px-4 sm:px-6">
-        <div className="max-w-[1580px] 2xl:max-w-[1700px] mx-auto flex flex-wrap items-center justify-around gap-4 text-xs sm:text-sm font-medium">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span><strong>100% Human Safe:</strong> Zero UV Radiation • No Eye or Skin Hazard</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-brand-red" />
-            <span><strong>IEC 62471 Certified:</strong> RG-0 Exempt Photobiological Standard</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span><strong>405nm Visible Spectrum:</strong> Continuous 24/7 Surface &amp; Air Decontamination</span>
-          </div>
         </div>
       </div>
 
@@ -631,16 +617,6 @@ export function NonUvDisinfection() {
       <div id="products-catalog" className="w-full bg-white py-10 md:py-14">
         <div className="max-w-[1580px] 2xl:max-w-[1700px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb Navigation matching reference */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-6 font-medium">
-            <Link to="/" className="flex items-center gap-1.5 hover:text-black transition-colors text-gray-600">
-              <Home className="w-4 h-4 text-gray-700" />
-              <span>Home</span>
-            </Link>
-            <span className="text-gray-400 font-normal">&gt;</span>
-            <span className="text-gray-900 font-semibold">Non-UV Disinfection Light Models</span>
-          </div>
-
           {/* Catalog Header with Category Subtitles */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
@@ -648,9 +624,9 @@ export function NonUvDisinfection() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Commercial &amp; Healthcare Luminaire Catalog</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
                 Non-UV Light Fixtures &amp; Downlights
-              </h2>
+              </h1>
               <p className="text-sm sm:text-base text-gray-600 mt-1.5 max-w-2xl">
                 Explore our comprehensive range of 405nm narrow-band antimicrobial lighting fixtures available in Round, Square, Recessed COB, Ultra-Slim, and Polycarbonate housings.
               </p>
@@ -661,8 +637,8 @@ export function NonUvDisinfection() {
             </div>
           </div>
 
-          {/* ── Series Filter Tabs ── */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 scrollbar-thin scrollbar-thumb-gray-200">
+          {/* ── Series Filter Tabs (Full Visible Flex-Wrap) ── */}
+          <div className="flex flex-wrap items-center gap-2 mb-8">
             {filterTabs.map((tab) => {
               const isActive = activeFilter === tab.id;
               return (

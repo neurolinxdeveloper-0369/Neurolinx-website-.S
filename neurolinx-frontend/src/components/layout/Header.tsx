@@ -14,6 +14,8 @@ interface MenuItem {
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [solutionsDropdown, setSolutionsDropdown] = useState(false);
   const [productsDropdown, setProductsDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -22,6 +24,7 @@ export function Header() {
   const solutionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const productsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   const closeAllDropdowns = () => {
     if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
@@ -29,6 +32,8 @@ export function Header() {
     setSolutionsDropdown(false);
     setProductsDropdown(false);
     setMobileMenuOpen(false);
+    setMobileSolutionsOpen(false);
+    setMobileProductsOpen(false);
   };
 
   const handleSolutionsEnter = () => {
@@ -66,16 +71,25 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns on outside click
+  // Close dropdowns on outside click or touch
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         closeAllDropdowns();
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
+
+  // Auto-close menu when navigating to another route
+  useEffect(() => {
+    closeAllDropdowns();
+  }, [location.pathname]);
 
   // Cleanup timeouts on unmount
   useEffect(() => {
@@ -104,7 +118,7 @@ export function Header() {
   const isHome = location.pathname === '/' || location.pathname === '';
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body h-[68px] sm:h-[76px] flex items-center ${
+    <header ref={headerRef} className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-body h-[68px] sm:h-[76px] flex items-center ${
       isHome 
         ? (scrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent shadow-none')
         : 'bg-[#2F333B] shadow-lg'
@@ -257,12 +271,13 @@ export function Header() {
         </nav>
 
         {/* Rightmost Controls: Hamburger first, Experience View at the absolute LAST */}
-        <div className="flex items-center gap-2 sm:gap-3 ml-auto z-10">
+        <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 ml-auto z-10">
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 sm:p-2 text-gray-300 hover:text-white"
+            className="lg:hidden p-2 text-gray-300 hover:text-white rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors"
             aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -271,55 +286,116 @@ export function Header() {
           <Link
             to="/experience"
             onClick={closeAllDropdowns}
-            className="inline-flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 xl:px-5 xl:py-2.5 rounded-full bg-white text-black font-semibold text-[11px] sm:text-xs xl:text-sm hover:bg-gray-100 transition-all shadow-md hover:scale-105 shrink-0"
+            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 xs:px-3 py-1.5 sm:px-4 sm:py-2 xl:px-5 xl:py-2.5 rounded-full bg-white text-black font-semibold text-[11px] sm:text-xs xl:text-sm hover:bg-gray-100 transition-all shadow-md hover:scale-105 shrink-0"
           >
-            <span>Experience View</span>
+            <span><span className="hidden xs:inline">Experience </span>View</span>
             <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black stroke-[2.5]" />
           </Link>
         </div>
 
       </div>
 
-      {/* Mobile Slide-Out / Dropdown Menu */}
+      {/* Mobile Slide-Out / Dropdown Menu - Absolutely positioned below header */}
       {mobileMenuOpen && (
-        <div className={`lg:hidden ${isHome ? 'bg-black' : 'bg-[#2F333B]'} border-b border-white/15 px-6 py-6 animate-in slide-in-from-top duration-300 max-h-[80vh] overflow-y-auto`}>
-          <div className="flex flex-col space-y-3">
-            <Link to="/" onClick={closeAllDropdowns} className="text-sm font-semibold text-white py-2 border-b border-white/5">
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full ${
+            isHome ? 'bg-black/95 backdrop-blur-xl' : 'bg-[#2F333B]/98 backdrop-blur-xl'
+          } border-b border-white/15 px-5 sm:px-7 py-5 shadow-2xl animate-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-76px)] overflow-y-auto z-50`}
+        >
+          <div className="flex flex-col space-y-1 font-body">
+            <Link 
+              to="/" 
+              onClick={closeAllDropdowns} 
+              className="text-sm font-semibold text-white py-3 px-2 rounded-lg hover:bg-white/10 active:bg-white/15 transition-colors border-b border-white/5"
+            >
               Home
             </Link>
-            <Link to="/about" onClick={closeAllDropdowns} className="text-sm font-semibold text-white py-2 border-b border-white/5">
+            
+            <Link 
+              to="/about" 
+              onClick={closeAllDropdowns} 
+              className="text-sm font-semibold text-white py-3 px-2 rounded-lg hover:bg-white/10 active:bg-white/15 transition-colors border-b border-white/5"
+            >
               About Us
             </Link>
             
+            {/* Solutions Accordion */}
             <div className="py-2 border-b border-white/5">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Solutions</span>
-              <div className="grid grid-cols-1 gap-2 pl-2">
+              <button 
+                type="button"
+                onClick={() => setMobileSolutionsOpen(prev => !prev)}
+                className="w-full flex items-center justify-between py-2 px-2 text-xs font-bold text-gray-300 uppercase tracking-wider hover:text-white"
+              >
+                <span>Solutions</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSolutionsOpen ? 'rotate-180 text-brand-red' : ''}`} />
+              </button>
+              
+              <div className={`space-y-1 pl-2 pt-1 transition-all duration-200 ${mobileSolutionsOpen ? 'block' : 'hidden'}`}>
                 {solutions.map((item, idx) => (
-                  <Link key={idx} to={item.path} onClick={closeAllDropdowns} className="text-xs font-medium text-white hover:text-gray-300 py-1">
+                  <Link 
+                    key={idx} 
+                    to={item.path} 
+                    onClick={closeAllDropdowns} 
+                    className="block text-xs sm:text-[13px] font-medium text-gray-200 hover:text-white hover:bg-white/10 active:bg-white/20 py-2 px-3 rounded-lg transition-colors"
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             </div>
 
+            {/* Products Accordion */}
             <div className="py-2 border-b border-white/5">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Products</span>
-              <div className="grid grid-cols-1 gap-2 pl-2">
+              <button 
+                type="button"
+                onClick={() => setMobileProductsOpen(prev => !prev)}
+                className="w-full flex items-center justify-between py-2 px-2 text-xs font-bold text-gray-300 uppercase tracking-wider hover:text-white"
+              >
+                <span>Products</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180 text-brand-red' : ''}`} />
+              </button>
+              
+              <div className={`space-y-1 pl-2 pt-1 transition-all duration-200 ${mobileProductsOpen ? 'block' : 'hidden'}`}>
                 {products.map((item, idx) => (
-                  <Link key={idx} to={item.path} onClick={closeAllDropdowns} className="text-xs font-medium text-white hover:text-gray-300 py-1">
+                  <Link 
+                    key={idx} 
+                    to={item.path} 
+                    onClick={closeAllDropdowns} 
+                    className="block text-xs sm:text-[13px] font-medium text-gray-200 hover:text-white hover:bg-white/10 active:bg-white/20 py-2 px-3 rounded-lg transition-colors"
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <Link to="/blogs" onClick={closeAllDropdowns} className="text-sm font-semibold text-white py-2 border-b border-white/5">
-              Blogs
+            <Link 
+              to="/blogs" 
+              onClick={closeAllDropdowns} 
+              className="text-sm font-semibold text-white py-3 px-2 rounded-lg hover:bg-white/10 active:bg-white/15 transition-colors border-b border-white/5"
+            >
+              Blogs &amp; Insights
             </Link>
 
-            <Link to="/careers" onClick={closeAllDropdowns} className="text-sm font-semibold text-white py-2">
+            <Link 
+              to="/careers" 
+              onClick={closeAllDropdowns} 
+              className="text-sm font-semibold text-white py-3 px-2 rounded-lg hover:bg-white/10 active:bg-white/15 transition-colors"
+            >
               Careers
             </Link>
+
+            {/* Mobile Experience View CTA */}
+            <div className="pt-3 pb-1">
+              <Link
+                to="/experience"
+                onClick={closeAllDropdowns}
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-brand-red text-white font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition-all"
+              >
+                <span>Experience View</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       )}

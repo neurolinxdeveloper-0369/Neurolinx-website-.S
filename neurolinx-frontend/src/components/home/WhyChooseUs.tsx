@@ -6,7 +6,7 @@ export function WhyChooseUs() {
       {/* Subtle ambient crimson nebula glow matching hero section */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-brand-red/[0.08] rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-14 xl:gap-16 items-center">
           
@@ -53,8 +53,8 @@ export function WhyChooseUs() {
                 </div>
               </div>
 
-              {/* Bottom Row inside Left Column (Holds 03 & 04 - Increased height and breathing room) */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-5 min-h-[255px] sm:min-h-[275px]">
+              {/* Bottom Row inside Left Column (Holds 03 & 04) */}
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 sm:gap-5 min-h-[auto] sm:min-h-[275px]">
                 
                 {/* Card 03: 100% Quality */}
                 <div className="bg-[#111114] border border-[#3A3A40] shadow-lg shadow-black/40 p-5 sm:p-6 rounded-2xl sm:rounded-3xl lg:rounded-[36px] relative overflow-hidden group cursor-pointer hover:border-brand-red/50 hover:shadow-2xl hover:shadow-black/70 transition-all duration-300 flex flex-col justify-between">
