@@ -127,13 +127,13 @@ export function SignalExchangers() {
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-slate-950 flex items-center justify-center p-2 border border-slate-200 shadow-inner">
                   {activeDeviceView === 'device' ? (
                     <img
-                      src="/media/signal_exchanger_device.jpg"
+                      src="/media/signal_exchanger_device.jpg?v=opticalModuleStudio"
                       alt="Neurolinx Electronic Signal Exchanger Hardware Unit"
                       className="max-h-full max-w-full object-contain filter drop-shadow-xl transition-transform duration-500 hover:scale-105"
                     />
                   ) : (
                     <img
-                      src="/media/railway_signal_exchangers.jpg"
+                      src="/media/railway_signal_exchangers.jpg?v=indianRailwaysLocoMounted"
                       alt="Electronic Signal Exchanger Trackside Platform Installation"
                       className="max-h-full max-w-full object-contain filter drop-shadow-xl transition-transform duration-500 hover:scale-105"
                     />

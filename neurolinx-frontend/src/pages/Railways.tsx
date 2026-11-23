@@ -31,7 +31,7 @@ export function Railways() {
       title: "Signal Exchangers",
       tagline: "Fail-Safe Optical & Electronic Interlocking",
       desc: "Heavy-duty digital and relay signal exchangers engineered for railway trackside interlocking, track circuits, and station master control cabins. Ensures zero signal degradation across vast rail yards.",
-      img: "/media/railway_signal_exchangers.jpg",
+      img: "/media/railway_signal_exchangers_card.jpg?v=indianRailwaysLocoMounted",
       link: "/signal-exchangers"
     },
     {
@@ -41,7 +41,7 @@ export function Railways() {
       title: "Foot Lamps",
       tagline: "Ruggedized Passenger Footstep Illumination",
       desc: "MIL-SPEC stainless-steel footstep lighting fixtures mounted at passenger coach entryways. Prevents boarding slips and withstands extreme ballast vibration, dust, and pressure washing.",
-      img: "/media/railway_foot_lamps.jpg",
+      img: "/media/railway_foot_lamps.jpg?v=footLamps4kCard",
       link: "/foot-lamps"
     },
     {
@@ -105,12 +105,12 @@ export function Railways() {
       {/* ── Slide 1: Indian Railways Products Lineup Banner (Luxury 4K Lineup - 2172 x 724) ── */}
       <div 
         id="hero"
-        className="w-full bg-[#2E2F34] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-none flex items-center justify-center"
+        className="w-full bg-[#727070] relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-none flex items-center justify-center"
       >
         <div className="w-full max-w-[2172px] mx-auto flex items-center justify-center">
           <h1 className="sr-only">Our Railway Products Range - Neurolinx</h1>
           <img 
-            src="/media/railway_products_range_hero.jpg?v=darkLuxury4k" 
+            src="/media/railway_products_range_hero.png?v=asIsSameExact4K" 
             alt="Our Railway Products Range - Neurolinx Indian Railways Electronics & Lighting Systems"
             width={2172}
             height={724}
@@ -160,12 +160,15 @@ export function Railways() {
                       />
                     </div>
                   </div>
-                  <div className="p-3.5 sm:p-4 pt-2.5 sm:pt-3 flex items-center justify-between gap-2 shrink-0">
-                    <h3 className="text-sm sm:text-[15px] font-semibold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-1">
-                      {prod.title}
-                    </h3>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red transition-colors shadow-sm">
-                      <ChevronRight className="w-4 h-4 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                  {/* Floating White Pill Capsule for Title & Icon (matching reference layout) */}
+                  <div className="p-2.5 sm:p-3 pt-2 shrink-0">
+                    <div className="bg-white rounded-full py-2 px-3.5 sm:px-4 flex items-center justify-between gap-2 shadow-xs border border-gray-100/60 transition-all duration-300 group-hover:border-gray-200 group-hover:shadow-sm">
+                      <h3 className="text-xs sm:text-[13px] md:text-sm font-semibold text-slate-900 group-hover:text-black transition-colors line-clamp-1">
+                        {prod.title}
+                      </h3>
+                      <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 shadow-xs">
+                        <ChevronRight className="w-3.5 h-3.5 text-white stroke-[2.5]" />
+                      </div>
                     </div>
                   </div>
                 </Link>

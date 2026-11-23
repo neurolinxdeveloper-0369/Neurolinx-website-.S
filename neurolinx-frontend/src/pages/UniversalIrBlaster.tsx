@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { 
   CheckCircle2, 
   Wifi, 
-  ArrowRight, 
   Sparkles,
   Smartphone,
   Mic,
@@ -226,10 +225,10 @@ export function UniversalIrBlaster() {
           <div className="bg-white rounded-[28px] sm:rounded-[36px] overflow-hidden border border-gray-100 shadow-sm grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Left 7 Columns: 4K Appliance Photo & Features */}
-            <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
+            <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-start">
               <div>
                 {/* 4K Appliance Image Banner */}
-                <div className="relative w-full h-56 sm:h-72 rounded-2xl overflow-hidden mb-8 shadow-md">
+                <div className="relative w-[calc(100%-2cm)] mx-auto h-[calc(14rem-2cm)] sm:h-[calc(18rem-2.5cm)] rounded-2xl overflow-hidden mb-6 shadow-md">
                   <img 
                     src={currentAppliance.image} 
                     alt={currentAppliance.name}
@@ -258,7 +257,7 @@ export function UniversalIrBlaster() {
                 </p>
 
                 {/* Feature Checklist */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
                   {currentAppliance.highlights.map((feat, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-100/80">
                       <div className="w-5 h-5 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
@@ -270,23 +269,6 @@ export function UniversalIrBlaster() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-100">
-                <a
-                  href="#slide-4"
-                  className="px-6 py-3 bg-brand-red text-white rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 transition-all shadow-md shadow-brand-red/20 flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Request Product Quote</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="#slide-4"
-                  className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-slate-800 rounded-xl font-semibold text-xs sm:text-sm transition-colors cursor-pointer"
-                >
-                  Book Live Site Demo
-                </a>
               </div>
             </div>
 

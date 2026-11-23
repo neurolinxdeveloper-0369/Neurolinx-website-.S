@@ -329,22 +329,41 @@ export function FogPass() {
 
           </div>
 
-          {/* Downside Option: Download Brochure - Opens uploaded 11-page FogPASS PDF in a new tab */}
-          <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-100 flex justify-center">
-            <a
-              href="/media/neurolinx_railway_systems_brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
-            >
-              Download Brochure
-            </a>
-          </div>
-
         </div>
       </div>
 
-      {/* ── Slide 3: Have Questions? Consultation & Contact Form (Compact Attached Layout) ── */}
+      {/* ── Slide 3: Why FogPASS Matters (4K High-Precision Feature Showcase) ── */}
+      <section 
+        id="why-fogpass" 
+        className="w-full bg-white py-8 sm:py-10 md:py-12 flex flex-col items-center"
+      >
+        <div className="max-w-[1320px] 2xl:max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-gray-100/80 bg-[#060D1A] group">
+            <img 
+              src="/media/fogpass_why_matters_4k.jpg?v=fogpass4k" 
+              alt="Why FogPASS Matters - GPS Based, Offline Working, Audio Alerts, Railway Proven" 
+              width={4096}
+              height={1696}
+              className="w-full h-auto object-cover block mx-auto transition-transform duration-500 group-hover:scale-[1.005]"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Download Brochure Option (Opens uploaded 11-page FogPASS PDF in a new tab) */}
+      <div className="w-full bg-white pb-12 sm:pb-16 flex justify-center">
+        <a
+          href="/media/neurolinx_railway_systems_brochure.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl bg-black hover:bg-neutral-900 text-white font-semibold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-black"
+        >
+          Download Brochure
+        </a>
+      </div>
+
+      {/* ── Slide 4: Have Questions? Consultation & Contact Form (Compact Attached Layout) ── */}
       <div id="slide-4" className="w-full bg-white py-12 md:py-16">
         <div id="faq" className="max-w-[1150px] xl:max-w-[1210px] 2xl:max-w-[1250px] w-full mx-auto px-4 sm:px-6">
           

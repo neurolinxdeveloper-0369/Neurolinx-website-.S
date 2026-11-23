@@ -39,18 +39,13 @@ export function FootLamps() {
       {/* ── Slide 1: Full-Bleed Foot Lamps Panoramic Hero Banner ── */}
       <div
         id="hero"
-        className="w-full bg-[#808080] relative overflow-hidden pt-20 sm:pt-24 border-none flex items-center justify-center"
+        className="w-full bg-[#53535F] relative overflow-hidden pt-20 sm:pt-24 border-none flex items-center justify-center"
       >
         <div className="relative w-full max-w-[2172px] mx-auto flex items-center justify-center">
-          {/* Top Title Overlay */}
-          <div className="absolute top-5 sm:top-7 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-10 text-center w-full px-4 pointer-events-none">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-black tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
-              Foot Lamps
-            </h1>
-          </div>
+          <h1 className="sr-only">Railway Foot Lamps - Neurolinx</h1>
 
           <img
-            src="/media/foot_lamps_panoramic_hero.png?v=centered4k"
+            src="/media/foot_lamps_panoramic_hero.png?v=footLamps4kHero"
             alt="Railway Foot Lamps - Smart Rolling Stock Illumination - Neurolinx"
             width={2171}
             height={724}
